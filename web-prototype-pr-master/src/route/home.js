@@ -8,6 +8,15 @@ function home() {
     <FullPage controls>
         <Slide>
             <div className="App">
+                <Link to ="/">
+                <div className="logo">LOGO</div> 
+                <button className="main">P:LOW</button>
+                </Link>
+                <div className="navBar">
+                    <a class="nav" href="#">Home</a>
+                    <a class="nav" href="more">More</a>
+                    <a class="nav" href="about">About Us</a>
+                </div>
                 <div className="mainIMG"></div>
                 <div className="login">
                     <div className="id">개인키 QR코드?</div>
