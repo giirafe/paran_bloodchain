@@ -1,20 +1,28 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-import Home from './route/home';
-import More from './route/more';
-import About from './route/about';
-import Header from './route/header';
-import React from 'react';
-
+import React, {useState} from 'react';
+import Main from './main';
+import User from './userRoute/home';
+import Login from './login';
 
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  }
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/more" element={<More />} />
-        <Route path="/about" element={<About />} />
+        <Route path='/' element={<Main />} />
+        <Route path='/user' element={<User />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
