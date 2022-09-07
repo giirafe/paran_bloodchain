@@ -3,6 +3,11 @@ import React from 'react';
 import { FullPage, Slide } from 'react-full-page';
 import {Link} from 'react-router-dom';
 
+// 백엔드 테스트 용 function
+const getUserdata = () =>{
+    // console.log("Clicked");
+}
+
 function home() {
     return(
     <FullPage controls>
@@ -18,6 +23,14 @@ function home() {
                     <a class="nav" href="about">About Us</a>
                 </div>
                 <div className="mainIMG"></div>
+
+                <div className="id" style={{ marginTop: 200, width: "100%" }} onClick={getUserdata()}>
+                        Caverjs Test button
+                        <button
+                            onClick={getUserdata()}
+                        > submit </button>
+                </div>
+
                 <div className="login">
                     <div className="id">개인키 QR코드?</div>
                 </div>

@@ -17,62 +17,62 @@ const option = {
     ]
 }
   
-  const caver = new Caver(new Caver.providers.HttpProvider("https://node-api.klaytnapi.com/v1/klaytn",option))
-  
-  // caver에 abi와 SC의 주소를 params로 넣는다.
-  console.log("Caver Access Success");
+const caver = new Caver(new Caver.providers.HttpProvider("https://node-api.klaytnapi.com/v1/klaytn",option))
 
-  // caver를 통해 NFTcontract에 접근할 때 ABI와 Smart Contract의 주소를 인자로 설정
-  const NFTContract = new caver.contract(KIP17ABI, NFT_CONTRACT_ADDRESS)
+// caver에 abi와 SC의 주소를 params로 넣는다.
+console.log("Caver Access Success");
 
-  // 사용자의 주소를 기반으로 소유 Token에 대한 정보들을 가져옴
-  // App.js에서 사용됨
-  export const fetchCardsOf = async (address) =>{
+// caver를 통해 NFTcontract에 접근할 때 ABI와 Smart Contract의 주소를 인자로 설정
+const NFTContract = new caver.contract(KIP17ABI, NFT_CONTRACT_ADDRESS)
 
-    // Fetch balance
-    const balance = await NFTContract.methods.balanceOf(address).call();
-    console.log(`NFT balance : ${balance}`);
+// 사용자의 주소를 기반으로 소유 Token에 대한 정보들을 가져옴
+// App.js에서 사용됨
+export const fetchCardsOf = async (address) =>{
 
-    // Fetch Token IDs
-    const tokenIds = [];
-    for( let i=0;i<balance;i++){
-      const id = await NFTContract.methods.tokenOfOwnerByIndex(address,i).call();
-      tokenIds.push(id);
-    }
+  // Fetch balance
+  const balance = await NFTContract.methods.balanceOf(address).call();
+  console.log(`NFT balance : ${balance}`);
 
-    // Fetch Token URIs -> NFT data
-    const tokenUris = [];
-    for( let i=0;i<balance;i++){
-      const metadataUrl = await NFTContract.methods.tokenURI(tokenIds[i]).call(); // -> metadata kas 주소
-      const response = await axios.get(metadataUrl);
-      const uriJSON = response.data;
-      // 변경된 NFT에는 direct로 img가 존재하지 않기에 axios를 통해 불러온 response에서 image부분을 추출해 준 후  list에 push해준다.
-      tokenUri.push(uriJSON.image);
-    }
-
-    console.log(`${tokenIds}`);
-    console.log(`${tokenUris}`);
-
-    // 최종적으로 return할 nft 배열 생성
-    // 위의 tokenId, tokenUri 배열을 통합하여 => nfts 배열에 저장
-    const nfts = [];
-    for(let i = 0;i<balance;i++){
-      nfts.push({uri:tokenUris[i],id:tokenIds[i]}) // {tokenId:'101', tokenUri:''} 형식
-    }
-    console.log(nfts);
-
-    return nfts;
-    
+  // Fetch Token IDs
+  const tokenIds = [];
+  for( let i=0;i<balance;i++){
+    const id = await NFTContract.methods.tokenOfOwnerByIndex(address,i).call();
+    tokenIds.push(id);
   }
-  
- export const getBalance = (address) => {
-    // 지갑 주소에 대한 klay 잔고 return
-    return caver.rpc.klay.getBalance(address).then((res)=>{
-      const balance = caver.utils.convertFromPeb(caver.utils.hexToNumberString(res));
-      console.log(`BALANCE : ${balance}`);
-      return balance;
-    })
+
+  // Fetch Token URIs -> NFT data
+  const tokenUris = [];
+  for( let i=0;i<balance;i++){
+    const metadataUrl = await NFTContract.methods.tokenURI(tokenIds[i]).call(); // -> metadata kas 주소
+    const response = await axios.get(metadataUrl);
+    const uriJSON = response.data;
+    // 변경된 NFT에는 direct로 img가 존재하지 않기에 axios를 통해 불러온 response에서 image부분을 추출해 준 후  list에 push해준다.
+    tokenUri.push(uriJSON.image);
   }
+
+  console.log(`${tokenIds}`);
+  console.log(`${tokenUris}`);
+
+  // 최종적으로 return할 nft 배열 생성
+  // 위의 tokenId, tokenUri 배열을 통합하여 => nfts 배열에 저장
+  const nfts = [];
+  for(let i = 0;i<balance;i++){
+    nfts.push({uri:tokenUris[i],id:tokenIds[i]}) // {tokenId:'101', tokenUri:''} 형식
+  }
+  console.log(nfts);
+
+  return nfts;
+  
+}
+
+export const getBalance = (address) => {
+  // 지갑 주소에 대한 klay 잔고 return
+  return caver.rpc.klay.getBalance(address).then((res)=>{
+    const balance = caver.utils.convertFromPeb(caver.utils.hexToNumberString(res));
+    console.log(`BALANCE : ${balance}`);
+    return balance;
+  })
+}
 
 
   // const CountContract = new caver.contract(CounterABI,COUNT_CONTRACT_ADDRESS);
