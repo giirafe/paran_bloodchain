@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: white;
+}
+
+h1 {
+  position: absolute;
+  top: 100px;
+}
+
+button {
+  margin: 20px;
+}
+
+.num {
+  font-weight: bolder;
+  font-size:xx-large;
+}
+
+.mainLogo {
+  position:absolute;
+  top: 160px;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.slogan {
+  text-align : center;
+  margin-right : 100px;
+}
+
+.btn-box {
+  margin-left : 100px;
+}
+
+.main-btn {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.main-btn:hover {
+  color: #1e6b7b;
+  background: aliceblue;
+  cursor: pointer;
+  transform: scale(1.2);
+  letter-spacing: 2px;
+}
+
+.main-btn:active {
+  transform: scale(1.5);
+}
