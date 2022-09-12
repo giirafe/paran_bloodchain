@@ -6,6 +6,8 @@ import User from './userRoute/home';
 import Login from './login';
 
 function App() {
+  //모달 관련 함수
+  //여기서 안쓰임
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {

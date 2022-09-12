@@ -7,6 +7,7 @@ function Login() {
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
 
+    //인풋값 받기
     const handleInputId = (e) => {
         setInputId(e.target.value)
     }
@@ -15,12 +16,15 @@ function Login() {
         setInputPw(e.target.value)
     }
 
+    //로그인 버튼 클릭 이벤트 다루기
+    //임시로 콘솔에 찍기
     const onClickLogin = () => {
         console.log('click login')
         console.log('ID', inputId)
         console.log('PW', inputPw)
     }
 
+    //아직 안씀
     useEffect(() => {
         axios.get('/user_inform/login')
         .then(res => console.log(res))
