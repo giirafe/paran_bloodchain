@@ -18,6 +18,7 @@ function App() {
     setModalOpen(false);
   };
 
+  //
 
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/user' element={<User />} />
         <Route path='/login' element={<Login />} />
+
       </Routes>
     </BrowserRouter>
   );
