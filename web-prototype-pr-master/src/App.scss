@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .btn-fill {
+    margin: 1rem;
+    transition: 0.3s;
+  }
+  
+  btn-fill:hover {
+    background: transparent;
+    box-shadow: inset 0 0 0 36px var(--btn-bg);
+  }
+  

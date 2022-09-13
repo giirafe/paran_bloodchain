@@ -1,6 +1,5 @@
-# paran_bloodchain
+# Getting Started with Create React App
 
-<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -69,19 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-2022-2학기 파란학기 블러드체인 팀, project P:LOW
-이주연 테스트
-
-김천하 테스트
-
-서 준 테스트
-
-성우 테스트 
-
-mac cli test
-
-박성우는 보라
-
-from June Seo branch with Mac
->>>>>>> 121290b7fbcd1671c2f167cb1afd10122bd1ebc0
