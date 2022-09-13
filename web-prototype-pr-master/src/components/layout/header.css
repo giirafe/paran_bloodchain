@@ -1,0 +1,50 @@
+
+button {
+    margin: 20px;
+    margin-top: 10px;
+}
+
+.mainLogo {
+    position:absolute;
+    top: 1px;
+    margin-top: 15px;
+    margin-left: -700px;
+}
+
+.mainName {
+    position:absolute;
+    top: 1px;
+    margin-top: 5px;
+    margin-left: -1200px;
+}
+
+  
+.btn-box {
+    margin-left : 1000px;
+    margin-top: -780px;
+}
+  
+.main-btn {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+  
+.main-btn:hover {
+    color: #1e6b7b;
+    background: aliceblue;
+    cursor: pointer;
+    transform: scale(1.2);
+    letter-spacing: 2px;
+}
+
+.main-btn:active {
+    transform: scale(1.5);
+}
