@@ -40,13 +40,18 @@ app.post('/login', (req,res) => {
                 message: "제공된 이메일에 해당하는 유저가 없습니다."
             })
         }
-
+        console.log('ping');
         user.comparePassword(req.body.password, (err, isMatch) => {
+            console.log('ping2');
             if(!isMatch)
                 return res.json({loginSuccess: false, message: "비밀번호가 틀렸습니다."})
-            
+            // 비밀번호 맞으면 토큰 생성
             user.generateToken((err, user) => {
-                
+                if(err) return res.status(400).send(err);
+                //쿠키와 로컬저장소에 토큰 저장    
+                res.cookie("x_auth", user.token)
+                .status(200)
+                .json({loginSuccess: true, userId: user.id})
             })
 
         })
