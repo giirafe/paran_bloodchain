@@ -11,7 +11,7 @@ function home() {
         )
     }
     return(
-        <div>userHomefuckhyiuu</div>
+
     );
 }
 
