@@ -8,10 +8,11 @@ function home() {
     const Header = () => {
         return (
             <Header />
+        //안녕
         )
     }
     return(
-
+    
     );
 }
 
