@@ -15,7 +15,7 @@ function Main() {
   return (
     <body>
       <h1 className="mainName">P:LOW</h1>
-      <img className="mainLogo" src="img/logo.png" alt="로딩 실패" width="150" height="100"/>
+      <img className="mainLogo" src="img/logo.png" alt="로딩 실패" width="60" height="30"/>
       <div className="slogan">
         <h2>헌혈자 수 누계</h2>
         <h2 className="num">8,232</h2>
