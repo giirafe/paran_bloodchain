@@ -1,4 +1,4 @@
-/** 변경
+/** 변경변경
  * caver-js library helps making connection with klaytn node.
  * You can connect to specific klaytn node by setting 'rpcURL' value.
  * default rpcURL is 'https://api.baobab.klaytn.net:8651'.
