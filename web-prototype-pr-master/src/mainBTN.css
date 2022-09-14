@@ -15,6 +15,7 @@ h1 {
 
 button {
   margin: 20px;
+  margin-top: 500px;
 }
 
 .num {
@@ -31,11 +32,11 @@ button {
 
 .slogan {
   text-align : center;
-  margin-right : 100px;
+  margin-right : -700px;
 }
 
 .btn-box {
-  margin-left : 100px;
+  margin-left : 200px;
 }
 
 .main-btn {
