@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './login.module.css';
+import Modal from './components/modal';
+import SignIn from './signIn';
 
 
 function Login() {
+    const [signup, setSignup] = useState(false);
+
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
 
@@ -24,6 +28,10 @@ function Login() {
         console.log('PW', inputPw)
     }
 
+    const onClickSignIn = () => {
+        console.log('회원 가입')
+    }
+
     //아직 안씀
     useEffect(() => {
         axios.get('/user_inform/login')
@@ -42,6 +50,12 @@ function Login() {
             <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
             <br />
             <button type="button" onClick={onClickLogin}>Login</button>
+            <button type="button" onClick={() => setSignup(!signup)}>회원 가입</button>
+            {signup && (
+            <Modal closeModal={() => setSignup(!signup)}>
+                <SignIn/>
+            </Modal>
+            )}
         </div>
     )
 }
