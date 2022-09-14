@@ -1,34 +1,41 @@
-
-button {
-    margin: 20px;
-    margin-top: 10px;
+.header {
+    position:fixed;
+    top: 3%;
+    width : 100%;
 }
 
-.mainLogo {
-    position:absolute;
-    top: 1px;
-    margin-top: 15px;
-    margin-left: -700px;
+.headerIcon {
+    position : relative;
+    float: left;
+    width : 200px;
+    margin : 20px;
+    margin-left : 50px;
 }
 
-.mainName {
-    position:absolute;
-    top: 1px;
-    margin-top: 5px;
-    margin-left: -1200px;
+.headerLogo {
+    position : absolute;
+    top : 40%;
+    margin-left: 20px;
+}
+
+.headerName {
+    float: right;
+    margin-right: 20px;
 }
 
   
-.btn-box {
-    margin-left : 1000px;
-    margin-top: -780px;
+.header-box {
+    position : absolute;
+    margin-top : 20px;
+    float: left;
+    left : 70%;
 }
   
 .main-btn {
   position: relative;
   border: none;
   display: inline-block;
-  padding: 15px 30px;
+  padding: 15px 20px;
   border-radius: 15px;
   font-family: "paybooc-Light", sans-serif;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
