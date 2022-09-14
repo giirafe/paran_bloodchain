@@ -2,13 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './header.css';
 
-function header() {
+function Header() {
     return (
-    <body>
-        <h1 className="mainName">P:LOW</h1>
-        <img className="mainLogo" src="img/logo.png" alt="로딩 실패" width="50" height="20"/>
-
-        <div className='btn-box'>
+      <div className="header">
+        <div className="headerIcon">
+          <h1 className="headerName">P:LOW</h1>
+          <img className="headerLogo" src="img/logo.png" alt="로딩 실패" width="50" height="20"/>
+        </div>
+        <div className='header-box'>
             <Link to="/myinfo">
               <button className="main-btn" onClick="hi">내 정보</button>
             </Link>
@@ -21,8 +22,8 @@ function header() {
               <button className="main-btn" onClick="hi">조회 기관</button>
             </Link>
         </div>
-      </body>
+      </div>
     )
 }
 
-export default header;
+export default Header;
