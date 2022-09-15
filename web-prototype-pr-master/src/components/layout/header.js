@@ -19,7 +19,7 @@ function Header() {
             </Link>
 
             <Link to="/useletter">
-              <button className="main-btn" onClick="hi">조회 기관</button>
+              <button className="main-btn" onClick="hi">증서 사용</button>
             </Link>
         </div>
       </div>
