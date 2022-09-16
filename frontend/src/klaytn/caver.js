@@ -10,6 +10,7 @@
  const rpcURL = BAOBAB_TESTNET_RPC_URL
  
  // testnet url로 caver 객체 생성 
+ // rpcURL에 특정 Klaytn 노드를 지정하여 연결할 수 있다.
  const caver = new Caver(rpcURL)
  
  export default caver
