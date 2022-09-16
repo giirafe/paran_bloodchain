@@ -9,6 +9,7 @@ import Myinfo from './userRoute/myinfo';
 import Community from './userRoute/community';
 import Useletter from './userRoute/useletter';
 
+import caver from './klaytn/caver'
 
 function App() {
   //모달 관련 함수
