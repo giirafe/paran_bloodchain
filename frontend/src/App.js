@@ -10,6 +10,7 @@ import Community from './userRoute/community';
 import Useletter from './userRoute/useletter';
 
 import caver from './klaytn/caver'
+import BlockNumber from './components/BlockNumber';
 
 function App() {
   //모달 관련 함수
@@ -24,6 +25,11 @@ function App() {
     setModalOpen(false);
   };
 
+  const getBlockNumber = async() =>{
+    const blockNumber = await caver.klay.getBlockNumber()
+    this.setState({currentBlockNumber: blockNumber})
+  }
+  
   return (
 
   <BrowserRouter>
@@ -37,6 +43,10 @@ function App() {
         <Route path='/useletter' element={<Useletter />} />
 
     </Routes>
+
+    <div>
+      <BlockNumber />
+    </div>
   </BrowserRouter>
 
   );
