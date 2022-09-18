@@ -42,11 +42,12 @@ function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
 
-    </Routes>
+    </Routes> 
 
     <div>
       <BlockNumber />
     </div>
+
   </BrowserRouter>
 
   );
