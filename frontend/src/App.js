@@ -11,6 +11,7 @@ import Useletter from './userRoute/useletter';
 
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
+import Auth from './components/Auth';
 
 function App() {
   //모달 관련 함수
@@ -41,7 +42,7 @@ function App() {
         <Route path='/myinfo' element={<Myinfo />} />
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
-
+        <Route path='/bapp' element={<Auth />} />
     </Routes>
 
     <div>
