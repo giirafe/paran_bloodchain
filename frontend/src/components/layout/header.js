@@ -6,8 +6,11 @@ function Header() {
     return (
       <div className="header">
         <div className="headerIcon">
+          <Link to ="/user">
           <h1 className="headerName">P:LOW</h1>
-          <img className="headerLogo" src="img/logo.png" alt="로딩 실패" width="50" height="20"/>
+          <img className="headerLogo" src="img/logo.png" alt="로딩 실패" width="50" height="20"/>  
+          </Link>
+          
         </div>
         <div className='header-box'>
             <Link to="/myinfo">
