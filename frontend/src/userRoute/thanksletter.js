@@ -3,24 +3,17 @@ import React from 'react';
 import { FullPage, Slide } from 'react-full-page';
 import Header from '../components/layout/header';
 import {Link} from 'react-router-dom';
-import './providekey.css';
 
 
-function providekey() {
-
-    
+function thanksletter() {
     return(
         <body>
             <Header/>
-        <div className = "SerialNumber">
-            <h1>조회 키 일련번호 생성</h1>
 
-        </div>
+        감사인사를 할  수 있는 페이지입니다. 
         </body>
         
-
     );
 }
 
-export default providekey;
-
+export default thanksletter;

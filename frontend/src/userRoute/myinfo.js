@@ -20,9 +20,6 @@ function myinfo() {
             <h2 className="num3">2</h2>
             
             <MaterialTable />
-            
-            
-
         </body>
         
 

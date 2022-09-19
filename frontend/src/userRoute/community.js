@@ -10,11 +10,27 @@ import MaterialTable from './MaterialTable';
 function community() {
     return(
         <body>
-            <Header/>
-        커뮤니티를 제공하는 페이지입니다.
+            <Header />
+        <div className = "tableLocation">
+            <MaterialTable />
+        </div>
+        <div className ="communityBox">
+        <Link to ="/donaterecord">
+            <button className="main-btn" onClick="hi">기부 내역</button>
+        </Link>
+
+        <Link to ="/writecontent">
+            <button className="main-btn" onClick="hi">글 작성하기</button>
+        </Link>
+        
+        <Link to ="/thanksletter">
+            <button className="main-btn" onClick="hi">감사의 인사</button>
+        </Link>
+
+
+        </div>
         </body>
         
-
     );
 }
 

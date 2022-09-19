@@ -9,6 +9,10 @@ import Myinfo from './userRoute/myinfo';
 import Community from './userRoute/community';
 import Useletter from './userRoute/useletter';
 import NFTmoreInfo from './userRoute/NFTmoreInfo';
+import Donaterecord from './userRoute/donaterecord';
+import Writecontent from './userRoute/writecontent';
+import Thanksletter from './userRoute/thanksletter';
+
 
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
@@ -43,6 +47,9 @@ function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
         <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
+        <Route path='/donaterecord' element={<Donaterecord />} />
+        <Route path='/writecontent' element={<Writecontent />} />
+        <Route path='/thanksletter' element={<Thanksletter />} />
         
     </Routes> 
 
