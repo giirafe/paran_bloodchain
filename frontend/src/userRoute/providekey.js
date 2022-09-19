@@ -5,11 +5,14 @@ import Header from '../components/layout/header';
 import {Link} from 'react-router-dom';
 import './providekey.css';
 
+
 function providekey() {
+
+    
     return(
         <body>
             <Header/>
-            조회 기관 키 제공하는 페이지 입니다.
+            조회기관에게 키 제공하는 페이지입니다.
         </body>
         
 
@@ -17,3 +20,4 @@ function providekey() {
 }
 
 export default providekey;
+
