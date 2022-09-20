@@ -3,7 +3,7 @@ import React from 'react';
 import { FullPage, Slide } from 'react-full-page';
 import Header from '../components/layout/header';
 import {Link} from 'react-router-dom';
-import './home.css';
+import './userHome.css';
 
 function home() {
     return(
