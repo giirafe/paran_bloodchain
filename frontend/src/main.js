@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import Modal from './components/modal';
 import './mainBTN.css';
 import Login from './login';
+import Auth from './components/AuthClone';
 
 function Main() {
   const [signup, setSignup] = useState(false);
@@ -28,17 +29,17 @@ function Main() {
             <button className="main-btn" onClick={() => setSignup(!signup)}>사용자</button>
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
-            <Login/>
+            <Auth/>
           </Modal>)}
             <button className="main-btn" onClick={() => setSignup(!signup)}>조회 기관</button>
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
-            <Login/>
+            <Auth/>
           </Modal>)}
             <button className="main-btn" onClick={() => setSignup(!signup)}>헌혈 기관</button>
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
-            <Login/>
+            <Auth/>
           </Modal>)}
         </div>
       </div>

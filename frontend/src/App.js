@@ -17,25 +17,9 @@ import Krc from './krcRoute/krcHome';
 
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
+import Auth from './components/Auth';
 
-function App() {
-  //모달 관련 함수
-  //여기서 안쓰임
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  }
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  const getBlockNumber = async() =>{
-    const blockNumber = await caver.klay.getBlockNumber()
-    this.setState({currentBlockNumber: blockNumber})
-  }
-  
+function App() {  
   return (
 
   <BrowserRouter>
@@ -47,6 +31,10 @@ function App() {
         <Route path='/myinfo' element={<Myinfo />} />
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
+<<<<<<< HEAD
+        <Route path='/bapp' element={<Auth />} />
+    </Routes>
+=======
         <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
         <Route path='/donaterecord' element={<Donaterecord />} />
         <Route path='/writecontent' element={<Writecontent />} />
@@ -56,10 +44,10 @@ function App() {
 
     </Routes> 
 
+>>>>>>> 8c2e9a2c2a129b2170cda914f20d79b02640699f
     <div>
       <BlockNumber />
     </div>
-
   </BrowserRouter>
 
   );
