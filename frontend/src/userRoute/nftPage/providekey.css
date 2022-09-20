@@ -1,0 +1,8 @@
+.SerialNumber {
+    text-align : center;
+    position : relative;
+    margin: 350px;
+    float: left;
+    top : 50%;
+    left : 15%;
+}
