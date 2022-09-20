@@ -31,7 +31,6 @@ function App() {
         <Route path='/myinfo' element={<Myinfo />} />
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
-        <Route path='/bapp' element={<Auth />} />
         <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
         <Route path='/donaterecord' element={<Donaterecord />} />
         <Route path='/writecontent' element={<Writecontent />} />
