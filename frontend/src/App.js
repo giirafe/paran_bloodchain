@@ -8,29 +8,13 @@ import Providekey from './userRoute/providekey';
 import Myinfo from './userRoute/myinfo';
 import Community from './userRoute/community';
 import Useletter from './userRoute/useletter';
+import NFTmoreInfo from './userRoute/NFTmoreInfo';
 
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
 import Auth from './components/Auth';
 
-function App() {
-  //모달 관련 함수
-  //여기서 안쓰임
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  }
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  const getBlockNumber = async() =>{
-    const blockNumber = await caver.klay.getBlockNumber()
-    this.setState({currentBlockNumber: blockNumber})
-  }
-  
+function App() {  
   return (
 
   <BrowserRouter>
@@ -44,7 +28,6 @@ function App() {
         <Route path='/useletter' element={<Useletter />} />
         <Route path='/bapp' element={<Auth />} />
     </Routes>
-
     <div>
       <BlockNumber />
     </div>
