@@ -1,5 +1,6 @@
 import caver from 'klaytn/caver'
-
+import BloodABI from '../constants/BloodABI'
+import BloodAddress from '../constants/BloodAddress'
 /**
  * 1. Create contract instance
  * ex:) new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
@@ -7,8 +8,8 @@ import caver from 'klaytn/caver'
  * Now you can access the instance by `this.countContract` variable.
  */
 
-const BloodContract = DEPLOYED_ABI
-  && DEPLOYED_ADDRESS
-  && new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+const BloodContract = BloodABI
+  && BloodAddress
+  && new caver.klay.Contract(BloodABI, BloodAddress)
 
 export default BloodContract

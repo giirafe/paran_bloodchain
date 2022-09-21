@@ -3,6 +3,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../klaytn/BloodContract'
 
+
 class NFTminting extends Component {
     state = {
       name: '',
@@ -143,7 +144,8 @@ export const mintCertificate = (
       certificateNum,
       donateType,
       date,).send({
-      from: getWallet().address, //private key로 만들어진 wallet인스턴스가 있어야함.
+      from: caver.klay.accounts.wallet[0].address, 
+      // getWallet().address, //private key로 만들어진 wallet인스턴스가 있어야함.
       gas: '200000000',
     })
     console.log(receipt);
