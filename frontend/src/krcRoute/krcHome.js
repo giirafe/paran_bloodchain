@@ -133,7 +133,7 @@ export const mintCertificate = (
   //추가 mintCert시 필요
   wallet_address,
 ) => {
-  const hexString = "0x" + buffer.toString('hex')
+    const hexString = "0x" + buffer.toString('hex')
     BloodContract.methods.createCertificate(
       hexString, 
       name,
@@ -143,7 +143,7 @@ export const mintCertificate = (
       certificateNum,
       donateType,
       date,).send({
-      from: getWallet().address,
+      from: getWallet().address, //private key로 만들어진 wallet인스턴스가 있어야함.
       gas: '200000000',
     })
     console.log(receipt);
@@ -151,10 +151,10 @@ export const mintCertificate = (
     BloodContract.methods.mintCert(wallet_address, certificateNum)
     console.log("mint");
 }
-
+/*
 export const getWallet = () => {
   if (!caver.klay.accounts.wallet.length) return null
   return caver.klay.accounts.wallet[0]
 }
-
+*/
 export default NFTminting
