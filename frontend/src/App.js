@@ -31,10 +31,7 @@ function App() {
         <Route path='/myinfo' element={<Myinfo />} />
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
-<<<<<<< HEAD
         <Route path='/bapp' element={<Auth />} />
-    </Routes>
-=======
         <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
         <Route path='/donaterecord' element={<Donaterecord />} />
         <Route path='/writecontent' element={<Writecontent />} />
@@ -43,8 +40,6 @@ function App() {
         <Route path='/krc' element={<Krc />} />
 
     </Routes> 
-
->>>>>>> 8c2e9a2c2a129b2170cda914f20d79b02640699f
     <div>
       <BlockNumber />
     </div>
