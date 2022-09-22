@@ -4,8 +4,8 @@ import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import './myinfo.css';
 import MaterialTable from '../MaterialTable';
-
-
+// 잠시
+import BloodContract from '../../components/BloodContract';
 function myinfo() {
     return(
         <body>
@@ -19,10 +19,16 @@ function myinfo() {
             <h2 className="num3">2</h2>
             
             <MaterialTable />
+            <button name="test" onClick={handleTouch}>test</button>
         </body>
         
 
     );
 }
 
+export const handleTouch = () => {
+    console.log("hi");
+    const contract = BloodContract.options
+    console.log(contract);
+}
 export default myinfo;
