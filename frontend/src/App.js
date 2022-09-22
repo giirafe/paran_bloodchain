@@ -11,7 +11,6 @@ import Useletter from './userRoute/useletterPage/useletter';
 import NFTmoreInfo from './userRoute/nftPage/NFTmoreInfo';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
-import Thanksletter from './userRoute/communityPage/thanksletter';
 
 import Krc from './krcRoute/krcHome';
 
@@ -35,7 +34,6 @@ function App() {
         <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
         <Route path='/donaterecord' element={<Donaterecord />} />
         <Route path='/writecontent' element={<Writecontent />} />
-        <Route path='/thanksletter' element={<Thanksletter />} />
         
         <Route path='/krc' element={<Krc />} />
 
@@ -43,6 +41,8 @@ function App() {
     <div>
       <BlockNumber />
     </div>
+
+
   </BrowserRouter>
 
   );

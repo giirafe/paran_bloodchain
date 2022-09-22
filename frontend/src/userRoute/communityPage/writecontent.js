@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FullPage, Slide } from 'react-full-page';
 import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
+import './write.css';
+import Submit from './submit';
 
 
-function writecontent() {
-    return(
-        <body>
-            <Header/>
-            헌혈증서 기부를 받을 수 있도록 글을 작성하는 페이지입니다. 
-        </body>
-        
+class write extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+        <div>        
+            <div className ='Write'>
+                <div>
+                    <input type='text' id='title_txt' naem='title' placeholder = '제목'/>
+                </div>
+
+                <div>
+                
+                    <textarea id = 'content_txt' name = 'content' placeholder='내용을 입력하세요.'></textarea>
+                </div>
+                <Submit />
+
+            </div>
+
+        </div>
     );
+  }
 }
 
-export default writecontent;
+export default write;
+
