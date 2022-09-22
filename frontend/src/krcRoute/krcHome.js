@@ -28,10 +28,7 @@ class NFTminting extends Component {
         mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
     }
     //test
-    handleClick = (e) => {
-      console.log("test")
-      wallet_session()
-    }
+
     render() {
         const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
         return (
@@ -118,12 +115,10 @@ class NFTminting extends Component {
             />
 
             <Button
-              className="UploadPhoto__upload"
+              className="Certificate__upload"
               type="submit"
               title="헌혈증명서 업로드"
             />
-
-            <button name = "test" onClick={this.handleClick}>test</button>
           </form>
         )
       }
@@ -155,12 +150,15 @@ export const mintCertificate = (
       certificateNum,
       donateType,
       date,).send({
+        from: wallet_session(),// 보내는 사람 주소
+        gas: '200000000',
+      })
+    console.log("dummy");
+
+    BloodContract.methods.mintCert(wallet_address, certificateNum).send({
       from: wallet_session(),// 보내는 사람 주소
       gas: '200000000',
     })
-    console.log("dummy");
-
-    BloodContract.methods.mintCert(wallet_address, certificateNum)
     console.log("mint");
 }
 
