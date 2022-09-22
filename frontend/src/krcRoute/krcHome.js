@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
-import BloodContract from '../klaytn/BloodContract'
+import BloodContract from '../components/BloodContract'
+
 
 class NFTminting extends Component {
     state = {
@@ -24,9 +25,13 @@ class NFTminting extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
-        this.props.NFTminting(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
+        mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
     }
-
+    //test
+    handleClick = (e) => {
+      console.log("test")
+      wallet_session()
+    }
     render() {
         const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
         return (
@@ -117,9 +122,46 @@ class NFTminting extends Component {
               type="submit"
               title="헌혈증명서 업로드"
             />
+
+            <button name = "test" onClick={this.handleClick}>test</button>
           </form>
         )
       }
+}
+
+export const wallet_session = () => {
+  const data = JSON.parse(sessionStorage.getItem("walletInstance"));
+  console.log(data.address);
+  return data.address // 세션 스토리지 address값반환
+}
+
+
+export const mintCertificate = (
+  name,
+  id,
+  bloodType,
+  home_address,
+  certificateNum,
+  donateType,
+  date,
+  //추가 mintCert시 필요
+  wallet_address,
+) => {
+    BloodContract.methods.createCertificate(
+      name,
+      id,
+      bloodType,
+      home_address,
+      certificateNum,
+      donateType,
+      date,).send({
+      from: wallet_session(),// 보내는 사람 주소
+      gas: '200000000',
+    })
+    console.log("dummy");
+
+    BloodContract.methods.mintCert(wallet_address, certificateNum)
+    console.log("mint");
 }
 
 export default NFTminting
