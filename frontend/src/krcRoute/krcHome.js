@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
+import BloodContract from '../klaytn/BloodContract'
 
 class NFTminting extends Component {
     state = {
@@ -11,6 +12,7 @@ class NFTminting extends Component {
       certificateNum: '',
       donateType: '',
       date: '',
+      wallet_address:'',
     }
 
     handleInputChange = (e) => {
@@ -21,12 +23,12 @@ class NFTminting extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const { name, id, bloodType, home_address, certificateNum,donateType,date } = this.state
-        this.props.NFTminting(name, id, bloodType, home_address, certificateNum,donateType,date)
+        const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
+        this.props.NFTminting(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
     }
 
     render() {
-        const { name, id, bloodType, home_address, certificateNum,donateType,date } = this.state
+        const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
         return (
             
           <form className="NFTminting" onSubmit={this.handleSubmit}>
@@ -97,6 +99,16 @@ class NFTminting extends Component {
               value={date}
               onChange={this.handleInputChange}
               placeholder="오늘 날짜를 입력하시오."
+              required
+            />
+
+            <Input
+              className="NFTminting_wallet_address"
+              name="wallet_address"
+              label="지갑 주소"
+              value={wallet_address}
+              onChange={this.handleInputChange}
+              placeholder="지갑 주소를 입력하시오."
               required
             />
 
