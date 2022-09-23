@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useState, Redirect} from 'react';
 import Main from './main';
 import User from './userRoute/userHome';
 import Login from './login';
@@ -19,6 +19,8 @@ import Inquiry from './InquiryRoute/InquiryPage';
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
 import Auth from './components/Auth';
+import NotFound from './components/NotFound';
+import isAdmin from './components/isAdmin';
 
 function App() {  
   return (
@@ -33,15 +35,8 @@ function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
         <Route path='/bapp' element={<Auth />} />
-        <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
-        <Route path='/donaterecord' element={<Donaterecord />} />
-        <Route path='/writecontent' element={<Writecontent />} />
-        
-        <Route path='/krc' element={<Krc />} />
-
-        <Route path='/inquiry' element={<Inquiry />} />
-
-    </Routes> 
+        <Route path='*' element={<NotFound/>} />
+    </Routes>
     <div>
       <BlockNumber />
     </div>

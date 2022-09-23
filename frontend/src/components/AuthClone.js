@@ -1,15 +1,17 @@
 import React, { useState, Component, Fragment } from 'react'
 import cx from 'classnames'
 import caver from '../klaytn/caver';
+import {useNavigate} from 'react-router-dom';
+import Main from '../main';
 
-import './Auth.scss';
 /**
  * Auth component manages authentication.
  * It provides two different access method.
  * 1) By keystore(json file) + password
  * 2) By privatekey
  */
-function Auth() {
+function Auth(props) {
+  const navigate = useNavigate();
   const [privateKey, setPrivateKey] = useState('')
 
   const print = () => {
@@ -53,12 +55,17 @@ function Auth() {
    * cf) session storage stores item until tab is closed.
    */
    const integrateWallet = (privateKey) => {
-    console.log('pk:', privateKey)
-    const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
-    caver.klay.accounts.wallet.add(walletInstance)
-    sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
-    console.log(walletInstance);
-    reset()
+    try{
+      const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
+      caver.klay.accounts.wallet.add(walletInstance)
+      sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
+      reset()
+      console.log(sessionStorage.getItem('walletInstance'))
+      navigate(`/${sessionStorage.getItem('auth')}`)
+    } catch (e) {
+      console.log(e)
+      alert('개인키를 올바르게 입력하십시오.')
+    }
   }
 
   /**
@@ -71,6 +78,7 @@ function Auth() {
     sessionStorage.removeItem('walletInstance')
     reset()
   }
+
 
     return (
         <Fragment>

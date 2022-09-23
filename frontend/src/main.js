@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Link} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link, useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
 import Modal from './components/modal';
 import './mainBTN.css';
@@ -8,9 +8,15 @@ import Auth from './components/AuthClone';
 function Main() {
   const [signup, setSignup] = useState(false);
   const [choice, setChoice] = useState('');
+  const navigate = useNavigate();
 
   const onClickChoice = (choice) => {
+    setChoice(choice)
     console.log(choice)
+  }
+
+  const movePage = () => {
+    navigate(`/${choice}`)
   }
 
   return (
@@ -26,17 +32,26 @@ function Main() {
           <h2>헌혈로 세상의 가치를 잇다.</h2>
         </div>
         <div className='btn-box'>
-            <button className="main-btn" onClick={() => setSignup(!signup)}>사용자</button>
+            <button className="main-btn" onClick={() => {
+              setSignup(!signup)
+              sessionStorage.setItem('auth', 'user')
+              }}>사용자</button>
+            {signup && (
+          <Modal closeModal={() => {setSignup(!signup)}}>
+            <Auth value={choice}/>
+          </Modal>)}
+            <button className="main-btn" onClick={() => {
+              setSignup(!signup)
+              sessionStorage.setItem('auth', 'institute')
+              }}>조회 기관</button>
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
             <Auth/>
           </Modal>)}
-            <button className="main-btn" onClick={() => setSignup(!signup)}>조회 기관</button>
-            {signup && (
-          <Modal closeModal={() => setSignup(!signup)}>
-            <Auth/>
-          </Modal>)}
-            <button className="main-btn" onClick={() => setSignup(!signup)}>헌혈 기관</button>
+            <button className="main-btn" onClick={() => {
+              setSignup(!signup)
+              sessionStorage.setItem('auth', 'krc')
+              }}>헌혈 기관</button>
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
             <Auth/>
