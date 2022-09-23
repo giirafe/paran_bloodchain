@@ -7,6 +7,7 @@ import MaterialTable from '../MaterialTable';
 // 잠시
 import BloodContract from '../../components/BloodContract';
 import { wallet_session } from '../../krcRoute/krcHome';
+import caver from '../../klaytn/caver';
 
 function myinfo() {
     return(
@@ -29,6 +30,8 @@ function myinfo() {
 }
 
 export const handleTouch = () => {
+    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    console.log(walletInstance);
     const send_address = wallet_session();
     console.log("hi");
     const contract = BloodContract.options
@@ -36,8 +39,7 @@ export const handleTouch = () => {
     // const balances = BloodContract.call('balances', '0xA1C889E67f0B762675aD74120c813E4c790F19aC'); //됐다
     const balances = BloodContract.methods.balances('0xA1C889E67f0B762675aD74120c813E4c790F19aC').call();
     console.log("Balance is :  ", balances);
-
-    BloodContract.methods.createCertificate('1234','1234','1234','1234','1234','1234','1234').send({
+    BloodContract.methods.createCertificate().send({
         from:send_address,
         gas:'2000000000'
     })
