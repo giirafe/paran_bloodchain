@@ -21,6 +21,7 @@ import BlockNumber from './components/BlockNumber';
 import Auth from './components/Auth';
 import NotFound from './components/NotFound';
 import isAdmin from './components/isAdmin';
+import RouteIf from './components/RouteIf';
 
 function App() {  
   return (
@@ -28,7 +29,7 @@ function App() {
   <BrowserRouter>
     <Routes>
         <Route path='/' element={<Main />} />
-        <Route path='/user' element={<User />} />
+        <Route path='/user' element={<User/>}/>
         <Route path='/login' element={<Login />} />
         <Route path='/providekey' element={<Providekey />} />
         <Route path='/myinfo' element={<Myinfo />} />

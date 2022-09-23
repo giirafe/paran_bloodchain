@@ -1,5 +1,4 @@
 import React, { useState, Component, Fragment } from 'react'
-import cx from 'classnames'
 import caver from '../klaytn/caver';
 import {useNavigate} from 'react-router-dom';
 import Main from '../main';
@@ -10,7 +9,7 @@ import Main from '../main';
  * 1) By keystore(json file) + password
  * 2) By privatekey
  */
-function Auth(props) {
+function Auth(props, ref) {
   const navigate = useNavigate();
   const [privateKey, setPrivateKey] = useState('')
 
