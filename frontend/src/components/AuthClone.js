@@ -57,6 +57,7 @@ function Auth() {
     const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
     caver.klay.accounts.wallet.add(walletInstance)
     sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
+    console.log(walletInstance);
     reset()
   }
 

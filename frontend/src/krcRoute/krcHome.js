@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
+import BloodContract from '../components/BloodContract'
+
 
 class NFTminting extends Component {
     state = {
@@ -11,6 +13,7 @@ class NFTminting extends Component {
       certificateNum: '',
       donateType: '',
       date: '',
+      wallet_address:'',
     }
 
     handleInputChange = (e) => {
@@ -21,12 +24,15 @@ class NFTminting extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const { name, id, bloodType, home_address, certificateNum,donateType,date } = this.state
-        this.props.NFTminting(name, id, bloodType, home_address, certificateNum,donateType,date)
+        const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
+        mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
     }
-
+    //test
+    handleClick = (e) => {
+      console.log("Hi");
+    }
     render() {
-        const { name, id, bloodType, home_address, certificateNum,donateType,date } = this.state
+        const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
         return (
             
           <form className="NFTminting" onSubmit={this.handleSubmit}>
@@ -100,14 +106,64 @@ class NFTminting extends Component {
               required
             />
 
+            <Input
+              className="NFTminting_wallet_address"
+              name="wallet_address"
+              label="지갑 주소"
+              value={wallet_address}
+              onChange={this.handleInputChange}
+              placeholder="지갑 주소를 입력하시오."
+              required
+            />
+
             <Button
-              className="UploadPhoto__upload"
+              className="Certificate__upload"
               type="submit"
               title="헌혈증명서 업로드"
             />
+            <button name="버튼" onClick={this.handleClick}>버튼버튼버튼</button>
           </form>
         )
       }
+}
+
+export const wallet_session = () => {
+  const data = JSON.parse(sessionStorage.getItem("walletInstance"));
+  console.log(data.address);
+  return data.address // 세션 스토리지 address값반환
+}
+
+
+export const mintCertificate = (
+  name,
+  id,
+  bloodType,
+  home_address,
+  certificateNum,
+  donateType,
+  date,
+  //추가 mintCert시 필요
+  wallet_address,
+) => {
+    const send_address = wallet_session();
+    BloodContract.methods.createCertificate(
+      name,
+      id,
+      bloodType,
+      home_address,
+      certificateNum,
+      donateType,
+      date).send({
+        from: send_address,// 보내는 사람 주소
+        gas: '200000000',
+      })
+    console.log("dummy");
+
+    BloodContract.methods.mintCert(wallet_address, certificateNum).send({
+      from: send_address,// 보내는 사람 주소
+      gas: '200000000',
+    })
+    console.log("mint");
 }
 
 export default NFTminting
