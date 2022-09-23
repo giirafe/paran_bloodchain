@@ -1,36 +1,58 @@
-import React, { Component } from 'react';
-import { FullPage, Slide } from 'react-full-page';
-import Header from '../../components/layout/header';
-import {Link} from 'react-router-dom';
-import './write.css';
-import Submit from './submit';
+import React, { Component } from 'react'
+import Input from '../../components/Input'
+import Button from '../../components/Button'
 
+class WriteDonate extends Component {
+    state = {
+      title: '',
+      content: '',
+    }
 
-class write extends Component {
-  constructor(props) {
-    super(props)
-  }
+    handleInputChange = (e) => {
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+    }
 
-  render() {
-    return (
-        <div>        
-            <div className ='Write'>
-                <div>
-                    <input type='text' id='title_txt' naem='title' placeholder = '제목'/>
-                </div>
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const { title, content } = this.state
+        this.props.WriteDonate(title, content)
+    }
 
-                <div>
-                
-                    <textarea id = 'content_txt' name = 'content' placeholder='내용을 입력하세요.'></textarea>
-                </div>
-                <Submit />
+    render() {
+        const { title, content } = this.state
+        return (
+            
+          <form className="WriteDonate" onSubmit={this.handleSubmit}>
+            <Input
+              className="WriteDodate_title"
+              name="title"
+              label="제목"
+              value={title}
+              onChange={this.handleInputChange}
+              placeholder="제목을 입력하세요."
+              required
+            />
+            
+            <Input
+              className="WriteDodate_content"
+              name="content"
+              label="내용"
+              value={content}
+              onChange={this.handleInputChange}
+              placeholder="내용을 입력하세요."
+              required
+            />
 
-            </div>
-
-        </div>
-    );
-  }
+            <Button
+              className="UploadPhoto__upload"
+              type="submit"
+              title="글 업로드"
+            />
+          </form>
+        )
+      }
 }
 
-export default write;
-
+export default WriteDonate

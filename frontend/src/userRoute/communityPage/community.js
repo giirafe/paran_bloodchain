@@ -22,7 +22,7 @@ function community() {
             <button className="main-btn" onClick="hi">글 작성하기</button>
         </Link>
     
-
+    
         </div>
         </body>
         
