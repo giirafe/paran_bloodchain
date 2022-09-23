@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useState, Redirect} from 'react';
 import Main from './main';
 import User from './userRoute/userHome';
 import Login from './login';
@@ -18,6 +18,8 @@ import Krc from './krcRoute/krcHome';
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
 import Auth from './components/Auth';
+import NotFound from './components/NotFound';
+import isAdmin from './components/isAdmin';
 
 function App() {  
   return (
@@ -31,20 +33,9 @@ function App() {
         <Route path='/myinfo' element={<Myinfo />} />
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
-<<<<<<< HEAD
         <Route path='/bapp' element={<Auth />} />
+        <Route path='*' element={<NotFound/>} />
     </Routes>
-=======
-        <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
-        <Route path='/donaterecord' element={<Donaterecord />} />
-        <Route path='/writecontent' element={<Writecontent />} />
-        <Route path='/thanksletter' element={<Thanksletter />} />
-        
-        <Route path='/krc' element={<Krc />} />
-
-    </Routes> 
-
->>>>>>> 8c2e9a2c2a129b2170cda914f20d79b02640699f
     <div>
       <BlockNumber />
     </div>
