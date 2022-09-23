@@ -33,17 +33,25 @@ export const handleTouch = () => {
     console.log("hi");
     const contract = BloodContract.options
     console.log(contract);
-    const balacnes = BloodContract.call('balances', '0x028642a33362e44cd89bda306794dbee56d179bc'); //됐다
-    console.log(balacnes);
-    BloodContract.send({from: '0xd735e6b264277503066f8afb1785d6661049b831', gas: '200000000'}, "createCertificate",
-        '1234',
-        '1234',
-        '1234',
-        '1234',
-        '1234',
-        '1234',
-        '1234',
-    )
-    console.log("good");
+    // const balances = BloodContract.call('balances', '0xA1C889E67f0B762675aD74120c813E4c790F19aC'); //됐다
+    const balances = BloodContract.methods.balances('0xA1C889E67f0B762675aD74120c813E4c790F19aC').call();
+    console.log("Balance is :  ", balances);
+
+    BloodContract.methods.createCertificate('1234','1234','1234','1234','1234','1234','1234').send({
+        from:send_address,
+        gas:'2000000000'
+    })
+    
+    // BloodContract.send({from: send_address, gas: '200000000'}, "createCertificate",
+    //     '1234',
+    //     '1234',
+    //     '1234',
+    //     '1234',
+    //     '1234',
+    //     '1234',
+    //     '1234',
+    // )
+
+    console.log("cycle done");
 }
 export default myinfo;
