@@ -1,17 +1,58 @@
-import React from 'react';
-import { FullPage, Slide } from 'react-full-page';
-import Header from '../../components/layout/header';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react'
+import Input from '../../components/Input'
+import Button from '../../components/Button'
 
+class WriteDonate extends Component {
+    state = {
+      title: '',
+      content: '',
+    }
 
-function writecontent() {
-    return(
-        <body>
-            <Header/>
-            헌혈증서 기부를 받을 수 있도록 글을 작성하는 페이지입니다. 
-        </body>
-        
-    );
+    handleInputChange = (e) => {
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const { title, content } = this.state
+        this.props.WriteDonate(title, content)
+    }
+
+    render() {
+        const { title, content } = this.state
+        return (
+            
+          <form className="WriteDonate" onSubmit={this.handleSubmit}>
+            <Input
+              className="WriteDodate_title"
+              name="title"
+              label="제목"
+              value={title}
+              onChange={this.handleInputChange}
+              placeholder="제목을 입력하세요."
+              required
+            />
+            
+            <Input
+              className="WriteDodate_content"
+              name="content"
+              label="내용"
+              value={content}
+              onChange={this.handleInputChange}
+              placeholder="내용을 입력하세요."
+              required
+            />
+
+            <Button
+              className="UploadPhoto__upload"
+              type="submit"
+              title="글 업로드"
+            />
+          </form>
+        )
+      }
 }
 
-export default writecontent;
+export default WriteDonate

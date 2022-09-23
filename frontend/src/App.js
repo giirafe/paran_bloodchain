@@ -11,9 +11,10 @@ import Useletter from './userRoute/useletterPage/useletter';
 import NFTmoreInfo from './userRoute/nftPage/NFTmoreInfo';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
-import Thanksletter from './userRoute/communityPage/thanksletter';
+
 
 import Krc from './krcRoute/krcHome';
+import Inquiry from './InquiryRoute/InquiryPage';
 
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
@@ -39,6 +40,8 @@ function App() {
     <div>
       <BlockNumber />
     </div>
+
+
   </BrowserRouter>
 
   );

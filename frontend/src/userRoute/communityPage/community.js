@@ -21,12 +21,8 @@ function community() {
         <Link to ="/writecontent">
             <button className="main-btn" onClick="hi">글 작성하기</button>
         </Link>
-        
-        <Link to ="/thanksletter">
-            <button className="main-btn" onClick="hi">감사의 인사</button>
-        </Link>
-
-
+    
+    
         </div>
         </body>
         
