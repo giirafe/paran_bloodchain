@@ -56,8 +56,9 @@ function Auth() {
     console.log('pk:', privateKey)
     const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
     caver.klay.accounts.wallet.add(walletInstance)
+    console.log("Whole Wallet Instance : ", caver.klay.accounts.wallet)
+    console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
     sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
-    console.log(walletInstance);
     reset()
   }
 
@@ -72,19 +73,19 @@ function Auth() {
     reset()
   }
 
-    return (
-        <Fragment>
-            <label className="Auth__label">Private Key:</label>
-            <input
-            type='text'
-            className="Auth__input"
-            name="privateKey"
-            value={privateKey}
-            onChange={handleChange}
-            />
-            <button className="Auth__button" onClick={handleLogin}>Login</button>
-        </Fragment>
-    )
+  return (
+      <Fragment>
+          <label className="Auth__label">Private Key:</label>
+          <input
+          type='text'
+          className="Auth__input"
+          name="privateKey"
+          value={privateKey}
+          onChange={handleChange}
+          />
+          <button className="Auth__button" onClick={handleLogin}>Login</button>
+      </Fragment>
+  )
 }
 
 export default Auth

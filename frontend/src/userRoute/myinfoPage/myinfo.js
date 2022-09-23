@@ -7,6 +7,7 @@ import MaterialTable from '../MaterialTable';
 // 잠시
 import BloodContract from '../../components/BloodContract';
 import { wallet_session } from '../../krcRoute/krcHome';
+import caver from '../../klaytn/caver';
 
 function myinfo() {
     return(
@@ -29,6 +30,10 @@ function myinfo() {
 }
 
 export const handleTouch = () => {
+    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    console.log("Total Wallet", caver.klay.accounts.wallet);
+    console.log("Wallet Instance From Login " , caver.klay.accounts.wallet[0]);
+
     const send_address = wallet_session();
     console.log("hi");
     const contract = BloodContract.options
