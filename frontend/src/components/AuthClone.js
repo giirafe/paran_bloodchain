@@ -57,21 +57,27 @@ function Auth(props, ref) {
    * cf) session storage stores item until tab is closed.
    */
    const integrateWallet = (privateKey) => {
-    console.log('pk:', privateKey)
-    // const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
-    // caver.klay.accounts.wallet.add(walletInstance)
-    caver.klay.accounts.wallet.add(privateKey);
-    // 기존 wallet.add 가 아닌 Keyring으로 접근해봤다.
-    // caver.wallet.add(caver.wallet.keyring.createFromPrivateKey(privateKey))
+    try {
+      console.log('pk:', privateKey)
+      const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
+      caver.klay.accounts.wallet.add(walletInstance)
+      // caver.klay.accounts.wallet.add(privateKey);
+      // 기존 wallet.add 가 아닌 Keyring으로 접근해봤다.
+      // caver.wallet.add(caver.wallet.keyring.createFromPrivateKey(privateKey))
 
-    console.log("Whole Wallet Instance : ", caver.klay.accounts.wallet)
-    console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
-    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-    // //세션에 개인키 저장 후 SC 접근 마다 객체 만드는 어거지
-    sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
-    console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length)
- 
-    reset()
+      console.log("Whole Wallet Instance : ", caver.klay.accounts.wallet)
+      console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
+      // const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+      // //세션에 개인키 저장 후 SC 접근 마다 객체 만드는 어거지
+      sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
+      console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length)
+      console.log(sessionStorage.getItem('auth'))
+      navigate(`/${sessionStorage.getItem('auth')}`)
+      reset()
+    } catch (e) {
+      console.log(e)
+      alert('개인키를 올바르게 입력하십시오.')
+    }
   }
 
   /**
