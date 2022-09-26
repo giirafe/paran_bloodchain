@@ -25,6 +25,20 @@ import isAdmin from './components/isAdmin';
 import RouteIf from './components/RouteIf';
 
 function App() {  
+
+  const walletFromSession = sessionStorage.getItem('walletInstance')
+
+  // If 'walletInstance' value exists, add it to caver's wallet
+  if (walletFromSession) {
+    try {
+      caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+    } catch (e) { // error 발생시
+      // If value in sessionStorage is invalid wallet instance,
+      // remove it from sessionStorage.
+      sessionStorage.removeItem('walletInstance')
+    }
+  }
+
   return (
 
   <BrowserRouter>

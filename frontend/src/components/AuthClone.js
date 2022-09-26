@@ -3,12 +3,9 @@ import caver from '../klaytn/caver';
 import {useNavigate} from 'react-router-dom';
 import Main from '../main';
 
-<<<<<<< HEAD
 import BloodContract from './BloodContract';
 
-import './Auth.scss';
-=======
->>>>>>> main
+// import './Auth.scss';
 /**
  * Auth component manages authentication.
  * It provides two different access method.
@@ -73,12 +70,6 @@ function Auth(props, ref) {
     // //세션에 개인키 저장 후 SC 접근 마다 객체 만드는 어거지
     sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
     console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length)
-    
-    // 개인 조회 키 암호 설정 test
-    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',1000).send({
-      from:walletInstance.address,
-      gas:'2000000'
-    })
  
     reset()
   }
@@ -94,21 +85,6 @@ function Auth(props, ref) {
     reset()
   }
 
-<<<<<<< HEAD
-  return (
-      <Fragment>
-          <label className="Auth__label">Private Key:</label>
-          <input
-          type='text'
-          className="Auth__input"
-          name="privateKey"
-          value={privateKey}
-          onChange={handleChange}
-          />
-          <button className="Auth__button" onClick={handleLogin}>Login</button>
-      </Fragment>
-  )
-=======
 
     return (
         <Fragment>
@@ -123,7 +99,6 @@ function Auth(props, ref) {
             <button className="Auth__button" onClick={handleLogin}>Login</button>
         </Fragment>
     )
->>>>>>> main
 }
 
 export default Auth

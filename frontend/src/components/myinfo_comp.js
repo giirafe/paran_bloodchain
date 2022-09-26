@@ -31,22 +31,16 @@ function myinfo() {
 
 export const handleTouch = async () => {
     
-    console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length);
-    // const walletInstance = await caver.klay.accounts.wallet && await caver.klay.accounts.wallet[0]
-
-    // 어거지 try
-    console.log("Data From Session",sessionStorage.getItem("walletInstance"));
-    
-    const walletFromSession = sessionStorage.getItem('walletInstance')
-    if (walletFromSession) {
-        try {
-          caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
-        } catch (e) { // error 발생시
-          // If value in sessionStorage is invalid wallet instance,
-          // remove it from sessionStorage.
-          sessionStorage.removeItem('walletInstance')
-        }
-    }
+    // const walletFromSession = sessionStorage.getItem('walletInstance')
+    // if (walletFromSession) {
+    //     try {
+    //       caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+    //     } catch (e) { // error 발생시
+    //       // If value in sessionStorage is invalid wallet instance,
+    //       // remove it from sessionStorage.
+    //       sessionStorage.removeItem('walletInstance')
+    //     }
+    // }
 
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
@@ -60,7 +54,7 @@ export const handleTouch = async () => {
     }
 
     // 개인 조회 키 암호 설정 test
-    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',999).send({
+    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',99999).send({
         from:walletInstance.address,
         gas:'2000000'
     })
