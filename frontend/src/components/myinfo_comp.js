@@ -31,16 +31,16 @@ function myinfo_comp() {
 
 export const handleTouch = async () => {
     
-    // const walletFromSession = sessionStorage.getItem('walletInstance')
-    // if (walletFromSession) {
-    //     try {
-    //       caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
-    //     } catch (e) { // error 발생시
-    //       // If value in sessionStorage is invalid wallet instance,
-    //       // remove it from sessionStorage.
-    //       sessionStorage.removeItem('walletInstance')
-    //     }
-    // }
+    const walletFromSession = sessionStorage.getItem('walletInstance')
+    if (walletFromSession) {
+        try {
+          caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+        } catch (e) { // error 발생시
+          // If value in sessionStorage is invalid wallet instance,
+          // remove it from sessionStorage.
+          sessionStorage.removeItem('walletInstance')
+        }
+    }
 
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
