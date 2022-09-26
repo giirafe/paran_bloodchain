@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes, Link, useNavigate} from 'react-router-dom
 import React, {useState} from 'react';
 import Modal from './components/modal';
 import './mainBTN.css';
-import Login from './login';
+import isAdmin from './components/isAdmin';
 import Auth from './components/AuthClone';
 
 function Main() {
@@ -35,6 +35,7 @@ function Main() {
             <button className="main-btn" onClick={() => {
               setSignup(!signup)
               sessionStorage.setItem('auth', 'user')
+              console.log(signup)
               }}>사용자</button>
             {signup && (
           <Modal closeModal={() => {setSignup(!signup)}}>
