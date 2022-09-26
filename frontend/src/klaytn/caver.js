@@ -12,6 +12,7 @@
  // testnet url로 caver 객체 생성 
  // rpcURL에 특정 Klaytn 노드를 지정하여 연결할 수 있다.
  const caver = new Caver(rpcURL)
- 
+//  const caver = new Caver(window.klaytn); // kaikas 관련한 답변인듯,,
+
  export default caver
  
