@@ -54,7 +54,7 @@ export const handleTouch = async () => {
     }
 
     // 개인 조회 키 암호 설정 test
-    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',2020).send({
+    BloodContract.methods.set_InquiryPW('0xd735e6b264277503066f8afb1785d6661049b831',2021).send({
         from:walletInstance.address,
         gas:'2000000'
     })
