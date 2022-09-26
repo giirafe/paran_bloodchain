@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
-import {Link} from 'react-router-dom';
-import React, {useState, Redirect} from 'react';
+import { BrowserRouter, Route, Routes, useNavigate} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
+import React, { useState } from 'react';
 import Main from './main';
 import User from './userRoute/userHome';
 import Login from './login';
@@ -23,20 +23,21 @@ import NotFound from './components/NotFound';
 import isAdmin from './components/isAdmin';
 import RouteIf from './components/RouteIf';
 
-function App() {  
+function App() {
+  
   return (
 
   <BrowserRouter>
     <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/user' element={<User/>}/>
-        <Route path='/login' element={<Login />} />
-        <Route path='/providekey' element={<Providekey />} />
-        <Route path='/myinfo' element={<Myinfo />} />
-        <Route path='/community' element={<Community />} />
-        <Route path='/useletter' element={<Useletter />} />
-        <Route path='/bapp' element={<Auth />} />
-        <Route path='*' element={<NotFound/>} />
+      <Route path='/' element={<Main />} />
+      <Route path='/user' element={<User />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/providekey' element={<Providekey />} />
+      <Route path='/myinfo' element={<Myinfo />} />
+      <Route path='/community' element={<Community />} />
+      <Route path='/useletter' element={<Useletter />} />
+      <Route path='/bapp' element={<Auth />} />
+      <Route path='*' element={<NotFound/>} />
     </Routes>
     <div>
       <BlockNumber />
