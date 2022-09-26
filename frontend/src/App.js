@@ -12,6 +12,8 @@ import NFTmoreInfo from './userRoute/nftPage/NFTmoreInfo';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
 
+import Caver_Test_Route from './components/myinfo_comp';
+
 import Krc from './krcRoute/krcHome';
 
 import caver from './klaytn/caver'
@@ -28,6 +30,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/providekey' element={<Providekey />} />
         <Route path='/myinfo' element={<Myinfo />} />
+        <Route path='/myinfo_comp' element={<Caver_Test_Route />} />
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
         <Route path='/bapp' element={<Auth />} />

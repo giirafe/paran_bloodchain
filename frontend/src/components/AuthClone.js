@@ -2,6 +2,8 @@ import React, { useState, Component, Fragment } from 'react'
 import cx from 'classnames'
 import caver from '../klaytn/caver';
 
+import BloodContract from './BloodContract';
+
 import './Auth.scss';
 /**
  * Auth component manages authentication.
@@ -54,11 +56,25 @@ function Auth() {
    */
    const integrateWallet = (privateKey) => {
     console.log('pk:', privateKey)
-    const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
-    caver.klay.accounts.wallet.add(walletInstance)
+    // const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
+    // caver.klay.accounts.wallet.add(walletInstance)
+    caver.klay.accounts.wallet.add(privateKey);
+    // 기존 wallet.add 가 아닌 Keyring으로 접근해봤다.
+    // caver.wallet.add(caver.wallet.keyring.createFromPrivateKey(privateKey))
+
     console.log("Whole Wallet Instance : ", caver.klay.accounts.wallet)
     console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
+    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    // //세션에 개인키 저장 후 SC 접근 마다 객체 만드는 어거지
     sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
+    console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length)
+    
+    // 개인 조회 키 암호 설정 test
+    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',1000).send({
+      from:walletInstance.address,
+      gas:'2000000'
+    })
+ 
     reset()
   }
 

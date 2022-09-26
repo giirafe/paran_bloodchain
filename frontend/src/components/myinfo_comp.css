@@ -1,0 +1,49 @@
+.Name1 {
+    float: left;
+    margin-right: 20px;
+    position : relative;
+    margin-top : 150px;
+    left : 20%;
+}
+
+.Name2 {
+    float: left;
+    margin-right: 20px;
+    position : relative;
+    margin-top : 150px;
+    left : 35%;
+}
+
+.Name3 {
+    float: left;
+    margin-right: 20px;
+    position : relative;
+    margin-top : 150px;
+    left : 50%;
+}
+
+.num1 {
+    float: left;
+    margin-right: 20px;
+    position : relative;
+    margin-top : 230px;
+    left : -13%;
+}
+
+.num2 {
+    float: left;
+    margin-right: 20px;
+    position : relative;
+    margin-top : 230px;
+    left : 13%;
+}
+.num3 {
+    float: left;
+    margin-right: 20px;
+    position : relative;
+    margin-top : 230px;
+    left : 38%;
+}
+
+
+
