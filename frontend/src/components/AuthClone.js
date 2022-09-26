@@ -1,17 +1,22 @@
 import React, { useState, Component, Fragment } from 'react'
-import cx from 'classnames'
 import caver from '../klaytn/caver';
+import {useNavigate} from 'react-router-dom';
+import Main from '../main';
 
+<<<<<<< HEAD
 import BloodContract from './BloodContract';
 
 import './Auth.scss';
+=======
+>>>>>>> main
 /**
  * Auth component manages authentication.
  * It provides two different access method.
  * 1) By keystore(json file) + password
  * 2) By privatekey
  */
-function Auth() {
+function Auth(props, ref) {
+  const navigate = useNavigate();
   const [privateKey, setPrivateKey] = useState('')
 
   const print = () => {
@@ -89,6 +94,7 @@ function Auth() {
     reset()
   }
 
+<<<<<<< HEAD
   return (
       <Fragment>
           <label className="Auth__label">Private Key:</label>
@@ -102,6 +108,22 @@ function Auth() {
           <button className="Auth__button" onClick={handleLogin}>Login</button>
       </Fragment>
   )
+=======
+
+    return (
+        <Fragment>
+            <label className="Auth__label">Private Key:</label>
+            <input
+            type='text'
+            className="Auth__input"
+            name="privateKey"
+            value={privateKey}
+            onChange={handleChange}
+            />
+            <button className="Auth__button" onClick={handleLogin}>Login</button>
+        </Fragment>
+    )
+>>>>>>> main
 }
 
 export default Auth

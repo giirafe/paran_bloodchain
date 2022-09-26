@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './header.css';
+import Logout from '../logout';
 
 function Header() {
+
     return (
       <div className="header">
         <div className="headerIcon">
@@ -24,6 +26,9 @@ function Header() {
             <Link to="/useletter">
               <button className="main-btn" onClick="hi">증서 사용</button>
             </Link>
+        </div>
+        <div>
+          <Logout/>
         </div>
       </div>
     )//

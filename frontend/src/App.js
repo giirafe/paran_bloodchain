@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useState, Redirect} from 'react';
 import Main from './main';
 import User from './userRoute/userHome';
 import Login from './login';
@@ -15,10 +15,14 @@ import Writecontent from './userRoute/communityPage/writecontent';
 import Caver_Test_Route from './components/myinfo_comp';
 
 import Krc from './krcRoute/krcHome';
+import Inquiry from './InquiryRoute/InquiryPage';
 
 import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
 import Auth from './components/Auth';
+import NotFound from './components/NotFound';
+import isAdmin from './components/isAdmin';
+import RouteIf from './components/RouteIf';
 
 function App() {  
   return (
@@ -26,7 +30,7 @@ function App() {
   <BrowserRouter>
     <Routes>
         <Route path='/' element={<Main />} />
-        <Route path='/user' element={<User />} />
+        <Route path='/user' element={<User/>}/>
         <Route path='/login' element={<Login />} />
         <Route path='/providekey' element={<Providekey />} />
         <Route path='/myinfo' element={<Myinfo />} />
@@ -34,13 +38,8 @@ function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/useletter' element={<Useletter />} />
         <Route path='/bapp' element={<Auth />} />
-        <Route path='/nftmoreInfo' element={<NFTmoreInfo />} />
-        <Route path='/donaterecord' element={<Donaterecord />} />
-        <Route path='/writecontent' element={<Writecontent />} />
-        
-        <Route path='/krc' element={<Krc />} />
-
-    </Routes> 
+        <Route path='*' element={<NotFound/>} />
+    </Routes>
     <div>
       <BlockNumber />
     </div>
