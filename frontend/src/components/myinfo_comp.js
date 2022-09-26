@@ -1,19 +1,19 @@
 import React from 'react';
 import { FullPage, Slide } from 'react-full-page';
-import Header from '../../components/layout/header';
+import Header from './layout/header';
 import {Link} from 'react-router-dom';
-import './myinfo.css';
-import MaterialTable from '../MaterialTable';
+import './myinfo_comp.css';
+import MaterialTable from '../userRoute/MaterialTable';
 // 잠시
-import BloodContract from '../../components/BloodContract';
-import { wallet_session } from '../../krcRoute/krcHome';
-import caver from '../../klaytn/caver';
+import BloodContract from './BloodContract';
+// import { wallet_session } from '../../krcRoute/krcHome';
+import caver from '../klaytn/caver';
 
 function myinfo() {
     return(
         <body>
             <Header/>
-            <h1 className="Name1">기부 가능 횟수</h1>
+            <h1 className="Name1">Caver로 스마트 컨트랙트 접근 테스트 페이지</h1>
             <h1 className="Name2">기부 받은 횟수</h1>
             <h1 className="Name3">기부한 횟수</h1>
 
@@ -31,14 +31,18 @@ function myinfo() {
 
 export const handleTouch = async () => {
     
-    console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length);
-    const walletInstance = await caver.klay.accounts.wallet && await caver.klay.accounts.wallet[0]
+    // const walletFromSession = sessionStorage.getItem('walletInstance')
+    // if (walletFromSession) {
+    //     try {
+    //       caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+    //     } catch (e) { // error 발생시
+    //       // If value in sessionStorage is invalid wallet instance,
+    //       // remove it from sessionStorage.
+    //       sessionStorage.removeItem('walletInstance')
+    //     }
+    // }
 
-    // 어거지 try
-    // console.log("Data From Session",sessionStorage.getItem("walletInstance"));
-    // const wallet_json = JSON.parse(sessionStorage.getItem("walletInstance"))
-    // const privateKey = wallet_json.privateKey;
-    // console.log("Private Key From Session",privateKey);
+    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
     // const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
     // console.log("Address of WalletInstance : ",walletInstance.address);
@@ -50,7 +54,7 @@ export const handleTouch = async () => {
     }
 
     // 개인 조회 키 암호 설정 test
-    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',999).send({
+    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',99999).send({
         from:walletInstance.address,
         gas:'2000000'
     })

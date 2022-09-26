@@ -12,6 +12,7 @@ import NFTmoreInfo from './userRoute/nftPage/NFTmoreInfo';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
 
+import Caver_Test_Route from './components/myinfo_comp';
 
 import Krc from './krcRoute/krcHome';
 import Inquiry from './InquiryRoute/InquiryPage';
