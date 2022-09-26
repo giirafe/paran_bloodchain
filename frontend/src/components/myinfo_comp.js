@@ -9,7 +9,7 @@ import BloodContract from './BloodContract';
 // import { wallet_session } from '../../krcRoute/krcHome';
 import caver from '../klaytn/caver';
 
-function myinfo() {
+function myinfo_comp() {
     return(
         <body>
             <Header/>
@@ -54,7 +54,7 @@ export const handleTouch = async () => {
     }
 
     // 개인 조회 키 암호 설정 test
-    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',99999).send({
+    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',2020).send({
         from:walletInstance.address,
         gas:'2000000'
     })
@@ -65,4 +65,4 @@ export const handleTouch = async () => {
 
     console.log("cycle done");
 }
-export default myinfo;
+export default myinfo_comp;
