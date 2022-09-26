@@ -27,14 +27,17 @@ import RouteIf from './components/RouteIf';
 function App() {  
 
   const walletFromSession = sessionStorage.getItem('walletInstance')
-
   // If 'walletInstance' value exists, add it to caver's wallet
   if (walletFromSession) {
+    // caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
     try {
       caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+      console.log("Caver Brought From SessionStorage");
     } catch (e) { // error 발생시
+      console.error(e);
       // If value in sessionStorage is invalid wallet instance,
       // remove it from sessionStorage.
+      console.log("Wallet Instance Removed");
       sessionStorage.removeItem('walletInstance')
     }
   }
