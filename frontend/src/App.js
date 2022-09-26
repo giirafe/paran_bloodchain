@@ -24,6 +24,7 @@ import NotFound from './components/NotFound';
 import Forbidden from './components/Forbidden';
 import isAdmin from './components/isAdmin';
 import RouteIf from './components/RouteIf';
+import Logout from './components/logout';
 
 function App() {  
 
@@ -82,6 +83,9 @@ function App() {
     </Routes>
     <div>
       <BlockNumber />
+    </div>
+    <div>
+      <Logout />
     </div>
 
 
