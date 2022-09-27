@@ -43,6 +43,15 @@ function App() {
   //     sessionStorage.removeItem('walletInstance')
   //   }
   // }
+  const [project, setProject] = useState('');
+
+  const componentDidMount = () => {
+    fetch('http://localhost:3001')
+    .then(res=>res.json())
+    .then(data=>setProject(data.project))
+    console.log('ping')
+  }
+
 
   return (
 
@@ -87,7 +96,10 @@ function App() {
     <div>
       <Logout />
     </div>
-
+    <div>
+      {componentDidMount()}
+      {project ? `hello${project}` : 'hello world'}
+    </div>
 
   </BrowserRouter>
 
