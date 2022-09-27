@@ -35,8 +35,10 @@ function Main() {
             <button className="main-btn" onClick={() => {
               setSignup(!signup)
               sessionStorage.setItem('auth', 'user')
-              console.log(signup)
               }}>사용자</button>
+              {
+                isAdmin() && navigate(`${sessionStorage.getItem('auth')}`)
+              }
             {signup && (
           <Modal closeModal={() => {setSignup(!signup)}}>
             <Auth value={choice}/>
@@ -45,6 +47,9 @@ function Main() {
               setSignup(!signup)
               sessionStorage.setItem('auth', 'institute')
               }}>조회 기관</button>
+              {
+                isAdmin() && navigate(`${sessionStorage.getItem('auth')}`)
+              }
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
             <Auth/>
@@ -53,6 +58,9 @@ function Main() {
               setSignup(!signup)
               sessionStorage.setItem('auth', 'krc')
               }}>헌혈 기관</button>
+              {
+                isAdmin() && navigate(`${sessionStorage.getItem('auth')}`)
+              }
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
             <Auth/>

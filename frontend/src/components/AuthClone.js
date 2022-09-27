@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import Main from '../main';
 
 import BloodContract from './BloodContract';
+import isAdmin from './isAdmin';
 
 // import './Auth.scss';
 /**
@@ -91,20 +92,19 @@ function Auth(props, ref) {
     reset()
   }
 
-
-    return (
-        <Fragment>
-            <label className="Auth__label">Private Key:</label>
-            <input
-            type='text'
-            className="Auth__input"
-            name="privateKey"
-            value={privateKey}
-            onChange={handleChange}
-            />
-            <button className="Auth__button" onClick={handleLogin}>Login</button>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+        <label className="Auth__label">Private Key:</label>
+        <input
+        type='text'
+        className="Auth__input"
+        name="privateKey"
+        value={privateKey}
+        onChange={handleChange}
+        />
+        <button className="Auth__button" onClick={handleLogin}>Login</button>
+    </Fragment>
+  )
 }
 
 export default Auth
