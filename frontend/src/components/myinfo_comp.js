@@ -67,15 +67,16 @@ export const handleTouch = async () => {
     }
 
     // 개인 조회 키 암호 설정 test
+    /*
     BloodContract.methods.set_InquiryPW('0xd735e6b264277503066f8afb1785d6661049b831',2021).send({
         from:walletInstance.address,
         gas:'2000000'
     })
-    
+    */
     // Account 없이 balance를 Smart Contract 값 조회
-    const balances = await BloodContract.methods.balances('0xA1C889E67f0B762675aD74120c813E4c790F19aC').call()
-    console.log("Token Balance is :  ", balances);
-    /*
+    //const balances = await BloodContract.methods.balances('0xA1C889E67f0B762675aD74120c813E4c790F19aC').call()
+    //console.log("Token Balance is :  ", balances);
+    
     const _name = "1234"
     const _id = "1234"
     const _bloodType = "1234"
@@ -83,7 +84,7 @@ export const handleTouch = async () => {
     const _certificateNum = "1234"
     const _donateType = "1234"
     const _date = "1234"
-    BloodContract.methods.createCertificate(
+    const ret1 = await BloodContract.methods.createCertificate(
         _name,
         _id,
         _bloodType,
@@ -95,13 +96,16 @@ export const handleTouch = async () => {
           from: walletInstance.address,// 보내는 사람 주소
           gas: '200000000',
         })
-      console.log("dummy");
+    console.log("ret1 is ", ret1);
   
-      BloodContract.methods.mintCert("0x028642a33362e44cd89bda306794dbee56d179bc", _certificateNum).send({
-        from: walletInstance.address,// 보내는 사람 주소
-        gas: '200000000',
-      })
-    */
+    const ret2 = await BloodContract.methods.mintCert("0x028642a33362e44cd89bda306794dbee56d179bc", _certificateNum).send({
+      from: walletInstance.address,// 보내는 사람 주소
+      gas: '200000000',
+    })
+    console.log("return is ", ret2);
+    
+    const CertLength = await BloodContract.methods.user_CertLength('0x028642a33362e44cd89bda306794dbee56d179bc').call()
+    console.log("CertLength is ", CertLength);
     console.log("cycle done");
 }
 export default myinfo_comp;
