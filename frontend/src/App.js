@@ -58,6 +58,28 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Main />} />
+
+      {
+        isAdmin() === true
+        ? <Route path='/InquiryPage' element={<Inquiry />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/krcHome' element={<Krc />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+
+      {
+        isAdmin() === true
+        ? <Route path='/writecontent' element={<Writecontent />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/donaterecord' element={<Donaterecord />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
       {
         isAdmin() === true
         ? <Route path='/user' element={<User />} />
@@ -66,6 +88,11 @@ function App() {
       {
         isAdmin() === true
         ? <Route path='/providekey' element={<Providekey />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/NFTmoreInfo' element={<NFTmoreInfo />} />
         : <Route path='/' element={<Forbidden />} />
       }
       {
