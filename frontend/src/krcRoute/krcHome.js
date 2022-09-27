@@ -2,8 +2,21 @@ import React, { Component } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
+import caver from '../klaytn/caver';
 
-
+const walletFromSession = sessionStorage.getItem('walletInstance')
+//여기서 리셋이됨
+/*
+if (walletFromSession) {
+  try {
+    caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+  } catch (e) { // error 발생시
+    // If value in sessionStorage is invalid wallet instance,
+    // remove it from sessionStorage.
+    sessionStorage.removeItem('walletInstance')
+  }
+}
+*/
 class NFTminting extends Component {
     state = {
       name: '',
