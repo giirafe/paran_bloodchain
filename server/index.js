@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 5000
+const port = 3001
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const {User} = require("./models/User")
 
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(cors());
 app.use(bodyParser.json());
 
 //몽고 디비
@@ -15,8 +16,12 @@ mongoose.connect('mongodb+srv://juyeon:whoami728@bloodchain.ixrutaq.mongodb.net/
     .catch(err => console.log(err))
 
 //서버 메인 페이지 테스트 메시지
-app.get('/', (req, res) => res.send('Hello World!'))
+//app.get('/', (req, res) => res.send('Hello World!'))
 
+app.use('/', (req, res) => res.json({project:'P:LOW'}))
+
+
+/*
 app.post('/register', (req, res) => {
     //회원 가입할 때 필요한 정보들을 client에서 가져오면
     //디비에 넣어준다
@@ -57,6 +62,7 @@ app.post('/login', (req,res) => {
         })
     })
 })
+*/
 
 
 app.listen(port, () => console.log(`listening on port ${port}!`))
