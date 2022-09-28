@@ -10,13 +10,15 @@ function Main() {
   const [choice, setChoice] = useState('');
   const navigate = useNavigate();
 
-  const onClickChoice = (choice) => {
-    setChoice(choice)
-    console.log(choice)
+  const buttonHandler = () => {
+    setSignup(!signup)
+    if (isAdmin()) {
+      navigate(`/${sessionStorage.getItem('auth')}`)
+    }
   }
 
-  const movePage = () => {
-    navigate(`/${choice}`)
+  const setType = (type) => {
+    sessionStorage.setItem('auth', type)
   }
 
   return (
@@ -33,34 +35,25 @@ function Main() {
         </div>
         <div className='btn-box'>
             <button className="main-btn" onClick={() => {
-              setSignup(!signup)
-              sessionStorage.setItem('auth', 'user')
-              }}>사용자</button>
-              {
-                isAdmin() && navigate(`${sessionStorage.getItem('auth')}`)
-              }
+              setType('user')
+              buttonHandler()
+            }}>사용자</button>
             {signup && (
           <Modal closeModal={() => {setSignup(!signup)}}>
             <Auth value={choice}/>
           </Modal>)}
             <button className="main-btn" onClick={() => {
-              setSignup(!signup)
-              sessionStorage.setItem('auth', 'institute')
+              setType('institute')
+              buttonHandler()
               }}>조회 기관</button>
-              {
-                isAdmin() && navigate(`${sessionStorage.getItem('auth')}`)
-              }
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
             <Auth/>
           </Modal>)}
             <button className="main-btn" onClick={() => {
-              setSignup(!signup)
-              sessionStorage.setItem('auth', 'krc')
+              setType('krcHome')
+              buttonHandler()
               }}>헌혈 기관</button>
-              {
-                isAdmin() && navigate(`${sessionStorage.getItem('auth')}`)
-              }
             {signup && (
           <Modal closeModal={() => setSignup(!signup)}>
             <Auth/>
