@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Main from './main';
 import User from './userRoute/userHome';
-import Login from './login';
 import Providekey from './userRoute/nftPage/providekey';
 import Myinfo from './userRoute/myinfoPage/myinfo';
 import Community from './userRoute/communityPage/community';
@@ -58,11 +57,12 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Main />} />
+      <Route path='/forbidden' element={<Forbidden/>} />
 
       {
         isAdmin() === true
         ? <Route path='/InquiryPage' element={<Inquiry />} />
-        : <Route path='/' element={<Forbidden />} />
+        : <Route path='/forbidden' element={<Forbidden />} />
       }
       {
         isAdmin() === true
@@ -110,12 +110,8 @@ function App() {
         ? <Route path='/useletter' element={<Useletter />} />
         : <Route path='/' element={<Forbidden />} />
       }
-      {
-        isAdmin() === true
-        ? <Route path='/useletter' element={<Useletter />} /> 
-        : <Route path='/' element={<Forbidden />} />
-      }
-      <Route path='*' element={<NotFound/>} />
+      
+      <Route path='/*' element={<NotFound/>} />
     </Routes>
     <div>
       <BlockNumber />
