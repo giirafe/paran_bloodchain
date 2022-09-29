@@ -35,14 +35,16 @@ function myinfo_comp() {
             <h2 className="num3">2</h2>
             
             <MaterialTable />
-            <button name="test" onClick={handleTouch}>test</button>
+            <button name="Minting" onClick={handleMinting}>Minting</button>
+            <button name="GetCert" onClick={handleCert}>GetCert</button>
+            <button name="Transfer" onClick={handleTransfer}>Transfer</button>
         </body>
         
 
     );
 }
 
-export const handleTouch = async () => {
+export const handleMinting = async () => {
     /*
     const walletFromSession = sessionStorage.getItem('walletInstance')
     if (walletFromSession) {
@@ -98,14 +100,46 @@ export const handleTouch = async () => {
         })
     console.log("ret1 is ", ret1);
   
-    const ret2 = await BloodContract.methods.mintCert("0x028642a33362e44cd89bda306794dbee56d179bc", _certificateNum).send({
+    const ret2 = await BloodContract.methods.mintCert("0xd735e6b264277503066f8afb1785d6661049b831", _certificateNum).send({
       from: walletInstance.address,// 보내는 사람 주소
       gas: '200000000',
     })
     console.log("return is ", ret2);
     
-    const CertLength = await BloodContract.methods.user_CertLength('0x028642a33362e44cd89bda306794dbee56d179bc').call()
+    const CertLength = await BloodContract.methods.user_CertLength('0xd735e6b264277503066f8afb1785d6661049b831').call()
     console.log("CertLength is ", CertLength);
+    
+    const balances = BloodContract.methods.balances('0xd735e6b264277503066f8afb1785d6661049b831').call()
+    console.log("balances is : ",balances);
+    const only_use_balances = BloodContract.methods.only_use_balances('0xd735e6b264277503066f8afb1785d6661049b831').call()
+    console.log("only_use_balances is : ",only_use_balances);
+
     console.log("cycle done");
 }
+
+const handleCert = () =>{
+  BloodContract.methods.set_InquiryPW('0xd735e6b264277503066f8afb1785d6661049b831',1234).send({
+    from: walletInstance.address,
+    gas: '200000000'
+  });// 비밀번호 설정
+  const cert = BloodContract.methods.InquiryTo('0xd735e6b264277503066f8afb1785d6661049b831',1234,0).call();
+  console.log("cert result is: ",cert);
+  console.log("cert type is:", typeof(cert));
+
+}
+
+const handleTransfer = async () =>{
+  const balances_before = await BloodContract.methods.balances('0xd735e6b264277503066f8afb1785d6661049b831').call()
+  await console.log("before balances is : ",balances_before);
+  
+  await BloodContract.methods.transferFrom("0xd735e6b264277503066f8afb1785d6661049b831","0x028642a33362e44cd89bda306794dbee56d179bc",1).send({
+    from: walletInstance.address,
+    gas: '200000000'
+  })
+  
+  const balances_after = await BloodContract.methods.balances('0xd735e6b264277503066f8afb1785d6661049b831').call()
+  await console.log("after balances is : ",balances_after);
+  
+}
+
 export default myinfo_comp;
