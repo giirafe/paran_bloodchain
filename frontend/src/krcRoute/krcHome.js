@@ -3,20 +3,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
-/*
-const walletFromSession = sessionStorage.getItem('walletInstance')
-//여기서 리셋이됨
-/*
-if (walletFromSession) {
-  try {
-    caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
-  } catch (e) { // error 발생시
-    // If value in sessionStorage is invalid wallet instance,
-    // remove it from sessionStorage.
-    sessionStorage.removeItem('walletInstance')
-  }
-}
-*/
+
 const walletFromSession = sessionStorage.getItem('walletInstance')
 if (walletFromSession) {
     try {
@@ -27,7 +14,7 @@ if (walletFromSession) {
       sessionStorage.removeItem('walletInstance')
     }
 }
-    
+
 const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
 class NFTminting extends Component {
@@ -47,13 +34,13 @@ class NFTminting extends Component {
           [e.target.name]: e.target.value,
         })
     }
-
+    /*
     handleSubmit = (e) => {
         e.preventDefault()
         const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
         //mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
     }
-
+    */
     handleMinting = async () => {
       const { _name, _id, _bloodType, _home_address, _certificateNum,_donateType,_date, _wallet_address } = this.state
 
@@ -184,7 +171,7 @@ class NFTminting extends Component {
               type="submit"
               title="헌혈증명서 업로드"
             />
-            <button name="버튼" onClick={this.handleMinting}>헌혈증명서 발급</button>
+            <button name="헌혈증명서 발급" onClick={this.handleMinting}>헌혈증명서 발급</button>
           </form>
         )
       }
