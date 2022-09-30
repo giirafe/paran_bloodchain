@@ -43,7 +43,7 @@ function Main() {
             <Auth value={choice}/>
           </Modal>)}
             <button className="main-btn" onClick={() => {
-              setType('institute')
+              setType('inquirypage')
               buttonHandler()
               }}>조회 기관</button>
             {signup && (
