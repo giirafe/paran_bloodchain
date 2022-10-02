@@ -33,6 +33,9 @@ class NFTminting extends Component {
         this.setState({
           [e.target.name]: e.target.value,
         })
+        console.log("type is :", typeof(e.target.value));
+        console.log(this.props);
+        
     }
     /*
     handleSubmit = (e) => {
@@ -42,7 +45,7 @@ class NFTminting extends Component {
     }
     */
     handleMinting = async () => {
-      const { _name, _id, _bloodType, _home_address, _certificateNum,_donateType,_date, _wallet_address } = this.state
+      const { name, id, bloodType, home_address, certificateNum,donateType,date, wallet_address} = this.state
 
       if (!walletInstance){
           console.error("Wallet Instance Fetch Failed");
@@ -51,31 +54,31 @@ class NFTminting extends Component {
       }
 
       const ret1 = await BloodContract.methods.createCertificate(
-          _name,
-          _id,
-          _bloodType,
-          _home_address,
-          _certificateNum,
-          _donateType,
-          _date
+          name,
+          id,
+          bloodType,
+          home_address,
+          certificateNum,
+          donateType,
+          date
       ).send({
             from: walletInstance.address,// 보내는 사람 주소
             gas: '200000000',
           })
       console.log("ret1 is ", ret1);
     
-      const ret2 = await BloodContract.methods.mintCert(_wallet_address, _certificateNum).send({
+      const ret2 = await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
         from: walletInstance.address,// 보내는 사람 주소
         gas: '200000000',
       })
       console.log("return is ", ret2);
       
-      const CertLength = await BloodContract.methods.user_CertLength(_wallet_address).call()
+      const CertLength = await BloodContract.methods.user_CertLength(wallet_address).call()
       console.log("CertLength is ", CertLength);
       
-      const balances = BloodContract.methods.balances(_wallet_address).call()
+      const balances = BloodContract.methods.balances(wallet_address).call()
       console.log("balances is : ",balances);
-      const only_use_balances = BloodContract.methods.only_use_balances(_wallet_address).call()
+      const only_use_balances = BloodContract.methods.only_use_balances(wallet_address).call()
       console.log("only_use_balances is : ",only_use_balances);
     
       console.log("cycle done");
