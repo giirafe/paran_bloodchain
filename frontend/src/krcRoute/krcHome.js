@@ -3,7 +3,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
-
+/*
 const walletFromSession = sessionStorage.getItem('walletInstance')
 if (walletFromSession) {
     try {
@@ -14,7 +14,7 @@ if (walletFromSession) {
       sessionStorage.removeItem('walletInstance')
     }
 }
-
+*/
 const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
 class NFTminting extends Component {
