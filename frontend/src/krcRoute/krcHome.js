@@ -17,7 +17,7 @@ if (walletFromSession) {
     }
 }
 */
-const walletInstance = caver.klay.accounts.wallet[0]
+const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
 class NFTminting extends Component {
     state = {
@@ -30,7 +30,7 @@ class NFTminting extends Component {
       date: '',
       wallet_address:'',
     }
-
+    
     handleInputChange = (e) => {
         this.setState({
           [e.target.name]: e.target.value,
@@ -38,7 +38,8 @@ class NFTminting extends Component {
         console.log("type is :", typeof(e.target.value));
         console.log(caver.klay.accounts.wallet[0]);
         console.log(caver.klay.accounts.wallet);
-        console.log(walletInstance);
+        const walletInstance_1 = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+        console.log(walletInstance_1);
     }
     
     handleSubmit = async (e) => {
@@ -47,6 +48,7 @@ class NFTminting extends Component {
         //mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
         const { name, id, bloodType, home_address, certificateNum,donateType,date, wallet_address} = this.state
 
+      const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
       if (!walletInstance){
           console.error("Wallet Instance Fetch Failed");
       } else {
