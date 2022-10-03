@@ -131,13 +131,12 @@ const handleCert = async () =>{
   //console.log("cert type is:", typeof(cert));
 
   const get_data = () => cert.then(function(result) {
-    // resolve()의 결과 값이 여기로 전달됨
-    const data = result; // $.get()의 reponse 값이 tableData에 전달됨
-    console.log(data.get_name);
+    const data = result; // promise의 result object값이 data로 들어감
+    console.log(data.get_name); 
     return data
   });
-  const cert_data =  await get_data();
-  console.log("cert_data is: ", cert_data["get_name"]);
+  const cert_data =  await get_data(); // promise result return값을 await로 받아야 들어감
+  console.log("cert_data is: ", cert_data["get_name"]);//get_name
   //console.log("data is: ",await get_data());
   //console.log("data is: ",data);
   
