@@ -1,33 +1,49 @@
-.NFT1 {
-    box-sizing: border-box;
+section {
+    width: 100vw;
+    height: 100vh;
+    position : relative;
+    perspective: 600px;
+}
 
+.card {
+    position : absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 300px;
+    transition: all 1s;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
+.card > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
     position: absolute;
-    width: 380px;
-    height: 523px;
-    left: 500px;
-    top: 201px;
-    
-    background: #D9D9D9;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 70px;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+
+.card .front {
+    background-color:cornflowerblue;
+    z-index: 9999;
+}
+
+.card .back {
+    background-color: blue;
+    transform: rotateY(180deg);
 }
 
 .submain-btn {
     position : absolute;
-    margin-top : 700px;
-    float: left;
+    top : 70%;
     left : 50%;
 }
-
-.NFTinfo {
-    text-align : center;
-    position : relative;
-    margin: 350px;
-    float: left;
-    top : 50%;
-    left : 13%;
-}
-  
-
-
