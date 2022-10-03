@@ -57,22 +57,37 @@ function App() {
   //     console.log("Wallet Instance Removed");
   //     sessionStorage.removeItem('walletInstance')
   //   }
-  // }
+  // }  
   const [project, setProject] = useState('');
 
   const componentDidMount = () => {
     fetch('http://localhost:3001')
     .then(res=>res.json())
     .then(data=>setProject(data.project))
-    console.log('ping')
   }
 
+  useEffect(() => {
+    
+  })
 
   return (
 
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Main />} />
+<<<<<<< HEAD
+      <Route path='/InquiryPage' element={isAdmin() ? <Inquiry /> : <Forbidden />} />
+      <Route path='/krcHome' element={isAdmin() ? <Krc /> : <Forbidden />} />
+      <Route path='/writecontent' element={isAdmin() ? <Writecontent /> : <Forbidden />} />
+      <Route path='/donaterecord' element={isAdmin() ? <Donaterecord /> : <Forbidden />} />     
+      <Route path='/user' element={isAdmin() ? <User /> : <Forbidden />} />
+      <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
+      <Route path='/NFTmoreInfo' element={isAdmin() ? <NFTmoreInfo /> : <Forbidden />} />
+      <Route path='/myinfo_comp' element={isAdmin() ? <Caver_Test_Route /> : <Forbidden />} />
+      <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} />
+      <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
+      <Route path='/*' element={<NotFound />} />
+=======
       <Route path='/forbidden' element={<Forbidden/>} />
 
       {
@@ -138,6 +153,7 @@ function App() {
       }
       
       <Route path='/*' element={<NotFound/>} />
+>>>>>>> 989237dc5ed1871b3101d41fb142e19859096056
     </Routes>
     <div>
       <BlockNumber />

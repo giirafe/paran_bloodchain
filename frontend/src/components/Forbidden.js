@@ -4,7 +4,7 @@ const Forbidden = () => {
     
     return (
         <Container className={"text-center"} fluid>
-            <h1>401 Forbidden</h1>
+            <h1>401 Unathorized</h1>
             <a href="/">돌아가기</a>
         </Container>
     )
