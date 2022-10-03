@@ -3,8 +3,10 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
+
+//const walletFromSession = sessionStorage.getItem('walletInstance')
+//caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
 /*
-const walletFromSession = sessionStorage.getItem('walletInstance')
 if (walletFromSession) {
     try {
       caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
@@ -15,7 +17,7 @@ if (walletFromSession) {
     }
 }
 */
-const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+const walletInstance = caver.klay.accounts.wallet[0]
 
 class NFTminting extends Component {
     state = {
@@ -34,8 +36,9 @@ class NFTminting extends Component {
           [e.target.name]: e.target.value,
         })
         console.log("type is :", typeof(e.target.value));
-        console.log(this.props);
-        
+        console.log(caver.klay.accounts.wallet[0]);
+        console.log(caver.klay.accounts.wallet);
+        console.log(walletInstance);
     }
     
     handleSubmit = async (e) => {
