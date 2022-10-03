@@ -4,19 +4,7 @@ import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
 
-const walletFromSession = sessionStorage.getItem('walletInstance')
-//여기서 리셋이됨
-/*
-if (walletFromSession) {
-  try {
-    caver.klay.accounts.wallet.add(JSON.parse(walletFromSession))
-  } catch (e) { // error 발생시
-    // If value in sessionStorage is invalid wallet instance,
-    // remove it from sessionStorage.
-    sessionStorage.removeItem('walletInstance')
-  }
-}
-*/
+
 class NFTminting extends Component {
     state = {
       name: '',
@@ -28,22 +16,61 @@ class NFTminting extends Component {
       date: '',
       wallet_address:'',
     }
-
+    
     handleInputChange = (e) => {
         this.setState({
           [e.target.name]: e.target.value,
         })
+        //console.log(caver.klay.accounts.wallet[0]);
+        //console.log(caver.klay.accounts.wallet);
+        //const walletInstance_1 = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+        //console.log(walletInstance_1);
+    }
+    
+    handleSubmit = async (e) => {
+      e.preventDefault()
+        
+      //mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
+      const { name, id, bloodType, home_address, certificateNum,donateType,date, wallet_address} = this.state
+
+      const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+      if (!walletInstance){
+          console.error("Wallet Instance Fetch Failed");
+      } else {
+          console.log("Valid Caver Instance")
+      }
+
+      const ret1 = await BloodContract.methods.createCertificate(
+          name,
+          id,
+          bloodType,
+          home_address,
+          certificateNum,
+          donateType,
+          date
+      ).send({
+            from: walletInstance.address,// 보내는 사람 주소
+            gas: '200000000',
+          })
+      console.log("ret1 is ", ret1);
+    
+      const ret2 = await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
+        from: walletInstance.address,// 보내는 사람 주소
+        gas: '200000000',
+      })
+      console.log("return is ", ret2);
+      
+      const CertLength = await BloodContract.methods.user_CertLength(wallet_address).call()
+      console.log("CertLength is ", CertLength);
+      
+      const balances = BloodContract.methods.balances(wallet_address).call()
+      console.log("balances is : ",balances);
+      const only_use_balances = BloodContract.methods.only_use_balances(wallet_address).call()
+      console.log("only_use_balances is : ",only_use_balances);
+    
+      console.log("cycle done");
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
-        mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
-    }
-    //test
-    handleClick = (e) => {
-      console.log("Hi");
-    }
     render() {
         const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
         return (
@@ -134,49 +161,9 @@ class NFTminting extends Component {
               type="submit"
               title="헌혈증명서 업로드"
             />
-            <button name="버튼" onClick={this.handleClick}>버튼버튼버튼</button>
           </form>
         )
       }
-}
-
-export const wallet_session = () => {
-  const data = JSON.parse(sessionStorage.getItem("walletInstance"));
-  console.log(data.address);
-  return data.address // 세션 스토리지 address값반환
-}
-
-
-export const mintCertificate = (
-  name,
-  id,
-  bloodType,
-  home_address,
-  certificateNum,
-  donateType,
-  date,
-  //추가 mintCert시 필요
-  wallet_address,
-) => {
-    const send_address = wallet_session();
-    BloodContract.methods.createCertificate(
-      name,
-      id,
-      bloodType,
-      home_address,
-      certificateNum,
-      donateType,
-      date).send({
-        from: send_address,// 보내는 사람 주소
-        gas: '200000000',
-      })
-    console.log("dummy");
-
-    BloodContract.methods.mintCert(wallet_address, certificateNum).send({
-      from: send_address,// 보내는 사람 주소
-      gas: '200000000',
-    })
-    console.log("mint");
 }
 
 export default NFTminting
