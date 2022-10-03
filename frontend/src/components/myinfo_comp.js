@@ -127,6 +127,13 @@ const handleCert = () =>{
   });// 비밀번호 설정
   const cert = BloodContract.methods.InquiryTo('0xd735e6b264277503066f8afb1785d6661049b831',1234,0).call();
   console.log("cert result is: ",cert);
+  //cert.then(result => console.log(result));
+  cert.then(function(result) {
+    // resolve()의 결과 값이 여기로 전달됨
+    //const data = result; // $.get()의 reponse 값이 tableData에 전달됨
+    console.log(result);
+  });
+  //console.log("data is: ",data);
   console.log("cert type is:", typeof(cert));
 
 }
