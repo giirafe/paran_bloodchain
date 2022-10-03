@@ -22,9 +22,11 @@ function myinfo() {
             <h2 className="num3">2</h2>
             
             <MaterialTable />
-            <button name="test" onClick={handleTouch}>test</button>
+
+            <Link to ="/createkey">
+            <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
+        </Link>
         </body>
-        
 
     );
 }

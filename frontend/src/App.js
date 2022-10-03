@@ -2,28 +2,44 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Main from './main';
+
+// Userhome
 import User from './userRoute/userHome';
-import Providekey from './userRoute/nftPage/providekey';
-import Myinfo from './userRoute/myinfoPage/myinfo';
-import Community from './userRoute/communityPage/community';
-import Useletter from './userRoute/useletterPage/useletter';
+
+// 조회키 생성
 import NFTmoreInfo from './userRoute/nftPage/NFTmoreInfo';
+import Providekey from './userRoute/nftPage/providekey';
+
+// 유저 메뉴
+// 유저 정보
+import Myinfo from './userRoute/myinfoPage/myinfo';
+import Createkey from './userRoute/myinfoPage/createkey';
+
+
+// 유저 커뮤니티
+import Community from './userRoute/communityPage/community';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
 
-import Caver_Test_Route from './components/myinfo_comp';
+// 유저 증서사용
+import Useletter from './userRoute/useletterPage/useletter';
 
+// krcHome
 import Krc from './krcRoute/krcHome';
+
+// Inquiryhome
 import Inquiry from './InquiryRoute/InquiryPage';
 
-import caver from './klaytn/caver'
 import BlockNumber from './components/BlockNumber';
-import Auth from './components/Auth';
 import NotFound from './components/NotFound';
 import Forbidden from './components/Forbidden';
 import isAdmin from './components/isAdmin';
-import RouteIf from './components/RouteIf';
 import Logout from './components/logout';
+import Caver_Test_Route from './components/myinfo_comp';
+
+import Auth from './components/Auth';
+import RouteIf from './components/RouteIf';
+import caver from './klaytn/caver'
 
 function App() {  
 
@@ -59,6 +75,7 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Main />} />
+<<<<<<< HEAD
       <Route path='/InquiryPage' element={isAdmin() ? <Inquiry /> : <Forbidden />} />
       <Route path='/krcHome' element={isAdmin() ? <Krc /> : <Forbidden />} />
       <Route path='/writecontent' element={isAdmin() ? <Writecontent /> : <Forbidden />} />
@@ -70,6 +87,73 @@ function App() {
       <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/*' element={<NotFound />} />
+=======
+      <Route path='/forbidden' element={<Forbidden/>} />
+
+      {
+        isAdmin() === true
+        ? <Route path='/createkey' element={<Createkey />} />
+        : <Route path='/forbidden' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/Myinfo' element={<Myinfo />} />
+        : <Route path='/forbidden' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/InquiryPage' element={<Inquiry />} />
+        : <Route path='/forbidden' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/krcHome' element={<Krc />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+
+      {
+        isAdmin() === true
+        ? <Route path='/writecontent' element={<Writecontent />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/donaterecord' element={<Donaterecord />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/user' element={<User />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/providekey' element={<Providekey />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/NFTmoreInfo' element={<NFTmoreInfo />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/myinfo_comp' element={<Caver_Test_Route />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/community' element={<Community />} /> 
+        : <Route path='/' element={<Forbidden />} />
+      }
+      {
+        isAdmin() === true
+        ? <Route path='/useletter' element={<Useletter />} />
+        : <Route path='/' element={<Forbidden />} />
+      }
+      
+      <Route path='/*' element={<NotFound/>} />
+>>>>>>> 989237dc5ed1871b3101d41fb142e19859096056
     </Routes>
     <div>
       <BlockNumber />
