@@ -15,7 +15,7 @@ function Header() {
           
         </div>
         <div className='header-box'>
-            <Link to="/myinfo_comp">
+            <Link to="/myinfo">
               <button className="main-btn" onClick="hi">내 정보</button>
             </Link>
         
