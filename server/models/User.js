@@ -4,6 +4,7 @@ const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 
 //user 데이터 구조
+/*
 const userSchema = mongoose.Schema({
     name: {
         type: String,
@@ -62,3 +63,4 @@ userSchema.methods.generateToken = function(cb) {
 const User = mongoose.model('User', userSchema)
 
 module.exports = {User}
+*/

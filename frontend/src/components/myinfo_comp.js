@@ -9,6 +9,7 @@ import BloodContract from './BloodContract';
 // import { wallet_session } from '../../krcRoute/krcHome';
 import caver from '../klaytn/caver';
 
+/*
 const walletFromSession = sessionStorage.getItem('walletInstance')
 if (walletFromSession) {
     try {
@@ -18,7 +19,7 @@ if (walletFromSession) {
       // remove it from sessionStorage.
       sessionStorage.removeItem('walletInstance')
     }
-}
+}*/
     
 const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
@@ -26,9 +27,11 @@ function myinfo_comp() {
     return(
         <body>
             <Header/>
-            <h1 className="Name1">Caver로 스마트 컨트랙트 접근 테스트 페이지</h1>
-            <h1 className="Name2">기부 받은 횟수</h1>
-            <h1 className="Name3">기부한 횟수</h1>
+            <div>
+              <h1 className="Name1">기부 가능 횟수</h1>
+              <h1 className="Name2">기부 받은 횟수</h1>
+              <h1 className="Name3">기부한 횟수</h1>
+            </div>
 
             <h2 className="num1">3</h2>
             <h2 className="num2">0</h2>

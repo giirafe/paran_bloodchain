@@ -2,6 +2,7 @@ import React, { useState, Component, Fragment } from 'react'
 import caver from '../klaytn/caver';
 import {useNavigate} from 'react-router-dom';
 import Main from '../main';
+import './Auth.scss';
 
 import BloodContract from './BloodContract';
 import isAdmin from './isAdmin';
@@ -93,17 +94,23 @@ function Auth(props, ref) {
   }
 
   return (
-    <Fragment>
-        <label className="Auth__label">Private Key:</label>
-        <input
-        type='text'
-        className="Auth__input"
-        name="privateKey"
-        value={privateKey}
-        onChange={handleChange}
-        />
-        <button className="Auth__button" onClick={handleLogin}>Login</button>
-    </Fragment>
+      <div className="box">
+        <div className="title">LOGIN</div>
+        <div className="input">
+          <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder='Private Key'
+          value={privateKey}
+          onChange={handleChange}
+          />
+          <span className="spin"></span>
+        </div>
+        <div className="button login">
+          <button onClick={handleLogin}>Go<i className="fa fa-check"></i></button>
+        </div>
+      </div>
   )
 }
 
