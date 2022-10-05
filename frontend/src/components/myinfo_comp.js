@@ -38,7 +38,7 @@ function myinfo_comp() {
             <h2 className="num3">2</h2>
             
             <MaterialTable />
-            <button name="test" onClick={handleTouch}>test</button>
+            <button name="tedest" onClick={handleTouch}>test</button>
         </body>
         
 

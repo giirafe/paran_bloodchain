@@ -22,6 +22,10 @@ function Home() {
                     <br/>
                     헌혈 종류 : 전혈 헌혈
                     <br/>
+                    헌혈 일자 : 2022-09-04
+                    <br/>
+                    혈액원명 : 경기남부혈액원
+                    <br/>
                     헌혈 가능일까지 17일 남았습니다.   
                     <button className="submain-btn" onClick={submainHandler}>조회키 제공</button>
                 </div>

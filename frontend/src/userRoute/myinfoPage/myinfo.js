@@ -3,10 +3,6 @@ import { FullPage, Slide } from 'react-full-page';
 import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import MaterialTable from '../MaterialTable';
-// 잠시
-import BloodContract from '../../components/BloodContract';
-import { wallet_session } from '../../krcRoute/krcHome';
-import caver from '../../klaytn/caver';
 
 function myinfo() {
     return(
@@ -34,36 +30,4 @@ function myinfo() {
     );
 }
 
-export const handleTouch = async () => {
-    
-    console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length);
-    const walletInstance = await caver.klay.accounts.wallet && await caver.klay.accounts.wallet[0]
-
-    // 어거지 try
-    // console.log("Data From Session",sessionStorage.getItem("walletInstance"));
-    // const wallet_json = JSON.parse(sessionStorage.getItem("walletInstance"))
-    // const privateKey = wallet_json.privateKey;
-    // console.log("Private Key From Session",privateKey);
-
-    // const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
-    // console.log("Address of WalletInstance : ",walletInstance.address);
-
-    if (!walletInstance){
-        console.error("Wallet Instance Fetch Failed");
-    } else {
-        console.log("Valid Caver Instance")
-    }
-
-    // 개인 조회 키 암호 설정 test
-    BloodContract.methods.set_InquiryPW('0x54ea798eed97f16c35d2265e94cc2d275ca67055',999).send({
-        from:walletInstance.address,
-        gas:'2000000'
-    })
-    
-    // Account 없이 balance를 Smart Contract 값 조회
-    const balances = await BloodContract.methods.balances('0xA1C889E67f0B762675aD74120c813E4c790F19aC').call()
-    console.log("Token Balance is :  ", balances);
-
-    console.log("cycle done");
-}
 export default myinfo;

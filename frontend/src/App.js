@@ -82,7 +82,7 @@ function App() {
       <Route path='/user' element={isAdmin() ? <User /> : <Forbidden />} />
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
       <Route path='/NFTmoreInfo' element={isAdmin() ? <NFTmoreInfo /> : <Forbidden />} />
-      <Route path='/myinfo_comp' element={isAdmin() ? <Caver_Test_Route /> : <Forbidden />} />
+      <Route path='/myinfo' element={isAdmin() ? <Myinfo /> : <Forbidden />} />
       <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/*' element={<NotFound />} />

@@ -31,20 +31,22 @@ class Privatekey extends Component {
             <Input
               className="Privatekey"
               name="privatekey"
-              label="개인 키"
+              label="조회 키"
               value={privatekey}
               onChange={this.handleInputChange}
-              placeholder="개인 키를 입력하시오."
+              placeholder="생성할 조회 키 비밀번호를 입력하시오."
               required
             />
 
             <Button
               className="Certificate__upload"
               type="submit"
-              title="개인 비밀번호 생성"
+              title="비밀번호 생성"
             />
           </form>
-        )
+
+
+        )  
       }
 }
 export default Privatekey
