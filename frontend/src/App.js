@@ -86,71 +86,6 @@ function App() {
       <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/*' element={<NotFound />} />
-      <Route path='/forbidden' element={<Forbidden/>} />
-
-      {
-        isAdmin() === true
-        ? <Route path='/createkey' element={<Createkey />} />
-        : <Route path='/forbidden' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/Myinfo' element={<Myinfo />} />
-        : <Route path='/forbidden' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/InquiryPage' element={<Inquiry />} />
-        : <Route path='/forbidden' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/krcHome' element={<Krc />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-
-      {
-        isAdmin() === true
-        ? <Route path='/writecontent' element={<Writecontent />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/donaterecord' element={<Donaterecord />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/user' element={<User />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/providekey' element={<Providekey />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/NFTmoreInfo' element={<NFTmoreInfo />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/myinfo' element={<Caver_Test_Route />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/community' element={<Community />} /> 
-        : <Route path='/' element={<Forbidden />} />
-      }
-      {
-        isAdmin() === true
-        ? <Route path='/useletter' element={<Useletter />} />
-        : <Route path='/' element={<Forbidden />} />
-      }
-      
-      <Route path='/*' element={<NotFound/>} />
     </Routes>
     <div>
       <BlockNumber />
@@ -158,11 +93,6 @@ function App() {
     <div>
       <Logout />
     </div>
-    <div>
-      {componentDidMount()}
-      {project ? `hello${project}` : 'hello world'}
-    </div>
-
   </BrowserRouter>
 
   );

@@ -11,7 +11,7 @@ function community() {
         <body>
             <Header />
         <div className = "tableLocation">
-            <MaterialTable />
+            글
         </div>
         <div className ="communityBox">
         <Link to ="/donaterecord">
