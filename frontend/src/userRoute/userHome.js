@@ -3,15 +3,20 @@ import React, {useState, useEffect} from 'react';
 import Header from '../components/layout/header';
 import {useNavigate} from 'react-router-dom';
 import './userHome.css';
+import BloodContract from '../components/BloodContract';
+import caver from '../klaytn/caver';
 
 function Home() {
     const navigate = useNavigate();
-
     const submainHandler = () => {
         navigate('/providekey')
     }
-
-    const [count, setCount] = useState(0);
+    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    // address를 통해서 블록체인 내에 매핑에 접근하면 됨
+    const name = "";
+    const id = "";
+    const donateType = "";
+    const date = "";
 
     return(
         <section>
