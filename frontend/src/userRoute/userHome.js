@@ -13,22 +13,50 @@ function Home() {
     }
 
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+/*
+    const getFeed = () => (dispatch) => {
+    KlaystagramContract.methods.getTotalPhotoCount().call()
+      .then((totalPhotoCount) => {
+        if (!totalPhotoCount) return []
+        const feed = []
+        for (let i = totalPhotoCount; i > 0; i--) {
+          const photo = KlaystagramContract.methods.getPhoto(i).call()
+          feed.push(photo)
+        }
+        return Promise.all(feed)
+      })
+      .then((feed) => dispatch(setFeed(feedParser(feed))))
+  }
+  */
     // address를 통해서 블록체인 내에 매핑에 접근하면 됨
     
-    const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+    const get_cert = async () => {
+        await BloodContract.methods.user_CertLength(walletInstance.address).call().then((totalCertLength) => {
+            if(!totalCertLength) return []
+            const feed = []
+            for (let i = 0; i < totalCertLength - 1; i++) {
+                const cert = BloodContract.methods.InquiryTo(walletInstance.address, 1234, i).call()
+                feed.push(cert)
+            }
+            console.log("되나?", feed);
+            return Promise.all(feed)
+        })
+    }
+    
+    const data = get_cert();
+    console.log("제발돼라: ", data);
+    
+
+    //cert.then((response) => console.log("response:",response.get_name))
+
+    /*
     console.log("type of cert is:", cert);
     cert.then(function(response){
         console.log('response', response);
     }).catch(function(reason){
         console.log('reason', reason);
     })
-    async function fucking() {
-        const aaa = await cert;
-        console.log("하하하하", aaa.get_id);
-        return aaa;
-    }
-    const bbb = fucking();
-    console.log("bbb: ",bbb.get_id);
+    */
     /*
     const get_data = () => cert.then(function(result) {
         const data = result; // promise의 result object값이 data로 들어감
@@ -38,7 +66,7 @@ function Home() {
         const donateType = data.get_donateType;
         const date = data.get_date;
         let obj = {name: name, id: id, donateType: donateType, date: date};
-        console.log(obj.json());
+        console.log(obj);
         return obj
     });
     async function a(){
