@@ -1,5 +1,5 @@
 import '../App.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../components/layout/header';
 import {useNavigate} from 'react-router-dom';
 import './userHome.css';
@@ -10,6 +10,9 @@ function Home() {
     const submainHandler = () => {
         navigate('/providekey')
     }
+
+    const [count, setCount] = useState(0);
+
     return(
         <section>
             <Header/>
