@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Main from './main';
@@ -59,16 +59,14 @@ function App() {
   //   }
   // }  
   const [project, setProject] = useState('');
+  const [relo, setRelo] = useState(false);
+
 
   const componentDidMount = () => {
     fetch('http://localhost:3001')
     .then(res=>res.json())
     .then(data=>setProject(data.project))
   }
-
-  useEffect(() => {
-    
-  })
 
   return (
 

@@ -88,8 +88,8 @@ const updateLike = async (req, res) => {
 
 
 
-router.get("/", getPosts);
-app.post("/", createPost);
+app.get("/community", getPosts);
+app.post("/writecontent", createPost);
 router.patch("/:id", updatePost);
 router.delete("/:id", deletePost);
 router.patch("/:id/like", updateLike);

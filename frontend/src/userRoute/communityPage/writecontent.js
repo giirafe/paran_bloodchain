@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import * as axios from 'axios'
+import { Form } from 'react-bootstrap'
 
 class WriteDonate extends Component {
     state = {
+      address: '',
       title: '',
       content: '',
     }
@@ -20,37 +23,40 @@ class WriteDonate extends Component {
         this.props.WriteDonate(title, content)
     }
 
+    write = () => {
+      axios.post("http://localhost:3001/writecontent", {
+        address : sessionStorage.getItem('walletInstance')["address"],
+        title : this.state.title,
+        content: this.state.content,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.error(e);
+      })
+    }
+
     render() {
         const { title, content } = this.state
         return (
-            
-          <form className="WriteDonate" onSubmit={this.handleSubmit}>
-            <Input
-              className="WriteDodate_title"
-              name="title"
-              label="제목"
-              value={title}
-              onChange={this.handleInputChange}
-              placeholder="제목을 입력하세요."
-              required
-            />
-            
-            <Input
-              className="WriteDodate_content"
-              name="content"
-              label="내용"
-              value={content}
-              onChange={this.handleInputChange}
-              placeholder="내용을 입력하세요."
-              required
-            />
+          <div>
+            <Form.Group>
+              <Form.Label>제목</Form.Label>
+              <Form.Control name="title" type="text" onChange={this.handleInputChange} placeholder="제목을입력하세요" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>내용</Form.Label>
+              <Form.Control name="content" as="textarea" onChange={this.handleInputChange} placeholder="내용을 입력하세요" />
+            </Form.Group>
 
             <Button
               className="UploadPhoto__upload"
               type="submit"
               title="글 업로드"
+              onClick={this.write}
             />
-          </form>
+          </div>
         )
       }
 }

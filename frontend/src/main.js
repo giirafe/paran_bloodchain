@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, Link, useNavigate} from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import Modal from './components/modal';
 import './mainBTN.css';
 import isAdmin from './components/isAdmin';
@@ -9,6 +9,7 @@ function Main() {
   const [signup, setSignup] = useState(false);
   const [choice, setChoice] = useState('');
   const navigate = useNavigate();
+  const [count, setCount] = useState(0);
 
   const buttonHandler = () => {
     setSignup(!signup)
