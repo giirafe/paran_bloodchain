@@ -14,7 +14,21 @@ function Home() {
 
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
     // address를 통해서 블록체인 내에 매핑에 접근하면 됨
-    //const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+    
+    const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+    console.log("type of cert is:", cert);
+    cert.then(function(response){
+        console.log('response', response);
+    }).catch(function(reason){
+        console.log('reason', reason);
+    })
+    async function fucking() {
+        const aaa = await cert;
+        console.log("하하하하", aaa.get_id);
+        return aaa;
+    }
+    const bbb = fucking();
+    console.log("bbb: ",bbb.get_id);
     /*
     const get_data = () => cert.then(function(result) {
         const data = result; // promise의 result object값이 data로 들어감
@@ -23,13 +37,16 @@ function Home() {
         const id = data.get_id;
         const donateType = data.get_donateType;
         const date = data.get_date;
-        //let obj = {name: name, id: id, donateType: donateType, date: date};
-        let arr = {name, id, donateType, date};
-        return arr
+        let obj = {name: name, id: id, donateType: donateType, date: date};
+        console.log(obj.json());
+        return obj
     });
-
-    const cert_data =  await get_data();
-    console.log(cert_data);
+    async function a(){
+        const cert_data = await get_data();
+        return cert_data
+    }
+    const fucking = a();
+    console.log("씨발:", fucking);
     */
     return(
         <section>
@@ -54,5 +71,25 @@ function Home() {
         </section>
     );
 }
+export const get_cert_data = async () => {
+    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    // address를 통해서 블록체인 내에 매핑에 접근하면 됨
+    
+    const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+    
+    const get_data = () => cert.then(function(result) {
+        const data = result; // promise의 result object값이 data로 들어감
+        //console.log(data.get_name); 
+        const name = data.get_name;
+        const id = data.get_id;
+        const donateType = data.get_donateType;
+        const date = data.get_date;
+        let obj = {name: name, id: id, donateType: donateType, date: date};
+        return obj
+    });
 
+    const cert_data = await get_data();
+    console.log("cert_data in function: ",cert_data);
+    return cert_data;
+}
 export default Home;
