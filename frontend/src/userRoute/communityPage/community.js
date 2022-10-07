@@ -9,40 +9,7 @@ import Table from "react-bootstrap/Table";
 import BoardList from '../../components/BoardList';
 
 function Community() {
-    const [inputData, setInputData] = useState([{
-        address: '',
-        title: '',
-        content: '',
-        createAt: ''
-    }])
-
-    /*
-    useEffect(async() => {
-        try {
-            const res = await axios.get('/writecontent')
-            const _inputData = await res.data.map((rowData) => ({
-                address: rowData.address,
-                title: rowData.title,
-                content: rowData.content,
-                createAt: rowData.createAt
-            }))
-            setInputData(inputData.concat(_inputData))
-        } catch(e) {
-            console.error(e.message)
-        }
-    }, [])
-    */
-
-    const getData = () => {
-        axios.get('http://localhost:3001/writecontent')
-        .then((res) => {
-            console.log(res)
-        })
-        .catch(() => {
-            console.log('fail')
-        })
-    }
-
+    
     return(
         <body>
             <Header />
