@@ -11,13 +11,19 @@ function Home() {
     const submainHandler = () => {
         navigate('/providekey')
     }
-
+    state = {
+        name: "",
+    }
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
     const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
     console.log("Cert is ", cert);
+    getCertdata = async () => {
     
-    function data() {
-        const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+    }
+    /*
+    getCertdata = async () => {
+        const cert = await BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+        console.log()
         //cert.then((response) => {console.log(response)});
         return {
             get_name: cert.then((response) => {
@@ -27,6 +33,7 @@ function Home() {
             }),
         }
     }
+    */
     //const name = data();
     //console.log("name is ", name);
     /*
@@ -99,6 +106,7 @@ function Home() {
         </section>
     );
 }
+
 export const get_cert_data = async () => {
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
     // address를 통해서 블록체인 내에 매핑에 접근하면 됨
@@ -120,4 +128,5 @@ export const get_cert_data = async () => {
     console.log("cert_data in function: ",cert_data);
     return cert_data;
 }
+
 export default Home;
