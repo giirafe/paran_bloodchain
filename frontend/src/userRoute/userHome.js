@@ -14,7 +14,7 @@ function Home() {
 
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
     const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
-    //console.log("Cert is ", cert);
+    console.log("Cert is ", cert);
     
     function data() {
         const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
@@ -27,8 +27,8 @@ function Home() {
             }),
         }
     }
-    const name = data();
-    console.log("name is ", name);
+    //const name = data();
+    //console.log("name is ", name);
     /*
     const get_cert = async () => {
         await BloodContract.methods.user_CertLength(walletInstance.address).call().then((totalCertLength) => {
