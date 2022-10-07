@@ -16,7 +16,7 @@ function Home() {
     //const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
     //console.log("Cert is ", cert);
     const getCertdata = async () => {
-        const cert = BloodContract.methods.get(walletInstance.address,,0).call()
+        const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
         console.log("cert is :",cert);
         const cert_data = await cert;
         console.log("cert data is :",cert_data);
