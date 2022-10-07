@@ -21,6 +21,7 @@ function Home() {
         const cert_data = await cert;
         console.log("cert data is :",cert_data);
         setNumber(number = cert_data.get_name);
+        console.log("cycle done");
     }
     getCertdata();
     console.log("state: ", number);

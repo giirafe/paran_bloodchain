@@ -13,6 +13,7 @@ import Providekey from './userRoute/nftPage/providekey';
 // 유저 메뉴
 // 유저 정보
 import Myinfo from './userRoute/myinfoPage/myinfo';
+import Myinfo_comp from './userRoute/myinfoPage/myinfo_comp';
 import Createkey from './userRoute/myinfoPage/createkey';
 
 
@@ -35,7 +36,7 @@ import NotFound from './components/NotFound';
 import Forbidden from './components/Forbidden';
 import isAdmin from './components/isAdmin';
 import Logout from './components/logout';
-import Caver_Test_Route from './components/myinfo_comp';
+import Caver_Test_Route from './userRoute/myinfoPage/myinfo_comp';
 
 import Auth from './components/Auth';
 import RouteIf from './components/RouteIf';
@@ -66,6 +67,7 @@ function App() {
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
       <Route path='/NFTmoreInfo' element={isAdmin() ? <NFTmoreInfo /> : <Forbidden />} />
       <Route path='/myinfo' element={isAdmin() ? <Myinfo /> : <Forbidden />} />
+      <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
       <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/*' element={<NotFound />} />

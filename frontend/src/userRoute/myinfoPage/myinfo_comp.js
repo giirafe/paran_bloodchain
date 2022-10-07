@@ -1,13 +1,13 @@
 import React from 'react';
 import { FullPage, Slide } from 'react-full-page';
-import Header from './layout/header';
+import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import './myinfo_comp.css';
-import MaterialTable from '../userRoute/MaterialTable';
+import MaterialTable from '../MaterialTable';
 // 잠시
-import BloodContract from './BloodContract';
+import BloodContract from '../../components/BloodContract';
 // import { wallet_session } from '../../krcRoute/krcHome';
-import caver from '../klaytn/caver';
+import caver from '../../klaytn/caver';
 
 /*
 const walletFromSession = sessionStorage.getItem('walletInstance')
@@ -121,11 +121,11 @@ export const handleMinting = async () => {
 }
 
 const handleCert = async () =>{
-   BloodContract.methods.set_InquiryPW('0xd735e6b264277503066f8afb1785d6661049b831',1234).send({
+   BloodContract.methods.set_InquiryPW('0x028642a33362e44cd89bda306794dbee56d179bc',1234).send({
     from: walletInstance.address,
     gas: '200000000'
   });// 비밀번호 설정
-  const cert = BloodContract.methods.InquiryTo('0xd735e6b264277503066f8afb1785d6661049b831',1234,0).call();
+  const cert = BloodContract.methods.InquiryTo('0x028642a33362e44cd89bda306794dbee56d179bc',1234,0).call();
   //console.log("cert result is: ",cert);
   //cert.then(result => console.log(result));
   //console.log("cert type is:", typeof(cert));
