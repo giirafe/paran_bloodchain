@@ -13,23 +13,23 @@ function Home() {
     }
 
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-/*
-    const getFeed = () => (dispatch) => {
-    KlaystagramContract.methods.getTotalPhotoCount().call()
-      .then((totalPhotoCount) => {
-        if (!totalPhotoCount) return []
-        const feed = []
-        for (let i = totalPhotoCount; i > 0; i--) {
-          const photo = KlaystagramContract.methods.getPhoto(i).call()
-          feed.push(photo)
-        }
-        return Promise.all(feed)
-      })
-      .then((feed) => dispatch(setFeed(feedParser(feed))))
-  }
-  */
-    // address를 통해서 블록체인 내에 매핑에 접근하면 됨
+    const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+    //console.log("Cert is ", cert);
     
+    function data() {
+        const cert = BloodContract.methods.InquiryTo(walletInstance.address,1234,0).call()
+        //cert.then((response) => {console.log(response)});
+        return {
+            get_name: cert.then((response) => {
+                console.log(response);
+                console.log("test");
+                
+            }),
+        }
+    }
+    const name = data();
+    console.log("name is ", name);
+    /*
     const get_cert = async () => {
         await BloodContract.methods.user_CertLength(walletInstance.address).call().then((totalCertLength) => {
             if(!totalCertLength) return []
@@ -45,7 +45,7 @@ function Home() {
     
     const data = get_cert();
     console.log("제발돼라: ", data);
-    
+    */
 
     //cert.then((response) => console.log("response:",response.get_name))
 
@@ -73,8 +73,8 @@ function Home() {
         const cert_data = await get_data();
         return cert_data
     }
-    const fucking = a();
-    console.log("씨발:", fucking);
+    const b = a();
+    console.log("b is :", b);
     */
     return(
         <section>
