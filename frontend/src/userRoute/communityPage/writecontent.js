@@ -43,25 +43,29 @@ class WriteDonate extends Component {
     render() {
         const { title, content } = this.state
         return (
-          <div>
-            <Form.Group>
-              <Form.Label>제목</Form.Label>
-              <Form.Control className="Write" name="title" type="text" onChange={this.handleInputChange} placeholder="제목을입력하세요" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>내용</Form.Label>
-              <Form.Control className="Write" name="content" as="textarea" onChange={this.handleInputChange} placeholder="내용을 입력하세요" />
-            </Form.Group>
+          <div className="wrap">
+            <div className="space"></div>
+            <Header/>
+            <div class="Write">
+              <label>제목</label>
+              <input className="write-title" name="title" type="text" onChange={this.handleInputChange} placeholder="제목을입력하세요" />
+              <br/>
+              <br/>
+              <label>내용</label>
+              <input className="write-content" name="content" as="textarea" onChange={this.handleInputChange} placeholder="내용을 입력하세요" />
+            </div>
 
-            <Button
-              className="uploadBTN"
+            <button
+              className="button login"
               type="submit"
               title="글 업로드"
               onClick={this.write}
-            />
+            >글 업로드<i className="fa fa-check"></i></button>
           </div>
         )
       }
 }
+
+
 
 export default WriteDonate
