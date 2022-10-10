@@ -1,8 +1,8 @@
 import { Component } from "react";
 import React from 'react';
 import Axios from "axios";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+
+
 
 const Board = ({
     address,
@@ -58,13 +58,15 @@ class BoardList extends Component {
     /**
      * @return {Component} Component
      */
+
+    
     render() {
         // eslint-disable-next-line
         const { boardList }: { boardList: any } = this.state;
 
         return (
             <div>
-                <Table striped bordered hover>
+                <table style={{width:'400px'}}>
                     <thead>
                         <tr>
                             <th>선택</th>
@@ -88,7 +90,7 @@ class BoardList extends Component {
                                 );
                             })}
                     </tbody>
-                </Table>
+                </table>
             </div>
         );
     }
