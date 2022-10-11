@@ -158,6 +158,8 @@ export const mintCertificate = async (
   //추가 mintCert시 필요
   wallet_address,
 ) => {
+  //wallet instance 없음
+    console.log("klaytn wallet is :", caver.klay.accounts.wallet)
     const session_Address = wallet_session();
     await BloodContract.methods.createCertificate(
       name,
@@ -171,12 +173,13 @@ export const mintCertificate = async (
         gas: '200000000',
       })
     console.log("dummy");
-
+    
     await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
       from: session_Address,// 보내는 사람 주소
       gas: '200000000',
     })
     console.log("mint");
+    
 }
 
 export default NFTminting

@@ -4,7 +4,6 @@ import Header from '../components/layout/header';
 import BloodContract from '../components/BloodContract';
 import {useNavigate} from 'react-router-dom';
 import './userHome.css';
-import BloodContract from '../components/BloodContract';
 import caver from '../klaytn/caver';
 
 function Home() {
@@ -14,10 +13,12 @@ function Home() {
         navigate('/providekey')
     }
     const send_address = wallet_session();
-
+    
     var [name, setName] = useState("");
     var [length, setLength] = useState(0);
 
+    console.log("klaytn wallet is :", caver.klay.accounts.wallet)
+    
     const getLength = async() => {
         var cert_length = await BloodContract.methods.user_CertLength(send_address).call()
         cert_length = parseInt(cert_length);
