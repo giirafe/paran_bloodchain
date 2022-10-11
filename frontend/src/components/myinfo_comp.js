@@ -188,16 +188,14 @@ export const handleTouch = async () => {
         _date)
     .then(console.log)
   
-
-    ////////////
-    const ret2 = await BloodContract.methods.mintCert("0x028642a33362e44cd89bda306794dbee56d179bc", _certificateNum).send({
+    const ret2 = await BloodContract.methods.mintCert("0xd735e6b264277503066f8afb1785d6661049b831", _certificateNum).send({
       from: walletInstance.address,// 보내는 사람 주소
       gas: '200000000',
     })
 
     console.log("return is ", ret2);
     
-    const CertLength = await BloodContract.methods.user_CertLength('0x028642a33362e44cd89bda306794dbee56d179bc').call()
+    const CertLength = await BloodContract.methods.user_CertLength('0xd735e6b264277503066f8afb1785d6661049b831').call()
     console.log("CertLength is ", CertLength);
     console.log("cycle done");
 }

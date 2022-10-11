@@ -13,6 +13,8 @@ import Providekey from './userRoute/nftPage/providekey';
 // 유저 메뉴
 // 유저 정보
 import Myinfo from './userRoute/myinfoPage/myinfo';
+import Myinfo_comp from './components/myinfo_comp';
+
 import Createkey from './userRoute/myinfoPage/createkey';
 
 
@@ -81,7 +83,8 @@ function App() {
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
       <Route path='/NFTmoreInfo' element={isAdmin() ? <NFTmoreInfo /> : <Forbidden />} />
       <Route path='/myinfo' element={isAdmin() ? <Myinfo /> : <Forbidden />} />
-      <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} />
+      <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} /> 
+      <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/*' element={<NotFound />} />
     </Routes>

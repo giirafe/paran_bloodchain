@@ -4,7 +4,7 @@ import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
 
-const walletFromSession = sessionStorage.getItem('walletInstance')
+//const walletFromSession = sessionStorage.getItem('walletInstance')
 //여기서 리셋이됨
 /*
 if (walletFromSession) {
@@ -28,6 +28,7 @@ class NFTminting extends Component {
       date: '',
       wallet_address:'',
     }
+    send_address = wallet_session();
 
     handleInputChange = (e) => {
         this.setState({
@@ -147,7 +148,7 @@ export const wallet_session = () => {
 }
 
 
-export const mintCertificate = (
+export const mintCertificate = async (
   name,
   id,
   bloodType,
@@ -158,8 +159,8 @@ export const mintCertificate = (
   //추가 mintCert시 필요
   wallet_address,
 ) => {
-    const send_address = wallet_session();
-    BloodContract.methods.createCertificate(
+    //const wallet_address = wallet_session();
+    await BloodContract.methods.createCertificate(
       name,
       id,
       bloodType,
@@ -167,16 +168,21 @@ export const mintCertificate = (
       certificateNum,
       donateType,
       date).send({
-        from: send_address,// 보내는 사람 주소
+        from: wallet_address,// 보내는 사람 주소
         gas: '200000000',
       })
     console.log("dummy");
 
-    BloodContract.methods.mintCert(wallet_address, certificateNum).send({
-      from: send_address,// 보내는 사람 주소
+    await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
+      from: wallet_address,// 보내는 사람 주소
       gas: '200000000',
     })
     console.log("mint");
 }
 
+export const wallet_session = () => {
+  const data = JSON.parse(sessionStorage.getItem("walletInstance"));
+  console.log(data.address);
+  return data.address // 세션 스토리지 address값반환
+}
 export default NFTminting

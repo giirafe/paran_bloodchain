@@ -1,6 +1,7 @@
 import '../App.css';
 import React, { useEffect, useState } from 'react';
 import Header from '../components/layout/header';
+import BloodContract from '../components/BloodContract';
 import {useNavigate} from 'react-router-dom';
 import './userHome.css';
 import BloodContract from '../components/BloodContract';
@@ -12,56 +13,43 @@ function Home() {
     const submainHandler = () => {
         navigate('/providekey')
     }
+    const send_address = wallet_session();
 
     var [name, setName] = useState("");
-    var [id, setId] = useState("");
-    var [date, setDate] = useState("");
-    var [donateType, setType] = useState("");
-    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    var [length, setLength] = useState(0);
 
-    const wallet_session = () => {
-        console.log("Wallet Session Loading");
-        const data = JSON.parse(sessionStorage.getItem("walletInstance"));
-        console.log(data.address);
-        return data.address // 세션 스토리지 address값반환
+    const getLength = async() => {
+        var cert_length = await BloodContract.methods.user_CertLength(send_address).call()
+        cert_length = parseInt(cert_length);
+        console.log("length: ",cert_length);
+        
+        setLength(length = cert_length);
+        
     }
-      
-
+    
     const getCertdata = async () => {
-        // console.log("Wallet Instance Address : ",walletInstance.address);
-        const send_address = wallet_session();
-        try{
-            const cert = BloodContract.methods.InquiryTo(send_address,1234,0).call()
-            const cert_data = await cert;
-            console.log("cert data is :",cert_data);
-            setName(name = cert_data.get_name);
-            setId(id = cert_data.get_id);
-            setDate(date = cert_data.get_date);
-            setType(donateType = cert_data.get_donateType);
-        }catch(err){
-            console.log(err);
-        }
+        await getLength();
+        var length_max = length - 1;
+        const cert = BloodContract.methods.InquiryTo(send_address,1234,length_max).call()
+        console.log("cert is :",cert);
+        const cert_data = await cert;
+        console.log("cert data is :",cert_data);
+        setName(name = cert_data.get_name);
         console.log("cycle done");
-    }
-    const check_existence = async()=>{
-        const inquiry_pw = await BloodContract.methods.Check_Existence3(10).call();
-        console.log("Checking Existence Thorugh Blood Contract : ",inquiry_pw);
-    }
-    
-    console.log("Checking Existence Through Smart Contract");
-    check_existence();
 
-    console.log("Getting Certificate Data");
+    }
     getCertdata();
-    
     console.log("state: ", name);
+
+
+
 
     return(
         <section>
             <Header/>
             <div className="card">
                 <div className="front">
-                    홍길동님의 헌혈증명서
+                    {name}님의 헌혈증명서
                 </div>
                 <div className="back">
                     발급번호 : 101
@@ -78,6 +66,12 @@ function Home() {
             </div>
         </section>
     );
+}
+
+export const wallet_session = () => {
+    const data = JSON.parse(sessionStorage.getItem("walletInstance"));
+    console.log(data.address);
+    return data.address // 세션 스토리지 address값반환
 }
 
 export default Home;
