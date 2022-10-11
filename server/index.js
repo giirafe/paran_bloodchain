@@ -57,12 +57,13 @@ const updatePost = async (req, res) => {
 };
 
 const deletePost = async (req, res) => {
-  const { id } = req.params;
+  const {id} = req.body;
+
   if (!mongoose.Types.ObjectId.isValid(id)) {
     res.status(404).send("삭제 할수 없습니다.");
   } else {
     await PostMessage.findByIdAndRemove(id);
-    console.log(`${id}가 삭제되었습니다.`);
+    console.log(`${_id}가 삭제되었습니다.`);
     res.json({ meessage: "삭제 완료" });
   }
 };
@@ -90,8 +91,10 @@ const updateLike = async (req, res) => {
 
 app.get("/community", getPosts);
 app.post("/writecontent", createPost);
+app.post("/delete", deletePost);
+
+
 router.patch("/:id", updatePost);
-router.delete("/:id", deletePost);
 router.patch("/:id/like", updateLike);
 
 app.listen(port, () => console.log(`listening on port ${port}!`))

@@ -7,6 +7,7 @@ import MaterialTable from '../MaterialTable';
 import axios from 'axios'
 import Table from "react-bootstrap/Table";
 import BoardList from '../../components/BoardList';
+import '../../components/BoardStyle.scss';
 
 function Community() {
     
