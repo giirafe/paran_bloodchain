@@ -87,6 +87,7 @@ export const handleTouch = async () => {
     const _certificateNum = "1234"
     const _donateType = "1234"
     const _date = "1234"
+
     const ret1 = await BloodContract.methods.createCertificate(
         _name,
         _id,
@@ -98,13 +99,102 @@ export const handleTouch = async () => {
     ).send({
           from: walletInstance.address,// 보내는 사람 주소
           gas: '200000000',
-        })
+    })
     console.log("ret1 is ", ret1);
+
+    // myContract.send({
+    //     from: '0x{address in hex}',
+    //     gas: 1000000,
+    //     feeDelegation: true,
+    //     feePayer: '0x{address in hex}',
+    //   }, 'methodName', 123).then(console.log)
+
+    ////////////
+
+    // fee delegation testing
+    console.log("Fee Delegation testing");
+    
+    const deployer_pk = '0x2afd0177c21926bf5cb5edcdf85b29ac3a5c0bcab6d65a7902b627ca6104c0af'
+    const deployerInstance = caver.klay.accounts.privateKeyToAccount(deployer_pk);
+    caver.klay.accounts.wallet.add(deployer_pk);
+
+    const feePayer_pk = '0x5e50bba1df0bd94b4b42d6ea6e541023e4d12e0e7d614121c5d55f15ddda6227'
+    const feePayerInstance = caver.klay.accounts.privateKeyToAccount(feePayer_pk);
+    caver.klay.accounts.wallet.add(feePayerInstance);
+
+    ///////
+
+    // const deployerAddress = '0x54ea798eed97f16c35d2265e94cc2d275ca67055'
+    // const deployerPrivateKey = '0x2afd0177c21926bf5cb5edcdf85b29ac3a5c0bcab6d65a7902b627ca6104c0af'
+    // const feePayerAddress = '0x953ee5aae2afc7d21121c52b17e3e6c1b9f8cb1d'
+    // const feePayerPrivateKey = '0x5e50bba1df0bd94b4b42d6ea6e541023e4d12e0e7d614121c5d55f15ddda6227'
+
+    // const deployerInstance = caver.wallet.keyring.create(deployerAddress, deployerPrivateKey)
+    // caver.wallet.add(deployerInstance)
+    // const feePayerInstance = caver.wallet.keyring.create(feePayerAddress, feePayerPrivateKey)
+    // caver.wallet.add(feePayerInstance)
+
+    // // The deployer and fee payer each sign the transaction to execute a smart contract.
+    // const executionTx = await BloodContract.sign({
+    //     from: deployerInstance.address,
+    //     feeDelegation: true,
+    //     gas: 1000000,
+    // }, 'createCertificate', 
+    //     _name,
+    //     _id,
+    //     _bloodType,
+    //     _home_address,
+    //     _certificateNum,
+    //     _donateType,
+    //     _date)
+    // console.log(`Deployer signed transaction: `)
+    // console.log(executionTx)
+
+    // await caver.wallet.signAsFeePayer(feePayerInstance.address, executionTx) // Signs the transaction as a fee payer
+    // const setResult = await caver.rpc.klay.sendRawTransaction(executionTx)
+
+    ////////
+    // caver.klay.wallet 으로 try.,,,
+
+    // const feeDelegatedTest = await BloodContract.send({
+    //     from: walletInstance.address,
+    //     gas: '20000000',
+    //     feeDelegation : true,
+    //     feePayer:feePayerInstance.address
+    // },'createCertificate',
+    //     _name,
+    //     _id,
+    //     _bloodType,
+    //     _home_address,
+    //     _certificateNum,
+    //     _donateType,
+    //     _date)
+    // .then(console.log);
+
+    console.log("fee deleagtion with singAsFeePayer testing");
+    
+    await BloodContract.signAsFeePayer({
+        from: walletInstance.address,
+        gas: 1000000,
+        feeDelegation: true,
+        feePayer:feePayerInstance.address ,
+    }, 'createCertificate',
+        _name,
+        _id,
+        _bloodType,
+        _home_address,
+        _certificateNum,
+        _donateType,
+        _date)
+    .then(console.log)
   
+
+    ////////////
     const ret2 = await BloodContract.methods.mintCert("0x028642a33362e44cd89bda306794dbee56d179bc", _certificateNum).send({
       from: walletInstance.address,// 보내는 사람 주소
       gas: '200000000',
     })
+
     console.log("return is ", ret2);
     
     const CertLength = await BloodContract.methods.user_CertLength('0x028642a33362e44cd89bda306794dbee56d179bc').call()
