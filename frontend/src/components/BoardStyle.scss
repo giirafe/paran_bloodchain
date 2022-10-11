@@ -1,0 +1,24 @@
+.table {
+    border-spacing: 0;
+    width: 100%;
+
+    thead {
+        tr {
+            th {
+                line-height: 3rem;
+                border-bottom: 1px solid #aaa;
+                font-size: 1.2rem;
+
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                line-height: 2rem;
+                text-align: center;
+                border-top: 1px solid #aaa;
+            }
+        }
+    }
+}
