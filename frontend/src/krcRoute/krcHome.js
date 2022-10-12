@@ -5,6 +5,13 @@ import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
 
 const walletFromSession = sessionStorage.getItem('walletInstance')
+const wallet = JSON.parse(walletFromSession)
+console.log("pk is",wallet);
+const walletInstance = caver.klay.accounts.privateKeyToAccount(wallet.privateKey);
+caver.klay.accounts.wallet.add(walletInstance)
+console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
+//const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+
 //여기서 리셋이됨
 /*
 if (walletFromSession) {
@@ -28,7 +35,7 @@ class NFTminting extends Component {
       date: '',
       wallet_address:'',
     }
-
+    
     handleInputChange = (e) => {
         this.setState({
           [e.target.name]: e.target.value,
@@ -159,10 +166,8 @@ export const mintCertificate = async (
   wallet_address,
 ) => {
   //wallet instance 없음
-    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-
-    console.log("klaytn wallet is :", caver.klay.accounts.wallet)
-    const session_Address = wallet_session();
+    const before_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
+    console.log("before cert length: ", before_cert_length);
     await BloodContract.methods.createCertificate(
       name,
       id,
@@ -171,16 +176,19 @@ export const mintCertificate = async (
       certificateNum,
       donateType,
       date).send({
-        from: walletInstance.address,// 보내는 사람 주소
+        from: wallet.address,// 보내는 사람 주소
         gas: '200000000',
       })
     console.log("dummy");
     
     await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
-      from: walletInstance.address,// 보내는 사람 주소
+      from: wallet.address,// 보내는 사람 주소
       gas: '200000000',
     })
     console.log("mint");
+    
+    const after_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
+    console.log("after cert length: ", after_cert_length);
     
 }
 
