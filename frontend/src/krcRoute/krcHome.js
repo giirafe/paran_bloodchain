@@ -159,6 +159,8 @@ export const mintCertificate = async (
   wallet_address,
 ) => {
   //wallet instance 없음
+    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+
     console.log("klaytn wallet is :", caver.klay.accounts.wallet)
     const session_Address = wallet_session();
     await BloodContract.methods.createCertificate(
@@ -169,13 +171,13 @@ export const mintCertificate = async (
       certificateNum,
       donateType,
       date).send({
-        from: session_Address,// 보내는 사람 주소
+        from: walletInstance.address,// 보내는 사람 주소
         gas: '200000000',
       })
     console.log("dummy");
     
     await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
-      from: session_Address,// 보내는 사람 주소
+      from: walletInstance.address,// 보내는 사람 주소
       gas: '200000000',
     })
     console.log("mint");
