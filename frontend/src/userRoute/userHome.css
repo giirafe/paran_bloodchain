@@ -33,17 +33,35 @@ section {
 }
 
 .card .front {
-    background-color:cornflowerblue;
+    background-color:deeppink;
     z-index: 9999;
+    color: white;
+    font-weight: 600;
+    font-size: larger;
 }
 
 .card .back {
-    background-color: blue;
+    background-color:crimson;
     transform: rotateY(180deg);
+    color: white;
+    font-weight: 600;
+    font-size: larger;
 }
 
 .submain-btn {
     position : absolute;
     top : 70%;
     left : 50%;
+    color: white;
+    border-radius: 5px;
+    background-color: deeppink;
+    border-color: deeppink;
 }
+
+.submain-btn:hover {
+    background: white;
+    color: black;
+    border-color: deeppink;
+    cursor: pointer;
+    transform: scale(1.1);
+  }

@@ -91,9 +91,6 @@ function App() {
     <div>
       <BlockNumber />
     </div>
-    <div>
-      <Logout />
-    </div>
   </BrowserRouter>
 
   );

@@ -21,6 +21,7 @@
 .headerName {
     float: right;
     margin-right: 20px;
+    color:deeppink;
 }
 
   
@@ -28,5 +29,15 @@
     position : absolute;
     margin-top : 20px;
     float: left;
-    left : 65%;
+    left : 60%;
+}
+
+@media (max-width: 1200px) {
+    .header-box {
+        left: 30%;
+    }
+
+    .main-btn {
+        margin: 10px;
+    }
 }

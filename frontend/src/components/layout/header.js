@@ -26,9 +26,7 @@ function Header() {
             <Link to="/useletter">
               <button className="main-btn" onClick="hi">증서 사용</button>
             </Link>
-        </div>
-        <div>
-          <Logout/>
+            <Logout/>
         </div>
       </div>
     )//
