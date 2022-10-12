@@ -116,10 +116,10 @@ class BoardList extends Component {
 
         return (
             <BootstrapTable data={boardList} bordered={false} striped hover condensed>
-                <TableHeaderColumn width='100' dataField='address' isKey>주소</TableHeaderColumn>
-                <TableHeaderColumn width='100' dataField='title'>제목</TableHeaderColumn>
-                <TableHeaderColumn width='150' dataField='content'>내용</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='createdAt'>작성일</TableHeaderColumn>
+                <TableHeaderColumn width='50' dataField='address' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
+                <TableHeaderColumn width='100' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
+                <TableHeaderColumn width='100' dataField='content' dataAlign='center'>내용</TableHeaderColumn>
+                <TableHeaderColumn width='50' dataField='createdAt' dataAlign='center'>작성일</TableHeaderColumn>
             </BootstrapTable>
         );
     }
