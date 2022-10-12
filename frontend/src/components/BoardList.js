@@ -25,6 +25,11 @@ const Board = ({
     );
 };
 
+const selectRowProp = {
+    mode: 'checkbox',
+    bgColor: 'deeppink'
+};
+
 /*
 interface IProps {
     isComplete: boolean;
@@ -115,11 +120,11 @@ class BoardList extends Component {
         const { boardList } = this.state;
 
         return (
-            <BootstrapTable data={boardList} bordered={false} striped hover condensed>
-                <TableHeaderColumn width='50' dataField='address' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
-                <TableHeaderColumn width='100' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
-                <TableHeaderColumn width='100' dataField='content' dataAlign='center'>내용</TableHeaderColumn>
-                <TableHeaderColumn width='50' dataField='createdAt' dataAlign='center'>작성일</TableHeaderColumn>
+            <BootstrapTable data={boardList} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
+                <TableHeaderColumn width='350' dataField='address' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='content' dataAlign='center'>내용</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='createdAt' dataAlign='center'>작성일</TableHeaderColumn>
             </BootstrapTable>
         );
     }

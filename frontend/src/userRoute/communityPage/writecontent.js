@@ -13,6 +13,8 @@ class WriteDonate extends Component {
       content: '',
     }
 
+    
+
     handleInputChange = (e) => {
         this.setState({
           [e.target.name]: e.target.value,
@@ -27,7 +29,7 @@ class WriteDonate extends Component {
 
     write = () => {
       axios.post("http://localhost:3001/writecontent", {
-        address : sessionStorage.getItem('walletInstance')["address"],
+        address : JSON.parse(sessionStorage.getItem('walletInstance')).address,
         title : this.state.title,
         content: this.state.content,
       })
@@ -41,7 +43,6 @@ class WriteDonate extends Component {
     }
 
     render() {
-        const { title, content } = this.state
         return (
           <div className="wrap">
             <div className="space"></div>
