@@ -2,7 +2,7 @@ import React,{useEffect, Fragment, Component} from "react";
 import disableScroll from 'disable-scroll';
 import isAdmin from "./isAdmin";
 import {useNavigate} from 'react-router-dom';
-import {motion} from "framer-motion/dist/framer-motion"
+// import {motion} from "framer-motion/dist/framer-motion"
 
 //로그인 모달창
 function Modal(props) {
