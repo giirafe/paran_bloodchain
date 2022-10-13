@@ -108,7 +108,7 @@ function Auth(props, ref) {
           <span className="spin"></span>
         </div>
         <div className="button login">
-          <button onClick={handleLogin}>Go<i className="fa fa-check"></i></button>
+          <button onClick={handleLogin}>로그인<i className="fa fa-check"></i></button>
         </div>
       </div>
   )

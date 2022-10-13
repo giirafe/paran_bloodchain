@@ -5,6 +5,7 @@ import * as axios from 'axios'
 import { Form } from 'react-bootstrap'
 import Header from '../../components/layout/header';
 import './writecontent.css';
+import {Link} from 'react-router-dom';
 
 class WriteDonate extends Component {
     state = {
@@ -12,8 +13,6 @@ class WriteDonate extends Component {
       title: '',
       content: '',
     }
-
-    
 
     handleInputChange = (e) => {
         this.setState({
@@ -56,12 +55,16 @@ class WriteDonate extends Component {
               <input className="write-content" name="content" as="textarea" onChange={this.handleInputChange} placeholder="내용을 입력하세요" />
             </div>
 
-            <button
-              className="button login"
-              type="submit"
-              title="글 업로드"
-              onClick={this.write}
-            >글 업로드<i className="fa fa-check"></i></button>
+            <Link to="/community">
+            <div className="button login">
+              <button
+                type="submit"
+                title="글 업로드"
+                onClick={this.write}
+              >작성 완료<i className="fa fa-check"></i></button>
+            </div>
+            </Link>
+            
           </div>
         )
       }

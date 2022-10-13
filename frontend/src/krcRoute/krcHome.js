@@ -7,8 +7,8 @@ import caver from '../klaytn/caver';
 const walletFromSession = sessionStorage.getItem('walletInstance')
 const wallet = JSON.parse(walletFromSession)
 console.log("pk is",wallet);
-const walletInstance = caver.klay.accounts.privateKeyToAccount(wallet.privateKey);
-caver.klay.accounts.wallet.add(walletInstance)
+//const walletInstance = caver.klay.accounts.privateKeyToAccount(wallet.privateKey);
+//caver.klay.accounts.wallet.add(walletInstance)
 console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
 //const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
