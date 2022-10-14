@@ -1,0 +1,28 @@
+.Inquiry_walletaddress {
+    width: 50%;
+    margin: 5px;
+    height: 50px;
+}
+
+.Inquiry_password {
+    width: 50%;
+    margin: 5px;
+    height: 50px;
+}
+
+.UploadPhoto__upload {
+    width: 100%;
+    margin: 5px;
+    height: 50px;
+    
+}
+.Inquiry {
+    margin: 200px;
+    text-align: center;
+}
+
+.UploadPhoto__upload{
+    width: 15%;
+    margin: 10px;
+    height: 60px;
+}

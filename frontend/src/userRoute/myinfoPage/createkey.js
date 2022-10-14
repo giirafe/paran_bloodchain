@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
-
+import './createkey.css'
 
 class Privatekey extends Component {
     state = {
@@ -27,9 +27,9 @@ class Privatekey extends Component {
         return (
             
           <form className="privatekey" onSubmit={this.handleSubmit}>
-
-            <Input
-              className="Privatekey"
+            
+            <input
+              className="Privatekey_css"
               name="privatekey"
               label="조회 키"
               value={privatekey}
@@ -37,7 +37,7 @@ class Privatekey extends Component {
               placeholder="생성할 조회 키 비밀번호를 입력하시오."
               required
             />
-
+          <br/>
             <Button
               className="Certificate__upload"
               type="submit"
