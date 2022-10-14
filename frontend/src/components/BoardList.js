@@ -1,5 +1,5 @@
-import { Component } from "react";
-import React from "react";
+import React, { Component, useState, useEffect } from "react";
+import {Link, useNavigate} from 'react-router-dom';
 import Axios from "axios";
 import './BoardStyle.scss';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
@@ -30,6 +30,7 @@ const selectRowProp = {
     bgColor: 'deeppink'
 };
 
+
 /*
 interface IProps {
     isComplete: boolean;
@@ -40,35 +41,25 @@ interface IProps {
 /**
  * BoardList class
  */
-class BoardList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            boardList: [],
-            checkList: [],
-        }
-    }
-    
-    state = {
-        boardList: [],
-        checkList: [],
-    };
 
-    getList = () => {
+function BoardList() {
+    const [boardLList, setBoardList] = useState([])
+    const [checkList, setCheckList] = useState([])
+
+
+    const getList = () => {
         Axios.get("http://localhost:3001/community", {})
             .then((res) => {
                 const { data } = res;
-                this.setState({
-                    boardList: data,
-                });
+                setBoardList(data)
             })
             .catch((e) => {
                 console.error(e);
             });
     };
 
-    onCheckboxChange = (checked, address) => {
-        const list = this.state.checkList.filter((v) => {
+    const onCheckboxChange = (checked, address) => {
+        const list = checkList.filter((v) => {
             return v != address;
         })
 
@@ -76,20 +67,18 @@ class BoardList extends Component {
             list.push(address);
         }
 
-        this.setState({
-            checkList: list,
-        })
+        setCheckList(list);
     }
 
-    handleDelete = () => {
-        if (this.state.checkList.length == 0) {
+    const handleDelete = () => {
+        if (checkList.length == 0) {
             alert('삭제할 게시글을 선택하세요.');
             return;
         }
 
         let boardAddressList = "";
 
-        this.state.checkList.forEach((v) => {
+        checkList.forEach((v) => {
             boardAddressList += `'${v}',`;
         })
 
@@ -97,7 +86,7 @@ class BoardList extends Component {
             boardAddressList: boardAddressList.substring(0, boardAddressList.length - 1),
         })
         .then(() => {
-            this.getList();
+            getList();
         })
         .catch((e) => {
             console.error(e);
@@ -105,29 +94,34 @@ class BoardList extends Component {
     }
     /**
      */
-    componentDidMount() {
-        this.getList();
-    }
+    useEffect(() => {
+        getList();
+    },[])
 
 
     /**
      * @return {Component} Component
      */
 
-    
-    render() {
-        // eslint-disable-next-line
-        const { boardList } = this.state;
+    // eslint-disable-next-line
+    const navigate = useNavigate();
 
-        return (
-            <BootstrapTable data={boardList} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
-                <TableHeaderColumn width='350' dataField='address' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='content' dataAlign='center'>내용</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='createdAt' dataAlign='center'>작성일</TableHeaderColumn>
-            </BootstrapTable>
-        );
+    const options = {
+        searchPosition: 'left',
+        onRowClick: function(row) {
+            navigate(`${row.address}/${row.title}`, {state:{address:row.address, title:row.title, content:row.content, createdAt:row.createdAt}})
+        }
     }
+
+
+    return (
+        <BootstrapTable data={boardLList} options={options} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
+            <TableHeaderColumn width='350' dataField='address' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='content' dataAlign='center'>내용</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='createdAt' dataAlign='center'>작성일</TableHeaderColumn>
+        </BootstrapTable>
+    );
 }
 
 export default BoardList;
