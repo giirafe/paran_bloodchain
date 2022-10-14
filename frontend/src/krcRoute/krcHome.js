@@ -19,6 +19,7 @@ if (walletFromSession) {
   }
 }
 */
+console.log("klaytn wallet is :", caver.klay.accounts.wallet)
 class NFTminting extends Component {
     state = {
       name: '',
@@ -37,10 +38,11 @@ class NFTminting extends Component {
         })
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault()
         const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
-        mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
+        await mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
+        await window.location.reload();
     }
     //test
     handleClick = (e) => {
@@ -161,17 +163,17 @@ export const mintCertificate = async (
   //추가 mintCert시 필요
   wallet_address,
 ) => {
-  const walletFromSession = sessionStorage.getItem('walletInstance')
-  const wallet = JSON.parse(walletFromSession)
+  //const walletFromSession = sessionStorage.getItem('walletInstance')
+  //const wallet = JSON.parse(walletFromSession)
   //처음 로그인하면 되는데 페이지 F5누르면 wallet account가 사라짐
-  /*
+  
     const walletFromSession = sessionStorage.getItem('walletInstance')
     const wallet = JSON.parse(walletFromSession)
     console.log("pk is",wallet);
     const walletInstance = caver.klay.accounts.privateKeyToAccount(wallet.privateKey);
     caver.klay.accounts.wallet.add(walletInstance)
     console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
-  */
+  
   //wallet instance 없음
     const before_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
     console.log("before cert length: ", before_cert_length);
