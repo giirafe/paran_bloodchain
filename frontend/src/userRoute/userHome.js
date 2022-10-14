@@ -2,25 +2,60 @@ import '../App.css';
 import Header from '../components/layout/header';
 import {useNavigate} from 'react-router-dom';
 import './userHome.css';
-import React, { Component } from 'react'
+import React, {useState, Component } from 'react'
+import caver from '../klaytn/caver';
+import BloodContract from '../components/BloodContract';
 
-class Home extends Component {
+function Home() {
+    var [name, setName] = useState("");
+    var [id, setId] = useState("");
+    var [donateType, setDonateType] = useState("");
+    var [date, setDate] = useState("");
+    var [length, setLength] = useState(0);
 
+    console.log("klaytn wallet is :", caver.klay.accounts.wallet)
+    const walletFromSession = sessionStorage.getItem('walletInstance')
+    const wallet = JSON.parse(walletFromSession)
     
-    render() {
-        return (
-            <section>
+    const getLength = async() => {
+        var cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
+        cert_length = parseInt(cert_length);
+        console.log("length: ",cert_length);
+        
+        setLength(length = cert_length);
+        
+    }
+    
+    const getCertdata = async () => {
+        await getLength();
+        var length_max = length - 1;
+        const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
+        console.log("cert is :",cert);
+        const cert_data = await cert;
+        console.log("cert data is :",cert_data);
+        setName(name = cert_data.get_name);
+        setId(id = cert_data.get_id);
+        setDonateType(donateType = cert_data.get_donateType);
+        setDate(date = cert_data.get_date);
+        console.log("cycle done");
+
+    }
+    getCertdata();
+    console.log("state: ", name);
+
+    return(
+        <section>
             <Header/>
             <div className="card">
                 <div className="front">
-                    홍길동님의 헌혈증명서
+                    {name}님의 헌혈증명서
                 </div>
                 <div className="back">
-                    발급번호 : 101
+                    발급번호 : {id}
                     <br/>
-                    헌혈 종류 : 전혈 헌혈
+                    헌혈 종류 : {donateType}
                     <br/>
-                    헌혈 일자 : 2022-09-04
+                    헌혈 일자 : {date}
                     <br/>
                     혈액원명 : 경기남부혈액원
                     <br/>
@@ -30,7 +65,7 @@ class Home extends Component {
             </div>
         </section>
         )
-      }
 }
+
 
 export default Home;
