@@ -86,6 +86,8 @@ function App() {
       <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} /> 
       <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
+      <Route path='/createkey' element={isAdmin() ? <Createkey /> : <Forbidden />} />
+
       <Route path='/*' element={<NotFound />} />
     </Routes>
     <div>

@@ -3,6 +3,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
+import './krcHome.scss'
 
 const walletFromSession = sessionStorage.getItem('walletInstance')
 const wallet = JSON.parse(walletFromSession)
@@ -56,8 +57,10 @@ class NFTminting extends Component {
         return (
             
           <form className="NFTminting" onSubmit={this.handleSubmit}>
-            <Input
-              className="NFTminting_name"
+            <label>헌혈증명서 발행</label>
+            <br/>
+            <input
+              className="NFTminting_css"
               name="name"
               label="헌혈자 이름"
               value={name}
@@ -66,8 +69,8 @@ class NFTminting extends Component {
               required
             />
             
-            <Input
-              className="NFTminting_id"
+            <input
+              className="NFTminting_css"
               name="id"
               label="주민등록번호"
               value={id}
@@ -76,8 +79,8 @@ class NFTminting extends Component {
               required
             />
             
-            <Input
-              className="NFTminting_bloodType"
+            <input
+              className="NFTminting_css"
               name="bloodType"
               label="혈액형"
               value={bloodType}
@@ -86,8 +89,8 @@ class NFTminting extends Component {
               required
             />
 
-            <Input
-              className="NFTminting_home_address"
+            <input
+              className="NFTminting_css"
               name="home_address"
               label="주소"
               value={home_address}
@@ -96,8 +99,8 @@ class NFTminting extends Component {
               required
             />
 
-            <Input
-              className="NFTminting_certificateNum"
+            <input
+              className="NFTminting_css"
               name="certificateNum"
               label="증명서 번호"
               value={certificateNum}
@@ -106,8 +109,8 @@ class NFTminting extends Component {
               required
             />
 
-            <Input
-              className="NFTminting_donateType"
+            <input
+              className="NFTminting_css"
               name="donateType"
               label="헌혈 종류"
               value={donateType}
@@ -116,8 +119,8 @@ class NFTminting extends Component {
               required
             />
 
-            <Input
-              className="NFTminting_date"
+            <input
+              className="NFTminting_css"
               name="date"
               label="날짜"
               value={date}
@@ -125,9 +128,9 @@ class NFTminting extends Component {
               placeholder="오늘 날짜를 입력하시오."
               required
             />
-
-            <Input
-              className="NFTminting_wallet_address"
+            <br/>
+            <input
+              className="NFTminting_css"
               name="wallet_address"
               label="지갑 주소"
               value={wallet_address}
@@ -135,13 +138,12 @@ class NFTminting extends Component {
               placeholder="지갑 주소를 입력하시오."
               required
             />
-
+            <br/>
             <Button
               className="Certificate__upload"
               type="submit"
               title="헌혈증명서 업로드"
             />
-            <button name="버튼" onClick={this.handleClick}>버튼버튼버튼</button>
           </form>
         )
       }

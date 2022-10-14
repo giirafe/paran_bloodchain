@@ -48,7 +48,7 @@ class WriteDonate extends Component {
             <Header/>
             <div class="Write">
               <label>제목</label>
-              <input className="write-title" name="title" type="text" onChange={this.handleInputChange} placeholder="제목을입력하세요" />
+              <input className="write-title" name="title" type="text" onChange={this.handleInputChange} placeholder="제목을 입력하세요" />
               <br/>
               <br/>
               <label>내용</label>
