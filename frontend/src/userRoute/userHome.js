@@ -2,7 +2,9 @@ import '../App.css';
 import Header from '../components/layout/header';
 import {useNavigate} from 'react-router-dom';
 import './userHome.css';
-import React, { Component } from 'react'
+import React, {useState, Component } from 'react'
+import caver from '../klaytn/caver';
+import BloodContract from '../components/BloodContract';
 
 function Home() {
     var [name, setName] = useState("");
@@ -12,9 +14,11 @@ function Home() {
     var [length, setLength] = useState(0);
 
     console.log("klaytn wallet is :", caver.klay.accounts.wallet)
+    const walletFromSession = sessionStorage.getItem('walletInstance')
+    const wallet = JSON.parse(walletFromSession)
     
     const getLength = async() => {
-        var cert_length = await BloodContract.methods.user_CertLength(send_address).call()
+        var cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
         cert_length = parseInt(cert_length);
         console.log("length: ",cert_length);
         
@@ -25,7 +29,7 @@ function Home() {
     const getCertdata = async () => {
         await getLength();
         var length_max = length - 1;
-        const cert = BloodContract.methods.InquiryTo(send_address,1234,length_max).call()
+        const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
         console.log("cert is :",cert);
         const cert_data = await cert;
         console.log("cert data is :",cert_data);
