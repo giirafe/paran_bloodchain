@@ -15,6 +15,9 @@ function Home() {
     const send_address = wallet_session();
     
     var [name, setName] = useState("");
+    var [id, setId] = useState("");
+    var [donateType, setDonateType] = useState("");
+    var [date, setDate] = useState("");
     var [length, setLength] = useState(0);
 
     console.log("klaytn wallet is :", caver.klay.accounts.wallet)
@@ -36,6 +39,9 @@ function Home() {
         const cert_data = await cert;
         console.log("cert data is :",cert_data);
         setName(name = cert_data.get_name);
+        setId(id = cert_data.get_id);
+        setDonateType(donateType = cert_data.get_donateType);
+        setDate(date = cert_data.get_date);
         console.log("cycle done");
 
     }
@@ -53,11 +59,11 @@ function Home() {
                     {name}님의 헌혈증명서
                 </div>
                 <div className="back">
-                    발급번호 : 101
+                    발급번호 : {id}
                     <br/>
-                    헌혈 종류 : 전혈 헌혈
+                    헌혈 종류 : {donateType}
                     <br/>
-                    헌혈 일자 : 2022-09-04
+                    헌혈 일자 : {date}
                     <br/>
                     혈액원명 : 경기남부혈액원
                     <br/>
