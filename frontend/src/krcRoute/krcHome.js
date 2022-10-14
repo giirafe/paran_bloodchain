@@ -163,8 +163,11 @@ export const mintCertificate = async (
   //추가 mintCert시 필요
   wallet_address,
 ) => {
-  const walletFromSession = sessionStorage.getItem('walletInstance')
-  const wallet = JSON.parse(walletFromSession)
+
+  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+  const wallet = walletInstance;
+  // const walletFromSession = sessionStorage.getItem('walletInstance')
+  // const wallet = JSON.parse(walletFromSession)
   //처음 로그인하면 되는데 페이지 F5누르면 wallet account가 사라짐
   /*
     const walletFromSession = sessionStorage.getItem('walletInstance')
