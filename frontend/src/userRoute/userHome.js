@@ -18,6 +18,8 @@ function Home() {
     const wallet = JSON.parse(walletFromSession)
     
     const getLength = async() => {
+        const acc_balance = await BloodContract.methods.balances(wallet.address).call();
+        console.log("Account Balance is : " , acc_balance);
         var cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
         cert_length = parseInt(cert_length);
         console.log("length: ",cert_length);
@@ -32,6 +34,7 @@ function Home() {
         // console.log("cert is :",cert);
         // const cert_data = await cert;
         // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
+        // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
         const cert_data = await BloodContract.methods.getCertData(wallet.address,0,0).call();
         console.log("Cert is ", cert_data)
         setName(name = cert_data.get_name);

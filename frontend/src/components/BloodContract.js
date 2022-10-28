@@ -7,7 +7,6 @@ import caver from '../klaytn/caver'
  * Now you can access the instance by `this.countContract` variable.
  */
 const DEPLOYED_ABI =[
-	[
 		{
 			"constant": false,
 			"inputs": [
@@ -410,7 +409,6 @@ const DEPLOYED_ABI =[
 			"stateMutability": "view",
 			"type": "function"
 		}
-	]
 ]
 const DEPLOYED_ADDRESS = '0x8484963d1706587805389f352Daa0748830716Db'
  
