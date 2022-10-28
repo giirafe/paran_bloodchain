@@ -1,10 +1,31 @@
-import React from 'react';
+import React, {useState, Component} from 'react';
 import { FullPage, Slide } from 'react-full-page';
 import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import MaterialTable from '../MaterialTable';
+import caver from '../../klaytn/caver';
+import BloodContract from '../../components/BloodContract';
 
-function myinfo() {
+function Myinfo() {
+    var [name, setName] = useState("");
+    var [id, setId] = useState("");
+    var [donateType, setDonateType] = useState("");
+    var [date, setDate] = useState("");
+    var [length, setLength] = useState(0);
+    
+    console.log("klaytn wallet is :", caver.klay.accounts.wallet)
+    const walletFromSession = sessionStorage.getItem('walletInstance')
+    const wallet = JSON.parse(walletFromSession)
+    
+    const getLength = async() => {
+        var cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
+        cert_length = parseInt(cert_length);
+        console.log("length: ",cert_length);
+        
+        setLength(length = cert_length);
+        
+    }
+
     return(
         <body>
             <Header/>
@@ -28,4 +49,4 @@ function myinfo() {
     );
 }
 
-export default myinfo;
+export default Myinfo;
