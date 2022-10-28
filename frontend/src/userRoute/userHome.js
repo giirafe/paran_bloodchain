@@ -46,7 +46,6 @@ function Home() {
 
     return(
         <section>
-            <body>
             <Header/>
             <div className="card">
                 <div className="front">
@@ -68,7 +67,6 @@ function Home() {
             </Link>
                 </div>
             </div>
-        </body>
         </section>
         )
 }
