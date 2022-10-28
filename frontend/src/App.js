@@ -41,10 +41,11 @@ import Forbidden from './components/Forbidden';
 import isAdmin from './components/isAdmin';
 import Logout from './components/logout';
 import Caver_Test_Route from './components/myinfo_comp';
-
+import BoardView from './userRoute/communityPage/BoardView';
 import Auth from './components/Auth';
 import RouteIf from './components/RouteIf';
 import caver from './klaytn/caver'
+
 
 function App() {  
 
@@ -90,9 +91,11 @@ function App() {
       <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/createkey' element={isAdmin() ? <Createkey /> : <Forbidden />} />
-      
+
       <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
+
+      <Route path='/community/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
 
       <Route path='/*' element={<NotFound />} />
     </Routes>

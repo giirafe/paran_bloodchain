@@ -55,7 +55,6 @@ class WriteDonate extends Component {
               <input className="write-content" name="content" as="textarea" onChange={this.handleInputChange} placeholder="내용을 입력하세요" />
             </div>
 
-            <Link to="/community">
             <div className="button login">
               <button
                 type="submit"
@@ -63,7 +62,6 @@ class WriteDonate extends Component {
                 onClick={this.write}
               >작성 완료<i className="fa fa-check"></i></button>
             </div>
-            </Link>
             
           </div>
         )
