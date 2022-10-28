@@ -23,16 +23,17 @@ function Home() {
         console.log("length: ",cert_length);
         
         setLength(length = cert_length);
-        
     }
     
     const getCertdata = async () => {
         await getLength();
         var length_max = length - 1;
-        const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-        console.log("cert is :",cert);
-        const cert_data = await cert;
-        console.log("cert data is :",cert_data);
+        // const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
+        // console.log("cert is :",cert);
+        // const cert_data = await cert;
+        // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
+        const cert_data = await BloodContract.methods.getCertData(wallet.address,0,0).call();
+        console.log("Cert is ", cert_data)
         setName(name = cert_data.get_name);
         setId(id = cert_data.get_id);
         setDonateType(donateType = cert_data.get_donateType);
@@ -40,6 +41,7 @@ function Home() {
         console.log("cycle done");
 
     }
+
     getCertdata();
     console.log("state: ", name);
 
