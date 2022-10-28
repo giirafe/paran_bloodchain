@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Main from './main';
 
+
 // Userhome
 import User from './userRoute/userHome';
 
@@ -18,10 +19,12 @@ import Myinfo_comp from './components/myinfo_comp';
 import Createkey from './userRoute/myinfoPage/createkey';
 
 
-// 유저 커뮤니티
+
+// 유저 커뮤니티 
 import Community from './userRoute/communityPage/community';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
+import Donate from './userRoute/communityPage/donate';
 
 // 유저 증서사용
 import Useletter from './userRoute/useletterPage/useletter';
@@ -87,6 +90,8 @@ function App() {
       <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/createkey' element={isAdmin() ? <Createkey /> : <Forbidden />} />
+      <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />
+      <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
 
       <Route path='/*' element={<NotFound />} />
     </Routes>

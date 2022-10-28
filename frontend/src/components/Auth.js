@@ -29,7 +29,7 @@ function Auth() {
     const handleLogin = () => {
         const { accessType, keystore, password, privateKey } = this.state
         console.log('pk: ', privateKey)
-        // Access type2: access through private key
+        // Access type2: acceㅜss through private key
         if (accessType == 'privateKey') {
           this.integrateWallet(privateKey)
           return
