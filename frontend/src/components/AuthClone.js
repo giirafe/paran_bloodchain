@@ -74,6 +74,14 @@ function Auth(props, ref) {
       sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
       console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length)
       console.log(sessionStorage.getItem('auth'))
+
+
+      // Keyring Approach 
+      const keyringInstance = caver.wallet.keyring.createFromPrivateKey(privateKey);
+      caver.wallet.add(keyringInstance);
+      console.log("Keyring Wallet",caver.wallet);
+      // console.log("Keyring List Instance idx[0] : ", caver.wallet);
+
       navigate(`/${sessionStorage.getItem('auth')}`)
       reset()
     } catch (e) {
