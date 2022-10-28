@@ -164,19 +164,21 @@ export const mintCertificate = async (
   wallet_address,
 ) => {
 
-  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-  const wallet = walletInstance;
   // const walletFromSession = sessionStorage.getItem('walletInstance')
   // const wallet = JSON.parse(walletFromSession)
   //처음 로그인하면 되는데 페이지 F5누르면 wallet account가 사라짐
-  /*
-    const walletFromSession = sessionStorage.getItem('walletInstance')
-    const wallet = JSON.parse(walletFromSession)
-    console.log("pk is",wallet);
-    const walletInstance = caver.klay.accounts.privateKeyToAccount(wallet.privateKey);
-    caver.klay.accounts.wallet.add(walletInstance)
-    console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
-  */
+  
+    // const walletFromSession = sessionStorage.getItem('walletInstance')
+    // const wallet = JSON.parse(walletFromSession)
+    // console.log("pk is",wallet);
+    // const walletInstance = caver.klay.accounts.privateKeyToAccount(wallet.privateKey);
+    // caver.klay.accounts.wallet.add(walletInstance)
+    // console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
+  
+  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+  const wallet = walletInstance;
+
+
   //wallet instance 없음
     const before_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
     console.log("before cert length: ", before_cert_length);

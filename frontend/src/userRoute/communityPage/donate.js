@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './useletter.css';
+import './donate.css';
 import Button from '../../components/Button'
 
 class Donate extends Component {
@@ -36,7 +36,7 @@ class Donate extends Component {
             required
           />
           <br/>
-          <label>사용 개수</label>
+          <label>기부 개수</label>
           <br/>
           <input
             className="Donate_count"
@@ -50,7 +50,7 @@ class Donate extends Component {
           <Button
             className="UploadPhoto__upload"
             type="submit"
-            title="사용"
+            title="기부"
           />
         </form>
                     

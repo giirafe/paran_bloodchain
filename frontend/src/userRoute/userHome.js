@@ -6,6 +6,8 @@ import React, {useState, Component } from 'react'
 import caver from '../klaytn/caver';
 import BloodContract from '../components/BloodContract';
 
+import { Link } from 'react-router-dom';
+
 function Home() {
     var [name, setName] = useState("");
     var [id, setId] = useState("");
@@ -64,8 +66,11 @@ function Home() {
                     <br/>
                     혈액원명 : 경기남부혈액원
                     <br/>
-                    헌혈 가능일까지 17일 남았습니다.   
-                    <button className="submain-btn" >조회키 제공</button>
+                    헌혈 가능일까지 17일 남았습니다.
+
+            <Link to ="/providekey">
+                <button className="submain-btn" >조회키 제공</button>
+            </Link>
                 </div>
             </div>
         </section>

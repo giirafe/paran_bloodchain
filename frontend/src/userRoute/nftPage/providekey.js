@@ -54,7 +54,6 @@ class Providekey extends Component {
               type="submit"
               title="헌혈증명서 조회 키 제공"
             />
-            <button name="버튼" onClick={this.handleClick}>버튼</button>
           </form>
         )
       }
