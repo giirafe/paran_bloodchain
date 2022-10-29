@@ -7,7 +7,7 @@ import caver from '../../klaytn/caver';
 import BloodContract from '../../components/BloodContract';
 
 function Myinfo() {
-    var [record, setRecord] = useState({})
+    var [record, setRecord] = useState([])
     //배열 state를 이용해볼 것.
     var [name, setName] = useState("");
     var [id, setId] = useState("");
@@ -54,17 +54,17 @@ function Myinfo() {
         for (let i = 0; i < length; i++) {    
             await getCertdata(i);
             bloodRecord.push({
-            id: id,
-            name: name,
-            donateType: donateType,
-            date: date,    
+                id: id,
+                name: name,
+                donateType: donateType,
+                date: date,    
             });
         }
         console.log("bloodRecord is ", bloodRecord);
-        setRecord(record = bloodRecord);
     }
     //getCertRecord();
-    console.log("bloodRecord real is ", record);
+    
+    //console.log("bloodRecord real is ", record);
     //const bloodRecords = getCertRecord();
     //console.log("bloodRecords is ", bloodRecords.length);
     /*
