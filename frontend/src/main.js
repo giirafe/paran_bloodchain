@@ -52,7 +52,7 @@ function Main() {
             <Auth/>
           </Modal>)}
             <button className="main-btn" onClick={() => {
-              setType('krcHome')
+              setType('krcMain')
               buttonHandler()
               }}>헌혈 기관</button>
             {signup && (

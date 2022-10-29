@@ -25,12 +25,14 @@ import Community from './userRoute/communityPage/community';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
 import Donate from './userRoute/communityPage/donate';
+import MyWrite from './userRoute/communityPage/myWrite';
 
 // 유저 증서사용
 import Useletter from './userRoute/useletterPage/useletter';
 
 // krcHome
 import Krc from './krcRoute/krcHome';
+import KrcMain from './krcRoute/krcMain';
 
 // Inquiryhome
 import Inquiry from './InquiryRoute/InquiryPage';
@@ -80,7 +82,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Main />} />
       <Route path='/InquiryPage' element={isAdmin() ? <Inquiry /> : <Forbidden />} />
-      <Route path='/krcHome' element={isAdmin() ? <Krc /> : <Forbidden />} />
+      <Route path='/mint' element={isAdmin() ? <Krc /> : <Forbidden />} />
       <Route path='/writecontent' element={isAdmin() ? <Writecontent /> : <Forbidden />} />
       <Route path='/donaterecord' element={isAdmin() ? <Donaterecord /> : <Forbidden />} />     
       <Route path='/user' element={isAdmin() ? <User /> : <Forbidden />} />
@@ -91,16 +93,20 @@ function App() {
       <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/createkey' element={isAdmin() ? <Createkey /> : <Forbidden />} />
-
+      <Route path='/krcMain' element={isAdmin() ? <KrcMain />: <Forbidden />} />
       <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
 
+      <Route path='/community/myWrite' element={isAdmin() ? <MyWrite/>: <Forbidden />} />
       <Route path='/community/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
 
       <Route path='/*' element={<NotFound />} />
     </Routes>
     <div>
       <BlockNumber />
+    </div>
+    <div>
+      <Logout/>
     </div>
   </BrowserRouter>
 
