@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import './useletter.css';
 import Button from '../../components/Button'
+import caver from '../../klaytn/caver';
+import BloodContract from '../../components/BloodContract';
+import { type } from '@testing-library/user-event/dist/type';
 
+console.log("klaytn wallet is :", caver.klay.accounts.wallet)
 class Donate extends Component {
   state = {
-    walletaddress: '',
+    walletTo: '',
     count : '',
   }
 
@@ -12,16 +16,20 @@ class Donate extends Component {
       this.setState({
         [e.target.name]: e.target.value,
       })
+      
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
       e.preventDefault()
-      const { walletaddress, count } = this.state
-      this.props.WriteDonate(walletaddress, count)
+      const { walletTo, count } = this.state
+      await donateBalance(walletTo, count);
+      await window.location.reload();
+      //this.props.WriteDonate(walletaddress, count)
   }
+
 
   render() {
-      const { walletaddress, count } = this.state
+      const { walletTo, count } = this.state
       return (
         
         <form className="Donate" onSubmit={this.handleSubmit}>
@@ -29,8 +37,8 @@ class Donate extends Component {
           <br/>
           <input
             className="Donate_walletaddress"
-            name="walletaddress"
-            value={walletaddress}
+            name="walletTo"
+            value={walletTo}
             onChange={this.handleInputChange}
             placeholder="상대방의 지갑 주소를 입력하세요."
             required
@@ -53,11 +61,34 @@ class Donate extends Component {
             title="사용"
           />
         </form>
-                    
+        
 
       )
       
     }
 }
+export const wallet_session = () => {
+  const data = JSON.parse(sessionStorage.getItem("walletInstance"));
+  console.log(data.address);
+  return data.address // 세션 스토리지 address값반환
+}
 
+export const donateBalance = async(
+  walletTo,
+  count
+) => {
+  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+  const wallet = walletInstance;
+  const wallet_From = wallet_session();
+  console.log("wallet_From : ",wallet_From);
+  console.log("walletTo : ",walletTo);
+  console.log("wallet.address is  : ",wallet.address);
+  
+  await BloodContract.methods.transferFrom(wallet_From,walletTo,count).send({
+    from: wallet.address,
+    gas: '200000000',
+  });
+
+  console.log("cycle done");
+}
 export default Donate
