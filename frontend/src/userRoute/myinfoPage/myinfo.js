@@ -62,7 +62,7 @@ function Myinfo() {
         }
         console.log("bloodRecord is ", bloodRecord);
     }
-    //getCertRecord();
+    getCertRecord();
     
     //console.log("bloodRecord real is ", record);
     //const bloodRecords = getCertRecord();

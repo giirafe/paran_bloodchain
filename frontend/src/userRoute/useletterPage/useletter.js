@@ -16,7 +16,6 @@ class Donate extends Component {
       this.setState({
         [e.target.name]: e.target.value,
       })
-      
   }
 
   handleSubmit = async (e) => {
@@ -77,14 +76,26 @@ export const donateBalance = async(
   walletTo,
   count
 ) => {
+  /*
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
   const wallet = walletInstance;
   const wallet_From = wallet_session();
+
   console.log("wallet_From : ",wallet_From);
   console.log("walletTo : ",walletTo);
   console.log("wallet.address is  : ",wallet.address);
   
-  await BloodContract.methods.transferFrom(wallet_From,walletTo,count).send({
+  */
+ 
+  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+  const wallet = walletInstance;
+  /*
+  console.log("klaytn wallet is :", caver.klay.accounts.wallet)
+  const walletFromSession = sessionStorage.getItem('walletInstance')
+  const wallet = JSON.parse(walletFromSession)
+  */
+  console.log("wallet data is ", wallet);
+  await BloodContract.methods.transferFrom(wallet.address,walletTo,count).send({
     from: wallet.address,
     gas: '200000000',
   });
