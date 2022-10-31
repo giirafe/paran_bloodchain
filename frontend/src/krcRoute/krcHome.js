@@ -151,7 +151,6 @@ export const wallet_session = () => {
   return data.address // 세션 스토리지 address값반환
 }
 
-
 export const mintCertificate = async (
   name,
   id,
@@ -176,12 +175,15 @@ export const mintCertificate = async (
     // console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
   
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-  const wallet = walletInstance;
+  // const wallet = walletInstance;
 
 
   //wallet instance 없음
     const before_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
+
     console.log("before cert length: ", before_cert_length);
+
+    // minting with wallet (not keyring)
     await BloodContract.methods.createCertificate(
       name,
       id,
@@ -190,16 +192,42 @@ export const mintCertificate = async (
       certificateNum,
       donateType,
       date).send({
-        from: wallet.address,// 보내는 사람 주소
+        from: walletInstance.address,// 보내는 사람 주소
         gas: '200000000',
       })
     console.log("dummy");
     
     await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
-      from: wallet.address,// 보내는 사람 주소
+      from: walletInstance.address,// 보내는 사람 주소
       gas: '200000000',
     })
     console.log("mint");
+
+    // ----------------------------
+    // keyring approach
+
+    const keyringInstance = JSON.parse(sessionStorage.getItem("keyringInstance"));
+    // const keyringInstance = caver.wallet;
+    console.log("keyringInstance Data from : ",keyringInstance[0].address);
+    
+    const executionTx = await BloodContract.sign({
+      from: keyringInstance.address,
+      feeDelegation: true,
+      gas: 3000000,
+    }, 'createCertificate',
+      name,
+      id,
+      bloodType,
+      home_address,
+      certificateNum,
+      donateType,
+      date)
+
+    console.log(`Deployer signed transaction: `)
+    console.log(executionTx)
+
+    // await caver.wallet.signAsFeePayer(feePayerKeyring.address, executionTx) // Signs the transaction as a fee payer
+    // const setResult = await caver.rpc.klay.sendRawTransaction(executionTx)
     
     const after_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
     console.log("after cert length: ", after_cert_length);

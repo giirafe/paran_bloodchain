@@ -76,11 +76,13 @@ function Auth(props, ref) {
       console.log(sessionStorage.getItem('auth'))
 
 
-      // Keyring Approach 
-      const keyringInstance = caver.wallet.keyring.createFromPrivateKey(privateKey);
-      caver.wallet.add(keyringInstance);
-      console.log("Keyring Wallet",caver.wallet);
-      // console.log("Keyring List Instance idx[0] : ", caver.wallet);
+      // // Keyring Approach => 사용자가 아닌 FeePayer로 keyring을 생성하여 FeeDelegation 담당~
+      // const keyringInstance = caver.wallet.keyring.createFromPrivateKey(privateKey);
+      // caver.wallet.add(keyringInstance);
+      // // 예제 확인해보니까 keyringInstance로 직접 ex) from : keyringInstance.address 의 형식으로 사용한다.
+      // console.log("Keyring Wallet",caver.wallet);
+      // // console.log("Keyring List Instance idx[0] : ", caver.wallet);
+      // sessionStorage.setItem('keyringInstance',JSON.stringify(keyringInstance));
 
       navigate(`/${sessionStorage.getItem('auth')}`)
       reset()
