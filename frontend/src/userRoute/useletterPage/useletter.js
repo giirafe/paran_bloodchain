@@ -16,13 +16,16 @@ class Donate extends Component {
       this.setState({
         [e.target.name]: e.target.value,
       })
+      const { walletTo, count } = this.state
+      //parseInt(count);
+      //console.log("count is : ", typeof(count));
   }
 
   handleSubmit = async (e) => {
       e.preventDefault()
       const { walletTo, count } = this.state
       await donateBalance(walletTo, count);
-      await window.location.reload();
+      //await window.location.reload();
       //this.props.WriteDonate(walletaddress, count)
   }
 
@@ -98,12 +101,20 @@ export const donateBalance = async(
   const walletFromSession = sessionStorage.getItem('walletInstance')
   const wallet = JSON.parse(walletFromSession)
   */
+  const before_cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
+  console.log("before cert length: ", before_cert_length);
+  
+  const count1 = parseInt(count);
+  console.log("count is : ", typeof(count1));
 
-  await BloodContract.methods.transferFrom(wallet.address, walletTo, count).send({
+  await BloodContract.methods.transferFrom(wallet.address, walletTo, count1).send({
     from: wallet.address,
     gas: '200000000',
   });
 
+  const after_cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
+  console.log("after cert length: ", after_cert_length);
+    
   console.log("cycle done");
 }
 export default Donate
