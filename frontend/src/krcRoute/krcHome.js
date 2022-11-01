@@ -178,7 +178,6 @@ export const mintCertificate = async (
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
   const wallet = walletInstance;
 
-
   //wallet instance 없음
     const before_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
     console.log("before cert length: ", before_cert_length);

@@ -9,7 +9,7 @@ console.log("klaytn wallet is :", caver.klay.accounts.wallet)
 class Donate extends Component {
   state = {
     walletTo: '',
-    count : '',
+    count : 0,
   }
 
   handleInputChange = (e) => {
@@ -69,7 +69,7 @@ class Donate extends Component {
 export const wallet_session = () => {
   const data = JSON.parse(sessionStorage.getItem("walletInstance"));
   console.log(data.address);
-  return data.address // 세션 스토리지 address값반환
+  return data // 세션 스토리지 address값반환
 }
 
 export const donateBalance = async(
@@ -86,16 +86,20 @@ export const donateBalance = async(
   console.log("wallet.address is  : ",wallet.address);
   
   */
- 
+  const jsonWallet = wallet_session();
+  const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
+  caver.klay.accounts.wallet.add(wallet)
+  /*
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
   const wallet = walletInstance;
+  */
   /*
   console.log("klaytn wallet is :", caver.klay.accounts.wallet)
   const walletFromSession = sessionStorage.getItem('walletInstance')
   const wallet = JSON.parse(walletFromSession)
   */
-  console.log("wallet data is ", wallet);
-  await BloodContract.methods.transferFrom(wallet.address,walletTo,count).send({
+
+  await BloodContract.methods.transferFrom(wallet.address, walletTo, count).send({
     from: wallet.address,
     gas: '200000000',
   });
