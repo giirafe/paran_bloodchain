@@ -1,10 +1,10 @@
-import React, {useState, Component} from 'react';
-import { FullPage, Slide } from 'react-full-page';
+import React, {useState, Component, useEffect} from 'react';
 import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import MaterialTable from '../MaterialTable';
 import caver from '../../klaytn/caver';
 import BloodContract from '../../components/BloodContract';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 function Myinfo() {
     var [record, setRecord] = useState([])
@@ -13,7 +13,8 @@ function Myinfo() {
     var [id, setId] = useState("");
     var [donateType, setDonateType] = useState("");
     var [date, setDate] = useState("");
-    var [length, setLength] = useState(0);
+    const [length, setLength] = useState(0);
+    var [bloodRecord, setBloodRecord] = useState([])
     
     //console.log("klaytn wallet is :", caver.klay.accounts.wallet)
     const walletFromSession = sessionStorage.getItem('walletInstance')
@@ -26,10 +27,10 @@ function Myinfo() {
         cert_length = parseInt(cert_length);
         //console.log("length: ",cert_length);
         
-        setLength(length = cert_length);
+        setLength(cert_length);
     }
 
-    const getCertdata = async (i) => {
+    const getCertdata = async () => {
         //await getLength();
         var length_max = length - 1;
         // const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
@@ -37,20 +38,19 @@ function Myinfo() {
         // const cert_data = await cert;
         // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
         // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(wallet.address,i,0).call();
+        const cert_data = await BloodContract.methods.getCertData(wallet.address,length_max,0).call();
         //console.log("Cert is ", cert_data)
-        setName(name = cert_data.get_name);
-        setId(id = cert_data.get_id);
-        setDonateType(donateType = cert_data.get_donateType);
-        setDate(date = cert_data.get_date);
+        setName(cert_data.get_name);
+        setId(cert_data.get_id);
+        setDonateType(cert_data.get_donateType);
+        setDate(cert_data.get_date);
         //console.log("cycle done");
-
     }
     
     
     const getCertRecord = async() => {
         await getLength();
-        const bloodRecord = [length];
+        bloodRecord = [length];
         for (let i = 0; i < length; i++) {    
             await getCertdata(i);
             bloodRecord.push({
@@ -60,9 +60,19 @@ function Myinfo() {
                 date: date,    
             });
         }
+        
         console.log("bloodRecord is ", bloodRecord);
+        return (
+            <div>
+                {bloodRecord}
+            </div>
+        )
     }
+
     getCertRecord();
+    
+    
+
     
     //console.log("bloodRecord real is ", record);
     //const bloodRecords = getCertRecord();

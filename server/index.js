@@ -30,6 +30,15 @@ const getPosts = async (req, res) => {
   }
 };
 
+const searchPost = async(req, res) => {
+  try {
+    const myData = await PostMessage.find({"address": req.query.address});
+    res.status(200).json(myData);
+  } catch (err) {
+    res.status(404).json({message: err.message});
+  }
+}
+
 const createPost = async (req, res) => {
   const post = req.body;
 
@@ -92,6 +101,7 @@ const updateLike = async (req, res) => {
 app.get("/community", getPosts);
 app.post("/writecontent", createPost);
 app.post("/delete", deletePost);
+app.get("/search", searchPost);
 
 
 router.patch("/:id", updatePost);

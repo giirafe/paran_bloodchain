@@ -22,6 +22,35 @@ function Main() {
     sessionStorage.setItem('auth', type)
   }
 
+  const counter = ($counter, max) => {
+    let now = max;
+  
+    const handle = setInterval(() => {
+      $counter.innerHTML = Math.ceil(max - now);
+    
+      // 목표수치에 도달하면 정지
+      if (now < 1) {
+        clearInterval(handle);
+      }
+      
+      // 증가되는 값이 계속하여 작아짐
+      const step = now / 10;
+      
+      // 값을 적용시키면서 다음 차례에 영향을 끼침
+      now -= step;
+    }, 50);
+  }
+  
+  window.onload = () => {
+    // 카운트를 적용시킬 요소
+    const $counter = document.querySelector(".count");
+    
+    // 목표 수치
+    const max = 8233;
+    
+    setTimeout(() => counter($counter, max), 2000);
+  }
+
   return (
     <div className="wrap">
       <div className="iconBox">
@@ -31,7 +60,7 @@ function Main() {
       <div className="mainBox">
         <div className="slogan">
           <h2>헌혈자 수 누계</h2>
-          <h2 className="num">8,232</h2>
+          <h2 className="count">0</h2>
           <h2>헌혈로 세상의 가치를 잇다.</h2>
         </div>
         <div className='btn-box'>

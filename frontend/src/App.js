@@ -99,6 +99,7 @@ function App() {
 
       <Route path='/community/myWrite' element={isAdmin() ? <MyWrite/>: <Forbidden />} />
       <Route path='/community/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
+      <Route path='/community/myWrite/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
 
       <Route path='/*' element={<NotFound />} />
     </Routes>
