@@ -22,10 +22,11 @@ const postSchema = mongoose.Schema({
     }
 }, {timestamps:true})
 
+postSchema.index({address: 'text'})
+
 const UserSchema = mongoose.Schema({
     address: String
 });
-
 
 const PostMessage = mongoose.model('datalist', postSchema);
 const User = mongoose.model('User', UserSchema);
