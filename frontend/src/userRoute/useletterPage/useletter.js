@@ -25,7 +25,7 @@ class Donate extends Component {
       e.preventDefault()
       const { walletTo, count } = this.state
       await donateBalance(walletTo, count);
-      //await window.location.reload();
+      await window.location.reload();
       //this.props.WriteDonate(walletaddress, count)
   }
 
@@ -101,10 +101,10 @@ export const donateBalance = async(
   const walletFromSession = sessionStorage.getItem('walletInstance')
   const wallet = JSON.parse(walletFromSession)
   */
-  const before_cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
-  console.log("before cert length: ", before_cert_length);
+  const before_balance = await BloodContract.methods.balances(wallet.address).call();
+  console.log("before_balance: ", before_balance);
   
-  const count1 = parseInt(count);
+  const count1 = await parseInt(count);
   console.log("count is : ", typeof(count1));
 
   await BloodContract.methods.transferFrom(wallet.address, walletTo, count1).send({
@@ -112,8 +112,8 @@ export const donateBalance = async(
     gas: '200000000',
   });
 
-  const after_cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
-  console.log("after cert length: ", after_cert_length);
+  const after_balance = await BloodContract.methods.balances(wallet.address).call()
+  console.log("after_balance: ", after_balance);
     
   console.log("cycle done");
 }
