@@ -9,7 +9,7 @@ console.log("klaytn wallet is :", caver.klay.accounts.wallet)
 class Donate extends Component {
   state = {
     walletTo: '',
-    count : 0,
+    count : '',
   }
 
   handleInputChange = (e) => {
@@ -79,28 +79,16 @@ export const donateBalance = async(
   walletTo,
   count
 ) => {
-  /*
-  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-  const wallet = walletInstance;
-  const wallet_From = wallet_session();
-
-  console.log("wallet_From : ",wallet_From);
-  console.log("walletTo : ",walletTo);
-  console.log("wallet.address is  : ",wallet.address);
   
-  */
   const jsonWallet = wallet_session();
   const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
   caver.klay.accounts.wallet.add(wallet)
+  
   /*
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
   const wallet = walletInstance;
   */
-  /*
-  console.log("klaytn wallet is :", caver.klay.accounts.wallet)
-  const walletFromSession = sessionStorage.getItem('walletInstance')
-  const wallet = JSON.parse(walletFromSession)
-  */
+  
   const before_balance = await BloodContract.methods.balances(wallet.address).call();
   console.log("before_balance: ", before_balance);
   
@@ -114,7 +102,11 @@ export const donateBalance = async(
 
   const after_balance = await BloodContract.methods.balances(wallet.address).call()
   console.log("after_balance: ", after_balance);
-    
+  
+  await caver.klay.accounts.wallet.clear()
+
   console.log("cycle done");
+
+  
 }
 export default Donate

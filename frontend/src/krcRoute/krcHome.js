@@ -148,7 +148,7 @@ class NFTminting extends Component {
 export const wallet_session = () => {
   const data = JSON.parse(sessionStorage.getItem("walletInstance"));
   console.log(data.address);
-  return data.address // 세션 스토리지 address값반환
+  return data // 세션 스토리지 address값반환
 }
 
 
@@ -163,22 +163,16 @@ export const mintCertificate = async (
   //추가 mintCert시 필요
   wallet_address,
 ) => {
-
-  // const walletFromSession = sessionStorage.getItem('walletInstance')
-  // const wallet = JSON.parse(walletFromSession)
-  //처음 로그인하면 되는데 페이지 F5누르면 wallet account가 사라짐
   
-    // const walletFromSession = sessionStorage.getItem('walletInstance')
-    // const wallet = JSON.parse(walletFromSession)
-    // console.log("pk is",wallet);
-    // const walletInstance = caver.klay.accounts.privateKeyToAccount(wallet.privateKey);
-    // caver.klay.accounts.wallet.add(walletInstance)
-    // console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
+  const jsonWallet = wallet_session();
+  const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
+  caver.klay.accounts.wallet.add(wallet)
   
+  /*
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
   const wallet = walletInstance;
-
-  //wallet instance 없음
+  */
+  
     const before_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
     console.log("before cert length: ", before_cert_length);
     await BloodContract.methods.createCertificate(
@@ -202,7 +196,9 @@ export const mintCertificate = async (
     
     const after_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
     console.log("after cert length: ", after_cert_length);
-    
+
+    await caver.klay.accounts.wallet.clear()
+    console.log("cycle done");
 }
 
 export default NFTminting
