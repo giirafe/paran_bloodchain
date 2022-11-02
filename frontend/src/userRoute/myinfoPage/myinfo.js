@@ -1,4 +1,4 @@
-import React, {useState, Component, useEffect} from 'react';
+import React, {useState, Component, useEffect, Suspense} from 'react';
 import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import MaterialTable from '../MaterialTable';
@@ -15,6 +15,7 @@ function Myinfo() {
     var [date, setDate] = useState("");
     const [length, setLength] = useState(0);
     var [bloodRecord, setBloodRecord] = useState([])
+    const [loading, setLoading] = useState(false);
     
     //console.log("klaytn wallet is :", caver.klay.accounts.wallet)
     const walletFromSession = sessionStorage.getItem('walletInstance')
@@ -48,7 +49,7 @@ function Myinfo() {
     }
     
     
-    const getCertRecord = async() => {
+    const GetCertRecord = async() => {
         await getLength();
         bloodRecord = [length];
         for (let i = 0; i < length; i++) {    
@@ -60,20 +61,16 @@ function Myinfo() {
                 date: date,    
             });
         }
-        
-        console.log("bloodRecord is ", bloodRecord);
-        return (
-            <div>
-                {bloodRecord}
-            </div>
-        )
+        console.log(bloodRecord)
+        setLoading(true)
+        setBloodRecord(bloodRecord)
     }
-
-    getCertRecord();
     
-    
+    GetCertRecord();
 
     
+   
+
     //console.log("bloodRecord real is ", record);
     //const bloodRecords = getCertRecord();
     //console.log("bloodRecords is ", bloodRecords.length);
@@ -101,11 +98,20 @@ function Myinfo() {
             </div>
 
             <div className="listNum">
-                <h3 className="num1">3</h3>
-                <h3 className="num2">0</h3>
-                <h3 className="num3">2</h3>
+                <h3 className="num1">{length-1}</h3>
+                <h3 className="num2">아직</h3>
+                <h3 className="num3">안함</h3>
             </div>
-                <MaterialTable />
+
+            
+            <BootstrapTable data={bloodRecord} striped hover condensed pagination>
+            <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='name' dataAlign='center'>제목</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>내용</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='date' dataAlign='center'>작성일</TableHeaderColumn>
+            </BootstrapTable>
+            
+            
 
             <Link to ="/createkey">
             <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
