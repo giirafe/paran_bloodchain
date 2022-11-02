@@ -16,6 +16,9 @@ class Donate extends Component {
       this.setState({
         [e.target.name]: e.target.value,
       })
+      const { walletTo, count } = this.state
+      //parseInt(count);
+      //console.log("count is : ", typeof(count));
   }
 
   handleSubmit = async (e) => {
@@ -69,37 +72,41 @@ class Donate extends Component {
 export const wallet_session = () => {
   const data = JSON.parse(sessionStorage.getItem("walletInstance"));
   console.log(data.address);
-  return data.address // 세션 스토리지 address값반환
+  return data // 세션 스토리지 address값반환
 }
 
 export const donateBalance = async(
   walletTo,
   count
 ) => {
-  /*
-  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-  const wallet = walletInstance;
-  const wallet_From = wallet_session();
-
-  console.log("wallet_From : ",wallet_From);
-  console.log("walletTo : ",walletTo);
-  console.log("wallet.address is  : ",wallet.address);
   
-  */
- 
+  const jsonWallet = wallet_session();
+  const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
+  caver.klay.accounts.wallet.add(wallet)
+  
+  /*
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
   const wallet = walletInstance;
-  /*
-  console.log("klaytn wallet is :", caver.klay.accounts.wallet)
-  const walletFromSession = sessionStorage.getItem('walletInstance')
-  const wallet = JSON.parse(walletFromSession)
   */
-  console.log("wallet data is ", wallet);
-  await BloodContract.methods.transferFrom(wallet.address,walletTo,count).send({
+  
+  const before_balance = await BloodContract.methods.balances(wallet.address).call();
+  console.log("before_balance: ", before_balance);
+  
+  const count1 = await parseInt(count);
+  console.log("count is : ", typeof(count1));
+
+  await BloodContract.methods.transferFrom(wallet.address, walletTo, count1).send({
     from: wallet.address,
     gas: '200000000',
   });
 
+  const after_balance = await BloodContract.methods.balances(wallet.address).call()
+  console.log("after_balance: ", after_balance);
+  
+  await caver.klay.accounts.wallet.clear()
+
   console.log("cycle done");
+
+  
 }
 export default Donate
