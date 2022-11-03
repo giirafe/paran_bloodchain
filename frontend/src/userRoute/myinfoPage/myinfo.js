@@ -15,7 +15,8 @@ function Myinfo() {
     var [date, setDate] = useState("");
     const [length, setLength] = useState(0);
     var [bloodRecord, setBloodRecord] = useState([])
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
+
     
     //console.log("klaytn wallet is :", caver.klay.accounts.wallet)
     const walletFromSession = sessionStorage.getItem('walletInstance')
@@ -53,21 +54,18 @@ function Myinfo() {
         await getLength();
         bloodRecord = [length];
         for (let i = 0; i < length; i++) {    
-            await getCertdata(i);
+            await getCertdata(i).then(
             bloodRecord.push({
                 id: id,
                 name: name,
                 donateType: donateType,
                 date: date,    
-            });
+            }));
         }
-        console.log(bloodRecord)
-        setLoading(true)
         setBloodRecord(bloodRecord)
     }
     
     GetCertRecord();
-
     
    
 
@@ -98,7 +96,7 @@ function Myinfo() {
             </div>
 
             <div className="listNum">
-                <h3 className="num1">{length-1}</h3>
+                <h3 className="num1">{length}</h3>
                 <h3 className="num2">아직</h3>
                 <h3 className="num3">안함</h3>
             </div>

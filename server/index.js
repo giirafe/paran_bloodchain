@@ -51,6 +51,26 @@ const createPost = async (req, res) => {
   }
 };
 
+const deletePost = async (req, res) => {
+  const id = req.query.id;
+  try {
+    await PostMessage.findOneAndDelete({_id: id})
+    res.status(201).json(req.query)
+  } catch(error) {
+    res.status(401).json({message: error.message})
+  }
+  
+
+  /*
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    res.status(404).send("삭제 할수 없습니다.");
+  } else {
+    await PostMessage.findByIdAndRemove(id);
+    console.log(`${id}가 삭제되었습니다.`);
+    res.json({ meessage: "삭제 완료" });
+  }*/
+};
+
 const updatePost = async (req, res) => {
   const { id: _id } = req.params;
   const post = req.body;
@@ -62,18 +82,6 @@ const updatePost = async (req, res) => {
       new: true,
     });
     res.json(updatedPost);
-  }
-};
-
-const deletePost = async (req, res) => {
-  const {id} = req.body;
-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(404).send("삭제 할수 없습니다.");
-  } else {
-    await PostMessage.findByIdAndRemove(id);
-    console.log(`${_id}가 삭제되었습니다.`);
-    res.json({ meessage: "삭제 완료" });
   }
 };
 
@@ -100,7 +108,7 @@ const updateLike = async (req, res) => {
 
 app.get("/community", getPosts);
 app.post("/writecontent", createPost);
-app.post("/delete", deletePost);
+app.delete("/delete", deletePost);
 app.get("/search", searchPost);
 
 
