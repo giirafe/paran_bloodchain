@@ -56,7 +56,6 @@ function BoardList() {
             .catch((e) => {
                 console.error(e);
             });
-        console.log(boardLList)
     };
 
     const onCheckboxChange = (checked, address) => {
