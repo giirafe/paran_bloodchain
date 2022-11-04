@@ -72,7 +72,7 @@ function Auth(props, ref) {
       const userKeyring = caver.wallet.keyring.create(userAddress, privateKey)
       // adding userKeyring to wallet
       const keyringInstance = caver.wallet.add(userKeyring);
-      console.log("Keyring Instance Added to caver.wallet : ");
+      console.log("Keyring Instance Added to caver.wallet : ",caver.wallet[0]);
       sessionStorage.setItem('keyringInstance', JSON.stringify(keyringInstance))
 
       const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)

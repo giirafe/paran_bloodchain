@@ -198,6 +198,18 @@ export const mintCertificate = async (
     console.log("after cert length: ", after_cert_length);
 
     await caver.klay.accounts.wallet.clear()
+
+    
+    // const keyringInstance = caver.wallet[0]
+
+  //   const setResult = await BloodContract.send({
+  //     from: deployerKeyring.address,
+  //     feeDelegation: true,
+  //     feePayer: feePayerKeyring.address,
+  //     feeRatio: 50, // Without feeRatio, `send` will use FeeDelegatedSmartContractExecution
+  //     gas: 1000000,
+  //  }, 'set', keyString, 'anotherValue')
+
     console.log("cycle done");
 }
 
