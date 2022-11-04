@@ -1,11 +1,10 @@
-import React, {useState, Component, useEffect, Suspense} from 'react';
+import React, {useState, Component} from 'react';
+import { FullPage, Slide } from 'react-full-page';
 import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import MaterialTable from '../MaterialTable';
 import caver from '../../klaytn/caver';
 import BloodContract from '../../components/BloodContract';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-
 function Myinfo() {
     var [record, setRecord] = useState([])
     //배열 state를 이용해볼 것.
@@ -16,7 +15,6 @@ function Myinfo() {
     const [length, setLength] = useState(0);
     var [cnt, setCNT] = useState(0);
 
-    
     //console.log("klaytn wallet is :", caver.klay.accounts.wallet)
     const walletFromSession = sessionStorage.getItem('walletInstance')
     const wallet = JSON.parse(walletFromSession)
@@ -38,12 +36,12 @@ function Myinfo() {
         // const cert_data = await cert;
         // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
         // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(wallet.address,length_max,0).call();
+        const cert_data = await BloodContract.methods.getCertData(wallet.address,i,0).call();
         //console.log("Cert is ", cert_data)
-        setName(cert_data.get_name);
-        setId(cert_data.get_id);
-        setDonateType(cert_data.get_donateType);
-        setDate(cert_data.get_date);
+        setName(name = cert_data.get_name);
+        setId(id = cert_data.get_id);
+        setDonateType(donateType = cert_data.get_donateType);
+        setDate(date = cert_data.get_date);
         //console.log("cycle done");
     }*/
     
@@ -113,11 +111,10 @@ function Myinfo() {
                 <h3 className="Name2">기부 받은 횟수</h3>
                 <h3 className="Name3">기부한 횟수</h3>
             </div>
-
             <div className="listNum">
-                <h3 className="num1">{length}</h3>
-                <h3 className="num2">아직</h3>
-                <h3 className="num3">안함</h3>
+                <h3 className="num1">3</h3>
+                <h3 className="num2">0</h3>
+                <h3 className="num3">2</h3>
             </div>
 
             
@@ -136,5 +133,4 @@ function Myinfo() {
         </body>
     );
 }
-
 export default Myinfo;
