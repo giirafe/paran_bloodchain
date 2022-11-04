@@ -14,6 +14,7 @@ function Myinfo() {
     var [donateType, setDonateType] = useState("");
     var [date, setDate] = useState("");
     const [length, setLength] = useState(0);
+    var [cnt, setCNT] = useState(0);
 
     
     //console.log("klaytn wallet is :", caver.klay.accounts.wallet)
@@ -64,7 +65,6 @@ function Myinfo() {
 
     }
 
-    
     const GetCertRecord = async() => {
         await getLength();
         const bloodRecord = [length];
@@ -77,18 +77,13 @@ function Myinfo() {
                 date: date,    
             });
         }
-        //console.log(bloodRecord)
         setRecord(bloodRecord)
-        
-        if (record !== null) {
-            return
-        }
-        console.log(record)
-        //return bloodRecord
+        console.log(bloodRecord)
     }
     
-    GetCertRecord();
-    
+    useEffect(() => {
+        GetCertRecord()
+    },[record.length])
     
     
    //console.log(record[length-1].id)
@@ -127,10 +122,10 @@ function Myinfo() {
 
             
             <BootstrapTable data={record} striped hover condensed pagination>
-            <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='name' dataAlign='center'>제목</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>내용</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='date' dataAlign='center'>작성일</TableHeaderColumn>
+            <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
             </BootstrapTable>
             
             
