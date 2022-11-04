@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import './InquiryPage.css'
+import {Link} from 'react-router-dom';
 
 class Inquiry extends Component {
     state = {
@@ -48,11 +49,9 @@ class Inquiry extends Component {
               required
             />
             <br/>
-            <Button
-              className="UploadPhoto__upload"
-              type="submit"
-              title="조회"
-            />
+            <Link to ="/InquiryPage2">
+            <Button className="UploadPhoto__upload" type="submit" title="조회"/>
+            </Link>
           </form>
                       
   

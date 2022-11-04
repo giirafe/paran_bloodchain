@@ -1,10 +1,11 @@
 import React, {useState, Component} from 'react';
 import { FullPage, Slide } from 'react-full-page';
-import Header from '../../components/layout/header';
+import Header from '../components/layout/header';
 import {Link} from 'react-router-dom';
-import MaterialTable from '../MaterialTable'
-import caver from '../../klaytn/caver';
-import BloodContract from '../../components/BloodContract';
+import MaterialTable from '../userRoute/MaterialTable'
+import caver from '../klaytn/caver';
+import BloodContract from '../components/BloodContract';
+
 function Myinfo() {
     var [record, setRecord] = useState([])
     //배열 state를 이용해볼 것.
@@ -12,8 +13,7 @@ function Myinfo() {
     var [id, setId] = useState("");
     var [donateType, setDonateType] = useState("");
     var [date, setDate] = useState("");
-    const [length, setLength] = useState(0);
-    var [cnt, setCNT] = useState(0);
+    var [length, setLength] = useState(0);
 
     //console.log("klaytn wallet is :", caver.klay.accounts.wallet)
     const walletFromSession = sessionStorage.getItem('walletInstance')
@@ -25,26 +25,10 @@ function Myinfo() {
         var cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
         cert_length = parseInt(cert_length);
         //console.log("length: ",cert_length);
-        setLength(cert_length);
+
+        setLength(length = cert_length);
     }
-    /*
-    const getCertdata = async (i) => {
-        //await getLength();
-        var length_max = length - 1;
-        // const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-        // console.log("cert is :",cert);
-        // const cert_data = await cert;
-        // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-        // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(wallet.address,i,0).call();
-        //console.log("Cert is ", cert_data)
-        setName(name = cert_data.get_name);
-        setId(id = cert_data.get_id);
-        setDonateType(donateType = cert_data.get_donateType);
-        setDate(date = cert_data.get_date);
-        //console.log("cycle done");
-    }*/
-    
+
     const getCertdata = async (i) => {
         //await getLength();
         var length_max = length - 1;
@@ -63,11 +47,12 @@ function Myinfo() {
 
     }
 
-    const GetCertRecord = async() => {
+
+    const getCertRecord = async() => {
         await getLength();
         const bloodRecord = [length];
         for (let i = 0; i < length; i++) {    
-            await getCertdata(i)
+            await getCertdata(i);
             bloodRecord.push({
                 id: id,
                 name: name,
@@ -75,16 +60,9 @@ function Myinfo() {
                 date: date,    
             });
         }
-        setRecord(bloodRecord)
-        console.log(bloodRecord)
+        console.log("bloodRecord is ", bloodRecord);
     }
-    
-    useEffect(() => {
-        GetCertRecord()
-    },[record.length])
-    
-    
-   //console.log(record[length-1].id)
+    getCertRecord();
 
     //console.log("bloodRecord real is ", record);
     //const bloodRecords = getCertRecord();
@@ -105,7 +83,6 @@ function Myinfo() {
     //console.log("bloodRecord length:",bloodRecord);
     return(
         <body>
-            <Header/>
             <div className="list">
                 <h3 className="Name1">기부 가능 횟수</h3>
                 <h3 className="Name2">기부 받은 횟수</h3>
@@ -116,20 +93,8 @@ function Myinfo() {
                 <h3 className="num2">0</h3>
                 <h3 className="num3">2</h3>
             </div>
+                <MaterialTable />
 
-            
-            <BootstrapTable data={record} striped hover condensed pagination>
-            <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
-            </BootstrapTable>
-            
-            
-
-            <Link to ="/createkey">
-            <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
-            </Link>
         </body>
     );
 }
