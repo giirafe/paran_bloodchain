@@ -36,9 +36,10 @@ function Auth(props, ref) {
   /**
    * handleLogin method
    */
-  const handleLogin = () => {
+  const handleLogin = async () => {
     //const { accessType, keystore, password, privateKey } = this.state
     integrateWallet(privateKey)
+    caver.klay.accounts.wallet.clear()
   }
 
   /**
@@ -87,6 +88,7 @@ function Auth(props, ref) {
       console.log(sessionStorage.getItem('auth'))
       navigate(`/${sessionStorage.getItem('auth')}`)
       reset()
+      
     } catch (e) {
       console.log(e)
       alert('개인키를 올바르게 입력하십시오.')
