@@ -18,7 +18,7 @@ class Inquiry extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { walletaddress, password } = this.state
-        this.props.WriteDonate(walletaddress, password)
+        //this.props.WriteDonate(walletaddress, password)
     }
 
     render() {
