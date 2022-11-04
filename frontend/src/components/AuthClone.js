@@ -61,18 +61,29 @@ function Auth(props, ref) {
    const integrateWallet = (privateKey) => {
     try {
       console.log('pk:', privateKey)
+
+      // 기존 wallet.add 가 아닌 Keyring으로 접근해봤다.
+
+      // pubilcKey != Account Address 유의~
+      const userAddress = caver.klay.accounts.privateKeyToAccount(privateKey).address;
+      // caver.klay.accounts.accountKeyToPublicKey(accountKey)
+      console.log("User Address From made with PrivateKey :",userAddress);
+
+      const userKeyring = caver.wallet.keyring.create(userAddress, privateKey)
+      // adding userKeyring to wallet
+      const keyringInstance = caver.wallet.add(userKeyring);
+      console.log("Keyring Instance Added to caver.wallet : ",caver.wallet[0]);
+      sessionStorage.setItem('keyringInstance', JSON.stringify(keyringInstance))
+
       const walletInstance = caver.klay.accounts.privateKeyToAccount(privateKey)
       caver.klay.accounts.wallet.add(walletInstance)
-      // caver.klay.accounts.wallet.add(privateKey);
-      // 기존 wallet.add 가 아닌 Keyring으로 접근해봤다.
-      // caver.wallet.add(caver.wallet.keyring.createFromPrivateKey(privateKey))
-
       console.log("Whole Wallet Instance : ", caver.klay.accounts.wallet)
       console.log("Caver Wallet Access :", caver.klay.accounts.wallet[0])
       // const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
       // //세션에 개인키 저장 후 SC 접근 마다 객체 만드는 어거지
       sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
       console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length)
+
       console.log(sessionStorage.getItem('auth'))
       navigate(`/${sessionStorage.getItem('auth')}`)
       reset()
