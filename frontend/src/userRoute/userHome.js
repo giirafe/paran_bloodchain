@@ -31,19 +31,27 @@ function Home() {
     
     const getCertdata = async () => {
         await getLength();
-        var length_max = length - 1;
-        console.log("length_max", length_max);
-        // const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-        // console.log("cert is :",cert);
-        // const cert_data = await cert;
-        // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-        // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(wallet.address,length_max,0).call();
-        console.log("Cert is ", cert_data)
-        setName(name = cert_data.get_name);
-        setId(id = cert_data.get_id);
-        setDonateType(donateType = cert_data.get_donateType);
-        setDate(date = cert_data.get_date);
+        if(length <1){
+            console.log("User Has No Blood Certificate");
+            setName(name = "NULL");
+            setId(id = "NULL");
+            setDonateType(donateType = "NULL");
+            setDate(date = "NULL");
+        } else{
+            var length_max = length - 1;
+            console.log("length_max", length_max);
+            // const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
+            // console.log("cert is :",cert);
+            // const cert_data = await cert;
+            // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
+            // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
+            const cert_data = await BloodContract.methods.getCertData(wallet.address,length_max,0).call();
+            console.log("Cert is ", cert_data)
+            setName(name = cert_data.get_name);
+            setId(id = cert_data.get_id);
+            setDonateType(donateType = cert_data.get_donateType);
+            setDate(date = cert_data.get_date);
+        }
         console.log("cycle done");
 
     }
