@@ -3,6 +3,7 @@ import Axios from 'axios'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
+import Header from '../../components/layout/header'
 
 var idArray = [];
 
@@ -34,7 +35,6 @@ const selectRowProp = {
 };
 
 function MyWrite () {
-    const navigate = useNavigate();
     const myAddress = JSON.parse(sessionStorage.getItem('walletInstance')).address
     
     const [boardLList, setBoardList] = useState([])
@@ -62,6 +62,14 @@ function MyWrite () {
 
     return (
         <div>
+            <Header />
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <BootstrapTable data={boardLList} deleteRow={true} options={options} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
                 <TableHeaderColumn width='350' dataField='address' dataAlign='center'>주소</TableHeaderColumn>
                 <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>

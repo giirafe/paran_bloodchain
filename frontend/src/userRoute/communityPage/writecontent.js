@@ -44,8 +44,8 @@ class WriteDonate extends Component {
     render() {
         return (
           <div className="wrap">
-            <div className="space"></div>
             <Header/>
+            <div className="space"></div>
             <div class="Write">
               <label>제목</label>
               <input className="write-title" name="title" type="text" onChange={this.handleInputChange} placeholder="제목을 입력하세요" />

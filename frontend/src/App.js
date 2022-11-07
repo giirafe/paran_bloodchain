@@ -74,6 +74,12 @@ function App() {
     .then(data=>setProject(data.project))
   }
 
+  /*
+  <div>
+      <BlockNumber />
+    </div>
+  */
+
   return (
 
   <BrowserRouter>
@@ -101,12 +107,6 @@ function App() {
 
       <Route path='/*' element={<NotFound />} />
     </Routes>
-    <div>
-      <BlockNumber />
-    </div>
-    <div>
-      <Logout/>
-    </div>
   </BrowserRouter>
 
   );

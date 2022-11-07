@@ -1,14 +1,19 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
 .header {
     position:fixed;
-    top: 3%;
     width : 100%;
+    height: 100px;
+    border-bottom: 2px solid #f8e0fb
 }
 
 .headerIcon {
     position : relative;
     float: left;
     width : 200px;
-    margin : 20px;
     margin-left : 50px;
 }
 
@@ -21,23 +26,106 @@
 .headerName {
     float: right;
     margin-right: 20px;
-    color:deeppink;
+    color: black;
 }
 
   
 .header-box {
     position : absolute;
-    margin-top : 20px;
+    margin-top : 30px;
     float: left;
-    left : 60%;
+    left : 60%;   
 }
 
-@media (max-width: 1200px) {
-    .header-box {
-        left: 30%;
-    }
+.header-box ul {
+    list-style: none;
+}
 
-    .main-btn {
-        margin: 10px;
-    }
+.header-box li {
+    float: left;
+    margin-right: 60px;
+}
+
+/*
+-----------------
+Normalizing
+-----------------
+*/
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a:hover,
+a:focus {
+  outline: none;
+}
+
+/*
+-----------------
+common style
+-----------------
+*/
+
+.menu a {
+  color: rgba(55, 55, 55, 0.8);
+  font-family: tahoma;
+  font-size: 17pt;
+  font-weight: 400;
+  padding: 15px 25px;
+  /**/
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/*
+---------------------------------------
+hover effect 73
+---------------------------------------
+*/
+.SMN_effect-73 a {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  padding-bottom: 5px;
+}
+.SMN_effect-73 a:after {
+    background: #CB2B2B;
+    content: '';
+        height: 2px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transform: translate3d(-100%, 0, 0);
+    width: 100%;
+}
+.SMN_effect-73 a:hover::after {
+    animation: link-hoverstate .5s linear forwards;
+        animation-timing-function: linear;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+@keyframes link-hoverstate {
+ 0% {
+  opacity:1;
+  transform:translate3d(-100%, 0, 0)
+ }
+ 55% {
+  transform:translate3d(100%, 0, 0)
+ }
+ 56% {
+  transform:translate3d(100%, calc(0.5rem + 4px), 0)
+ }
+ 100% {
+  opacity:1;
+  transform:translate3d(0, calc(0.5rem + 4px), 0)
+ }
 }

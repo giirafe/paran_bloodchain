@@ -5,7 +5,7 @@ import caver from '../../klaytn/caver';
 import {useNavigate} from 'react-router-dom';
 import * as RemoveWallet from '../logout';
 
-function Header() {
+function MainHeader() {
   const navigate = useNavigate();
 
     const removeWallet = () => {
@@ -26,16 +26,13 @@ function Header() {
         </div>
         <div class="header-box">
             <ul class="menu align-center expanded text-center SMN_effect-73">
-              <li><a href="/myinfo">내 정보</a></li>
-              <li><a href="/community">커뮤니티</a></li>
-              <li><a href="/useletter">증서 사용</a></li>
-              
-
-              <li><a href="" onClick={removeWallet}>로그아웃</a></li>
+              <li><a href="">팀 소개</a></li>
+              <li><a href="">비전</a></li>
+              <li><a href="">목표</a></li>
             </ul>
           </div>    
         </div>
     )
 }
 
-export default Header;
+export default MainHeader;
