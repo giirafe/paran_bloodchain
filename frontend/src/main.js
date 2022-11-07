@@ -52,6 +52,7 @@ function Main() {
   }
 
   return (
+    
     <div className="wrap">
       <div className="iconBox">
         <h1 className="mainName">P:LOW</h1>
@@ -81,7 +82,7 @@ function Main() {
             <Auth/>
           </Modal>)}
             <button className="main-btn" onClick={() => {
-              setType('krcMain')
+              setType('krcHome')
               buttonHandler()
               }}>헌혈 기관</button>
             {signup && (
