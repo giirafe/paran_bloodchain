@@ -52,7 +52,7 @@ function Home() {
     console.log("state: ", name);
 
     return(
-        <section>
+        <body>
             <Header/>
             <div className="card">
                 <div className="front">
@@ -74,7 +74,7 @@ function Home() {
             </Link>
                 </div>
             </div>
-        </section>
+        </body>
         )
 }
 

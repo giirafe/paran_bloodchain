@@ -8,54 +8,19 @@ body {
   min-height: 100vh;
   background-color: white;
 }*/
-
-.wrap {
+.img {
   width: 100%;
-  height: 100%;
-  position: relative;
+  z-index: -100;
+  position: absolute;
 }
 
-.iconBox {
-  position : fixed;
-  left: 0;
-  right: 0;
-  margin-top : 100px;
-  text-align: center;
+.mainIMG {
+  margin-top: 65px;
+  width: 100%;
 }
-
-
-.num {
-  font-weight: bolder;
-  font-size:xx-large;
-}
-
-.mainLogo {
-  margin-top: 20px;
-  width : 200px;
-  height : 100px;
-}
-
-.mainBox {
-  position : absolute;
-  margin-top : 360px;
-  width : 100%;
-}
-
 
 .slogan {
-  text-align : center;
-  position : relative;
-  margin: 20px;
-  float: left;
-  top : 90%;
-  left : 20%;
-}
-
-.btn-box {
-  float: right;
-  right: 20%;
-  position : relative;
-  margin-top : 60px;
+  
 }
 
 .main-btn {
@@ -70,7 +35,8 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
-  color: black;
+  color: white;
+  background-color: #cb2b2b;
 }
 
 .main-btn:hover {
