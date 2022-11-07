@@ -1,16 +1,23 @@
 .NFTminting_css {
-    width: 70%;
+    width: 50%;
     margin: 10px;
     height: 50px;
 }
 
 .NFTminting {
-    margin: 100px;
     text-align: center;
+    position: relative;
+    left: 25%;
 }
 
 .Certificate__upload {
     width: 17%;
     margin: 10px;
     height: 60px;
+}
+
+.Board_css{
+    width: 20%;
+    text-align: center;
+    position: relative;
 }

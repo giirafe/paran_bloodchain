@@ -31,7 +31,6 @@ import Useletter from './userRoute/useletterPage/useletter';
 
 // krcHome
 import Krc from './krcRoute/krcHome';
-import KrcMain from './krcRoute/krcMain';
 
 // Inquiryhome
 import Inquiry from './InquiryRoute/InquiryPage';
@@ -92,7 +91,7 @@ function App() {
       <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
       <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
       <Route path='/createkey' element={isAdmin() ? <Createkey /> : <Forbidden />} />
-      <Route path='/krcMain' element={isAdmin() ? <KrcMain />: <Forbidden />} />
+      <Route path='/krcHome' element={isAdmin() ? <Krc />: <Forbidden />} />
       <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
 

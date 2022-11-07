@@ -17,7 +17,7 @@ class Donate extends Component {
   handleSubmit = (e) => {
       e.preventDefault()
       const { walletaddress, count } = this.state
-      this.props.WriteDonate(walletaddress, count)
+      this.props.Donate(walletaddress, count)
   }
 
   render() {
@@ -53,8 +53,6 @@ class Donate extends Component {
             title="기부"
           />
         </form>
-                    
-
       )
       
     }

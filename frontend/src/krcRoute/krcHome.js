@@ -4,6 +4,7 @@ import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
 import './krcHome.scss'
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 //const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
@@ -19,6 +20,7 @@ if (walletFromSession) {
   }
 }
 */
+
 console.log("klaytn wallet is :", caver.klay.accounts.wallet)
 class NFTminting extends Component {
     state = {
@@ -48,11 +50,21 @@ class NFTminting extends Component {
     handleClick = (e) => {
       console.log("Hi");
     }
+
+    
     render() {
         const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
         return (
-            
-          <form className="NFTminting" onSubmit={this.handleSubmit}>
+          <div>
+            <div className="Board_css">
+              <BootstrapTable>
+                  <TableHeaderColumn width='350' dataField='mint_transaction' dataAlign='center'>발행 기록</TableHeaderColumn>
+                  <TableHeaderColumn width='200' dataField='time_stamp' dataAlign='center'>발행일</TableHeaderColumn>
+                  <TableHeaderColumn width='200' dataField='mint_address' dataAlign='center' isKey={true}>발행 주소</TableHeaderColumn>
+              </BootstrapTable>
+            </div>
+
+            <form className="NFTminting" onSubmit={this.handleSubmit}>
             <label>헌혈증명서 발행</label>
             <br/>
             <input
@@ -141,6 +153,12 @@ class NFTminting extends Component {
               title="헌혈증명서 업로드"
             />
           </form>
+          </div>
+          
+          
+          
+
+          
         )
       }
 }
