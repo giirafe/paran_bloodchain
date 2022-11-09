@@ -3,7 +3,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import './InquiryPage.css'
 import {useNavigate} from 'react-router-dom';
-
+import BloodContract from '../components/BloodContract';
 function Inquiry() {
     const [walletAddress, setWalletAddress] = useState('')
     const [password, setPassword] = useState('')
@@ -21,11 +21,24 @@ function Inquiry() {
       setPassword(e.target.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
       console.log("address : " + walletAddress + "\npassword : " + password)
-      
+      const real_password = await BloodContract.methods.Address_PW(walletAddress).call();
+      console.log("real_password is : ", real_password);
+      console.log("input_password is : ", password);
+
+      if (password === real_password){
+        navigate('/라우팅해야함')
+        alert("들어갑니다");
+      }
+      else{
+        alert("비밀번호가 틀립니다!");
+        window.location.reload();
+      }
       //임시 조건문
       //함수 짜서 주소랑 그 비밀번호 불러오면 그형식에 맞춰서 비교하면 됨
+      
+      /*
       if (walletAddress === '좆같은 주소 넣으면'){
         alert("주소가 잘못되었습니다.")
         window.location.reload(); //그냥 임시로 달아놓은겨
@@ -38,6 +51,7 @@ function Inquiry() {
         alert("비밀번호가 틀립니다!")
         window.location.reload(); //이것도 임시로
       }
+      */
     }
 
     return (
