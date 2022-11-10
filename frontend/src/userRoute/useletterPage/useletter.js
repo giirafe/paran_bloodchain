@@ -6,7 +6,7 @@ import BloodContract from '../../components/BloodContract';
 import { type } from '@testing-library/user-event/dist/type';
 
 console.log("klaytn wallet is :", caver.klay.accounts.wallet)
-class Donate extends Component {
+class Useletter extends Component {
   state = {
     walletTo: '',
     count : '',
@@ -109,4 +109,4 @@ export const donateBalance = async(
 
   
 }
-export default Donate
+export default Useletter
