@@ -17,8 +17,9 @@
     
 }
 .Inquiry {
-    margin: 200px;
     text-align: center;
+    position: relative;
+    left: 25%;
 }
 
 .UploadPhoto__upload{

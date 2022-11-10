@@ -4,6 +4,8 @@ import Button from '../components/Button'
 import './InquiryPage.css'
 import {useNavigate} from 'react-router-dom';
 import BloodContract from '../components/BloodContract';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+
 function Inquiry() {
     const [walletAddress, setWalletAddress] = useState('')
     const [password, setPassword] = useState('')
@@ -28,8 +30,8 @@ function Inquiry() {
       console.log("input_password is : ", password);
 
       if (password === real_password){
-        navigate('/라우팅해야함')
-        alert("들어갑니다");
+        navigate('/Inquiry')
+        alert("조회 성공!");
       }
       else{
         alert("비밀번호가 틀립니다!");
@@ -55,7 +57,15 @@ function Inquiry() {
     }
 
     return (
-      
+      <div>
+      <div className="Board_css">
+        <BootstrapTable>
+            <TableHeaderColumn width='350' dataField='mint_transaction' dataAlign='center'>조회 기록</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='time_stamp' dataAlign='center'>조회일</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='mint_address' dataAlign='center' isKey={true}>조회 주소</TableHeaderColumn>
+        </BootstrapTable>
+      </div>
+
       <div className="Inquiry">
         <label>지갑 주소</label>
         <br/>
@@ -87,7 +97,7 @@ function Inquiry() {
           onClick={handleSubmit}
         />
       </div>
-                  
+      </div> 
 
     )
 }
