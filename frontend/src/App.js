@@ -34,6 +34,7 @@ import Krc from './krcRoute/krcHome';
 
 // Inquiryhome
 import Inquiry from './InquiryRoute/InquiryPage';
+import Inquiry2 from './InquiryRoute/InquiryPage2';
 
 import BlockNumber from './components/BlockNumber';
 import NotFound from './components/NotFound';
@@ -86,6 +87,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Main />} />
       <Route path='/InquiryPage' element={isAdmin() ? <Inquiry /> : <Forbidden />} />
+      <Route path='/Inquiry' element={isAdmin() ? <Inquiry2 /> : <Forbidden />} />
+
       <Route path='/mint' element={isAdmin() ? <Krc /> : <Forbidden />} />
       <Route path='/writecontent' element={isAdmin() ? <Writecontent /> : <Forbidden />} />
       <Route path='/donaterecord' element={isAdmin() ? <Donaterecord /> : <Forbidden />} />     
