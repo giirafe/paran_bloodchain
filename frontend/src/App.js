@@ -68,19 +68,6 @@ function App() {
   const [project, setProject] = useState('');
   const [relo, setRelo] = useState(false);
 
-
-  const componentDidMount = () => {
-    fetch('http://localhost:3001')
-    .then(res=>res.json())
-    .then(data=>setProject(data.project))
-  }
-
-  /*
-  <div>
-      <BlockNumber />
-    </div>
-  */
-
   return (
 
   <BrowserRouter>
@@ -103,7 +90,6 @@ function App() {
       <Route path='/krcHome' element={isAdmin() ? <Krc />: <Forbidden />} />
       <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
-
       <Route path='/community/myWrite' element={isAdmin() ? <MyWrite/>: <Forbidden />} />
       <Route path='/community/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
       <Route path='/community/myWrite/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />

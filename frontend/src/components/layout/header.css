@@ -10,6 +10,13 @@
     border-bottom: 2px solid #f8e0fb
 }
 
+.mainHeader {
+    position:fixed;
+    width : 100%;
+    height: 100px;
+    border-bottom: 2px solid #f8e0fb
+}
+
 .headerIcon {
     position : relative;
     float: left;
@@ -26,7 +33,7 @@
 .headerName {
     float: right;
     margin-right: 20px;
-    color: black;
+    color: rgba(55, 55, 55, 0.8);
 }
 
   
@@ -34,7 +41,14 @@
     position : absolute;
     margin-top : 30px;
     float: left;
-    left : 60%;   
+    left : 60%; 
+}
+
+.mainHeader .header-box {
+    position : absolute;
+    margin-top : 30px;
+    float: left;
+    left : 70%; 
 }
 
 .header-box ul {
@@ -43,7 +57,7 @@
 
 .header-box li {
     float: left;
-    margin-right: 60px;
+    margin-left: 60px;
 }
 
 /*

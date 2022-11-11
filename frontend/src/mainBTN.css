@@ -8,6 +8,8 @@ body {
   min-height: 100vh;
   background-color: white;
 }*/
+
+
 .img {
   width: 100%;
   z-index: -100;
@@ -19,8 +21,37 @@ body {
   width: 100%;
 }
 
+
 .slogan {
-  
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.slogan h1 {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 96px;
+}
+
+.slogan h2 {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 24px;
+  color: #532c59;
+}
+
+.slogan h3 {
+  font-size: 15px;
+  color: black;
+  display: inline;
+}
+
+.btn-box {
+  text-align: center
 }
 
 .main-btn {
@@ -36,7 +67,7 @@ body {
   font-weight: 600;
   transition: 0.25s;
   color: white;
-  background-color: #cb2b2b;
+  background-color: #532c59;
 }
 
 .main-btn:hover {

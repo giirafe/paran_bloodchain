@@ -17,7 +17,7 @@ function MainHeader() {
     }
 
     return (
-      <div className="header">
+      <div className="mainHeader">
         <div className="headerIcon">
           <Link to ="/user">
             <img className="headerLogo" src="img/logo.png" alt="로딩 실패" width="50" height="20"/>  
