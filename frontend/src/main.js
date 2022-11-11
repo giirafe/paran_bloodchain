@@ -59,12 +59,16 @@ function Main() {
         <div className="img">
           <img className="mainIMG" src="img/main.png" alt="로딩 실패"/>
         </div>
-      
+        <div className="space"></div>
+        <div className="space"></div>
+
         <div className="slogan">
-          <h2>헌혈로 세상의 가치를 잇다</h2>
-          <h3>당신의 헌혈이 살릴 수 있습니다.</h3>
-          <h2>살린 사람 수</h2>
-          <h2 className="count">0</h2>
+          <h1>헌혈로 세상의 가치를 잇다</h1>
+          <h2>당신의 헌혈이 살릴 수 있어요</h2>
+          <br/>
+          <h3>살린 사람 수</h3>
+          <h3> : </h3>
+          <h3 className="count">0</h3>
         </div>
 
         <div className='btn-box'>

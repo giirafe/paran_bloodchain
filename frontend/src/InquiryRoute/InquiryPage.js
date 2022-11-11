@@ -25,18 +25,21 @@ function Inquiry() {
 
     const handleSubmit = async(e) => {
       console.log("address : " + walletAddress + "\npassword : " + password)
-      const real_password = await BloodContract.methods.Address_PW(walletAddress).call();
-      console.log("real_password is : ", real_password);
+      //const real_password = await BloodContract.methods.Address_PW(walletAddress).call();
+      //console.log("real_password is : ", real_password);
       console.log("input_password is : ", password);
 
+      /*
       if (password === real_password){
-        navigate('/Inquiry')
+        navigate('/Inquiry', {state:{walletAddress, password}})
         alert("조회 성공!");
       }
       else{
         alert("비밀번호가 틀립니다!");
         window.location.reload();
       }
+      */
+      navigate('/Inquiry', {state:{walletAddress, password}})
       //임시 조건문
       //함수 짜서 주소랑 그 비밀번호 불러오면 그형식에 맞춰서 비교하면 됨
       

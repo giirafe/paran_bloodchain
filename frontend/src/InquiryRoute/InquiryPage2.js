@@ -1,11 +1,15 @@
 import React, {useState, Component, useEffect, Suspense} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import MaterialTable from '../userRoute/MaterialTable';
 import caver from '../klaytn/caver';
 import BloodContract from '../components/BloodContract';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 function Info() {
+    const location = useLocation();
+    const walletAddress = location.state.walletAddress;
+    const password = location.state.password
+
     var [record, setRecord] = useState([])
     //배열 state를 이용해볼 것.
     var [name, setName] = useState("");
@@ -106,14 +110,14 @@ function Info() {
     //console.log("bloodRecord length:",bloodRecord);
     return(
         <body> 
+            {walletAddress}
+            {password}
             <BootstrapTable data={record} striped hover condensed pagination>
             <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
             <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
             <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
             <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
             </BootstrapTable>
-            
-        
         </body>
     );
 }
