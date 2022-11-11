@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useLocation} from 'react-router-dom';
 import './BoardView.css';
 import Header from '../../components/layout/header';
+import {Link} from 'react-router-dom';
 
 const BoardView = () => {
   const location = useLocation();
@@ -34,6 +35,10 @@ const BoardView = () => {
         <h3>
           내용 : {content}
         </h3>
+
+        <Link to ="/donate">
+                    <button className="main-btn" onClick="hi">기부하기</button>
+                </Link>
       </div>
     </>
   )
