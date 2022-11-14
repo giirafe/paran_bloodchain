@@ -5,6 +5,7 @@ import MaterialTable from '../MaterialTable';
 import caver from '../../klaytn/caver';
 import BloodContract from '../../components/BloodContract';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import './myinfo.css'
 
 function Myinfo() {
     var [record, setRecord] = useState([])
@@ -108,13 +109,13 @@ function Myinfo() {
     return(
         <body>
             <Header/>
-            <div className="list">
+            <div className="infoList">
                 <h3 className="Name1">기부 가능 횟수</h3>
                 <h3 className="Name2">기부 받은 횟수</h3>
                 <h3 className="Name3">기부한 횟수</h3>
             </div>
 
-            <div className="listNum">
+            <div className="infoNum">
                 <h3 className="num1">{length}</h3>
                 <h3 className="num2">아직</h3>
                 <h3 className="num3">안함</h3>

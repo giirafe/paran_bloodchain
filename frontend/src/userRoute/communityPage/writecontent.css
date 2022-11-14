@@ -10,16 +10,19 @@
 }
 
 .Write {
+    font-family: JUA;
     width: 98%;
     margin: 10px;
 }
 
 .write-title {
+    font-family: JUA;
     width: 100%;
     margin-top: 10px;
 }
 
 .write-content {
+    font-family: JUA;
     width: 100%;
     margin-top: 10px;
     height: 200px;

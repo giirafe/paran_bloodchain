@@ -31,6 +31,7 @@
 }
 
 .headerName {
+    font-family: JUA;
     float: right;
     margin-right: 20px;
     color: rgba(55, 55, 55, 0.8);
@@ -86,8 +87,8 @@ common style
 */
 
 .menu a {
+    font-family: JUA;
   color: rgba(55, 55, 55, 0.8);
-  font-family: tahoma;
   font-size: 17pt;
   font-weight: 400;
   padding: 15px 25px;

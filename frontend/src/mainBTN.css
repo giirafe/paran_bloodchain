@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
+
 /*
 body {
   display: flex;
@@ -23,12 +24,13 @@ body {
 
 
 .slogan {
+  font-family: JUA;
   text-align: center;
   margin-bottom: 100px;
 }
 
 .slogan h1 {
-  font-family: 'Syne';
+  font-family: JUA;
   font-style: normal;
   font-weight: 700;
   font-size: 80px;
@@ -36,12 +38,12 @@ body {
 }
 
 .slogan h2 {
-  font-family: 'Space Grotesk';
+  font-family: JUA;
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
   line-height: 24px;
-  color: #532c59;
+  color: #CB2B2B;
 }
 
 .slogan h3 {
@@ -61,13 +63,13 @@ body {
   display: inline-block;
   padding: 15px 30px;
   border-radius: 15px;
-  font-family: "paybooc-Light", sans-serif;
+  font-family: JUA;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
   color: white;
-  background-color: #532c59;
+  background-color: #CB2B2B;
 }
 
 .main-btn:hover {

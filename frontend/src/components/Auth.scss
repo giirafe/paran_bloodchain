@@ -1,4 +1,5 @@
 .box {
+  font-family: JUA;
     position: relative;
     top: 0;
     opacity: 1;
@@ -41,20 +42,22 @@
     width: 100%;
     float: left;
     line-height: 46px;
+    font-family: JUA;
     font-size: 25px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: #ED2553;
+    color: #cb2b2b;
     position: relative;
   
     &:before {
+      font-family: JUA;
       content: "";
       width: 5px;
       height: 100%;
       position: absolute;
       top: 0;
       left: -50px;
-      background: #ED2553;
+      background: #cb2b2b;
     }
   }
   
@@ -149,7 +152,7 @@
       top: 10px;
       border: none;
       background: transparent;
-      font-family: 'Roboto', sans-serif;
+      font-family: JUA;
       font-size: 20px;
       color: rgba(0, 0, 0, 0.8);
       font-weight: 300;
@@ -164,7 +167,7 @@
   }
   
   .button button {
-    font-family: 'Roboto', sans-serif;
+    font-family: JUA;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.8);
     font-weight: 300;
@@ -186,7 +189,7 @@
     }
   
     .spin {
-      background: #ED2553;
+      background: #cb2b2b;
       z-index: 4;
       width: 0;
     }
@@ -237,7 +240,7 @@
   
     button {
       background-color: #fff;
-      color: #ED2553;
+      color: #cb2b2b;
       border: none;
     }
   
@@ -274,8 +277,8 @@
       }
   
       &:hover {
-        color: #ED2553;
-        border-color: #ED2553;
+        color: #cb2b2b;
+        border-color: #cb2b2b;
       }
     }
   
@@ -294,7 +297,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: #ED2553;
+    background: #cb2b2b;
     border-radius: 50%;
   }
   
