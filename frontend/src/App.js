@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Main from './main';
 
@@ -65,8 +64,7 @@ function App() {
   //     sessionStorage.removeItem('walletInstance')
   //   }
   // }  
-  const [project, setProject] = useState('');
-  const [relo, setRelo] = useState(false);
+
 
   return (
 
@@ -94,6 +92,7 @@ function App() {
       <Route path='/community/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
       <Route path='/community/myWrite/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
 
+      <Route path='/forbidden' element={<Forbidden />} />
       <Route path='/*' element={<NotFound />} />
     </Routes>
   </BrowserRouter>
