@@ -21,7 +21,7 @@ function MainHeader() {
         <div className="headerIcon">
           <Link to ="/user">
             <img className="headerLogo" src="img/logo.png" alt="로딩 실패" width="50" height="20"/>  
-            <h1 className="headerName">P:LOW</h1> 
+            <h1 className="headerName">P:LOW</h1>
           </Link>
         </div>
         <div class="header-box">
@@ -29,6 +29,11 @@ function MainHeader() {
               <li><a href="">팀 소개</a></li>
               <li><a href="">비전</a></li>
               <li><a href="">목표</a></li>
+
+              <Link to ="/authpage">
+              <li><a href="">회원가입</a></li>
+              </Link>
+
             </ul>
           </div>    
         </div>
