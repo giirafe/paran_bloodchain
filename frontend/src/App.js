@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import Main from './main';
 
 
+import Authpage from './components/authpage'
 // Userhome
+
 import User from './userRoute/userHome';
 
 // 조회키 생성
@@ -89,6 +91,9 @@ function App() {
       <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
       <Route path='/community/myWrite' element={isAdmin() ? <MyWrite/>: <Forbidden />} />
+
+      <Route path='/authpage' element={isAdmin() ? <Authpage/>: <Forbidden />} />
+
       <Route path='/community/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
       <Route path='/community/myWrite/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
 

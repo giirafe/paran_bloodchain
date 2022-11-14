@@ -13,7 +13,7 @@ const Board = ({
     props,
 }) => {
     return (
-        <div>
+
         <tr>
             <td>
                 <input type="checkbox" value={address} onChange={props.onCheckboxChange}></input>
@@ -23,8 +23,7 @@ const Board = ({
             <td>{content}</td>
             <td>{registerDate}</td>
         </tr>
-        <h1>fuck</h1>
-        </div>
+
     );
 };
 
