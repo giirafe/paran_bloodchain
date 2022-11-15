@@ -13,6 +13,7 @@ const Board = ({
     props,
 }) => {
     return (
+
         <tr>
             <td>
                 <input type="checkbox" value={address} onChange={props.onCheckboxChange}></input>
@@ -22,6 +23,7 @@ const Board = ({
             <td>{content}</td>
             <td>{registerDate}</td>
         </tr>
+
     );
 };
 

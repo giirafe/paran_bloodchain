@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useLocation, Link} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import './BoardView.css';
 import Header from '../../components/layout/header';
 import SideMenu from './side';
@@ -10,6 +10,12 @@ const BoardView = () => {
   const title = location.state.title;
   const content = location.state.content;
   const createdAt = location.state.createdAt;
+
+  const navigate = useNavigate();
+
+  const donateHandler = () => {
+    navigate('/donate', {state:{address:address}})
+  }
 
   return (
     <>
@@ -31,6 +37,7 @@ const BoardView = () => {
           <div className="board-content">
             {content}
           </div>
+          <button className="main-btn" onClick={donateHandler}>기부하기</button>
         </div>
       </div>
     </>

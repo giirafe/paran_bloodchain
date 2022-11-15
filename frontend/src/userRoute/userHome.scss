@@ -104,7 +104,6 @@ section {
             }
          }
       }
-      
       .option {
          position: relative;
          overflow:hidden;
@@ -112,7 +111,6 @@ section {
          min-width:60px;
          margin:10px;
          //border:0px solid --defaultColor;
-
          background:var(--optionBackground, var(--defaultBackground, #E6E9ED));
          background-size:auto 120%;
          background-position:center;

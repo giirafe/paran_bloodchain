@@ -1,74 +1,72 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import '../useletterPage/useletter.css';
 import Button from '../../components/Button'
 import caver from '../../klaytn/caver';
 import BloodContract from '../../components/BloodContract';
 import { type } from '@testing-library/user-event/dist/type';
+import {useLocation} from 'react-router-dom';
+import Header from '../../components/layout/header';
+import SideMenu from './side';
+import './donate.css';
 
-console.log("klaytn wallet is :", caver.klay.accounts.wallet)
-class Useletter extends Component {
-  state = {
-    walletTo: '',
-    count : '',
+function Useletter () {
+  const location = useLocation();
+  const address = location.state.address;
+  const [walletTo, setWalletTo] = useState('')
+  const [count, setCount] = useState('')
+  
+
+  const handleWalletTo = (e) => {
+      setWalletTo(e.target.value)
   }
 
-  handleInputChange = (e) => {
-      this.setState({
-        [e.target.name]: e.target.value,
-      })
-      const { walletTo, count } = this.state
-      //parseInt(count);
-      //console.log("count is : ", typeof(count));
+  const handleCount = (e) => {
+    setCount(e.target.value)
   }
 
-  handleSubmit = async (e) => {
-      e.preventDefault()
-      const { walletTo, count } = this.state
+  const handleSubmit = async (e) => {
       await donateBalance(walletTo, count);
       await window.location.reload();
       //this.props.WriteDonate(walletaddress, count)
   }
 
 
-  render() {
-      const { walletTo, count } = this.state
+  
       return (
+        <>
+          <Header/>
+          <SideMenu/>
+          <div className="space"></div>
+          <div className="submit">
+            <label>지갑 주소</label>
+            <br/>
+            <input
+              className="Donate_walletaddress"
+              name="walletTo"
+              value={walletTo}
+              onChange={handleWalletTo}
+              placeholder={address}
+              required
+            />
+            <br/>
+            <label>사용 개수</label>
+            <br/>
+            <input
+              className="Donate_count"
+              name="count"
+              value={count}
+              onChange={handleCount}
+              placeholder="비밀번호를 입력하세요."
+              required
+            />
+            <br/>
+            <button className="main-btn" onClick={handleSubmit}>기부</button>
+        </div>
+        </>
         
-        <form className="Donate" onSubmit={this.handleSubmit}>
-          <label>지갑 주소</label>
-          <br/>
-          <input
-            className="Donate_walletaddress"
-            name="walletTo"
-            value={walletTo}
-            onChange={this.handleInputChange}
-            placeholder="상대방의 지갑 주소를 입력하세요."
-            required
-          />
-          <br/>
-          <label>사용 개수</label>
-          <br/>
-          <input
-            className="Donate_count"
-            name="count"
-            value={count}
-            onChange={this.handleInputChange}
-            placeholder="비밀번호를 입력하세요."
-            required
-          />
-          <br/>
-          <Button
-            className="UploadPhoto__upload"
-            type="submit"
-            title="사용"
-          />
-        </form>
-        
-
       )
-      
-    }
 }
+
 export const wallet_session = () => {
   const data = JSON.parse(sessionStorage.getItem("walletInstance"));
   console.log(data.address);
