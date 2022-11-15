@@ -58,6 +58,7 @@ body {
 
 .main-btn {
   margin: 15px;
+  width: 120px;
   position: relative;
   border: none;
   display: inline-block;

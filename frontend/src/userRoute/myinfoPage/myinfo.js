@@ -121,13 +121,15 @@ function Myinfo() {
                 <h3 className="num3">안함</h3>
             </div>
 
+            <div className="tableSpace">
+                <BootstrapTable data={record} striped hover condensed pagination>
+                <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
+                </BootstrapTable>
+            </div>
             
-            <BootstrapTable data={record} striped hover condensed pagination>
-            <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
-            </BootstrapTable>
             
             
 

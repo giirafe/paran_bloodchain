@@ -26,3 +26,20 @@
     margin: 10px;
     height: 60px;
 }
+
+.submit {
+    margin-top: 80px;
+    font-family: JUA;
+    justify-content: center;
+    text-align: center;
+}
+
+.submit input {
+    width : 500px;
+    height: 50px;
+}
+
+.submit label {
+    margin-top: 30px;
+    font-size:xx-large
+}

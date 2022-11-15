@@ -1,4 +1,33 @@
+.detail-box {
+    font-family: JUA;
+    justify-content: center;
+    display:block;
+    text-align: center;
+}
+
+.detail-box h1 {
+    font-size:2cm;
+}
+
 .board-detail {
+    display: inline-block;
     font-family: JUA;
     text-align: center;
+    width: 800px;
+    height: 600px;
+    max-height: 1000px;
+    background-color:rgb(255, 205, 205);
+    border-radius: 20px;
+}
+
+.board-content {
+    margin-top: 20px;
+    display: inline-block;
+    width: 700px;
+    height: 370px;
+    max-height: 800px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: white;
+    font-size: larger;
 }

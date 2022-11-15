@@ -8,28 +8,16 @@ import axios from 'axios'
 import Table from "react-bootstrap/Table";
 import BoardList from '../../components/BoardList';
 import '../../components/BoardStyle.scss';
+import SideMenu from './side';
 
 function Community() {
     
     return(
         <body>
             <Header />
+            <SideMenu/>
             <div className = "tableLocation">
                 <BoardList />
-            </div>
-            <div className ="communityBox">
-                <Link to ="/writecontent">
-                    <button className="main-btn" onClick="hi">글 작성하기</button>
-                </Link>
-                <Link to ="/community/myWrite">
-                    <button className="main-btn">내가 쓴 글</button>
-                </Link>
-                <Link to ="/donate">
-                    <button className="main-btn" onClick="hi">기부하기</button>
-                </Link>
-                <Link to ="/donaterecord">
-                    <button className="main-btn" onClick="hi">기부 내역</button>
-                </Link>
             </div>
         </body>
         
