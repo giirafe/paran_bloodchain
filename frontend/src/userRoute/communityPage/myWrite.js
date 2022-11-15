@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import axios from 'axios';
 import Header from '../../components/layout/header'
+import SideMenu from './side';
 
 var idArray = [];
 
@@ -63,19 +64,15 @@ function MyWrite () {
     return (
         <div>
             <Header />
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <BootstrapTable data={boardLList} deleteRow={true} options={options} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
-                <TableHeaderColumn width='350' dataField='address' dataAlign='center'>주소</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='content' dataAlign='center' isKey={true}>내용</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='createdAt' dataAlign='center'>작성일</TableHeaderColumn>
-            </BootstrapTable>
+            <SideMenu/>
+            
+            <div className="tableLocation">
+                <BootstrapTable data={boardLList} deleteRow={true} options={options} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
+                    <TableHeaderColumn width='350' dataField='address' dataAlign='center'>주소</TableHeaderColumn>
+                    <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
+                    <TableHeaderColumn width='200' dataField='createdAt' dataAlign='center' isKey={true}>작성일</TableHeaderColumn>
+                </BootstrapTable>
+            </div>
         </div>
     )
 }

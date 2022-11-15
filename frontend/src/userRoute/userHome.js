@@ -1,12 +1,15 @@
 import '../App.css';
 import Header from '../components/layout/header';
 import {useNavigate} from 'react-router-dom';
-import './userHome.css';
-import React, {useState, Component } from 'react'
+import './userHome.scss';
+import React, {useState, Component, useLayoutEffect, useEffect } from 'react'
 import caver from '../klaytn/caver';
 import BloodContract from '../components/BloodContract';
 
 import { Link } from 'react-router-dom';
+import {ScrollTrigger} from 'gsap/ScrollTrigger.js';
+import {gsap} from "gsap";
+import $ from 'jquery';
 
 function Home() {
     var [name, setName] = useState("");
@@ -59,27 +62,54 @@ function Home() {
     getCertdata();
     console.log("state: ", name);
 
+    useEffect(() => {
+        $(".option").click(function(){
+            $(".option").removeClass("active");
+            $(this).addClass("active");
+            
+         })
+    })
+
     return(
         <body>
             <Header/>
-            <div className="card">
-                <div className="front">
-                    {name}님의 헌혈증명서
-                </div>
-                <div className="back">
-                    발급번호 : {id}
-                    <br/>
-                    헌혈 종류 : {donateType}
-                    <br/>
-                    헌혈 일자 : {date}
-                    <br/>
-                    혈액원명 : 경기남부혈액원
-                    <br/>
-                    헌혈 가능일까지 17일 남았습니다.
-
-            <Link to ="/providekey">
-                <button className="submain-btn" >조회키 제공</button>
-            </Link>
+            <div className="space"></div>
+            <div className="space"></div>
+            <div className="cards">
+                <div class="options">
+                    <div class="option active">
+                        <div class="shadow"></div>
+                        <div class="label">
+                            <div class="icon">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <div class="info">
+                                <div class="main">헌혈 증서</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="shadow"></div>
+                        <div class="label">
+                            <div class="icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="info">
+                                <div class="main">검사 결과</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="shadow"></div>
+                        <div class="label">
+                            <div class="icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="info">
+                                <div class="main">건강 정보</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </body>
