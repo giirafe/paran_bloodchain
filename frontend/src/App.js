@@ -92,7 +92,7 @@ function App() {
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
       <Route path='/community/myWrite' element={isAdmin() ? <MyWrite/>: <Forbidden />} />
 
-      <Route path='/authpage' element={isAdmin() ? <Authpage/>: <Forbidden />} />
+      <Route path='/authpage' element={<Authpage/>} />
 
       <Route path='/community/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
       <Route path='/community/myWrite/:address/:title' element={isAdmin() ? <BoardView/> : <Forbidden />} />
