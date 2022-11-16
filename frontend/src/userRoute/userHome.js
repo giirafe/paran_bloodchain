@@ -14,14 +14,20 @@ import HomeCard from './card';
 
 import './card.scss';
 import {Icon} from '@iconify/react';
+import IMG from '../components/layout/방울이.png';
 
 const CARDS = 3;
 const MAX_VISIBILITY = 3;
 
-const Card = ({title, content}) => (
+const Card = ({img,title, content}) => (
   <div className='card'>
-    <h2>{title}</h2>
-    <p>{content}</p>
+    <div className="front" style={{background: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+    </div>
+    <div className="back">
+        <br/>
+        <h2>{title}</h2>
+        <p>{content}</p>
+    </div>
   </div>
 );
 
@@ -218,7 +224,7 @@ function Home() {
             <Header/>
             <div className='app'>
                 <Carousel>
-                    <Card title={`${name}님의 헌혈증명서`} content={
+                    <Card img={IMG} title={`${name}님의 헌혈증명서`} content={
                         `\n
                         발급 번호 : ${id}\n
                         헌혈 종류 : ${donateType}\n

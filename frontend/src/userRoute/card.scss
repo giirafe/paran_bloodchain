@@ -67,7 +67,37 @@ $card-size: 45rem;
     transition: all 0.3s ease-out;
     opacity: var(--active);
   }
+
+  > div {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+  }
+
+  .front {
+    background-color:deeppink;
+    z-index: 9999;
+    color: white;
+    font-weight: 600;
+    font-size: larger;
+  }
+  .back {
+    transform: rotateY(180deg);
+    color: $color-gray;
+    font-weight: 600;
+    font-size: larger;
+  }
+  &:hover {
+    transform: rotateY(180deg);
+  }
 }
+
 
 .nav {
   color: white;

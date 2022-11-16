@@ -7,11 +7,11 @@ const CARDS = 3;
 const MAX_VISIBILITY = 3;
 
 const Card = ({title, content}) => (
-    <div className='card'>
-        <div className="front">
-            앞
+    <div className="flip">
+        <div className="img">
+        이미지
         </div>
-        <div className="back">
+        <div className="card">
             <h2>{title}</h2>
             <p>{content}</p>
         </div>
