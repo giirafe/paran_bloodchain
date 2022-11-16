@@ -191,7 +191,7 @@ export const mintCertificate = async (
   const wallet = walletInstance;
   */
   
-    const before_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
+    const before_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
     console.log("before cert length: ", before_cert_length);
     await BloodContract.methods.createCertificate(
       name,
@@ -199,12 +199,12 @@ export const mintCertificate = async (
       bloodType,
       home_address,
       certificateNum,
-      donateType,
-      date).send({
+      donateType).send({
         from: wallet.address,// 보내는 사람 주소
         gas: '200000000',
       })
     console.log("dummy");
+    console.log("Certficate Created. Now Minting Through Smart Contract");
     
     await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
       from: wallet.address,// 보내는 사람 주소
@@ -212,7 +212,7 @@ export const mintCertificate = async (
     })
     console.log("mint");
     
-    const after_cert_length = await BloodContract.methods.user_CertLength(wallet_address).call()
+    const after_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
     console.log("after cert length: ", after_cert_length);
 
     await caver.klay.accounts.wallet.clear()
