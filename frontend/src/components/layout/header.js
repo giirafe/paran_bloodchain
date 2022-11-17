@@ -16,13 +16,16 @@ function Header() {
         navigate('/')
     }
 
+    const onClickLogo = () => {
+      alert(sessionStorage.getItem('auth'))
+      navigate(`/${sessionStorage.getItem('auth')}`)
+    }
+
     return (
       <div className="header">
         <div className="headerIcon">
-          <Link to ="/user">
-            <img className="headerLogo" src="img/logo.png" alt="로딩 실패" width="50" height="20"/>  
-            <h1 className="headerName">P:LOW</h1> 
-          </Link>
+            <img className="headerLogo" onClick={onClickLogo} src="img/logo.png" alt="로딩 실패" width="50" height="20"/>  
+            <h1 className="headerName" onClick={onClickLogo}>P:LOW</h1> 
         </div>
         <div class="header-box">
             <ul class="menu align-center expanded text-center SMN_effect-73">

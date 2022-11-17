@@ -6,7 +6,6 @@
 
 .NFTminting {
     text-align: center;
-    position: relative;
     left: 25%;
 }
 
@@ -17,7 +16,21 @@
 }
 
 .Board_css{
-    width: 20%;
     text-align: center;
-    position: relative;
+    margin: 0;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 0;
+    width : 50%;
+    float: left;
+}
+
+.mint {
+    font-family: JUA;
+    margin: 0;
+    margin-left: 30px;
+    padding: 0;
+    width : 45%;
+    float: left;
+    text-align: center;
 }
