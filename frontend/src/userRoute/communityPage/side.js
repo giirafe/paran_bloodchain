@@ -13,7 +13,7 @@ const SideMenu = () => {
                 <Link to ="/community/myWrite">
                     <button className="main-btn">내가 쓴 글</button>
                 </Link>
-                <Link to ="/donate">
+                <Link to ="/donatemain">
                     <button className="main-btn" onClick="hi">기부하기</button>
                 </Link>
                 <Link to ="/donaterecord">

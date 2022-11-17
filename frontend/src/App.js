@@ -25,6 +25,8 @@ import Community from './userRoute/communityPage/community';
 import Donaterecord from './userRoute/communityPage/donaterecord';
 import Writecontent from './userRoute/communityPage/writecontent';
 import Donate from './userRoute/communityPage/donate';
+import Donatemain from './userRoute/communityPage/donatemain';
+
 import MyWrite from './userRoute/communityPage/myWrite';
 
 // 유저 증서사용
@@ -89,6 +91,8 @@ function App() {
       <Route path='/createkey' element={isAdmin() ? <Createkey /> : <Forbidden />} />
       <Route path='/krcHome' element={isAdmin() ? <Krc />: <Forbidden />} />
       <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />
+      <Route path='/donatemain' element={isAdmin() ? <Donatemain /> : <Forbidden />} />
+
       <Route path='/providekey' element={isAdmin() ? <Providekey /> : <Forbidden />} />
       <Route path='/community/myWrite' element={isAdmin() ? <MyWrite/>: <Forbidden />} />
 

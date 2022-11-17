@@ -1,0 +1,45 @@
+.Donate_walletaddress {
+    width: 50%;
+    margin: 5px;
+    height: 50px;
+}
+
+.Donate_count {
+    width: 50%;
+    margin: 5px;
+    height: 50px;
+}
+
+.UploadPhoto__upload {
+    width: 100%;
+    margin: 5px;
+    height: 50px;
+    
+}
+.Donate {
+    margin: 200px;
+    text-align: center;
+}
+
+.UploadPhoto__upload{
+    width: 15%;
+    margin: 10px;
+    height: 60px;
+}
+
+.submit {
+    margin-top: 80px;
+    font-family: JUA;
+    justify-content: center;
+    text-align: center;
+}
+
+.submit input {
+    width : 500px;
+    height: 50px;
+}
+
+.submit label {
+    margin-top: 30px;
+    font-size:xx-large
+}
