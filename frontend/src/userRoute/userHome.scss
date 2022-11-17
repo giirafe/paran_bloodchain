@@ -1,0 +1,39 @@
+.wavetext {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: 700px;
+    color: white;
+}
+
+$offset : -50px;
+$count : 40;
+$duration : 0.4;
+
+
+@keyframes wave {
+  from { transform : translateY(0); color: white; }
+  to   { transform : translateY( $offset ); }
+}
+
+.wavetext span {
+  display: inline-block;
+  font-family : JUA;
+  font-size : 40px;
+ 
+  animation-duration: #{$duration}s;
+  animation-name: wave;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+@for $i from 0 to $count {
+  .wavetext :nth-child( #{$count}n + #{$i} ) {
+      animation-delay : 
+        -#{($count - $i) * 2 * $duration / $count }s;
+
+
+      
+  }
+}
