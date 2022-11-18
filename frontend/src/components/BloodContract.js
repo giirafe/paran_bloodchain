@@ -188,6 +188,25 @@ const DEPLOYED_ABI =[
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "user_address",
+				"type": "address"
+			}
+		],
+		"name": "checkDepartment",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "_name",
 				"type": "string"
@@ -602,7 +621,7 @@ const DEPLOYED_ABI =[
 		"type": "function"
 	}
 ]
-const DEPLOYED_ADDRESS = '0x5a02cFB634912AB1832821C297a632e430A81C22'
+const DEPLOYED_ADDRESS = '0xc41De1ae7F11389a028E3Bf615A90bef13271F3A'
  
 const BloodContract = DEPLOYED_ABI
  && DEPLOYED_ADDRESS
