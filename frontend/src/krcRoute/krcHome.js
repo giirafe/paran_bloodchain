@@ -245,35 +245,27 @@ export const mintCertificate = async (
   
     const before_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
     console.log("before cert length: ", before_cert_length);
-
-    try {
-      await BloodContract.methods.createCertificate(
-        name,
-        id,
-        bloodType,
-        home_address,
-        certificateNum,
-        donateType).send({
-          from: wallet.address,// 보내는 사람 주소
-          gas: '200000000',
-        })
-      console.log("dummy");
-      console.log("Certficate Created. Now Minting Through Smart Contract");
-  
-      await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
+    await BloodContract.methods.createCertificate(
+      name,
+      id,
+      bloodType,
+      home_address,
+      certificateNum,
+      donateType).send({
         from: wallet.address,// 보내는 사람 주소
         gas: '200000000',
       })
-  
-      console.log("Certificate Minted");
-    } catch(e){
-      console.error("Error From Creating Certificate : ",e);
-      alert("Mint Failed");
-    }
-
+    console.log("dummy");
+    console.log("Certficate Created. Now Minting Through Smart Contract");
+    
+    await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
+      from: wallet.address,// 보내는 사람 주소
+      gas: '200000000',
+    })
+    console.log("mint");
     
     const after_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
-    console.log("After Cert length: ", after_cert_length);
+    console.log("after cert length: ", after_cert_length);
 
     await caver.klay.accounts.wallet.clear()
 
@@ -290,14 +282,5 @@ export const mintCertificate = async (
 
     console.log("cycle done");
 }
-
-// export const getMintData = async() => {
-//   const jsonWallet = wallet_session();
-//   const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
-//   caver.klay.accounts.wallet.add(wallet)
- 
-  
-//   await caver.klay.accounts.wallet.clear()
-// }
 
 export default NFTminting
