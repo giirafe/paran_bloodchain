@@ -12,6 +12,7 @@ import {gsap} from "gsap";
 
 
 import HomeCard from './card';
+import Sidebar from './Sidebar';
 
 import './card.scss';
 import {Icon} from '@iconify/react';
@@ -128,6 +129,11 @@ function Home() {
     return(
         <body>
             <Header/>
+            <Sidebar>
+              {<div>
+                여기에 컴포넌트로 글을 쓰던, 그냥 쓰던 쓰면됨
+              </div>}
+            </Sidebar>
             <div className='app'>
                 <Carousel>
                     <Card img={IMG} title={`${name}님의 헌혈증명서`} content={
