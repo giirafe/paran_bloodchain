@@ -105,16 +105,54 @@ function NFTminting (){
               placeholder="헌혈자의 주민등록번호를 입력하시오."
               required
             />
-            
-            <input
-              className="NFTminting_css"
+            <br/>
+            <br/>
+            <div className="typeCheck">
+              <p>혈액형을 선택하세요.</p>
+              <label>
+              <input 
               name="bloodType"
-              label="혈액형"
-              value={bloodType}
-              onChange={handleBloodType}
-              placeholder="헌혈자의 혈액형을 입력하시오."
-              required
-            />
+              value="A"
+              type="radio"
+              checked={bloodType === "A"}
+              onChange={handleBloodType}/>
+              <br/>
+              A
+              </label>
+
+              <label>
+              <input 
+              name="bloodType"
+              value="B"
+              type="radio"
+              checked={bloodType === "B"}
+              onChange={handleBloodType}/>
+              <br/>
+              B
+              </label>
+
+              <label>
+              <input 
+              name="bloodType"
+              value="AB"
+              type="radio"
+              checked={bloodType === "AB"}
+              onChange={handleBloodType}/>
+              <br/>
+              AB
+              </label>
+
+              <label>
+              <input 
+              name="bloodType"
+              value="O"
+              type="radio"
+              checked={bloodType === "O"}
+              onChange={handleBloodType}/>
+              <br/>
+              O
+              </label>
+            </div>
 
             <input
               className="NFTminting_css"
@@ -135,7 +173,8 @@ function NFTminting (){
               placeholder="증명서 번호를 입력하시오."
               required
             />
-
+            <br/>
+            <br/>
             <div className="typeCheck">
               <p>헌혈 종류를 선택하세요.</p>
               <label>
@@ -183,16 +222,6 @@ function NFTminting (){
               </label>
             </div>
 
-
-            <input
-              className="NFTminting_css"
-              name="date"
-              label="날짜"
-              value={date}
-              onChange={handleDate}
-              placeholder="오늘 날짜를 입력하시오."
-              required
-            />
             <br/>
             <input
               className="NFTminting_css"
