@@ -13,6 +13,7 @@ import {gsap} from "gsap";
 
 import HomeCard from './card';
 import Sidebar from './Sidebar';
+import Story from './story';
 
 import './card.scss';
 import {Icon} from '@iconify/react';
@@ -129,10 +130,8 @@ function Home() {
     return(
         <body>
             <Header/>
-            <Sidebar>
-              {<div>
-                여기에 컴포넌트로 글을 쓰던, 그냥 쓰던 쓰면됨
-              </div>}
+            <Sidebar width={330}>
+              {<Story/>}
             </Sidebar>
             <div className='app'>
                 <Carousel>

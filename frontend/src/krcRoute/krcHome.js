@@ -58,10 +58,6 @@ function NFTminting (){
     setDonateType(e.target.value)
   }
 
-  const handleDate = (e) => {
-    setDate(e.target.value)
-  }
-
   const handleWalletAddress = (e) => {
     setWalletAddress(e.target.value)
   }
