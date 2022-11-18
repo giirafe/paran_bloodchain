@@ -6,6 +6,7 @@ import caver from '../klaytn/caver';
 import './krcHome.scss'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import MainHeader from '../components/layout/mainHeader';
+import Logout from '../components/logout';
 
 //const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
@@ -75,6 +76,7 @@ function NFTminting (){
       return (
         <body>
           <MainHeader/>
+          <Logout/>
           <div className="space"></div>
           <div className="Board_css">
             <BootstrapTable>
