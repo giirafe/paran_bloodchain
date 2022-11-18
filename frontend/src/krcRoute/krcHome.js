@@ -212,7 +212,6 @@ export const mintCertificate = async (
         from: wallet.address,// 보내는 사람 주소
         gas: '200000000',
       })
-  
       console.log("Certificate Minted");
     } catch(e){
       console.error("Error From Creating Certificate : ",e);
