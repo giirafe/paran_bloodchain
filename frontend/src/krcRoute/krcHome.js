@@ -65,9 +65,10 @@ function NFTminting (){
     setWalletAddress(e.target.value)
   }
 
-  const handleSubmit = async (e) => {
-      await mintCertificate(name, id, bloodType, homeAddress, certificateNum,donateType,date,walletAddress)
-      await window.location.reload();
+  const handleSubmit = (e) => {
+      mintCertificate(name, id, bloodType, homeAddress, certificateNum,donateType,date,walletAddress)
+      console.log('성공')
+      //await window.location.reload();
   }
 
 
@@ -83,7 +84,6 @@ function NFTminting (){
             </BootstrapTable>
           </div>
           <div className="mint">
-            <form className="NFTminting" onSubmit={handleSubmit}>
             <label>헌혈증명서 발행</label>
             <br/>
             <input
@@ -204,12 +204,7 @@ function NFTminting (){
               required
             />
             <br/>
-            <Button
-              className="Certificate__upload"
-              type="submit"
-              title="헌혈증명서 업로드"
-            />
-          </form>
+            <button className="main-btn" onClick={handleSubmit}>발행</button>
           </div>
         </body>
       )
