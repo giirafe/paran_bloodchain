@@ -63,7 +63,6 @@ function Myinfo() {
         setDonateType(donateType = cert_data.get_donateType);
         setDate(date = cert_data.get_date);
         //console.log("cycle done");
-
     }
 
     const GetCertRecord = async() => {
