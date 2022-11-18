@@ -237,7 +237,7 @@ export const mintCertificate = async (
   const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
   const wallet = walletInstance;
   */
-  
+  try{
     const before_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
     console.log("before cert length: ", before_cert_length);
     await BloodContract.methods.createCertificate(
@@ -258,6 +258,11 @@ export const mintCertificate = async (
       gas: '200000000',
     })
     console.log("mint");
+    alert("헌혈 증명서 발급 성공");
+  } catch(err){
+    console.error(err);
+    alert("Minting Failed");
+  }
     
     const after_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
     console.log("after cert length: ", after_cert_length);
