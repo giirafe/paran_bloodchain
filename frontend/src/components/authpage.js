@@ -21,7 +21,7 @@ class AuthPage extends Component {
         e.preventDefault()
         const { privatekey } = this.state
         await setDepartment(privatekey);
-        alert("회원가입되었습니다. ");
+
         //window.location.reload();
     }
     //test
@@ -67,21 +67,24 @@ export const setDepartment = async(
   privateKey
 ) => {
   
-  const jsonWallet = wallet_session();
-  const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
+  const wallet = caver.klay.accounts.privateKeyToAccount(privateKey);
   caver.klay.accounts.wallet.add(wallet)
   
-  const before_PW = await BloodContract.methods.getDepartment(wallet.address).call();
-  console.log("before_PW: ", before_PW);
-  if (before_PW === 1 || before_PW === 2 || before_PW === 3){
-    alert("이미 계정이 존재합니다!")
-    return ;
-  } else {
+
+  const check = await BloodContract.methods.checkDepartment(wallet.address).call();
+  console.log("depart exist : ", check);
+  if (check == true){
+    alert("이미 계정이 존재합니다.")
+    window.location.reload();
+  } else{
     await BloodContract.methods.setDepartment(1).send({
       from: wallet.address,// 보내는 사람 주소
       gas: '200000000',
-    })
+    });
+    alert("회원가입되었습니다. ");
+    window.location.reload();
   }
+  
   /*
   const before_PW = await BloodContract.methods.getDepartment(wallet.address).call();
   console.log("before_PW: ", before_PW);
