@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
@@ -23,38 +23,54 @@ if (walletFromSession) {
 */
 
 console.log("klaytn wallet is :", caver.klay.accounts.wallet)
-class NFTminting extends Component {
-    state = {
-      name: '',
-      id: '',
-      bloodType: '',
-      home_address: '',
-      certificateNum: '',
-      donateType: '',
-      date: '',
-      wallet_address:'',
-    }
-    
-    handleInputChange = (e) => {
-        this.setState({
-          [e.target.name]: e.target.value,
-        })
+function NFTminting (){
+    const [name, setName] = useState('')
+    const [id, setId] = useState('')
+    const [bloodType, setBloodType] = useState('')
+    const [homeAddress, setHomeAddress] = useState('')
+    const [certificateNum, setCertificateNum] = useState('')
+    const [donateType, setDonateType] = useState('전혈')
+    const [date, setDate] = useState('')
+    const [walletAddress, setWalletAddress] = useState('')
+
+    const handleName = (e) => {
+        setName(e.target.value)
     }
 
-    handleSubmit = async (e) => {
-        e.preventDefault()
-        const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
-        await mintCertificate(name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address)
+    const handleId = (e) => {
+      setId(e.target.value)
+    }
+
+    const handleBloodType = (e) => {
+      setBloodType(e.target.value)
+    }
+
+    const handleHomeAddress = (e) => {
+      setHomeAddress(e.target.value)
+    }
+
+    const handleCertificateNum = (e) => {
+      setCertificateNum(e.target.value)
+    }
+
+    const handleDonateType = (e) => {
+      setDonateType(e.target.value)
+    }
+
+    const handleDate = (e) => {
+      setDate(e.target.value)
+    }
+
+    const handleWalletAddress = (e) => {
+      setWalletAddress(e.target.value)
+    }
+
+    const handleSubmit = async (e) => {
+        await mintCertificate(name, id, bloodType, homeAddress, certificateNum,donateType,date,walletAddress)
         await window.location.reload();
     }
-    //test
-    handleClick = (e) => {
-      console.log("Hi");
-    }
 
-    
-    render() {
-        const { name, id, bloodType, home_address, certificateNum,donateType,date,wallet_address } = this.state
+
         return (
           <body>
             <MainHeader/>
@@ -67,7 +83,7 @@ class NFTminting extends Component {
               </BootstrapTable>
             </div>
             <div className="mint">
-              <form className="NFTminting" onSubmit={this.handleSubmit}>
+              <form className="NFTminting" onSubmit={handleSubmit}>
               <label>헌혈증명서 발행</label>
               <br/>
               <input
@@ -75,7 +91,7 @@ class NFTminting extends Component {
                 name="name"
                 label="헌혈자 이름"
                 value={name}
-                onChange={this.handleInputChange}
+                onChange={handleName}
                 placeholder="헌혈자 이름을 입력하시오."
                 required
               />
@@ -85,7 +101,7 @@ class NFTminting extends Component {
                 name="id"
                 label="주민등록번호"
                 value={id}
-                onChange={this.handleInputChange}
+                onChange={handleId}
                 placeholder="헌혈자의 주민등록번호를 입력하시오."
                 required
               />
@@ -95,7 +111,7 @@ class NFTminting extends Component {
                 name="bloodType"
                 label="혈액형"
                 value={bloodType}
-                onChange={this.handleInputChange}
+                onChange={handleBloodType}
                 placeholder="헌혈자의 혈액형을 입력하시오."
                 required
               />
@@ -104,8 +120,8 @@ class NFTminting extends Component {
                 className="NFTminting_css"
                 name="home_address"
                 label="주소"
-                value={home_address}
-                onChange={this.handleInputChange}
+                value={homeAddress}
+                onChange={handleHomeAddress}
                 placeholder="헌혈자의 주소를 입력하시오."
                 required
               />
@@ -115,27 +131,65 @@ class NFTminting extends Component {
                 name="certificateNum"
                 label="증명서 번호"
                 value={certificateNum}
-                onChange={this.handleInputChange}
+                onChange={handleCertificateNum}
                 placeholder="증명서 번호를 입력하시오."
                 required
               />
 
-              <input
-                className="NFTminting_css"
+              <div className="typeCheck">
+                <p>헌혈 종류를 선택하세요.</p>
+                <label>
+                <input 
                 name="donateType"
-                label="헌혈 종류"
-                value={donateType}
-                onChange={this.handleInputChange}
-                placeholder="헌혈 종류를 입력하시오."
-                required
-              />
+                value="전혈"
+                type="radio"
+                checked={donateType === "전혈"}
+                onChange={handleDonateType}/>
+                <br/>
+                전혈
+                </label>
+
+                <label>
+                <input 
+                name="donateType"
+                value="혈장"
+                type="radio"
+                checked={donateType === "혈장"}
+                onChange={handleDonateType}/>
+                <br/>
+                혈장
+                </label>
+
+                <label>
+                <input 
+                name="donateType"
+                value="혈소판"
+                type="radio"
+                checked={donateType === "혈소판"}
+                onChange={handleDonateType}/>
+                <br/>
+                혈소판
+                </label>
+
+                <label>
+                <input 
+                name="donateType"
+                value="혈장+혈소판"
+                type="radio"
+                checked={donateType === "혈장+혈소판"}
+                onChange={handleDonateType}/>
+                <br/>
+                혈장 + 혈소판
+                </label>
+              </div>
+
 
               <input
                 className="NFTminting_css"
                 name="date"
                 label="날짜"
                 value={date}
-                onChange={this.handleInputChange}
+                onChange={handleDate}
                 placeholder="오늘 날짜를 입력하시오."
                 required
               />
@@ -144,8 +198,8 @@ class NFTminting extends Component {
                 className="NFTminting_css"
                 name="wallet_address"
                 label="지갑 주소"
-                value={wallet_address}
-                onChange={this.handleInputChange}
+                value={walletAddress}
+                onChange={handleWalletAddress}
                 placeholder="지갑 주소를 입력하시오."
                 required
               />
@@ -158,9 +212,7 @@ class NFTminting extends Component {
             </form>
             </div>
           </body>
-          
         )
-      }
 }
 
 export const wallet_session = () => {
@@ -193,35 +245,27 @@ export const mintCertificate = async (
   
     const before_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
     console.log("before cert length: ", before_cert_length);
-
-    try {
-      await BloodContract.methods.createCertificate(
-        name,
-        id,
-        bloodType,
-        home_address,
-        certificateNum,
-        donateType).send({
-          from: wallet.address,// 보내는 사람 주소
-          gas: '200000000',
-        })
-      console.log("dummy");
-      console.log("Certficate Created. Now Minting Through Smart Contract");
-  
-      await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
+    await BloodContract.methods.createCertificate(
+      name,
+      id,
+      bloodType,
+      home_address,
+      certificateNum,
+      donateType).send({
         from: wallet.address,// 보내는 사람 주소
         gas: '200000000',
       })
-  
-      console.log("Certificate Minted");
-    } catch(e){
-      console.error("Error From Creating Certificate : ",e);
-      alert("Mint Failed");
-    }
-
+    console.log("dummy");
+    console.log("Certficate Created. Now Minting Through Smart Contract");
+    
+    await BloodContract.methods.mintCert(wallet_address, certificateNum).send({
+      from: wallet.address,// 보내는 사람 주소
+      gas: '200000000',
+    })
+    console.log("mint");
     
     const after_cert_length = await BloodContract.methods.getCertificateCount(wallet_address).call()
-    console.log("After Cert length: ", after_cert_length);
+    console.log("after cert length: ", after_cert_length);
 
     await caver.klay.accounts.wallet.clear()
 
@@ -238,14 +282,5 @@ export const mintCertificate = async (
 
     console.log("cycle done");
 }
-
-// export const getMintData = async() => {
-//   const jsonWallet = wallet_session();
-//   const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
-//   caver.klay.accounts.wallet.add(wallet)
- 
-  
-//   await caver.klay.accounts.wallet.clear()
-// }
 
 export default NFTminting
