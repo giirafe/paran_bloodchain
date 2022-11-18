@@ -53,7 +53,7 @@ function BoardList() {
         Axios.get("http://localhost:3001/community", {})
             .then((res) => {
                 const { data } = res;
-                setBoardList(data)
+                setBoardList(data) // response에서 사용자 게시물 data로 setBoardList()로 설정
             })
             .catch((e) => {
                 console.error(e);
