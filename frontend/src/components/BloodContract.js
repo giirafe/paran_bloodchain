@@ -346,6 +346,54 @@ const DEPLOYED_ABI =[
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user_address",
+				"type": "address"
+			}
+		],
+		"name": "getDonationCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
+		"name": "getDonationRecord",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "DonateTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenCount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "getInquiryData",
 		"outputs": [
@@ -621,7 +669,7 @@ const DEPLOYED_ABI =[
 		"type": "function"
 	}
 ]
-const DEPLOYED_ADDRESS = '0x73826ab0513E1132E2DA21FCBE07B632E3bE3e16'
+const DEPLOYED_ADDRESS = '0x0573c41E7C08afb2Dc4bDE8efBB20b8ee8e900c0'
  
 const BloodContract = DEPLOYED_ABI
  && DEPLOYED_ADDRESS
