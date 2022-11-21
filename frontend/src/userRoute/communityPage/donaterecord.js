@@ -10,16 +10,16 @@ function Donaterecord() {
     var [record, setRecord] = useState([])
 
     var [to, setTo] = useState("");
-    var [donateTime, setDonateTime] = useState(0);
+    var [donateTime, setDonateTime] = useState("");
     var [tokenCount, setTokenCount] = useState(0);
 
     const walletFromSession = sessionStorage.getItem('walletInstance')
     const wallet = JSON.parse(walletFromSession)
 
     const getLength = async() => {
-        const donationCount = await BloodContract.methods.getDonationCount(wallet.address).call({from: wallet.address});
+        const MintCount = await BloodContract.methods.getDonationCount(wallet.address).call({from: wallet.address});
         //console.log("donationCount is : ", donationCount);
-        setLength(donationCount);
+        setLength(MintCount);
     }
 
     getLength();
@@ -27,8 +27,11 @@ function Donaterecord() {
     
     const getDonationRecord = async(i) => {
         const donation = await BloodContract.methods.getDonationRecord(i).call({from: wallet.address});
+        var date = new Date(parseInt(donation[1]));
+
         setTo(to = donation[0]);
-        setDonateTime(donateTime = donation[1]);
+        setDonateTime(donateTime = date.getTime());
+        //var returnDate = year + "." + month + "." + day + ". " + hour + ":" + minute + ":" + second;
         setTokenCount(tokenCount = donation[2]);
 
     }
