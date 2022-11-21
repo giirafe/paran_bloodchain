@@ -34,6 +34,22 @@ function NFTminting (){
   const [date, setDate] = useState('')
   const [walletAddress, setWalletAddress] = useState('')
 
+
+  const [length, setLength] = useState(0);
+  var [record, setRecord] = useState([])
+  var [to, setTo] = useState("");
+  var [donateTime, setDonateTime] = useState(0);
+  var [tokenCount, setTokenCount] = useState(0);
+
+  const walletFromSession = sessionStorage.getItem('walletInstance')
+  const wallet = JSON.parse(walletFromSession)
+
+  const getLength = async() => {
+      const donationCount = await BloodContract.methods.getDonationCount(wallet.address).call({from: wallet.address});
+      //console.log("donationCount is : ", donationCount);
+      setLength(donationCount);
+  }
+  
   const handleName = (e) => {
       setName(e.target.value)
   }

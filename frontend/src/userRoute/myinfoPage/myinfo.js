@@ -29,6 +29,8 @@ function Myinfo() {
         cert_length = parseInt(cert_length);
         //console.log("length: ",cert_length);
         setLength(cert_length);
+
+        
     }
     /*
     const getCertdata = async (i) => {
@@ -80,6 +82,9 @@ function Myinfo() {
         }
         setRecord(bloodRecord)
         console.log(bloodRecord)
+
+        const depart = await BloodContract.methods.getDepartment(wallet.address).call() //private이라 안됨
+        console.log("depart is : ", depart);
     }
     
     useEffect(() => {
