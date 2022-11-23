@@ -5,6 +5,7 @@ import './InquiryPage.css'
 import {useNavigate} from 'react-router-dom';
 import BloodContract from '../components/BloodContract';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import MainHeader from '../components/layout/mainHeader';
 
 function Inquiry() {
     const [walletAddress, setWalletAddress] = useState('')
@@ -60,10 +61,12 @@ function Inquiry() {
     }
 
     return (
-      <div>
+      <body>
+        <MainHeader />
+        <div className="space"></div>
       <div className="Board_css">
         <BootstrapTable>
-            <TableHeaderColumn width='350' dataField='mint_transaction' dataAlign='center'>조회 기록</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='mint_transaction' dataAlign='center'>조회 기록</TableHeaderColumn>
             <TableHeaderColumn width='200' dataField='time_stamp' dataAlign='center'>조회일</TableHeaderColumn>
             <TableHeaderColumn width='200' dataField='mint_address' dataAlign='center' isKey={true}>조회 주소</TableHeaderColumn>
         </BootstrapTable>
@@ -100,7 +103,7 @@ function Inquiry() {
           onClick={handleSubmit}
         />
       </div>
-      </div> 
+      </body> 
 
     )
 }

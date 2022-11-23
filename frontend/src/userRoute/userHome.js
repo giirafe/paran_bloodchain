@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import '../App.css';
 import Header from '../components/layout/header';
 import {useNavigate} from 'react-router-dom';
@@ -5,11 +6,69 @@ import './userHome.scss';
 import React, {useState, Component, useLayoutEffect, useEffect } from 'react'
 import caver from '../klaytn/caver';
 import BloodContract from '../components/BloodContract';
-
 import { Link } from 'react-router-dom';
 import {ScrollTrigger} from 'gsap/ScrollTrigger.js';
 import {gsap} from "gsap";
-import $ from 'jquery';
+
+
+import HomeCard from './card';
+import Sidebar from './Sidebar';
+import Story from './story';
+
+import './card.scss';
+import {Icon} from '@iconify/react';
+import IMG from '../components/layout/방울이.png';
+
+const wave = (text) => {
+  for(var i in text) { 
+    if(text[i] === " ") {
+      $(".wavetext").append( $("<span>").html("&nbsp;") ); 
+    } else {  
+      $(".wavetext").append( $("<span>").text(text[i]) ); 
+    }
+  }
+}
+
+const CARDS = 3;
+const MAX_VISIBILITY = 3;
+
+const Card = ({img,title, content}) => (
+  <div className='card'>
+    <div className="front" style={{background: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+    </div>
+    <div className="back">
+        <br/>
+        <h2>{title}</h2>
+        <p>{content}</p>
+    </div>
+  </div>
+);
+
+const Carousel = ({children}) => {
+  const [active, setActive] = useState(0);
+  const count = React.Children.count(children);
+  
+  return (
+    <div className='carousel'>
+      {active > 0 && <button className='nav left' onClick={() => setActive(i => i - 1)}><Icon icon="typcn:chevron-left-outline" /></button>}
+      {React.Children.map(children, (child, i) => (
+        <div className='card-container' style={{
+            '--active': i === active ? 1 : 0,
+            '--offset': (active - i) / 3,
+            '--direction': Math.sign(active - i),
+            '--abs-offset': Math.abs(active - i) / 3,
+            'pointer-events': active === i ? 'auto' : 'none',
+            'opacity': Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
+            'display': Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
+          }}>
+          {child}
+        </div>
+      ))}
+      {active < count - 1 && <button className='nav right' onClick={() => setActive(i => i + 1)}><Icon icon="typcn:chevron-right-outline"/></button>}
+    </div>
+  );
+};
+
 
 function Home() {
     var [name, setName] = useState("");
@@ -65,54 +124,30 @@ function Home() {
     console.log("state: ", name);
 
     useEffect(() => {
-        $(".option").click(function(){
-            $(".option").removeClass("active");
-            $(this).addClass("active");
-            
-         })
-    })
+      wave("방울이와 함께 헌혈 여행을 떠나볼까요?");
+    },[])
 
     return(
         <body>
             <Header/>
-            <div className="space"></div>
-            <div className="space"></div>
-
-            <div className="cards">
-                <div class="options">
-                    <div class="option active">
-                        <div class="shadow"></div>
-                        <div class="label">
-                            <div class="icon">
-                                <i class="fas fa-walking"></i>
-                            </div>
-                            <div class="info">
-                                <div class="main">헌혈 증서</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="shadow"></div>
-                        <div class="label">
-                            <div class="icon">
-                                <i class="fas fa-snowflake"></i>
-                            </div>
-                            <div class="info">
-                                <div class="main">검사 결과</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="shadow"></div>
-                        <div class="label">
-                            <div class="icon">
-                                <i class="fas fa-tree"></i>
-                            </div>
-                            <div class="info">
-                                <div class="main">건강 정보</div>
-                            </div>
-                        </div>
-                    </div>
+            <Sidebar width={330}>
+              {<Story/>}
+            </Sidebar>
+            <div className='app'>
+                <Carousel>
+                    <Card img={IMG} title={`${name}님의 헌혈증명서`} content={
+                        `\n
+                        발급 번호 : ${id}\n
+                        헌혈 종류 : ${donateType}\n
+                        헌혈 일자 : ${date}\n
+                        혈액원명 : 경기남부혈액원\n
+                        헌혈 가능일까지 17일 남았습니다.`
+                    }/>
+                    <Card title={`${name}님의 혈액 검사 결과`}></Card>
+                    <Card title={`${name}님의 건강 정보`}></Card>
+                </Carousel>
+                <div class="wavetext">
+                  
                 </div>
             </div>
         </body>

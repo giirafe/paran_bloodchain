@@ -6,7 +6,7 @@ import BloodContract from './BloodContract'
 import caver from '../klaytn/caver'
 
 
-class Privatekey extends Component {
+class AuthPage extends Component {
     state = {
       privatekey: '',
     }
@@ -20,9 +20,9 @@ class Privatekey extends Component {
     handleSubmit = async(e) => {
         e.preventDefault()
         const { privatekey } = this.state
-        await setPW(privatekey);
-        alert("비밀번호가 변경되었습니다. ");
-        window.location.reload();
+        await setDepartment(privatekey);
+
+        //window.location.reload();
     }
     //test
     handleClick = (e) => {
@@ -63,33 +63,46 @@ export const wallet_session = () => {
 }
 
 
-export const setPW = async(
+export const setDepartment = async(
   privateKey
 ) => {
   
-  const jsonWallet = wallet_session();
-  const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);
+  const wallet = caver.klay.accounts.privateKeyToAccount(privateKey);
   caver.klay.accounts.wallet.add(wallet)
   
-  /*
-  const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
-  const wallet = walletInstance;
-  */
+
+  const check = await BloodContract.methods.checkDepartment(wallet.address).call();
+  console.log("depart exist : ", check);
+  if (check == true){
+    alert("이미 계정이 존재합니다.")
+    window.location.reload();
+  } else{
+    await BloodContract.methods.setDepartment(1).send({
+      from: wallet.address,// 보내는 사람 주소
+      gas: '200000000',
+    });
+    alert("회원가입되었습니다. ");
+    window.location.reload();
+  }
   
-  const before_PW = await BloodContract.methods.Address_PW(wallet.address).call();
+  /*
+  const before_PW = await BloodContract.methods.getDepartment(wallet.address).call();
   console.log("before_PW: ", before_PW);
   
-  await BloodContract.methods.set_InquiryPW(wallet.address, privateKey).send({
+  await BloodContract.methods.setDepartment(wallet.address, privateKey).send({
     from: wallet.address,
     gas: '200000000',
   });
 
-  const after_PW = await BloodContract.methods.Address_PW(wallet.address).call();
+  const after_PW = await BloodContract.methods.getDepartment(wallet.address).call();
   console.log("after_PW: ", after_PW);
+  */
+
+
   await caver.klay.accounts.wallet.clear()
 
   console.log("cycle done");
 
   
 }
-export default Privatekey
+export default AuthPage

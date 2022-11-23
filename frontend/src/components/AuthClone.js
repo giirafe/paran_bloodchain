@@ -39,6 +39,7 @@ function Auth(props, ref) {
   const handleLogin = () => {
     //const { accessType, keystore, password, privateKey } = this.state
     integrateWallet(privateKey)
+    
   }
 
   /**

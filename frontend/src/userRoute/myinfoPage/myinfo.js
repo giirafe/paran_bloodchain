@@ -25,10 +25,12 @@ function Myinfo() {
     const getLength = async() => {
         const acc_balance = await BloodContract.methods.balances(wallet.address).call();
         //console.log("Account Balance is : " , acc_balance);
-        var cert_length = await BloodContract.methods.user_CertLength(wallet.address).call()
+        var cert_length = await BloodContract.methods.getCertificateCount(wallet.address).call()
         cert_length = parseInt(cert_length);
         //console.log("length: ",cert_length);
         setLength(cert_length);
+
+        
     }
     /*
     const getCertdata = async (i) => {
@@ -79,6 +81,9 @@ function Myinfo() {
         }
         setRecord(bloodRecord)
         console.log(bloodRecord)
+
+        const depart = await BloodContract.methods.getDepartment(wallet.address).call() //private이라 안됨
+        console.log("depart is : ", depart);
     }
     
     useEffect(() => {
@@ -128,13 +133,12 @@ function Myinfo() {
                 <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
                 </BootstrapTable>
             </div>
-            
-            
-            
 
+            
             <Link to ="/createkey">
             <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
             </Link>
+            
         </body>
     );
 }
