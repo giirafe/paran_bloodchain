@@ -4,6 +4,7 @@ import Button from './Button'
 import './authpage.css'
 import BloodContract from './BloodContract'
 import caver from '../klaytn/caver'
+import MainHeader from './layout/mainHeader'
 
 
 class AuthPage extends Component {
@@ -31,8 +32,9 @@ class AuthPage extends Component {
     render() {
         const { privatekey } = this.state
         return (
-            
-          <form className="privatekey" onSubmit={this.handleSubmit}>
+          <div>
+            <MainHeader />
+            <form className="privatekey" onSubmit={this.handleSubmit}>
             
             <input
               className="Privatekey_css"
@@ -43,13 +45,14 @@ class AuthPage extends Component {
               placeholder="비밀 키를 입력하시오."
               required
             />
-          <br/>
-            <Button
-              className="Certificate__upload"
-              type="submit"
-              title="회원가입"
-            />
-          </form>
+            <br/>
+              <button
+                className="main-btn"
+                type="submit"
+                title="회원가입"
+              >Sign In</button>
+            </form>
+          </div>
 
 
         )  

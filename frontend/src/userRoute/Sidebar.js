@@ -25,7 +25,7 @@ const Sidebar = ({ width=280, children }) => {
           <button onClick={() => toggleMenu()}
           className={styles.button} >
             {isOpen ? 
-            <span>X</span> : <img src="../../public/img/double_arrow_FILL0_wght400_GRAD0_opsz48" alt="contact open button" className={styles.openBtn}/>
+            <span>X</span> : <span>&gt;</span>
             }
           </button>
         

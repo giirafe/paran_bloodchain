@@ -17,7 +17,6 @@ import isAdmin from './isAdmin';
 function Auth(props, ref) {
   const navigate = useNavigate();
   const [privateKey, setPrivateKey] = useState('')
-
   const print = () => {
     console.log('pk', privateKey)
   }
@@ -39,6 +38,16 @@ function Auth(props, ref) {
   const handleLogin = () => {
     //const { accessType, keystore, password, privateKey } = this.state
     integrateWallet(privateKey)
+    setTimeout(function() {
+      if (sessionStorage.getItem('auth') !== sessionStorage.getItem('depart')) {
+        alert('허가되지 않은 개인키 입니다.')
+      }
+      else {
+        navigate(`/${sessionStorage.getItem('auth')}`)
+      };
+    }, 500);
+    
+    reset()
     
   }
 
@@ -84,16 +93,48 @@ function Auth(props, ref) {
       // //세션에 개인키 저장 후 SC 접근 마다 객체 만드는 어거지
       sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
       console.log("Caver Wallet Length : ",caver.klay.accounts.wallet.length)
+     
+      const walletFromSession = sessionStorage.getItem('walletInstance')
+      const wallet = JSON.parse(walletFromSession)
+      var depart = ''
+      try {
+        BloodContract.methods.getDepartment(wallet.address).call()
+        .then(result => {
+          console.log(result)
+          console.log(typeof(result))
+          if (result === '2') {
+            depart = 'InquiryPage'
+          }
+          else if (result === '3') {
+            depart = 'krcHome'
+          }
+          else {
+            depart = 'user'
+          }
+          sessionStorage.setItem('depart', depart)
+        }) //private이라 안됨
+      } catch (e) {
+        depart = null
+        sessionStorage.setItem('depart', depart)
+      }
+      /*
+      console.log(depart)
+      if (depart === 2) {
+        depart = 'InquiryPage'
+      }
+      else if (depart === 3) {
+        depart = 'krcHome'
+      }
+      else {
+        depart = 'user'
+      }*/
 
-      console.log(sessionStorage.getItem('auth'))
-      navigate(`/${sessionStorage.getItem('auth')}`)
-      reset()
     } catch (e) {
       console.log(e)
       alert('개인키를 올바르게 입력하십시오.')
     }
   }
-
+  
   /**
    * removeWallet method removes
    * 1) wallet instance from caver.klay.accounts

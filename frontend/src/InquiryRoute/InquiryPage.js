@@ -96,12 +96,12 @@ function Inquiry() {
           required
         />
         <br/>
-        <Button
-          className="UploadPhoto__upload"
+        <button
+          className="main-btn"
           type="submit"
           title="조회"
           onClick={handleSubmit}
-        />
+        >조회</button>
       </div>
       </body> 
 
