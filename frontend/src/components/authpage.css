@@ -1,10 +1,12 @@
 .privatekey {
     margin: 300px;
     text-align: center;
+    font-family: JUA;
 
 }
 .Privatekey_css{
     width: 70%;
     margin: 10px;
     height: 50px;
+    font-family: JUA;
 }

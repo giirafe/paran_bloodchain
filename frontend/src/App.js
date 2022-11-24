@@ -87,7 +87,7 @@ function App() {
       <Route path='/myinfo' element={isAdmin() ? <Myinfo /> : <Forbidden />} />
       <Route path='/community' element={isAdmin() ? <Community /> : <Forbidden />} /> 
       <Route path='/myinfo_comp' element={isAdmin() ? <Myinfo_comp /> : <Forbidden />} />
-      <Route path='/useletter' element={isAdmin() ? <Useletter /> : <Forbidden />} />      
+      <Route path='/useletter' element={isAdmin() ? <Donatemain /> : <Forbidden />} />      
       <Route path='/createkey' element={isAdmin() ? <Createkey /> : <Forbidden />} />
       <Route path='/krcHome' element={isAdmin() ? <Krc />: <Forbidden />} />
       <Route path='/donate' element={isAdmin() ? <Donate /> : <Forbidden />} />

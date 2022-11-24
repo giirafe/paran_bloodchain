@@ -17,7 +17,6 @@ function Header() {
     }
 
     const onClickLogo = () => {
-      alert(sessionStorage.getItem('auth'))
       navigate(`/${sessionStorage.getItem('auth')}`)
     }
 
@@ -31,7 +30,7 @@ function Header() {
             <ul class="menu align-center expanded text-center SMN_effect-73">
               <li><a href="/myinfo">내 정보</a></li>
               <li><a href="/community">커뮤니티</a></li>
-              <li><a href="/useletter">증서 사용</a></li>
+              <li><a href="/donatemain">증서 사용</a></li>
               
 
               <li><a href="" onClick={removeWallet}>로그아웃</a></li>

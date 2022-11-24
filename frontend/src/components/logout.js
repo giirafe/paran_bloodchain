@@ -9,6 +9,7 @@ function Logout() {
         caver.klay.accounts.wallet.clear()
         sessionStorage.removeItem('walletInstance')
         sessionStorage.removeItem('auth')
+        sessionStorage.removeItem('depart')
         alert('로그아웃')
         navigate('/')
     }

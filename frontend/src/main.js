@@ -14,8 +14,15 @@ function Main() {
 
   const buttonHandler = () => {
     setSignup(!signup)
-    if (isAdmin()) {
+    
+    if (isAdmin() && sessionStorage.getItem('auth') === sessionStorage.getItem('depart')) {
       navigate(`/${sessionStorage.getItem('auth')}`)
+    }
+    else if (!isAdmin()) {
+      return
+    }
+    else {
+      alert('허가되지 않은 접근입니다.')
     }
   }
 
@@ -85,7 +92,7 @@ function Main() {
               buttonHandler()
               }}>조회 기관</button>
             {signup && (
-          <Modal closeModal={() => setSignup(!signup)}>
+          <Modal closeModal={ () => setSignup(!signup)}>
             <Auth/>
           </Modal>)}
             <button className="main-btn" onClick={() => {
