@@ -27,7 +27,7 @@ function Info() {
     const getLength = async() => {
         const acc_balance = await BloodContract.methods.balances(walletAddress).call();
         //console.log("Account Balance is : " , acc_balance);
-        var cert_length = await BloodContract.methods.user_CertLength(walletAddress).call()
+        var cert_length = await BloodContract.methods.getCertificateCount(walletAddress).call()
         cert_length = parseInt(cert_length);
         //console.log("length: ",cert_length);
         setLength(cert_length);
