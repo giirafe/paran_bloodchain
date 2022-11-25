@@ -43,27 +43,30 @@ class WriteDonate extends Component {
 
     render() {
         return (
-          <div className="wrap">
+          <body>
             <Header/>
-            <div className="space"></div>
-            <div class="Write">
-              <label>제목</label>
-              <input className="write-title" name="title" type="text" onChange={this.handleInputChange} placeholder="제목을 입력하세요" />
-              <br/>
-              <br/>
-              <label>내용</label>
-              <input className="write-content" name="content" as="textarea" onChange={this.handleInputChange} placeholder="내용을 입력하세요" />
-            </div>
+            <div className="wrap">
+              <div className="space"></div>
+              <div className="Write">
+              <h2>글을 작성하세요</h2>
+                <p>제목</p>
+                <input className="write-title" name="title" type="text" onChange={this.handleInputChange} />
+                <br/>
+                <br/>
+                <p>내용</p>
+                <input className="write-content" name="content" as="textarea" onChange={this.handleInputChange} />
+              </div>
 
-            <div className="button login">
-              <button
-                type="submit"
-                title="글 업로드"
-                onClick={this.write}
-              >작성 완료<i className="fa fa-check"></i></button>
+              
+                <button
+                  className="main-btn"
+                  type="submit"
+                  title="글 업로드"
+                  onClick={this.write}
+                >업로드</button>
+              
             </div>
-            
-          </div>
+          </body>
         )
       }
 }

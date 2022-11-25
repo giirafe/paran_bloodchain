@@ -110,6 +110,11 @@ function Myinfo() {
     }
     */
     //console.log("bloodRecord length:",bloodRecord);
+    const options = {
+        defaultSortName: 'createdAt',
+        defaultSortOrder: 'desc',
+    }
+
     return(
         <body>
             <Header/>
@@ -126,11 +131,11 @@ function Myinfo() {
             </div>
 
             <div className="tableSpace">
-                <BootstrapTable data={record} striped hover condensed pagination>
-                <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
+                <BootstrapTable data={record} pagination options={options}>
+                <TableHeaderColumn width='350' dataField='id' dataAlign='center'>주민번호</TableHeaderColumn>
                 <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
                 <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='date' isKey={true} dataAlign='center'>헌혈 일자</TableHeaderColumn>
                 </BootstrapTable>
             </div>
 

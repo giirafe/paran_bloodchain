@@ -57,7 +57,8 @@ function MyWrite () {
 
     const options = {
         searchPosition: 'left',
-        
+        defaultSortName: 'createdAt',
+        defaultSortOrder: 'desc',
         handleConfirmDeleteRow: deletePost,
     }
 
@@ -67,7 +68,7 @@ function MyWrite () {
             <SideMenu/>
             
             <div className="tableLocation">
-                <BootstrapTable data={boardLList} deleteRow={true} options={options} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
+                <BootstrapTable data={boardLList} deleteRow={true} options={options} selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
                     <TableHeaderColumn width='350' dataField='address' dataAlign='center'>주소</TableHeaderColumn>
                     <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
                     <TableHeaderColumn width='200' dataField='createdAt' dataAlign='center' isKey={true}>작성일</TableHeaderColumn>

@@ -108,7 +108,13 @@ function BoardList() {
     // eslint-disable-next-line
     const navigate = useNavigate();
 
+    const dateFormatter = (cell, row) => {
+        return `${cell.slice(2)}`
+    }
+
     const options = {
+        defaultSortName: 'createdAt',
+        defaultSortOrder: 'desc',
         searchPosition: 'left',
         onRowClick: function(row) {
             navigate(`${row.address}/${row.title}`, {state:{address:row.address, title:row.title, content:row.content, createdAt:row.createdAt}})
@@ -117,7 +123,7 @@ function BoardList() {
 
 
     return (
-        <BootstrapTable data={boardLList} options={options} striped hover condensed selectRow={selectRowProp} pagination search={true} multiColumnSearch={true}>
+        <BootstrapTable data={boardLList} options={options} pagination search={true} multiColumnSearch={true}>
             <TableHeaderColumn width='350' dataField='address' isKey={true} dataAlign='center'>주소</TableHeaderColumn>
             <TableHeaderColumn width='200' dataField='title' dataAlign='center'>제목</TableHeaderColumn>
             <TableHeaderColumn width='200' dataField='createdAt' dataAlign='center'>작성일</TableHeaderColumn>
