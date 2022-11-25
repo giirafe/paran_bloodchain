@@ -5,7 +5,7 @@ import './InquiryPage.css'
 import {useNavigate} from 'react-router-dom';
 import BloodContract from '../components/BloodContract';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import MainHeader from '../components/layout/mainHeader';
+import Header from '../components/layout/header';
 
 function Inquiry() {
     const [walletAddress, setWalletAddress] = useState('')
@@ -62,7 +62,7 @@ function Inquiry() {
 
     return (
       <body>
-        <MainHeader />
+        <Header />
         <div className="space"></div>
       <div className="Board_css">
         <BootstrapTable>
