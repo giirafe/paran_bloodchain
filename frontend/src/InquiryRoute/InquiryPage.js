@@ -5,7 +5,7 @@ import './InquiryPage.css'
 import {useNavigate} from 'react-router-dom';
 import BloodContract from '../components/BloodContract';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import MainHeader from '../components/layout/mainHeader';
+import InstituteHeader from '../components/layout/instituteHeader';
 
 function Inquiry() {
     const [walletAddress, setWalletAddress] = useState('')
@@ -62,7 +62,7 @@ function Inquiry() {
 
     return (
       <body>
-        <MainHeader />
+        <InstituteHeader />
         <div className="space"></div>
       <div className="Board_css">
         <BootstrapTable>
@@ -73,29 +73,28 @@ function Inquiry() {
       </div>
 
       <div className="Inquiry">
-        <label>지갑 주소</label>
+        <h2>조회 대상 정보를 입력해주세요.</h2>
         <br/>
+        <p>지갑 주소</p>
         <input
           className="Inquiry_walletaddress"
           name="walletaddress"
           value={walletAddress}
           onChange={handleAddress}
-          placeholder="조회 대상의 지갑 주소를 입력하세요."
           required
         />
         <br/>
-        <label>비밀번호</label>
         <br/>
+        <p>비밀번호</p>
         <input
           className="Inquiry_password"
           name="password"
           type="password"
           value={password}
           onChange={handlePassword}
-          placeholder="비밀번호를 입력하세요."
           required
         />
-        <br/>
+        <br/><br/>
         <button
           className="main-btn"
           type="submit"

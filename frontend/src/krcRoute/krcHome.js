@@ -5,7 +5,7 @@ import BloodContract from '../components/BloodContract'
 import caver from '../klaytn/caver';
 import './krcHome.scss'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import MainHeader from '../components/layout/mainHeader';
+import InstituteHeader from '../components/layout/instituteHeader';
 import Logout from '../components/logout';
 
 //const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
@@ -87,8 +87,7 @@ function NFTminting (){
 
       return (
         <body>
-          <MainHeader/>
-          <Logout/>
+          <InstituteHeader/>
           <div className="space"></div>
           <div className="Board_css">
             <BootstrapTable>
@@ -98,31 +97,29 @@ function NFTminting (){
             </BootstrapTable>
           </div>
           <div className="mint">
-            <label>헌혈증명서 발행</label>
+            <h2>헌혈증명서 발행</h2>
             <br/>
+            <p>이름</p>
             <input
               className="NFTminting_css"
               name="name"
               label="헌혈자 이름"
               value={name}
               onChange={handleName}
-              placeholder="헌혈자 이름을 입력하시오."
               required
             />
-            
+            <p>주민등록번호</p>
             <input
               className="NFTminting_css"
               name="id"
               label="주민등록번호"
               value={id}
               onChange={handleId}
-              placeholder="헌혈자의 주민등록번호를 입력하시오."
               required
             />
             <br/>
-            <br/>
             <div className="typeCheck">
-              <p>혈액형을 선택하세요.</p>
+              <p>혈액형</p>
               <label>
               <input 
               name="bloodType"
@@ -167,30 +164,27 @@ function NFTminting (){
               O
               </label>
             </div>
-
+            <p>주소</p>
             <input
               className="NFTminting_css"
               name="home_address"
               label="주소"
               value={homeAddress}
               onChange={handleHomeAddress}
-              placeholder="헌혈자의 주소를 입력하시오."
               required
             />
-
+            <p>증명서 번호</p>
             <input
               className="NFTminting_css"
               name="certificateNum"
               label="증명서 번호"
               value={certificateNum}
               onChange={handleCertificateNum}
-              placeholder="증명서 번호를 입력하시오."
               required
             />
             <br/>
-            <br/>
             <div className="typeCheck">
-              <p>헌혈 종류를 선택하세요.</p>
+              <p>헌혈 종류</p>
               <label>
               <input 
               name="donateType"
@@ -237,13 +231,13 @@ function NFTminting (){
             </div>
 
             <br/>
+            <p>지갑 주소</p>
             <input
               className="NFTminting_css"
               name="wallet_address"
               label="지갑 주소"
               value={walletAddress}
               onChange={handleWalletAddress}
-              placeholder="지갑 주소를 입력하시오."
               required
             />
             <br/>
