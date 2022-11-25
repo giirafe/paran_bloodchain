@@ -53,17 +53,10 @@ function NFTminting (){
   // 발급기록
   const getLength = async() => {
       const MintCount = await BloodContract.methods.getMintRecordCount(wallet.address).call({from: wallet.address});
-      //console.log("donationCount is : ", donationCount);
       setLength(MintCount);
   }
   const getMintdata = async (i) => {
-    //await getLength();
     var length_max = length - 1;
-    // const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-    // console.log("cert is :",cert);
-    // const cert_data = await cert;
-    // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-    // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
     const cert_data = await BloodContract.methods.getMintData(i).call({from: wallet.address});
     //console.log("Cert is ", cert_data)
     setMintName(Mintname = cert_data.get_name);
