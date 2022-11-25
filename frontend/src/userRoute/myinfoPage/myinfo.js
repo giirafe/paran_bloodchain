@@ -134,9 +134,10 @@ function Myinfo() {
                 </BootstrapTable>
             </div>
 
-            
             <Link to ="/createkey">
+            <div className="submit-btn">
             <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
+            </div>
             </Link>
             
         </body>
