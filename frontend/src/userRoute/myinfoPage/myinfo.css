@@ -13,3 +13,8 @@
 .tableSpace {
     left: 30%;
 }
+
+.submit-btn{
+    position: relative;
+    left: 90%;
+}

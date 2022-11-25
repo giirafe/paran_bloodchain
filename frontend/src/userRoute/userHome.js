@@ -17,7 +17,10 @@ import Story from './story';
 
 import './card.scss';
 import {Icon} from '@iconify/react';
-import IMG from '../components/layout/방울이.png';
+import IMG from '../components/layout/방울이.png'
+import IMG2 from '../components/layout/방울이2.png'
+import IMG3 from '../components/layout/방울이3.png'
+
 
 const wave = (text) => {
   for(var i in text) { 
@@ -75,6 +78,9 @@ function Home() {
     var [id, setId] = useState("");
     var [donateType, setDonateType] = useState("");
     var [date, setDate] = useState("");
+    
+    var [certificateNum, setDate] = useState("");
+    var [home_address, setDate] = useState("");
     var [length, setLength] = useState(0);
 
     console.log("klaytn wallet is :", caver.klay.accounts.wallet)
@@ -137,14 +143,27 @@ function Home() {
                 <Carousel>
                     <Card img={IMG} title={`${name}님의 헌혈증명서`} content={
                         `\n
-                        발급 번호 : ${id}\n
+                        발급 번호 : ${certificateNum}\n
                         헌혈 종류 : ${donateType}\n
                         헌혈 일자 : ${date}\n
                         혈액원명 : 경기남부혈액원\n
                         헌혈 가능일까지 17일 남았습니다.`
                     }/>
-                    <Card title={`${name}님의 혈액 검사 결과`}></Card>
-                    <Card title={`${name}님의 건강 정보`}></Card>
+                    <Card img={IMG2}title={`${name}님의 혈액 검사 결과`} content={
+                        `\n
+                          B형 간염 : 음성\n
+                          C형 간염 : 음성\n
+                          매독 항체 : 음성\n
+                          말라리아 항체 : 음성\n
+                          혈액형 아형 : 음성\n
+                          `
+                    }/>
+                    <Card img={IMG3}title={`${name}님의 개인 정보`} content={
+                        `\n
+                          주민등록번호 : ${id}\n
+                          주소 : ${home_address}\n
+                        `
+                    }/>
                 </Carousel>
                 <div class="wavetext">
                   

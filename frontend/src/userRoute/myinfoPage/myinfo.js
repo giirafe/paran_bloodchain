@@ -58,14 +58,13 @@ function Myinfo() {
         // const cert_data = await cert;
         // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
         // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(wallet.address,i,0).call();
+        const cert_data = await BloodContract.methods.getCertData(wallet.address,i,0).call({from: wallet.address});
         //console.log("Cert is ", cert_data)
         setName(name = cert_data.get_name);
         setId(id = cert_data.get_id);
         setDonateType(donateType = cert_data.get_donateType);
         setDate(date = cert_data.get_date);
         //console.log("cycle done");
-
     }
 
     const GetCertRecord = async() => {
@@ -140,9 +139,10 @@ function Myinfo() {
                 </BootstrapTable>
             </div>
 
-            
             <Link to ="/createkey">
+            <div className="submit-btn">
             <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
+            </div>
             </Link>
             
         </body>

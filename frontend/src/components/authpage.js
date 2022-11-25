@@ -5,6 +5,7 @@ import './authpage.css'
 import BloodContract from './BloodContract'
 import caver from '../klaytn/caver'
 import MainHeader from './layout/mainHeader'
+import {useNavigate} from 'react-router-dom';
 
 
 class AuthPage extends Component {
@@ -69,12 +70,12 @@ export const wallet_session = () => {
 export const setDepartment = async(
   privateKey
 ) => {
-  
   const wallet = caver.klay.accounts.privateKeyToAccount(privateKey);
   caver.klay.accounts.wallet.add(wallet)
   
 
   const check = await BloodContract.methods.checkDepartment(wallet.address).call();
+  console.log("User Address To Set Department : ",wallet.address);
   console.log("depart exist : ", check);
   if (check == true){
     alert("이미 계정이 존재합니다.")
@@ -83,9 +84,9 @@ export const setDepartment = async(
     await BloodContract.methods.setDepartment(1).send({
       from: wallet.address,// 보내는 사람 주소
       gas: '200000000',
-    });
+    });  
     alert("회원가입되었습니다. ");
-    window.location.reload();
+    window.location.assign('./');
   }
   
   /*
