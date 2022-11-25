@@ -394,13 +394,43 @@ const DEPLOYED_ABI =[
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
 		"name": "getInquiryData",
 		"outputs": [
 			{
-				"internalType": "address[]",
-				"name": "user_inquiryHistory",
-				"type": "address[]"
+				"internalType": "address",
+				"name": "inquiry_to_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "inquiry_date",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user_address",
+				"type": "address"
+			}
+		],
+		"name": "getInquiryRecordCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",

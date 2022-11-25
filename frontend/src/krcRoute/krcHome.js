@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import BloodContract from '../components/BloodContract'
@@ -25,6 +25,7 @@ if (walletFromSession) {
 
 console.log("klaytn wallet is :", caver.klay.accounts.wallet)
 function NFTminting (){
+  // 발급 state
   const [name, setName] = useState('')
   const [id, setId] = useState('')
   const [bloodType, setBloodType] = useState('')
@@ -33,23 +34,65 @@ function NFTminting (){
   const [donateType, setDonateType] = useState('전혈')
   const [date, setDate] = useState('')
   const [walletAddress, setWalletAddress] = useState('')
+  // 발급 기록 조회 state
+  var [record, setRecord] = useState([])
 
+  var [Mintname, setMintName] = useState('')
+  var [Mintid, setMintId] = useState('')
+  var [MintbloodType, setMintBloodType] = useState('')
+  var [MinthomeAddress, setMintHomeAddress] = useState('')
+  var [MintcertificateNum, setMintCertificateNum] = useState('')
+  var [MintdonateType, setMintDonateType] = useState('전혈')
+  var [Mintdate, setMintDate] = useState('')
 
   const [length, setLength] = useState(0);
-  var [record, setRecord] = useState([])
-  var [to, setTo] = useState("");
-  var [donateTime, setDonateTime] = useState(0);
-  var [tokenCount, setTokenCount] = useState(0);
-
+  
   const walletFromSession = sessionStorage.getItem('walletInstance')
   const wallet = JSON.parse(walletFromSession)
 
+  // 발급기록
   const getLength = async() => {
-      const donationCount = await BloodContract.methods.getDonationCount(wallet.address).call({from: wallet.address});
-      //console.log("donationCount is : ", donationCount);
-      setLength(donationCount);
+      const MintCount = await BloodContract.methods.getMintRecordCount(wallet.address).call({from: wallet.address});
+      setLength(MintCount);
   }
-  
+  const getMintdata = async (i) => {
+    var length_max = length - 1;
+    const cert_data = await BloodContract.methods.getMintData(i).call({from: wallet.address});
+    //console.log("Cert is ", cert_data)
+    setMintName(Mintname = cert_data.get_name);
+    setMintId(Mintid = cert_data.get_id);
+    setMintBloodType(MintbloodType = cert_data.get_bloodType);
+    setMintHomeAddress(MinthomeAddress = cert_data.get_home_address);
+    setMintCertificateNum(MintcertificateNum = cert_data.get_certificateNum);
+    setMintDonateType(MintdonateType = cert_data.get_donateType);
+    setMintDate(Mintdate = cert_data.get_date);
+    //console.log("cycle done");
+
+  }
+
+  const GetMintCertRecord = async() => {
+    await getLength();
+    const bloodRecord = [length];
+    for (let i = 0; i < length; i++) {    
+        await getMintdata(i)
+        bloodRecord.push({
+            id: Mintid,
+            name: Mintname,
+            donateType: MintdonateType,
+            date: Mintdate,    
+        });
+    }
+    setRecord(bloodRecord)
+    console.log(bloodRecord)
+
+    const depart = await BloodContract.methods.getDepartment(wallet.address).call() //private이라 안됨
+    console.log("depart is : ", depart);
+}
+
+  useEffect(() => {
+    GetMintCertRecord()
+  },[record.length])
+
   const handleName = (e) => {
       setName(e.target.value)
   }
