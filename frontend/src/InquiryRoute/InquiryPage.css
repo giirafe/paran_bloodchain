@@ -32,12 +32,19 @@
 
 .Inquiry {
     font-family: JUA;
+    color: #cb2b2b;
     margin: 0;
     margin-left: 30px;
     padding: 0;
     width : 45%;
     float: left;
     text-align: center;
+}
+
+.Inquiry p {
+    text-align: left;
+    margin-left: 180px;
+    color: #d17676
 }
 
 .UploadPhoto__upload{
