@@ -1,31 +1,43 @@
+
 .wrap {
     top: 50%;
     width: 100%;
-    height: 100%;
-    position: relative;
+    text-align: center;
 }
 
 .space {
-    height: 150px;
+    height: 100px;
 }
 
 .Write {
+    border-radius: 20px;
+    padding: 20px;
     font-family: JUA;
-    width: 98%;
     margin: 10px;
+}
+
+.Write h2{
+    color: #cb2b2b;
+}
+
+.Write p{
+    text-align: left;
+    margin-left: 400px;
+    font-size: 20px;
 }
 
 .write-title {
     font-family: JUA;
-    width: 100%;
+    width: 50%;
     margin-top: 10px;
+    height: 100px;
 }
 
 .write-content {
     font-family: JUA;
-    width: 100%;
+    width: 50%;
     margin-top: 10px;
-    height: 200px;
+    height: 300px;
     
 }
 
