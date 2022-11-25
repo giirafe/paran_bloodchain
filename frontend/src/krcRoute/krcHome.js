@@ -320,4 +320,5 @@ export const mintCertificate = async (
     console.log("cycle done");
 }
 
+
 export default NFTminting

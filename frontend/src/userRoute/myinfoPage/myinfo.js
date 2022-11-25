@@ -65,7 +65,6 @@ function Myinfo() {
         setDonateType(donateType = cert_data.get_donateType);
         setDate(date = cert_data.get_date);
         //console.log("cycle done");
-
     }
 
     const GetCertRecord = async() => {
@@ -135,9 +134,10 @@ function Myinfo() {
                 </BootstrapTable>
             </div>
 
-            
             <Link to ="/createkey">
+            <div className="submit-btn">
             <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
+            </div>
             </Link>
             
         </body>
