@@ -21,7 +21,7 @@ import IMG from '../components/layout/방울이.png'
 import IMG2 from '../components/layout/방울이2.png'
 import IMG3 from '../components/layout/방울이3.png'
 
-
+/*
 const wave = (text) => {
   for(var i in text) { 
     if(text[i] === " ") {
@@ -30,7 +30,7 @@ const wave = (text) => {
       $(".wavetext").append( $("<span>").text(text[i]) ); 
     }
   }
-}
+}*/
 
 const CARDS = 3;
 const MAX_VISIBILITY = 3;
@@ -129,9 +129,10 @@ function Home() {
     getCertdata();
     console.log("state: ", name);
 
+    /*
     useEffect(() => {
       wave("방울이와 함께 헌혈 여행을 떠나볼까요?");
-    },[])
+    },[])*/
 
     return(
         <body>
@@ -165,8 +166,30 @@ function Home() {
                         `
                     }/>
                 </Carousel>
-                <div class="wavetext">
-                  
+                <div className="effectText">
+                  <h2>
+                    <span>방</span>
+                    <span>울</span>
+                    <span>이</span>
+                    <span>와</span>
+                    <span> </span>
+                    <span>함</span>
+                    <span>께</span>
+                    <span> </span>
+                    <span>헌</span>
+                    <span>혈</span>
+                    <span> </span>
+                    <span>여</span>
+                    <span>행</span>
+                    <span>을</span>
+                    <span> </span>
+                    <span>떠</span>
+                    <span>나</span>
+                    <span>볼</span>
+                    <span>까</span>
+                    <span>요</span>
+                    <span>?</span>
+                  </h2>
                 </div>
             </div>
         </body>

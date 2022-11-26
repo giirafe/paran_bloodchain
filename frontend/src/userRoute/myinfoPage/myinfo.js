@@ -118,33 +118,31 @@ function Myinfo() {
     return(
         <body>
             <Header/>
-            <div className="infoList">
-                <h3 className="Name1">기부 가능 횟수</h3>
-                <h3 className="Name2">기부 받은 횟수</h3>
-                <h3 className="Name3">기부한 횟수</h3>
-            </div>
+            <div className="myInfoWrap">
+                <div className="infoList">
+                    <ul>
+                        <li>기부 가능 횟수 : {length}</li>
+                        <li>기부 받은 횟수 : </li>
+                        <li>기부한 횟수 : </li>
+                    </ul>
+                </div>
+                
+                <div className="tableSpace">
+                    <BootstrapTable data={record} pagination options={options}>
+                    <TableHeaderColumn width='150' dataField='id' dataAlign='center'>주민번호</TableHeaderColumn>
+                    <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
+                    <TableHeaderColumn width='100' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
+                    <TableHeaderColumn width='200' dataField='date' isKey={true} dataAlign='center'>헌혈 일자</TableHeaderColumn>
+                    </BootstrapTable>
+                </div>
 
-            <div className="infoNum">
-                <h3 className="num1">{length}</h3>
-                <h3 className="num2">아직</h3>
-                <h3 className="num3">안함</h3>
+                <Link to ="/createkey">
+                <div className="submit-btn">
+                <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
+                </div>
+                </Link>
+                
             </div>
-
-            <div className="tableSpace">
-                <BootstrapTable data={record} pagination options={options}>
-                <TableHeaderColumn width='350' dataField='id' dataAlign='center'>주민번호</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='date' isKey={true} dataAlign='center'>헌혈 일자</TableHeaderColumn>
-                </BootstrapTable>
-            </div>
-
-            <Link to ="/createkey">
-            <div className="submit-btn">
-            <button className="main-btn" onClick="hi">조회 키 비밀번호 생성하기</button>
-            </div>
-            </Link>
-            
         </body>
     );
 }

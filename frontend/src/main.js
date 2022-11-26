@@ -61,7 +61,7 @@ function Main() {
 
   return (
     
-    <div className="wrap">
+    <div>
       <MainHeader/>
         <div className="img">
           <img className="mainIMG" src="img/main.png" alt="로딩 실패"/>

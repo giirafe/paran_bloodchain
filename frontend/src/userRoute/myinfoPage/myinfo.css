@@ -1,20 +1,50 @@
-.body {
-    
-}
-
-.infoNum {
-    font-family: JUA;
+.myInfoWrap {
+    margin: 0;
+    padding: 0;
+    height: 90vh;
 }
 
 .infoList {
+    margin-left: 50px;
+    top: 0%;
+    height: 500px;
+    position: absolute;
     font-family: JUA;
+    float: left;
+}
+
+.infoList ul{
+    text-align: center;
+    border-radius: 20px;
+    list-style: none;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    background-color: #cb2b2b;
+    padding: 0;
+    color: white;
+}
+
+.infoList li {
+    font-size: 25px;
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
 
 .tableSpace {
+    float: left;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    top: 20%;
     left: 30%;
+    min-height: 500px;
+    max-height: 800px;
 }
 
 .submit-btn{
-    position: relative;
-    left: 90%;
+    position: absolute;
+    top: 70%;
+    left: 83%;
 }
