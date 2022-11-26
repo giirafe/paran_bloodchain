@@ -43,9 +43,8 @@ function Useletter () {
             <input
               className="Donate_walletaddress"
               name="walletTo"
-              value={walletTo}
+              value={address}
               onChange={handleWalletTo}
-              placeholder={address}
               required
             />
             <br/>
