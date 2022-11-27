@@ -59,7 +59,7 @@ function Info() {
         // const cert_data = await cert;
         // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
         // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(walletAddress,i,password).call();
+        const cert_data = await BloodContract.methods.InquiryTo(walletAddress,password,i).call();
         //console.log("Cert is ", cert_data)
         setName(name = cert_data.get_name);
         setId(id = cert_data.get_id);
