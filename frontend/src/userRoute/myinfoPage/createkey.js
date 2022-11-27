@@ -45,7 +45,7 @@ class Privatekey extends Component {
             />
           <br/>
             <Button
-              className="Certificate__upload"
+              className="main-btn"
               type="submit"
               title="비밀번호 생성"
             />

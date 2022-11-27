@@ -58,7 +58,7 @@ body {
 
 .main-btn {
   margin: 15px;
-  width: 120px;
+  width: 150px;
   position: relative;
   border: none;
   display: inline-block;
@@ -71,6 +71,8 @@ body {
   transition: 0.25s;
   color: white;
   background-color: #CB2B2B;
+  white-space: pre-wrap;
+
 }
 
 .main-btn:hover {

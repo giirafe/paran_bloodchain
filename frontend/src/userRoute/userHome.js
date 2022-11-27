@@ -143,12 +143,14 @@ function Home() {
             <div className='app'>
                 <Carousel>
                     <Card img={IMG} title={`${name}님의 헌혈증명서`} content={
+                      
                         `\n
                         발급 번호 : ${certificateNum}\n
                         헌혈 종류 : ${donateType}\n
                         헌혈 일자 : ${date}\n
                         혈액원명 : 경기남부혈액원\n
                         헌혈 가능일까지 17일 남았습니다.`
+                        
                     }/>
                     <Card img={IMG2}title={`${name}님의 혈액 검사 결과`} content={
                         `\n

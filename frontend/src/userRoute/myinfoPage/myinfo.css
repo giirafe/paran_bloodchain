@@ -47,4 +47,5 @@
     position: absolute;
     top: 70%;
     left: 83%;
+    white-space: pre-wrap;
 }
