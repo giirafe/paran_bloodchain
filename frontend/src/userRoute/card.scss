@@ -29,7 +29,7 @@ $card-size: 45rem;
 
 .card-container {
   position: absolute;
-  width: 100%;
+  width: 90%;
   height: 100%;
   transform: 
     rotateY(calc(var(--offset) * 50deg)) 
@@ -60,7 +60,9 @@ $card-size: 45rem;
   }
 
   p {
-    font-size:1.5rem;
+    font-size:1.7rem;
+    color: rgb(0, 0, 0);
+
   }
   
   p, h2 {
