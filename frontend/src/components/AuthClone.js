@@ -102,10 +102,10 @@ function Auth(props, ref) {
         .then(result => {
           console.log(result)
           console.log(typeof(result))
-          if (result === '3') {
+          if (result === '2') {
             depart = 'InquiryPage'
           }
-          else if (result === '2') {
+          else if (result === '3') {
             depart = 'krcHome'
           }
           else {

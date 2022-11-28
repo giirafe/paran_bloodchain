@@ -127,16 +127,21 @@ function NFTminting (){
       //await window.location.reload();
   }
 
+  const options = {
+    defaultSortName: 'date',
+    defaultSortOrder: 'desc',
+}
 
       return (
         <body>
           <InstituteHeader/>
           <div className="space"></div>
           <div className="Board_css">
-            <BootstrapTable>
-                <TableHeaderColumn width='350' dataField='mint_transaction' dataAlign='center'>발행 기록</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='time_stamp' dataAlign='center'>발행일</TableHeaderColumn>
-                <TableHeaderColumn width='200' dataField='mint_address' dataAlign='center' isKey={true}>발행 주소</TableHeaderColumn>
+            <BootstrapTable data={record} pagination options={options}>
+                <TableHeaderColumn width='350' dataField='id' dataAlign='center'>주민등록번호</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='name' dataAlign='center'>이름</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='date' dataAlign='center' isKey={true}>발행일</TableHeaderColumn>
             </BootstrapTable>
           </div>
           <div className="mint">

@@ -4,6 +4,8 @@ import Header from '../../components/layout/header';
 import {Link} from 'react-router-dom';
 import caver from '../../klaytn/caver';
 import BloodContract from '../../components/BloodContract';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import SideMenu from './side';
 
 function Donaterecord() {
     const [length, setLength] = useState(0);
@@ -47,16 +49,30 @@ function Donaterecord() {
             });
         }
         setRecord(donationRecord)
+        
         console.log(donationRecord)
     }
+
     useEffect(() => {
         GetDonationRecord()
     },[record.length])
 
+    const options = {
+        defaultSortName: 'donateTime',
+        defaultSortOrder: 'desc',
+    }
+
     return(
         <body>
             <Header/>
-            기부 내역을 나타내는 페이지입니다.
+            <SideMenu/>
+            <div className="tableSpace">
+                    <BootstrapTable data={record} pagination options={options}>
+                    <TableHeaderColumn width='150' dataField='to' isKey={true} dataAlign='center'>수신자</TableHeaderColumn>
+                    <TableHeaderColumn width='200' dataField='donateTime' dataAlign='center'>기부 날짜</TableHeaderColumn>
+                    <TableHeaderColumn width='100' dataField='tokenCount' dataAlign='center'>갯수</TableHeaderColumn>
+                    </BootstrapTable>
+            </div>
         </body>
         
     );

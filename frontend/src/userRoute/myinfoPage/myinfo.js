@@ -111,7 +111,7 @@ function Myinfo() {
     */
     //console.log("bloodRecord length:",bloodRecord);
     const options = {
-        defaultSortName: 'createdAt',
+        defaultSortName: 'date',
         defaultSortOrder: 'desc',
     }
 
