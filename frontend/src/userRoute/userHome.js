@@ -81,8 +81,8 @@ function Home() {
     var [donateType, setDonateType] = useState("");
     var [date, setDate] = useState("");
     
-    var [certificateNum, setDate] = useState("");
-    var [home_address, setDate] = useState("");
+    var [certificateNum, setCertificateNum] = useState("");
+    var [home_address, setHome_address] = useState("");
     var [length, setLength] = useState(0);
 
     console.log("klaytn wallet is :", caver.klay.accounts.wallet)
@@ -108,6 +108,9 @@ function Home() {
             setId(id = "NULL");
             setDonateType(donateType = "NULL");
             setDate(date = "NULL");
+            setCertificateNum(certificateNum = "NULL");
+            setHome_address(home_address = "NULL")
+
         } else{
             var length_max = length - 1;
             console.log("length_max", length_max);
@@ -122,6 +125,8 @@ function Home() {
             setId(id = cert_data.get_id);
             setDonateType(donateType = cert_data.get_donateType);
             setDate(date = cert_data.get_date);
+            setCertificateNum(certificateNum = cert_data.get_certificateNum);
+            setHome_address(home_address = cert_data.get_home_address);
         }
         
         console.log("cycle done");
