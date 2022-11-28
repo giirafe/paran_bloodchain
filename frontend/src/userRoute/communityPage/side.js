@@ -4,7 +4,7 @@ import React from 'react';
 const SideMenu = () => {
     return (
         <div className ="communityBox">
-                <Link to ="/community">
+                <Link to ="/user">
                     <button className="main-btn">홈</button>
                 </Link>
                 <Link to ="/writecontent">

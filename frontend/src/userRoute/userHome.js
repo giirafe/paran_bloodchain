@@ -9,6 +9,7 @@ import BloodContract from '../components/BloodContract';
 import { Link } from 'react-router-dom';
 import {ScrollTrigger} from 'gsap/ScrollTrigger.js';
 import {gsap} from "gsap";
+import RightSidebar from './rightSideBar';
 
 
 import HomeCard from './card';
@@ -20,6 +21,7 @@ import {Icon} from '@iconify/react';
 import IMG from '../components/layout/방울이.png'
 import IMG2 from '../components/layout/방울이2.png'
 import IMG3 from '../components/layout/방울이3.png'
+import SideMenu from './communityPage/side';
 
 /*
 const wave = (text) => {
@@ -138,8 +140,28 @@ function Home() {
         <body>
             <Header/>
             <Sidebar width={330}>
-              {<Story/>}
+              <div className ="mainCommunityBox">
+                  <Link to ="/user">
+                      <button className="main-btn">홈</button>
+                  </Link>
+                  <Link to ="/writecontent">
+                      <button className="main-btn" onClick="hi">글 작성</button>
+                  </Link>
+                  <Link to ="/community/myWrite">
+                      <button className="main-btn">내가 쓴 글</button>
+                  </Link>
+                  <Link to ="/donatemain">
+                      <button className="main-btn" onClick="hi">기부하기</button>
+                  </Link>
+                  <Link to ="/donaterecord">
+                      <button className="main-btn" onClick="hi">기부 내역</button>
+                  </Link>
+              </div>
             </Sidebar>
+            <RightSidebar width={330}>
+              {<Story/>}
+            </RightSidebar>
+            
             <div className='app'>
                 <Carousel>
                     <Card img={IMG} title={`${name}님의 헌혈증명서`} content={
