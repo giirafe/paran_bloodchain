@@ -25,7 +25,7 @@ function Useletter () {
   }
 
   const handleSubmit = async (e) => {
-      await donateBalance(walletTo, count);
+      await donateBalance(address, count);
       await window.location.reload();
       //this.props.WriteDonate(walletaddress, count)
   }
