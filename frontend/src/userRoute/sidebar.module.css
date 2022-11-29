@@ -31,6 +31,12 @@
     border-color: white;
     border-radius: 10px;
   }
+  .button span {
+    line-height: 0%;
+  }
+  .button span p {
+    margin-top: 10px;
+  }
   .openBtn {
     width: 100%;
     height: 100%;
