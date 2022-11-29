@@ -5,7 +5,7 @@ import * as axios from 'axios'
 import { Form } from 'react-bootstrap'
 import Header from '../../components/layout/header';
 import './writecontent.css';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 
 class WriteDonate extends Component {
     state = {
@@ -37,7 +37,7 @@ class WriteDonate extends Component {
         alert('업로드 성공')
       })
       .catch((e) => {
-        console.error(e);
+        alert('실패')
       })
     }
 
@@ -50,11 +50,11 @@ class WriteDonate extends Component {
               <div className="Write">
               <h2>글을 작성하세요</h2>
                 <p>제목</p>
-                <input className="write-title" name="title" type="text" onChange={this.handleInputChange} />
+                <textarea className="write-title" name="title" onChange={this.handleInputChange} required="required" autofocus="autofocus"></textarea>
                 <br/>
                 <br/>
                 <p>내용</p>
-                <input className="write-content" name="content" as="textarea" onChange={this.handleInputChange} />
+                <textarea className="write-content" name="content" onChange={this.handleInputChange} required="required"></textarea>
               </div>
 
               
