@@ -41,6 +41,10 @@
     text-align: center;
 }
 
+.Inquiry h2 {
+    font-size: 0.7cm;
+}
+
 .Inquiry p {
     text-align: left;
     margin-left: 180px;

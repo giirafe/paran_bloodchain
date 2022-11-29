@@ -68,7 +68,9 @@ function Main() {
         </div>
         <div className="space"></div>
         <div className="space"></div>
-
+        <br/>
+        <br/>
+        <br/>
         <div className="slogan">
           <h1>헌혈로 세상의 가치를 잇다</h1>
           <h2>당신의 헌혈이 살릴 수 있어요</h2>
