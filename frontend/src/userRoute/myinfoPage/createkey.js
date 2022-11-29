@@ -4,6 +4,8 @@ import Button from '../../components/Button'
 import './createkey.css'
 import BloodContract from '../../components/BloodContract'
 import caver from '../../klaytn/caver'
+import Header from '../../components/layout/header'
+import SideMenu from '../communityPage/side'
 
 
 class Privatekey extends Component {
@@ -31,25 +33,26 @@ class Privatekey extends Component {
     render() {
         const { privatekey } = this.state
         return (
+          <body>
+            <Header/>
+            <SideMenu/>
+            <form className="privatekey" onSubmit={this.handleSubmit}>
             
-          <form className="privatekey" onSubmit={this.handleSubmit}>
-            
-            <input
-              className="Privatekey_css"
-              name="privatekey"
-              label="조회 키"
-              value={privatekey}
-              onChange={this.handleInputChange}
-              placeholder="생성할 조회 키 비밀번호를 입력하시오."
-              required
-            />
-          <br/>
-            <Button
-              className="main-btn"
-              type="submit"
-              title="비밀번호 생성"
-            />
-          </form>
+              <input
+                className="Privatekey_css"
+                name="privatekey"
+                label="조회 키"
+                value={privatekey}
+                onChange={this.handleInputChange}
+                placeholder="생성할 조회 키 비밀번호를 입력하시오."
+                required
+              />
+            <br/>
+              <button
+                className="main-btn"
+                type="submit">비밀번호 생성</button>
+            </form>
+          </body>
 
 
         )  
