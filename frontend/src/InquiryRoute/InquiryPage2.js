@@ -4,6 +4,7 @@ import MaterialTable from '../userRoute/MaterialTable';
 import caver from '../klaytn/caver';
 import BloodContract from '../components/BloodContract';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import InstituteHeader from '../components/layout/instituteHeader';
 
 function Info() {
     const location = useLocation();
@@ -109,13 +110,21 @@ function Info() {
     */
     //console.log("bloodRecord length:",bloodRecord);
     return(
-        <body> 
-            <BootstrapTable data={record} striped hover condensed pagination>
-            <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
-            </BootstrapTable>
+        <body>
+            <InstituteHeader/>
+            <div className="space"></div>
+            <br/>
+            <br/>
+            <br/>
+            <h3>{walletAddress}님의 조회 결과</h3>
+            <div className="inqueryBoard_css">
+                <BootstrapTable data={record}>
+                <TableHeaderColumn width='350' dataField='id' isKey={true} dataAlign='center'>주민번호</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='name' dataAlign='center'>헌혈자</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
+                <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
+                </BootstrapTable>
+            </div>
         </body>
     );
 }
