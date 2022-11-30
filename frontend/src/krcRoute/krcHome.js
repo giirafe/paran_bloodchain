@@ -313,6 +313,7 @@ export const mintCertificate = async (
   //추가 mintCert시 필요
   wallet_address,
 ) => {
+  await caver.klay.accounts.wallet.clear()
   
   const jsonWallet = wallet_session();
   const wallet = caver.klay.accounts.privateKeyToAccount(jsonWallet.privateKey);

@@ -23,11 +23,9 @@ function Inquiry() {
     const wallet = JSON.parse(walletFromSession)
 
     const getLength = async() => {
-        const acc_balance = await BloodContract.methods.balances(walletAddress).call();
-        //console.log("Account Balance is : " , acc_balance);
-        var cert_length = await BloodContract.methods.getCertificateCount(walletAddress).call()
+        var cert_length = await BloodContract.methods.getInquiryRecordCount(wallet.address).call()
         cert_length = parseInt(cert_length);
-        //console.log("length: ",cert_length);
+        console.log("length: ",cert_length);
         setLength(cert_length);
     }
     const getCertdata = async (i) => {
@@ -52,7 +50,7 @@ function Inquiry() {
       for (let i = 0; i < length; i++) {    
           await getCertdata(i)
           bloodRecord.push({
-              to: to_address,
+              to_address: to_address,
               date: date,    
           });
       }
