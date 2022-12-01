@@ -1,5 +1,5 @@
 import React, {useState, Component, useEffect, Suspense} from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 import MaterialTable from '../userRoute/MaterialTable';
 import caver from '../klaytn/caver';
 import BloodContract from '../components/BloodContract';
@@ -71,7 +71,10 @@ function Info() {
         GetCertRecord()
     },[record.length])
     
-    
+    const navigate = useNavigate()
+    const buttonHandler = () => {
+        navigate('/InquiryPage')
+    }
    //console.log(record[length-1].id)
 
     //console.log("bloodRecord real is ", record);
@@ -106,6 +109,9 @@ function Info() {
                 <TableHeaderColumn width='200' dataField='donateType' dataAlign='center'>헌혈 분류</TableHeaderColumn>
                 <TableHeaderColumn width='200' dataField='date' dataAlign='center'>헌혈 일자</TableHeaderColumn>
                 </BootstrapTable>
+            </div>
+            <div className="buttonSpace">
+                <button className="main-btn" onClick={buttonHandler}>돌아가기</button>
             </div>
         </body>
     );
