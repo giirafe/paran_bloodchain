@@ -26,30 +26,12 @@ function Info() {
     const wallet = JSON.parse(walletFromSession)
 
     const getLength = async() => {
-        const acc_balance = await BloodContract.methods.balances(walletAddress).call();
-        //console.log("Account Balance is : " , acc_balance);
         var cert_length = await BloodContract.methods.getCertificateCount(walletAddress).call()
         cert_length = parseInt(cert_length);
         //console.log("length: ",cert_length);
         setLength(cert_length);
     }
-    /*
-    const getCertdata = async (i) => {
-        //await getLength();
-        var length_max = length - 1;
-        // const cert = BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-        // console.log("cert is :",cert);
-        // const cert_data = await cert;
-        // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
-        // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(wallet.address,length_max,0).call();
-        //console.log("Cert is ", cert_data)
-        setName(cert_data.get_name);
-        setId(cert_data.get_id);
-        setDonateType(cert_data.get_donateType);
-        setDate(cert_data.get_date);
-        //console.log("cycle done");
-    }*/
+
     
     const getCertdata = async (i) => {
         //await getLength();
@@ -59,7 +41,7 @@ function Info() {
         // const cert_data = await cert;
         // const cert_data = await BloodContract.methods.InquiryTo(wallet.address,1234,length_max).call()
         // const sample_address ="0xa89421237143433ab88d15c7d614ddff24c2c191"; // 타인의 주소 테스트
-        const cert_data = await BloodContract.methods.getCertData(walletAddress,i,password).call();
+        const cert_data = await BloodContract.methods.InquiryTo(walletAddress,password, i).call({from: wallet.address});
         //console.log("Cert is ", cert_data)
         setName(name = cert_data.get_name);
         setId(id = cert_data.get_id);
