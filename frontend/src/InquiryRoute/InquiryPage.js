@@ -116,10 +116,9 @@ function Inquiry() {
         <InstituteHeader />
         <div className="space"></div>
       <div className="Board_css">
-        <BootstrapTable>
-            <TableHeaderColumn width='200' dataField='mint_transaction' dataAlign='center'>조회 기록</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='time_stamp' dataAlign='center'>조회일</TableHeaderColumn>
-            <TableHeaderColumn width='200' dataField='mint_address' dataAlign='center' isKey={true}>조회 주소</TableHeaderColumn>
+        <BootstrapTable data={record}>
+            <TableHeaderColumn width='350' dataField='to_address' dataAlign='center' isKey={true}>조회 대상</TableHeaderColumn>
+            <TableHeaderColumn width='200' dataField='date' dataAlign='center'>조회일</TableHeaderColumn>
         </BootstrapTable>
       </div>
 

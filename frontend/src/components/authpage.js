@@ -36,14 +36,13 @@ class AuthPage extends Component {
           <div>
             <MainHeader />
             <form className="privatekey" onSubmit={this.handleSubmit}>
-            
+            <h3>개인키를 입력해주세요</h3>
             <input
               className="Privatekey_css"
               name="privatekey"
               label="조회 키"
               value={privatekey}
               onChange={this.handleInputChange}
-              placeholder="비밀 키를 입력하시오."
               required
             />
             <br/>
