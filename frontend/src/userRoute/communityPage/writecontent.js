@@ -6,6 +6,7 @@ import { Form } from 'react-bootstrap'
 import Header from '../../components/layout/header';
 import './writecontent.css';
 import {Link, Navigate} from 'react-router-dom';
+import SideMenu from './side';
 
 class WriteDonate extends Component {
     state = {
@@ -45,6 +46,7 @@ class WriteDonate extends Component {
         return (
           <body>
             <Header/>
+            <SideMenu/>
             <div className="wrap">
               <div className="space"></div>
               <div className="Write">
