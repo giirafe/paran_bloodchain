@@ -26,9 +26,9 @@ function MainHeader() {
         </div>
         <div class="header-box">
             <ul class="menu align-center expanded text-center SMN_effect-73">
-              <li><a href="">팀 소개</a></li>
-              <li><a href="">비전</a></li>
-              <li><a href="">목표</a></li>
+              <li><a href="#mainbox">홈</a></li>
+              <li><a href="#introduce">팀 소개</a></li>
+              <li><a href="#vision">비전</a></li>
               <li><a href="/authpage">회원가입</a></li>
             </ul>
           </div>    
