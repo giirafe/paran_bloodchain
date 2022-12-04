@@ -10,6 +10,10 @@ body {
   background-color: white;
 }*/
 
+body{
+  overflow: hidden;
+}
+
 
 .img {
   width: 100%;
@@ -83,4 +87,133 @@ body {
 
 .main-btn:active {
   transform: scale(1.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.controller {
+  position: fixed;
+  display: flex;
+  justify-content:right;
+  width: 100%;
+  bottom: 50%;
+}
+.controller button {
+  float:none;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid #cb2b2b;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  font-size: 0px;
+  cursor: pointer;
+}
+
+.conrtoller button:disabled {
+  background-color: black;
+  border: 2px solid #CB2B2B;
+}
+
+.controller button:nth-child(1) {
+  display: none;
+}
+
+.controller button:nth-last-child(1) {
+  display: none;
+}
+
+.introduce {
+  text-align: center;
+  font-family: JUA;
+}
+
+.introduceBox_1 {
+  position:absolute;
+  float: left;
+  width: 200px;
+  height: 200px;
+  left: 15%;
+  background-color: #cb2b2b;
+  color: white;
+  line-height: 200px;
+  margin-top: 50px;
+  border-radius: 20px;
+} 
+.introduceBox_2 {
+  position: absolute;
+  float: left;
+  width: 200px;
+  height: 200px;
+  left: 44%;
+  background-color: #cb2b2b;
+  color: white;
+  line-height: 200px;
+  margin-top: 50px;
+  border-radius: 20px;
+} 
+.introduceBox_3 {
+  position: absolute;
+  float: left;
+  width: 200px;
+  height: 200px;
+  left: 73%;
+  background-color: #cb2b2b;
+  color: white;
+  line-height: 200px;
+  margin-top: 50px;
+  border-radius: 20px;
+} 
+
+
+.vision {
+  justify-content: center;
+  text-align: center;
+  font-family: JUA;
+}
+
+.visionBox_1 {
+  position:absolute;
+  float: left;
+  width: 200px;
+  height: 200px;
+  left: 15%;
+  background-color: #cb2b2b;
+  color: white;
+  line-height: 200px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+.visionBox_2 {
+  position: absolute;
+  float: left;
+  width: 200px;
+  height: 200px;
+  left: 73%;
+  background-color: #cb2b2b;
+  color: white;
+  line-height: 200px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+.width_ {
+  position:absolute;
+  width: 200px;
+  height: 50px;
+  background-color: #CB2B2B;
+  left: 44%;
+  margin-top: 130px;
+}
+
+.height_ {
+  position:absolute;
+  width: 50px;
+  height: 200px;
+  background-color: #CB2B2B;
+  left: 48.7%;
+  margin-top: 60px;
 }
