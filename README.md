@@ -5,7 +5,7 @@
  <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
  <a href='https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/blob/main/LICENSE'><img src='https://img.shields.io/badge/License-GNU GPL v3.0-blue?style=for-the-badge&logo'></a>
 <div align="center">
-  <a href="[https://www.youtube.com/watch?v=CEl0E3Al_IY](https://www.youtube.com/watch?v=hz3nOc_vhxk&ab_channel=%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90_%EB%8C%80%ED%95%99%EA%B5%90%EC%9C%A1%ED%98%81%EC%8B%A0%EC%9B%90)"><img src="https://img.youtube.com/vi/CEl0E3Al_IY/0.jpg" alt="유투브 영상"></a>
+  <a href="https://www.youtube.com/watch?v=hz3nOc_vhxk"><img src="https://img.youtube.com/vi/hz3nOc_vhxk/0.jpg" alt="유투브 영상"></a>
 </div>
 
 </p>
