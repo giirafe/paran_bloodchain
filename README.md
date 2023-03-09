@@ -1,18 +1,17 @@
-# 🐤카나리아 : 모두를 위한 군사보안 경보 시스템
+# ❣️ PLOW : 블록체인 기반 전자 헌혈 플랫폼
 
 <p align='center'>
 <img src="https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/blob/main/image/canary_2.0.png" alter="LOGO"/><br>
  <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
  <a href='https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/blob/main/LICENSE'><img src='https://img.shields.io/badge/License-GNU GPL v3.0-blue?style=for-the-badge&logo'></a>
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=CEl0E3Al_IY"><img src="https://img.youtube.com/vi/CEl0E3Al_IY/0.jpg" alt="유투브 영상"></a>
+  <a href="[https://www.youtube.com/watch?v=CEl0E3Al_IY](https://www.youtube.com/watch?v=hz3nOc_vhxk&ab_channel=%EC%95%84%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90_%EB%8C%80%ED%95%99%EA%B5%90%EC%9C%A1%ED%98%81%EC%8B%A0%EC%9B%90)"><img src="https://img.youtube.com/vi/CEl0E3Al_IY/0.jpg" alt="유투브 영상"></a>
 </div>
 
 </p>
 
 ## 위 사진을 클릭하시면 유투브를 통해 시연영상을 확인하실 수 있습니다.  👆
-Canary는 머신러닝을 활용하여 사진 안의 보안 위반 가능성이 있는 요소를 식별하고, 자동 모자이크 처리를 하고, 이를 사용자에게 경고해주는 통합 보안 경보 시스템입니다. 
-Canary App, Canary in Instagram, Admin logweb으로 구성되어 있으며, 앱에서 처리된 사진에는 QR코드가 들어가 처리 여부를 쉽게 식별할 수 있습니다.
+PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로 기존 실물 헌혈증의 전자화 및 헌혈증 기부 간편화, 헌혈 공가제도의 활성화를 이루고자 합니다.
 
 ## 🗂️프로젝트 소개
 본 프로젝트는 사진의 보안 내용을 제거하는 기능과 그러한 기능을 가진 카메라를 제공함으로서,  
