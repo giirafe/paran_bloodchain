@@ -233,20 +233,20 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
 <table>
  <tr>
   <td><a href='https://nodejs.org/ko/'><img src='https://user-images.githubusercontent.com/40621030/136699173-a5a2e626-9161-4e30-85fd-93898671896e.png' height=80/></a></td>
-  <td><a href='https://www.mysql.com/'><img src='https://user-images.githubusercontent.com/40621030/136699174-e540729d-0092-447c-b672-dfa5dcfd41a7.png' height=80/></a></td>
-  <td><a href='https://www.goorm.io//'><img src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/uifol9klj1ht0squxhje' width = 200 height=120/></a></td>
+  <td><a href='https://www.mongodb.com/'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png' height=80/></a></td>
+  <td><a href='https://ko.docs.klaytn.foundation/content/dapp/sdk/caver-js/getting-started'><img src='https://raw.githubusercontent.com/klaytn/caver-js/HEAD/assets/logo/caver-js.png' width = 200 height=120/></a></td>
  </tr>
  <tr>
-  <td align='center'>Node js</td>
-  <td align='center'>MySQL</td>
-  <td align='center'>Goorm Server Deploy</td>
+  <td align='center'>Node Js</td>
+  <td align='center'>MongoDB</td>
+  <td align='center'>Caver Js</td>
  </tr>
 </table>
 
 <details>
- <summary>Node js 설명</summary>
+ <summary>MongoDB DDL 설명</summary>
  
- ### MySQL 데이터베이스 구성
+ ### MongoDB 데이터베이스 구성
  - Database 명 : Node_db
  - DB 관리자 명 : node_admin
 
@@ -307,19 +307,6 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
  ```
 
  ***
-  ### API문서
-  *auth - Authentication Handling*
-
-  **POST /auth/create-user**  
-  > parameters: {"name": "string", "d_num":"string", "password": "string"}   
-  > status: 201   
-  > respose: {"status":201,"user_name":name,"msg":'User Created Successful'}
-
-  **POST /auth/login**  
-  > parameters: {"d_num": "string", "password": "string"}   
-  > status: 200   
-  > respose: {"status":200,"msg":"User : ${db_result[0].name} => Login Successful"}
-
 
   *img - Images Handling*
 
@@ -337,12 +324,12 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
 ### Front-end
 <table>
  <tr>
-  <td align='center'><img src='https://user-images.githubusercontent.com/40621030/136700782-179675b0-9bae-4ecf-b94a-e73073d24be5.png' height=80></td>
+  <td align='center'><img src='https://velog.velcdn.com/images/c_10/post/eb16ac48-e413-4fd5-aa9b-ba06f553c4db/image.png' height=80></td>
   <td align='center'><img src='https://user-images.githubusercontent.com/19565940/137632602-01a7fc0f-00af-49af-bc96-8aee25b83a9d.png' height=80></td>
   <td align='center'><img src='https://user-images.githubusercontent.com/19565940/137632657-bf613560-c27e-4dcf-b229-024230185e3b.png' height=80></td>
  </tr>
  <tr>
-  <td align='center'>Flutter</td>
+  <td align='center'>React JS</td>
   <td align='center'>Libraries from pub.dev</td>
   <td align='center'>Dart</td>
  </tr>
