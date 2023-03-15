@@ -52,8 +52,8 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
  <summary>🗒사용자 정의 문서</summary>
  
  ### 페르소나
- ![페르소나](https://user-images.githubusercontent.com/40621030/134792500-00226c5c-592b-4298-aeb8-fb155704278f.png)
- 
+ ![P_LOW 페르소나-001](https://user-images.githubusercontent.com/87919319/225295722-e8ef7b51-4cee-414b-8276-a617d9a27f48.png)
+
  ### 시나리오
  
  #### #1
