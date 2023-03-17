@@ -121,69 +121,6 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
 
 ## 📔기능 설명
 
-### 🩸**P:LOW Web** ###
-웹을 처음 실행 시, 사용자는 우측 상단에 회원가입 버튼을 클릭합니다. 이후 Klaytn Wallet의 개인키를 통해 회원가입을 진행합니다. 
-
-<table>
-  <tr>
-   <td><img src="https://user-images.githubusercontent.com/96776691/225880429-e796c8a0-f47d-4246-9585-09bbd67f2473.png" height="150" width="300"/></td>
-   <td><img src="https://user-images.githubusercontent.com/96776691/225880685-3a21c5e0-8ffc-4865-895e-56fd3d84324b.png" height="150" width="300"/></td>
-   <td><img src="https://user-images.githubusercontent.com/96776691/225881263-951e6f3c-78ea-4672-9c52-2f6c17175763.png" height="150" width="300"/></td>
-  </tr>
- </table>
- 
- P:LOW서비스의 유저는 "일반유저, 조회기관, 헌혈기관" 총 3가지로 나눌 수 있습니다.
- 
- 
- ### 일반유저
-- 최근 헌혈정보 확인
-개인키로 로그인 시, 최근 헌혈정보를 확인할 수 있습니다.
-<table>
-  <tr>
-   <td><img src="https://user-images.githubusercontent.com/96776691/225883972-73ee3082-307c-4227-96ae-157fdcf631d0.png" width="400"/></td>
-   <td><img src="https://user-images.githubusercontent.com/96776691/225884383-1c2fe716-6260-4135-85fd-8c6bb3d1d657.png" width="400"/></td>
-  </tr>
-  <tr>
-   <td><img src="https://user-images.githubusercontent.com/96776691/225884454-d55a62a9-74d9-4fc0-bd0e-6f744c5c5c2d.png" width="400"/></td>
-   <td><img src="https://user-images.githubusercontent.com/96776691/225884540-942fe5a5-dc69-4799-b3e8-f38a8e23bcaa.png" width="400"/></td>
-  </tr>
- </table>
-
-- 헌혈 기록 확인
-‘내 정보’ 페이지에서 지금까지의 헌혈정보를 확인할 수 있습니다.
- <p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885193-79f03000-1438-4086-802c-9254ff3c925b.png" width="700"/></p>
-
-- 헌혈커뮤니티
-P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈증서가 필요하다는 글을 올릴 수 있고, 타 유저들이 쓴 글을 확인하고 게시글에서 바로 헌혈증서를 기부할 수도 있습니다.
-<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885322-349a28f8-3460-43ca-8e50-40840f2a7328.png" width="700"/></p>
-
-- 헌혈증서 기부
-헌혈증서 기부 대상자의 지갑주소, 헌혈증서 기부 개수를 입력하고 ‘기부’버튼을 누르면 헌혈증서를 기부할 수 있습니다.
-<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885500-320c1e6a-f244-483e-b534-f537db56b35c.png" width="700"/></p>
-
-- 기부 내역도 확인할 수 있습니다.
-<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885632-c319a61e-a66c-4450-99f3-c460bfaa31a3.png" width="700"/></p>
-
-
-### 조회기관
-- 조회 기능
-조회대상자의 지갑주소와 조회비밀번호를 입력하여 헌혈기록을 조회할 수 있습니다.
-<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885989-62a5bc63-3d21-4c01-b6b3-b6259399f9f0.png" width="700"/></p>
-
-- 조회내역 확인
-조회 기능을 사용했을 때 조회대상의 지갑주소 정보, 조회일 정보를 확인할 수 있습니다.
-<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225886180-4b870258-23ca-4562-b3f2-f894457769f0.png" width="700"/></p>
-
-
-### 헌혈기관
-- 헌혈증명서 발행
-헌혈자의 개인 정보를 입력하고 지갑주소를 입력 후 , ‘발행’버튼을 클릭하면 헌혈증명서가 발행됩니다.
-
-- 헌혈증명서 발급기록 확인
-헌혈기관이 발급한 헌혈정보(주민등록번호, 이름, 헌혈분류, 발행일)을 확인할 수 있습니다.
-<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225886329-c65639f5-dfd7-4529-b1fa-8f7d844abf74.png" width="700"/></p>
-
-
 <!--
 ### 🖥화면 정의
 <table>
@@ -390,71 +327,57 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
 <table>
  <tr>
   <td align='center'><img src='https://velog.velcdn.com/images/c_10/post/eb16ac48-e413-4fd5-aa9b-ba06f553c4db/image.png' height=80></td>
-  <td align='center'><img src='https://user-images.githubusercontent.com/19565940/137632602-01a7fc0f-00af-49af-bc96-8aee25b83a9d.png' height=80></td>
-  <td align='center'><img src='https://user-images.githubusercontent.com/19565940/137632657-bf613560-c27e-4dcf-b229-024230185e3b.png' height=80></td>
+  <td align='center'><img src='https://blog.kakaocdn.net/dn/bxKpyX/btrhh6XUeBq/sLUMc9vyF6semdllCQJvlK/img.jpg' height=80></td>
  </tr>
  <tr>
   <td align='center'>React JS</td>
-  <td align='center'>Libraries from pub.dev</td>
-  <td align='center'>Dart</td>
+  <td align='center'>Bootstrap</td>
  </tr>
 </table>
 <details>
- <summary>Flutter / Dart Packages</summary>
- 
-- [`get: ^4.3.8`](https://pub.dev/packages/get)
-- [`http: ^0.13.3`](https://pub.dev/packages/http)
-- [`validators: ^3.0.0`](https://pub.dev/packages/validators)
-- [`image: ^3.0.5`](https://pub.dev/packages/image)
-- [`image_picker: ^0.8.4+2`](https://pub.dev/packages/image_picker)
-- [`animated_text_kit: ^4.2.1`](https://pub.dev/packages/animated_text_kit)
-- [`flutter_pw_validator: ^1.2.1`](https://pub.dev/packages/flutter_pw_validator)
-- [`string_validator: ^0.3.0`](https://pub.dev/packages/string_validator)
-- [`qr_flutter: ^4.0.0`](https://pub.dev/packages/qr_flutter)
-- [`path_provider: ^2.0.5`](https://pub.dev/packages/path_provider)
+ <summary>Front-end Description</summary>
+ 내용채우는중
 - [`url_launcher: ^6.0.12`](https://pub.dev/packages/url_launcher)
-- [`cupertino_icons: ^0.1.2`](https://pub.dev/packages/cupertino_icons)
-
-
 </details>
 
 
 
-### AI
+### Blockchain
  <table>
  <tr>
-  <td><a href="https://pytorch.org/"><img src='https://user-images.githubusercontent.com/40621030/136698820-2c869052-ff44-4629-b1b9-7e1ae02df669.png' height=80></a></td>
-  <td><a href="https://opencv.org/"><img src='https://user-images.githubusercontent.com/40621030/136698821-10434eb5-1a98-4108-8082-f68297012724.png' height=80></a></td>
-  <td><a href="https://cvat.org/"><img src='https://user-images.githubusercontent.com/40621030/136698825-f2e1816f-580b-4cf1-960d-295e9f18a329.png' height=80></a></td>
-  <td><a href="https://roboflow.com/"><img src='https://user-images.githubusercontent.com/40621030/136698826-e18a44a9-63d1-498b-a63f-c76bdc603f3b.png' height=80></a></td>
+  <td><a href="https://solidity-kr.readthedocs.io/ko/latest/"><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Solidity_logo.svg/1200px-Solidity_logo.svg.png' height=80></a></td>
+  <td><a href="https://ko.docs.klaytn.foundation/"><img src='https://cdn-images-1.medium.com/max/1200/1*3tSS6q_D-lyttNdlRwqoQw.png' height=80></a></td>
+  <td><a href="https://trufflesuite.com/"><img src='https://trufflesuite.com/assets/logo.png' height=80></a></td>
+  <td><a href="https://remix.ethereum.org/"><img src='https://repository-images.githubusercontent.com/59065830/b62be480-45d2-11ea-9989-803db0f9c44d' height=80></a></td>
+  
  </tr>
  <tr>
-  <td align='center'>PyTorch</td>
-  <td align='center'>OpenCV</td>
-  <td align='center'>CVAT</td>
-  <td align='center'>Roboflow</td>
+  <td align='center'>Solidity</td>
+  <td align='center'>Klaytn Network</td>
+  <td align='center'>Truffle for(Deploy) 할 예정</td>
+  <td align='center'>Remix IDE</td>
  </tr>
  </table>
  <details>
- <summary>📝AI 설명</summary>
+ <summary>📝Blockchain Description</summary>
  
-### Object detection VS Semantic segmentation
+### Why Klaytn?
 
-- Semantic segmentation: 사람을 제외한 배경을 처리
-  난이도: 상대적으로 낮음(사람을 대상으로 학습된 model 사용)
-  장점: 기존 모델을 사용 시 사람을 깔끔하게 구별 가능
-  단점: 오직 사람/배경만 구별 가능, 사람 앞의 물체에 대해선 감지하지 못할 수 있음
-  (ex: 기밀 문서를 들고 있는 사람)
+- 풍부한 한국어 Documentations
+   국내 기업 GroundX가 개발한 블록체인 네트워크로,
+   한국어로 잘 정리된 Documentations과 Tutorials
+   그리고 활성화되어 있는 포럼 및 커뮤니티를 통해 수월한 개발이 가능했습니다.
   
-- Object detection: 학습한 Class들을 사진 안에서 검출하여 처리
-  난이도: 상대적으로 높음(We need to get dataset, annotate them, train model...)
-  장점: 여러 다양한 class들을 검출하여 사진의 상황을 대략적으로 파악 가능,
-  보안 위반 객체는 detect만 된다면 처리 가능(보안성), 사람 이외의 객체들도 살려낼 수 있음
-  단점: segmentation보다 상대적으로 깔끔하지 못한 사진 처리, 높은 데이터 수집 난이도와 큰 시간 소요
+- Remix 및 Metamask와의 연동성
+  Smart Contract의 작성, 테스트 및 배포에
+  용이한 Remix IDE와 Metamask에서
+  Klaytn Network와의 연동 환경 제공
+  
+- 빠른 속도
+ 이전 세대 EVM 계열의 네트워크 보다 
+ 빠른 TX 속도와 저렴한 TX 수수료
  
-보다 높은 보안성을 중시하기로 결정 --> Object detection   
- 
- ### 사용 데이터셋
+### 사용 데이터셋
  
 ### Version 1: [ImageNet Object Localization Challenge](https://www.kaggle.com/c/imagenet-object-localization-challenge)  
  <p align='center'><img src='https://user-images.githubusercontent.com/40621030/137607638-124c1622-6bfe-4a45-a16b-519314916436.jpg' width="500"/></p>  
@@ -533,87 +456,6 @@ YOLOv5, Efficientnet, SSGlite 등의 모델들을 고려.
  </table>
  
  ### 실행 및 예시 ([link](https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/tree/main/AI(BE)/deeplearning/kwoledge_distillation_yolov5))
-</details>
-
-
-### MLOps 
-<table>
- <tr>
-  <td align='center'><a href='https://www.djangoproject.com/'><img src='https://user-images.githubusercontent.com/40621030/136699403-d6ac76a2-7294-4936-acef-163f8c40ed96.png' height=80/></a></td>
-  <td align='center'><a href='https://www.django-rest-framework.org/'><img src='https://user-images.githubusercontent.com/40621030/136699327-88e2bfb9-72d9-4f44-b6b0-8d5911777dbf.png' height=80/></a></td>
-  <td align='center'><a href='https://aws.amazon.com/ko/'><img src='https://user-images.githubusercontent.com/40621030/136699330-313bfbb5-8d53-4aae-b5c1-cb39392a027e.png' height=80/></a></td>
- </tr>
- <tr>
-  <td align='center'>Node js</td>
-  <td align='center'>MySQL</td>
-  <td align='center'>AWS</td>
- </tr>
-</table>
-<details>
- <summary>📝MLOps 설명</summary>
- <p align='center'><img src='https://user-images.githubusercontent.com/40621030/137613564-50a7af1b-bd68-4deb-8aed-b839e0bbe8fd.PNG' width='500'><p>  
- 
- 다양한 플랫폼으로 모델 학습을 자동화 할 수 있도록 REST API서버로 구성했습니다. 데이터, 모델 버전관리를 자동으로 해주고, 최신 버전의 모델을 detection code가 자동으로 업데이트 되도록 구성했습니다.  
- 
- ### Model Architecture
- <p align='center'><img src='https://user-images.githubusercontent.com/40621030/137886632-edd9ca08-831e-4b29-97da-62b6bae0982b.PNG' height='300'><p>  
- 
- API호출을 통해 file(dataset) upload, train model, check model version, donwload model, insert & select detection log를 할 수 있습니다. 
- 대략적인 flow는 다음과 같습니다.  
- 
- 1. file upload를 통해 데이터셋을 추가합니다.
- 2. train model을 이용하여 AzureML에 모델 학습을 등록하고 학습이 완료되면 모델 weight와 함께 평가 matrix가 저장됩니다.
- 3. node js에서 best model을 조회한 후 자신(node js)보다 좋은 모델이 있으면 모델을 업데이트 합니다. 
- 4. node js에서 보안위반물체를 찾으면 log를 보내 django에 log를 쌓습니다.
- 5. api 호출을 통해 log를 확인할 수 있습니다.
- 
- 해당 서버는 REST API서버이고, 메모리를 사용하면서까지 세션을 유지할 필요가 없다고 판단되어 JWT Authorization을 선택했습니다.  
- 
- ### Admin Page
- ```bash
- python manage.py createsuperuser
- ```
- 
- **GET /admin**  
- 
- ### API문서
- *account*
- **POST /account/login**  
- > parameters: {"username": "string", "password": string"}   
- > status: 201   
- > respose: {"message": "string", "token": string}   
- 
- *deeplearning*
- **GET /deeplearning/files**  
- > status: 200  
- > response: { "count": 0, "next": "string", "previous": "string", "results": [{"file": "string"}]}   
- 
- **POST /deeplearning/files**  
- > parameters: {"file": [FILE]}  
- > status: 200  
- > response: {"file": "string"}  
- 
- **GET /deeplearning/log**
- > response {"count": 0, "next": "string", "previous": "string", "results": [{"username": "string", "log": "string", "create_at": "2021-10-14T13:50:37.279Z"}]}  
- 
- **POST /deeplearning/log**
- > parameters: {"username": "string", "log": "string", "create_at": "2021-10-14T13:52:33.709Z"}  
- > status: 201  
- > response: {"username": "string", "log": "string", "create_at": "2021-10-14T13:52:33.709Z"}  
- 
- **GET /deeplearning/models**  
- > status: 200  
- > response: {"file": "string", "result": "string", "version": 0, "matrix": 0}  
- 
- **POST /deeplearning/train**
- > headers: {'Authorization': 'Bearer [TOKEN]'}  
- > status: 201  
- > response: {"file": "string"}  
- 
- ### Database Diagram
- <p align='center'><img src='https://user-images.githubusercontent.com/40621030/137896939-47149c22-b126-46f0-b993-fcc9666db8ce.jpg' width='500'><p>  
-
- ### 코드 및 실행 ([link](https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/tree/main/AI(BE)))
 </details>
 
 ---
