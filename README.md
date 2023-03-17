@@ -135,7 +135,7 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
  P:LOW서비스의 유저는 "일반유저, 조회기관, 헌혈기관" 총 3가지로 나눌 수 있습니다.
  
  
- **일반유저**
+ ### 일반유저
 - 최근 헌혈정보 확인
 개인키로 로그인 시, 최근 헌혈정보를 확인할 수 있습니다.
 <table>
@@ -165,7 +165,7 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
 <p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885632-c319a61e-a66c-4450-99f3-c460bfaa31a3.png" width="700"/></p>
 
 
-**조회기관**
+### 조회기관
 - 조회 기능
 조회대상자의 지갑주소와 조회비밀번호를 입력하여 헌혈기록을 조회할 수 있습니다.
 <p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885989-62a5bc63-3d21-4c01-b6b3-b6259399f9f0.png" width="700"/></p>
@@ -175,7 +175,7 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
 <p align='center'><img src="https://user-images.githubusercontent.com/96776691/225886180-4b870258-23ca-4562-b3f2-f894457769f0.png" width="700"/></p>
 
 
-**헌혈기관**
+### 헌혈기관
 - 헌혈증명서 발행
 헌혈자의 개인 정보를 입력하고 지갑주소를 입력 후 , ‘발행’버튼을 클릭하면 헌혈증명서가 발행됩니다.
 
