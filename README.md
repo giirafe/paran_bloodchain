@@ -121,6 +121,69 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
 
 ## 📔기능 설명
 
+### 🩸**P:LOW Web** ###
+웹을 처음 실행 시, 사용자는 우측 상단에 회원가입 버튼을 클릭합니다. 이후 Klaytn Wallet의 개인키를 통해 회원가입을 진행합니다. 
+
+<table>
+  <tr>
+   <td><img src="https://user-images.githubusercontent.com/96776691/225880429-e796c8a0-f47d-4246-9585-09bbd67f2473.png" height="150" width="300"/></td>
+   <td><img src="https://user-images.githubusercontent.com/96776691/225880685-3a21c5e0-8ffc-4865-895e-56fd3d84324b.png" height="150" width="300"/></td>
+   <td><img src="https://user-images.githubusercontent.com/96776691/225881263-951e6f3c-78ea-4672-9c52-2f6c17175763.png" height="150" width="300"/></td>
+  </tr>
+ </table>
+ 
+ P:LOW서비스의 유저는 "일반유저, 조회기관, 헌혈기관" 총 3가지로 나눌 수 있습니다.
+ 
+ 
+ **일반유저**
+- 최근 헌혈정보 확인
+개인키로 로그인 시, 최근 헌혈정보를 확인할 수 있습니다.
+<table>
+  <tr>
+   <td><img src="https://user-images.githubusercontent.com/96776691/225883972-73ee3082-307c-4227-96ae-157fdcf631d0.png" width="400"/></td>
+   <td><img src="https://user-images.githubusercontent.com/96776691/225884383-1c2fe716-6260-4135-85fd-8c6bb3d1d657.png" width="400"/></td>
+  </tr>
+  <tr>
+   <td><img src="https://user-images.githubusercontent.com/96776691/225884454-d55a62a9-74d9-4fc0-bd0e-6f744c5c5c2d.png" width="400"/></td>
+   <td><img src="https://user-images.githubusercontent.com/96776691/225884540-942fe5a5-dc69-4799-b3e8-f38a8e23bcaa.png" width="400"/></td>
+  </tr>
+ </table>
+
+- 헌혈 기록 확인
+‘내 정보’ 페이지에서 지금까지의 헌혈정보를 확인할 수 있습니다.
+ <p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885193-79f03000-1438-4086-802c-9254ff3c925b.png" width="700"/></p>
+
+- 헌혈커뮤니티
+P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈증서가 필요하다는 글을 올릴 수 있고, 타 유저들이 쓴 글을 확인하고 게시글에서 바로 헌혈증서를 기부할 수도 있습니다.
+<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885322-349a28f8-3460-43ca-8e50-40840f2a7328.png" width="700"/></p>
+
+- 헌혈증서 기부
+헌혈증서 기부 대상자의 지갑주소, 헌혈증서 기부 개수를 입력하고 ‘기부’버튼을 누르면 헌혈증서를 기부할 수 있습니다.
+<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885500-320c1e6a-f244-483e-b534-f537db56b35c.png" width="700"/></p>
+
+- 기부 내역도 확인할 수 있습니다.
+<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885632-c319a61e-a66c-4450-99f3-c460bfaa31a3.png" width="700"/></p>
+
+
+**조회기관**
+- 조회 기능
+조회대상자의 지갑주소와 조회비밀번호를 입력하여 헌혈기록을 조회할 수 있습니다.
+<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225885989-62a5bc63-3d21-4c01-b6b3-b6259399f9f0.png" width="700"/></p>
+
+- 조회내역 확인
+조회 기능을 사용했을 때 조회대상의 지갑주소 정보, 조회일 정보를 확인할 수 있습니다.
+<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225886180-4b870258-23ca-4562-b3f2-f894457769f0.png" width="700"/></p>
+
+
+**헌혈기관**
+- 헌혈증명서 발행
+헌혈자의 개인 정보를 입력하고 지갑주소를 입력 후 , ‘발행’버튼을 클릭하면 헌혈증명서가 발행됩니다.
+
+- 헌혈증명서 발급기록 확인
+헌혈기관이 발급한 헌혈정보(주민등록번호, 이름, 헌혈분류, 발행일)을 확인할 수 있습니다.
+<p align='center'><img src="https://user-images.githubusercontent.com/96776691/225886329-c65639f5-dfd7-4529-b1fa-8f7d844abf74.png" width="700"/></p>
+
+
 <!--
 ### 🖥화면 정의
 <table>
