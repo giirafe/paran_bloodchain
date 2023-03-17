@@ -1,7 +1,7 @@
 # ❣️ PLOW : 블록체인 기반 전자 헌혈 플랫폼
 
 <p align='center'>
-<img src="https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/blob/main/image/canary_2.0.png" alter="LOGO"/><br>
+<br>
  <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
  <a href='https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/blob/main/LICENSE'><img src='https://img.shields.io/badge/License-GNU GPL v3.0-blue?style=for-the-badge&logo'></a>
 <div align="center">
