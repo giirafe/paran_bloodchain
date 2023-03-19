@@ -437,17 +437,16 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
 P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈을 하고 나와 보통 핸드폰의 어플리케이션을 이용하기 때문에 P:LOW 서비스 어플리케이션을 개발하여 헌혈자가 보다 이용하기 편하도록 할 예정입니다. 
 
 
-### 💡발전 가능 방향
-
 ---
 
 ## 🕋팀 정보 (Team Information)
 
-**왜** 군인들은 카메라를 자유롭게 쓰지 못 할까?  
-언제부턴가 들었던 이 의문이 해커톤 경험조차 없는 육군 및 국직부대 병사 6명을 모이게 했습니다.  
-군인들의 자유로운 카메라 사용과, 흔들리지 않는 국가 보안을 위해.
+과학 기술이 발전해도 사람의 혈액을 대체할 수 있는 것은 발명되지 않았습니다.
+피를 나누는 것은 생명을 살리는 고귀한 행동이며 가치 있는 일입니다.
+저희는 **헌혈 활성화**라는 공공의 이익을 위해 뭉쳤습니다.
 
-안녕하십니까, Team Canary입니다.  
+안녕하십니까, 헌혈로 세상의 가치를 잇다.
+저희는 블러드 체인팀입니다. 
 
 <table>
  <tr>
@@ -475,7 +474,7 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
  </tr>
 
  <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/62923434?v=4" width="50" height="50"></td>
+  <td align='center'><img src="https://avatars.githubusercontent.com/u/87919319?v=4" width="50" height="50"></td>
   <td align='center'>SeongWoo Park</td>
   <td align='center'>Front-End / Design</td>
   <td align='center'><a href="https://github.com/ssongssong00"><img src="http://img.shields.io/badge/ssongssong00-green?style=social&logo=github"/></a></td>
