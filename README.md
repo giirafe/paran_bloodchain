@@ -355,87 +355,39 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
  이전 세대 EVM 계열의 네트워크 보다 
  빠른 TX 속도와 저렴한 TX 수수료
  
-### 사용 데이터셋
+# Smart Contract Docs
+ ## Structures
+  ### Certificate
+ - 헌혈증명서 structure로 사용자의 헌혈을 증명할 기본적인 상세정보를 담는다.
+ ```bash
+     struct Certificate {
+        string name;
+        string id;
+        string bloodType;
+        string home_address;
+        string certificateNum;
+        string donateType;
+        uint date; // UNIX Time
+    }
+ ```
  
-### Version 1: [ImageNet Object Localization Challenge](https://www.kaggle.com/c/imagenet-object-localization-challenge)  
- <p align='center'><img src='https://user-images.githubusercontent.com/40621030/137607638-124c1622-6bfe-4a45-a16b-519314916436.jpg' width="500"/></p>  
+ ### Donation Certificate
+ - 사용자가 기부로 받은 즉 거래를 할 수 없는 헌혈증서로 간단한 정보만을 담는다.
+ ```bash
+     struct DonationCertificate {
+        address donate_to;
+        uint date;
+        uint256 donate_count;
+    }
+ ```
  
- **문제점**  
+ ## Modifiers
+ ### checkDepartment
+  - 사용자의 소속을 구분하여 alert
  
- 1. 데이터 수 부족
- 2. 대다수 물체가 정중앙 위치
- 3. 대다수 물체가 사진 전체를 차지
+ ### checkAdmin
+  - 사용자 Admin Check
  
- **해결방안 1 - 데이터 추가**
- 
- <table>
-  <tr>
-   <td align='center'>Orignal Dataset</td>
-   <td align='center'>Add more data</td>
-  </tr>
-  <tr>
-   <td align='center'><img src='https://user-images.githubusercontent.com/40621030/137607638-124c1622-6bfe-4a45-a16b-519314916436.jpg' width="500"/></td>
-   <td align='center'><img src='https://user-images.githubusercontent.com/40621030/137607640-9552448f-a39c-4a46-9d50-a523002be0e4.jpg' width="500"/></td>
-  </tr>
- </table>
- 
- **해결방안 2, 3 - augmentation 방법 변경**  
- 
- <table>
-  <tr>
-   <td align='center'>기존</td>
-   <td align='center'>변경</td>
-  </tr>
-  <tr>
-   <td align='center'><img src='https://user-images.githubusercontent.com/40621030/137607771-6509a1f3-872a-4bfd-ac0f-389e7dcd8fdc.jpeg' width="500"/></td>
-   <td align='center'><img src='https://user-images.githubusercontent.com/40621030/137607774-68692b66-5324-4184-ba9a-e41151a6a561.jpeg' width="500"/></td>
-  </tr>
- </table>
- 
- ### 사용 모델
-YOLOv5, Efficientnet, SSGlite 등의 모델들을 고려.  
-성능과 학습에 들어가는 시간 등을 종합적으로 판단 --> YOLOv5 결정.
-(Efficientnet: 학습 시간이 지나치게 많이 소요, SSGlite: YOLOv5보다 낮은 성능)
-
- - YOLOv5 ([original github](https://github.com/ultralytics/yolov5))  
-<p align='center'><img src='https://user-images.githubusercontent.com/40621030/136682963-80100da0-c31c-4df4-8bff-583e1c1c62f1.png' width="500"/></p>
-
- **문제점**  
- 
- <p align='center'><img src='https://user-images.githubusercontent.com/26833433/136901921-abcfcd9d-f978-4942-9b97-0e3f202907df.png' width="500"/></p>  
- 
-
- 1. 낮은 성능
- 2. 무거운 모델 (ex. yolov5l6)
- 
- **해결방안**  
- 
- - knowledge distillation ([paper link](https://arxiv.org/abs/1906.03609)) 
-   <p align='center'><img src='https://user-images.githubusercontent.com/40621030/136683028-fb1ca2f0-97c0-4581-9b7a-64e26536d7af.png' width="500"/></p>  
- 
- ### 성능 향상 
- |          enhance       |   model  | precision | recall | mAP_0.5 | mAP_0.5:0.95 |
- |:----------------------:|:--------:|:---------:|:------:|:-------:|:------------:|
- |   Before add dataset   | yolov5m6 |   0.602   |  0.651 |  0.671  |     0.535    |  
- |   None (Add dataset)   | yolov5m6 |   0.736   |  0.779 |  0.815  |     0.599    |  
- |      mosaic_9 50%      | yolov5m6 |   0.756   |  0.775 |  0.809  |     0.602    |
- |      mosaic_9 100%     | yolov5m6 |   0.739   |  0.813 |  0.806  |     0.594    |
- | knowledge distillation | yolov5m6 |   0.722   |  0.822 |  0.807  |     0.592    |
- 
- <table>
-  <tr>
-   <td align='center'>Original Image</td>
-   <td align='center'>Result Image</td>
-  </tr>
-  <tr>
-   <td align='center'><img src='https://user-images.githubusercontent.com/40621030/136698553-a00eb618-7783-41d9-bd2c-203dbbd60946.jpg' width="500"/></td>
-   <td align='center'><img src='https://user-images.githubusercontent.com/40621030/136698552-42c71108-9efc-4c88-a68a-3f5aec8452c6.jpg' width="500"/></td>
-  </tr>
- </table>
- 
- ### 실행 및 예시 ([link](https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/tree/main/AI(BE)/deeplearning/kwoledge_distillation_yolov5))
-</details>
-
 ---
 
 ## 💽설치 안내 (Installation Process)
