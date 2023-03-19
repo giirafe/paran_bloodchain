@@ -93,10 +93,12 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
  
  ### User-case Diagram
  <p align='center'><img src="https://user-images.githubusercontent.com/98978787/226172446-8d46bbfe-7e4d-41fb-8ad5-c560f872d07a.png"/></p>
+ <p align='center'><img src="https://user-images.githubusercontent.com/98978787/226172512-0e08351f-a963-4e1d-b65e-09a57718f9cd.png"/></p>
+ <p align='center'><img src="https://user-images.githubusercontent.com/98978787/226172558-d721f7f0-fa75-4550-bc52-71baacbb5f8a.png"/></p>
 
  ### Sequence Diagram
   <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720501-bbe98072-abbc-4797-a0c2-c66771f7e04a.png"/></p>
- 
+
  ### Architecture
   <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720255-0456ffd4-4d7d-4d2e-b5c5-09387c5861fa.png"/></p>
 </details>
