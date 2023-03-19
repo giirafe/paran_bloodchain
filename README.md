@@ -92,13 +92,11 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
  <summary>📈시스템 흐름도</summary>
  
  ### User-case Diagram
- <p align='center'><img src="https://user-images.githubusercontent.com/98978787/226172446-8d46bbfe-7e4d-41fb-8ad5-c560f872d07a.png"/></p>
- <p align='center'><img src="https://user-images.githubusercontent.com/98978787/226172512-0e08351f-a963-4e1d-b65e-09a57718f9cd.png"/></p>
- <p align='center'><img src="https://user-images.githubusercontent.com/98978787/226172558-d721f7f0-fa75-4550-bc52-71baacbb5f8a.png"/></p>
-
+ <p align='center'><img src="https://user-images.githubusercontent.com/40621030/134690667-abe8f797-01a8-44db-ae89-ef7809c22d64.png"/></p>
+ 
  ### Sequence Diagram
   <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720501-bbe98072-abbc-4797-a0c2-c66771f7e04a.png"/></p>
-
+ 
  ### Architecture
   <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720255-0456ffd4-4d7d-4d2e-b5c5-09387c5861fa.png"/></p>
 </details>
@@ -188,8 +186,8 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 * ECMAScript 6 지원 브라우저 사용
 * 권장: Google Chrome 버젼 77 이상
-* python >= 3.6 
-* pytorch >= 1.7
+* Node.js >= 14
+* 0.7.0 < = Solidity <= 0.9.0
 
 ---
 
@@ -370,14 +368,63 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
  ## Modifiers
  ### checkDepartment
   - 사용자의 소속을 구분하여 alert
+  ```Solidity
+    modifier checkDepartment(address _userAddress){
+        if(msg.sender == _userAddress){
+            require(userDepartment[_userAddress]>0,"Msg Sender's Department Not Set(from modifier)");
+        } else{
+            require(userDepartment[_userAddress]>0,"User Department Not Set(from modifier)");
+        }
+        _;
+    }
+ ```
  
  ### checkAdmin
   - 사용자 Admin Check
+  ```Solidity
+    modifier checkAdmin(address _userAddress){
+        require(_userAddress == deployerAddress,"Msg Sender is Not a Deployer");
+        _;
+    }
+ ```
   
  ## Department Types
  ### code 1 : 일반 유저
  ### code 2 : 일반 기업
  ### code 3 : 공인 헌혈 기관
+ 
+ ## Mapping
+ ### certificateOwner
+  - 생성된 Certificate Structure(헌혈증명서)의 소유자를 매핑
+   ```Solidity
+    mapping(uint256 => address) public certificateOwner;
+ ```
+ ### ownedCerts
+  - 사용자가 소유하고 있는 Certificate을 Certificate Array 형태로 매핑
+  ```Solidity
+     mapping(address => Certificate[]) public ownedCerts;
+ ```
+ ### departmentMintedRecord
+  - 공인된 헌혈 기관의 전자 헌혈 증명서 발급 기록 매핑
+  ```Solidity
+mapping(address => Certificate[]) private departmentMintedRecord;
+ ```
+ ### inquiryRecord
+  - 일반 기업의 개인 사용자의 헌혈기록 조회시 조회한 기록을 매핑
+  ```Solidity
+mapping(address => address[]) private inquiryRecord;
+ ```
+ ### DonationRecord
+  - 사용자의 헌혈증서 기부 기록 매핑
+   ```Solidity
+mapping(address => DonationCertificate[]) private DonationRecord;
+ ```
+ ### userDepartment
+  - 사용자의 소속 기관 매핑
+   ```Solidity
+mapping(address => uint) private userDepartment;
+ ```
+ 
 
 ---
 </details>
