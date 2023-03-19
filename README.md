@@ -285,7 +285,7 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
  <tr>
   <td align='center'>Solidity</td>
   <td align='center'>Klaytn Network</td>
-  <td align='center'>Truffle for(Deploy) 할 예정</td>
+  <td align='center'>Truffle</td>
   <td align='center'>Remix IDE</td>
  </tr>
  </table>
