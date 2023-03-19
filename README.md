@@ -389,7 +389,7 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
   - 사용자 Admin Check
  
 ---
-
+</details>
 ## 💽설치 안내 (Installation Process)
   
   #### 🩸**Canary Web Deployment**
