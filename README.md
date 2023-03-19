@@ -12,9 +12,9 @@
 
 ## 위 사진을 클릭하시면 유튜브를 통해 시연영상(현재는 중간 교류회 발표 영상)을 확인하실 수 있습니다.  👆
 PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로 
-* 기존 실물 헌혈증의 전자화, 
-* 헌혈증 기부 간편화,
-* 헌혈 공가제도의 활성화를 이루고자 합니다.
+* 기존 실물 헌혈증의 **전자화**, 
+* 헌혈증 기부 **간편화**,
+* 헌혈 공가제도의 **활성화**를 이루고자 합니다.
 
 ## 🗂️프로젝트 소개
 본 프로젝트는 실물 헌혈증의 전자화를 블록체인을 통해 실행함으로서,  
@@ -320,29 +320,30 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
  </tr>
  </table>
  <details>
- <summary>📝Blockchain Description</summary>
+ <summary>Blockchain Description</summary>
  
 ### Why Klaytn?
 
+---
 - 풍부한 한국어 Documentations
-   국내 기업 GroundX가 개발한 블록체인 네트워크로,
-   한국어로 잘 정리된 Documentations과 Tutorials
+   > 국내 기업 GroundX가 개발한 블록체인 네트워크로,
+   한국어로 잘 정리된 Docs와 튜토리얼
    그리고 활성화되어 있는 포럼 및 커뮤니티를 통해 수월한 개발이 가능했습니다.
   
 - Remix 및 Metamask와의 연동성
-  Smart Contract의 작성, 테스트 및 배포에
+  > Smart Contract의 작성, 테스트 및 배포에
   용이한 Remix IDE와 Metamask에서
   Klaytn Network와의 연동 환경 제공
   
 - 빠른 속도
- 이전 세대 EVM 계열의 네트워크 보다 
- 빠른 TX 속도와 저렴한 TX 수수료
+  > 이전 세대 EVM 계열의 네트워크 보다 
+  빠른 TX 속도와 저렴한 TX 수수료
  
 # Smart Contract Docs
  ## Structures
   ### Certificate
  - 헌혈증명서 structure로 사용자의 헌혈을 증명할 기본적인 상세정보를 담는다.
- ```bash
+ ```Solidity
      struct Certificate {
         string name;
         string id;
@@ -356,7 +357,7 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
  
  ### Donation Certificate
  - 사용자가 기부로 받은 즉 거래를 할 수 없는 헌혈증서로 간단한 정보만을 담는다.
- ```bash
+ ```Solidity
      struct DonationCertificate {
         address donate_to;
         uint date;
@@ -370,9 +371,17 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
  
  ### checkAdmin
   - 사용자 Admin Check
- 
+  
+ ## Department Types
+ ### code 1 : 일반 유저
+ ### code 2 : 일반 기업
+ ### code 3 : 공인 헌혈 기관
+
 ---
 </details>
+
+---
+
 ## 💽설치 안내 (Installation Process)
   
   #### 🩸**Canary Web Deployment**
@@ -387,7 +396,7 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
   ```
   
   #### **Remix IDE사용 스마트 컨트랙트 Deployment 시**
-  ```bash
+  ```Solidity
   pragma solidity >= 0.7.0 <=0.9.0 사이 버젼 Compiler 사용
   ```
   
@@ -484,7 +493,7 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
  <tr>
   <td align='center'><img src="https://avatars.githubusercontent.com/u/35412648?v=4" width="50" height="50"></td>
   <td align='center'>Juyeon Lee</td>
-  <td align='center'>Front-End</td>
+  <td align='center'>Front-End / DB for Community</td>
   <td align='center'><a href="https://github.com/zheedong"><img src="http://img.shields.io/badge/zheedong-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:zheedong@gmail.com"><img src="https://img.shields.io/badge/zheedong@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
