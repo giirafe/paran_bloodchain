@@ -95,8 +95,8 @@ PLOW는 Klaytn Network 기반 전자 헌혈 플랫폼(웹 서비스)으로
  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/134690667-abe8f797-01a8-44db-ae89-ef7809c22d64.png"/></p>
  
  ### Sequence Diagram
-  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720501-bbe98072-abbc-4797-a0c2-c66771f7e04a.png"/></p>
- 
+  <p align='center'><img src="https://user-images.githubusercontent.com/98978787/226175034-a546e12a-463b-4871-b340-9094853670d9.png"/></p>
+
  ### Architecture
   <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720255-0456ffd4-4d7d-4d2e-b5c5-09387c5861fa.png"/></p>
 </details>
@@ -188,6 +188,8 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
 * 권장: Google Chrome 버젼 77 이상
 * Node.js >= 14
 * 0.7.0 < = Solidity <= 0.9.0
+* React.js >= 18
+* React.router.dom >= 6
 
 ---
 
@@ -540,11 +542,11 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
  </tr>
 
  <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/35412648?v=4" width="50" height="50"></td>
+  <td align='center'><img src="https://user-images.githubusercontent.com/98978787/226175108-63792c9b-1d80-45f9-958c-b1d2824f64f1.png" width="50" height="50"></td>
   <td align='center'>Juyeon Lee</td>
   <td align='center'>Front-End / DB for Community</td>
-  <td align='center'><a href="https://github.com/zheedong"><img src="http://img.shields.io/badge/zheedong-green?style=social&logo=github"/></a></td>
-  <td align='center'><a href="mailto:zheedong@gmail.com"><img src="https://img.shields.io/badge/zheedong@gmail.com-green?logo=gmail&style=social"/></a></td>
+  <td align='center'><a href="https://github.com/Juyeori"><img src="http://img.shields.io/badge/Juyeori-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:dlwndus0728@ajou.ac.kr"><img src="https://img.shields.io/badge/dlwndus0728@ajou.ac.kr-green?logo=gmail&style=social"/></a></td>
  </tr>
 </table>
 
