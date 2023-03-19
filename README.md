@@ -523,45 +523,23 @@ YOLOv5, Efficientnet, SSGlite 등의 모델들을 고려.
 ---
 
 ## 💽설치 안내 (Installation Process)
-### Flutter
-
-#### 웹앱으로 설치하기
-```bash 
- git clone https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary.git
- cd AI_APP_WEB_Canary_Canary/APP/myApp
- flutter run -d web-server --web-hostname=0.0.0.0
- ```
-#### 안드로이드 apk 설치하기
-
-[apk 파일 링크](https://drive.google.com/file/d/1HYsxGjHF1yBPuWPqCFXf7m7QLAFRb6hg/view?usp=sharing)  
-위의 링크에 들어가셔서 다운로드 후 설치하시면 됩니다.
- 
-### Node js
-#### AI를 이용하여 이미지를 처리하기 위해, AI(BE)의 requirements가 충족된 상태에서 Node 서버를 구동해야 합니다.
-```bash
-cd node_server
-npm install # 통해 필요한 패키지들 다운로드
-node app.js # (일회성 시행)
-```
-
-
-### Deep learning
- 
- ```bash
- git clone https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/
- cd AI_APP_WEB_Canary_Canary/'AI(BE)'/deeplearning/kwoledge_distillation_yolov5/
- pip install -r requirements.txt
- ```
-
-### MLOps
+  
+  #### 🩸**Canary Web Deployment**
   ```bash
-  git clone https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/
-  cd AI_APP_WEB_Canary_Canary/'AI(BE)'/
-  pip install -r requirements.txt
-  python manage.py createsuperuser
-  python manage.py migrate
-  python manage.py runserver 0.0.0.0:8080
+  git clone https://github.com/giirafe/paran_bloodchain.git
+  sudo apt-get update
+  sudo apt-get install npm 
+  cd paran_blockchain
+  npm install
+  npm run back
   ```
+  
+  #### **Remix IDE사용 스마트 컨트랙트 Deployment 시**
+  ```bash
+  pragma solidity >= 0.7.0 <=0.9.0 사이 버젼 Compiler 사용
+  ```
+  
+
 ---
 
 ## 📱프로젝트 사용법 (Getting Started)
@@ -575,41 +553,7 @@ node app.js # (일회성 시행)
  편한 마크다운 에디터를 찾아서 사용
  샘플 에디터 [https://stackedit.io/app#](https://stackedit.io/app#)
 -->
-  #### 🐤**Canary app**
-  1. 웹앱 혹은 APK를 설치하여 앱에 접속한다
-  2. 3초 간의 Splash 화면 이후 홈화면에 접속한다.
-  3. go버튼을 누르면 사진 처리를 위한 로그인 화면으로, help버튼을 누르면 해당 github repository로 접속한다.
-  4. 로그인 창에서 올바른 정보를 입력하고 go버튼을 누르면 option page로, '회원가입 하러가기'버튼을 누르면 회원가입 창으로 넘어간다
-  5. 회원가입 창에서 올바른 정보를 입력하고 가입완료 버튼을 누르면 다시 로그인 창으로 돌아온다
-  6. option창에서는 갤러리에서 사진을 가져와 처리할 수 있는 Gallery버튼과 카메라로 바로 찍은 사진을 처리하는 Camera 버튼 중에 하나를 선택하면 된다.
-  7. 이미지를 고르거나 찍은 후, post server 버튼을 누르면 loading 화면으로 넘어간다.
-  8. loading 화면에서 이미지 처리가 완료되면 '결과 보러가기' 버튼이 등장하고, 그 버튼을 누르면 처리된 이미지를 확인 가능한 창으로 넘어간다.
-  9. 보안위반 가능성이 모자이크 처리된 이미지를 클릭하면 그에 관련된 경고문을 확인할 수 있다.
-  10. 처리된 이미지를 저장하기 위해선 'save' 버튼을 누르면 된다.
-  11. save 버튼을 누르면 사용자의 암호화된 군번 값을 이용해 처리된 QRcode가 이미지에 삽입되고, 그 사진을 꾹 누르면 저장여부를 묻는 알림창이 뜬다.
-  12. 다시 기능을 사용하기 위해선 'Try Again' 버튼을 누르면 된다.
-  
-  [시연 영상](https://youtu.be/MTlwTyfn_xI)
-  
-  #### 🐤**Admin logweb**
-  ```bash
-  git clone https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/
-  cd AI_APP_WEB_Canary_Canary/'AI(BE)'/
-  pip install -r requirements.txt
-  python manage.py migrate
-  python manage.py createsuperuser
-  python manage.py runserver 0.0.0.0:8080
-  ```
-  [API문서](https://github.com/osamhack2021/AI_APP_WEB_Canary_Canary/tree/main/AI(BE)##API) 참고
-  
-  #### 🐤**Canary in instagram**
-  ##### 시작하기 전에
-  instagram에서 'osam_canary'를 follow 한 후, 명령어를 Direct Message로 보낸다
-  ##### 지원 명령어
-  1. 게시물 검사 명령어(최대 3개씩) : 게시물 검사하기
-  2. 스토리 검사 명령어 : 스토리 검사하기  
-  > 2.1 스토리 검사 시 주의 사항 : @osam_canary 계정을 스토리에 태그해주세요!  
-  > 2.2 스토리는 한 번에 최대 10개 검사 가능  
+
 ---
 
 ## 📈프로젝트 전망
@@ -663,17 +607,9 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
  </tr>
    
  <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/86545225?v=4" width="50" height="50"></td>
-  <td align='center'>Jaeyo Shin</td>
-  <td align='center'>Leader / Deep Learning (Pytorch)</td>
-  <td align='center'><a href="https://github.com/j-mayo"><img src="http://img.shields.io/badge/j_mayo-green?style=social&logo=github"/></a></td>
-  <td align='center'><a href="mailto:tlswody5110@naver.com"><img src="https://img.shields.io/badge/tlswody5110@naver.com-green?logo=gmail&style=social"/></a></td>
- </tr>
-
- <tr>
   <td align='center'><img src="https://avatars.githubusercontent.com/u/76638529?v=4" width="50" height="50"></td>
   <td align='center'>June Seo</td>
-  <td align='center'>Back-End (node.js)</td>
+  <td align='center'>Back-End / Smart Contract</td>
   <td align='center'><a href="https://github.com/giirafe"><img src="http://img.shields.io/badge/giirafe-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:seojune408@gmail.com"><img src="https://img.shields.io/badge/seojune408@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
@@ -717,29 +653,27 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
 
 <table>
  <tr>
-  <td align='center'><a href="https://azure.microsoft.com/ko-kr/services/machine-learning/"><img src="https://raw.githubusercontent.com/github/explore/eaef8552d8b082ffafe2bfc8a5023d47da904aac/topics/azure/azure.png" height=80/></a></td>
   <td align='center'><a href="https://github.com/"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" height=80/></a></td>
   <td align='center'><a href="https://meet.google.com/"><img src="https://user-images.githubusercontent.com/86545225/137439170-9500c5b2-c47a-4ecc-b588-8c0b14e0eb3b.png" height=80/></a></td>
+   <td align='center'><a href="https://www.notion.so/ko-kr"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/1024px-Notion-logo.svg.png" height=80/></a></td>
  </tr>
  
  <tr>
-  <td align='center'>Azure ML Studio</td>
   <td align='center'>Github</td>
   <td align='center'>Google meet</td>
+  <td align='center'>Notion</td>
  </tr>
  
  <tr>
-  <td align='center'><a href="https://ide.goorm.io/"><img src="https://user-images.githubusercontent.com/86545225/137440873-5d17c954-2db2-44bd-8c7c-a0795b7ff49b.jpg" height=80/></a></td>
+  <td align='center'><a href="https://aws.amazon.com/ko/free/?trk=fa2d6ba3-df80-4d24-a453-bf30ad163af9&sc_channel=ps&s_kwcid=AL!4422!3!563761819834!e!!g!!aws&ef_id=CjwKCAjw5dqgBhBNEiwA7PryaHEPioZu9x8OMoL3DTT7vpN6G6sPP5QORNgE_ajU3-1qu1C3FSKctxoCMqwQAvD_BwE:G:s&s_kwcid=AL!4422!3!563761819834!e!!g!!aws&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all"><img src="https://images.velog.io/images/nari120/post/b14b4105-a561-4cc3-bc9f-87a5ee4eb1b6/aws.png" height=80/></a></td>
   <td align='center'><a href="https://slack.com/"><img src="https://user-images.githubusercontent.com/86545225/137576768-7b07ae82-ea9c-4768-ac5b-5d1f854a2815.jpg" height=80/></a></td>
   <td align='center'><a href="https://zoom.us/"><img src="https://user-images.githubusercontent.com/86545225/137440645-636a8078-208b-4542-bbfd-2823f0572e1c.png" height=80/></a></td>
-  <td align='center'><a href="https://flutlab.io/"><img src="https://img2.apkgit.com/79/com.codegemz.flutlab.installer/1.0.3/icon.png" height=80/></a></td>
  </tr>
  
  <tr>
-  <td align='center'>GoormIDE</td>
+  <td align='center'>AWS</td>
   <td align='center'>Slack</td>
-  <td align='center'>Zoom></td>
-  <td align='center'>FlutLab</td>
+  <td align='center'>Zoom</td>
  </tr>
 
    
@@ -753,7 +687,3 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
 This project is licensed under the terms of the GNU GPLv3 license.
   
   ### GPL 선택이유
-  카나리아가 쓴 오픈소스 중 [yolov5](https://github.com/ultralytics/yolov5/)와 [Distilling-Object-Detectors](https://github.com/twangnh/Distilling-Object-Detectors/)가 있습니다.
-  이들은 각각 GNU GPL, MIT 라이센스를 쓰고 있습니다.
-  MIT 라이센스는 상업적이용, 소스코드 공개의무에서 자유로우나, GNU GPL 라이센스는 코드의 상업적으로 이용 가능하나 변경된 프로그램 역시 소스코드를 공개해야합니다.
-  따라서 '카나리아'는 GNU GPL이 더 강력한 라이센스이기 때문에 GNU GPL 라이센스를 따르기로 했습니다.
