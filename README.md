@@ -198,90 +198,6 @@ P:LOW Web유저들과 헌혈커뮤니티를 이용할 수 있습니다. 헌혈�
 </table>
 -->
 
- ### 🐤**Canary app**
-
- 앱을 처음 실행 시, 사용자는 자신의 성명과 군번을 통해 회원가입을 진행합니다. 이 정보는 암호화되어 저장됩니다.  
-
- <table>
-  <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917096-372ec2f3-60ab-4e49-ab98-cb87ca96aa88.PNG" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917134-a9d63375-3663-467a-8ea3-2d5a92950085.PNG" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917151-8ddf28a4-6ab6-4ea9-ad38-fcdaf1df0d5c.PNG" width="200"/></td>
-  </tr>
- </table>
-
- - 카메라 모드: 군 내부에서도 사용 가능한 카메라입니다. 촬영한 사진 안의 보안 위반 요소를 식별 후 모자이크 처리하여 반환합니다.
-
-   사용자가 찍은 사진은 스마트폰에 바로 저장되지 않고 서버에 전송되어, 보안 위반 요소를 식별 후 적절한 강도로 모자이크 처리하여 반환됩니다.
-
- - 갤러리 모드: 갤러리에 이미 저장된 사진을 모자이크 할 필요가 있을 시, 해당 사진을 업로드하여 카메라로 촬영할 때와 동일하게 모자이크 처리를 할 수 있습니다.  
- 
- <table>
-  <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917734-1f88e1c0-5f2f-4f2e-a7f5-d3ddb3019b81.png" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917171-afe0567c-4cc5-4bf7-84dd-862c1cec4819.PNG" width="200"/></td>
-  </tr>
- <table>
- 
-
- 보안 위반 요소는 사용자의 소속 부대 및 위치 식별 가능 여부, 기밀 유출 가능 여부 등을 고려하여 다음과 같이 선정하였습니다.
- >총(소총, 리볼버), 방탄조끼, 부대마크, 모니터, 노트북, 서류, 표지판, 포, 차량, 탱크, 군용 비행기, 미사일, 항공모함  
-
- 군복의 경우 촬영 당시 맥락에 따라 보안 여부가 달라지므로 모자이크 처리는 하지 않되 사용자가 검출 여부를 인지할 수 있게 합니다.  
- 
- 처리된 사진이 반환될 때, 검출된 객체에 따라 발생할 수 있는 상황에 대한 경고문을 전송합니다. 반환된 사진을 터치하면 확인할 수 있습니다.  
- 또한, 회원가입 시 입력한 군번을 암호화한 값을 이용해 만든 QR코드가 사진에 추가됩니다. 이를 이용하여 사진 처리자의 신원을 파악하거나 이미지 처리 여부를 눈으로 식별할 수 있습니다.  
- <table>
-  <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919288-c90a06c7-c843-407f-ba5e-aed914cf3fd5.PNG" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919350-567523d8-255e-466a-a834-12014eeb4679.PNG" width="200"/></td>
-  </tr>
- 
-  <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919337-f2109767-9daa-427d-85f7-2dad831202db.png" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919583-8a2fd884-c0c3-4bfb-8099-aeb03b7ce081.png" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919328-6390d7ea-207c-49c9-a0b8-97c4eab44d47.PNG" width="200"/></td>
-  </tr>
- <table>
-
- ### 🐤**Admin Server**
-
- Canary app의 사용 log를 보고와 model, dataset version관리를 할 수 있는 API Server입니다.  
- node js에서도 해당 기능을 쓰는 만큼 여러 플랫폼에서 접근 가능하도록 REST API Server로 구성했습니다.
- 
- <p align='center'><img src="https://user-images.githubusercontent.com/40621030/137884075-bed5c980-72db-472e-820d-6754080d704c.PNG" height="250"/></p>
- Canary app 사용 날짜와 사용자 id, 이미지에서 검출된 객체에 대한 기록이 남습니다.
- 
- <p align='center'><img src="https://user-images.githubusercontent.com/40621030/137884362-a8e7f87f-167c-4294-ba99-07ebadb3d6e2.PNG" height="250"/></p>
- 성능이 가장 좋은 모델의 weight 주소를 조회하여 canary server의 모델을 최신모델로 업데이트 할 수 있습니다.
- 
- Django를 사용했기 때문에 Django admin 또한 사용할 수 있습니다.
- <p align='center'><img src="https://user-images.githubusercontent.com/86545225/137576790-1e7b5459-fdbd-4cc8-9e3b-d27a3bd3b1b4.jpg" height="250"/></p>
-
-
- ### 🐤**Canary in instagram**
-
- <p align='center'><img src="https://user-images.githubusercontent.com/35412648/137631605-571bf913-a365-408c-9469-8e16ce806443.PNG"/></p>
-
- 주요 sns 중 하나인 인스타그램 사용자의 보안 위반 여부를 탐지하고, 사용자에게 direct message로 경고해줍니다.  
-
- Canary app에서 사용되는 동일한 model로 위협 요소를 탐지하고, 처리된 사진과 경고문을 DM으로 보냅니다.  
-
- 비동기적 처리를 통해 동시에 여러 Request가 들어와도 대응할 수 있게 개발되었습니다.
-
- 현재 지원되는 검사 기능은 게시물 검사와 스토리 검사입니다.
- 
- ### 지원하는 기능
- * 도움 (또는 Help)
- > 1. 사용자에게 사용법을 DM으로 안내합니다.
- * 게시물 검사하기
- > 1. Canary가 사용자가 올린 Post 중, 검사 되지 않은 가장 최근 3개를 검사합니다.
- > 2. 검사가 완료되면 적절히 모자이크 된 이미지와 경고 문구를 DM으로 보내줍니다. + Canary가 해당 Post를 Like 합니다.
- * 스토리 검사하기
- > 1. Canary가 사용자의 Story 중, osam_canary가 태그 된 story를 검사합니다.
- > 2. 검사가 완료되면 적절히 모자이크 된 이미지와 경고 문구를 DM으로 보내줍니다.
-
-
 ---
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
@@ -531,7 +447,8 @@ YOLOv5, Efficientnet, SSGlite 등의 모델들을 고려.
   sudo apt-get install npm 
   cd paran_blockchain
   npm install
-  npm run back
+  cd frontend
+  npm run start
   ```
   
   #### **Remix IDE사용 스마트 컨트랙트 Deployment 시**
@@ -615,35 +532,27 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
  </tr>
  
  <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/54922625?v=4" width="50" height="50"></td>
-  <td align='center'>Huijae Ryu</td>
-  <td align='center'>Front-End (Flutter)</td>
-  <td align='center'><a href="https://github.com/hellohidi"><img src="http://img.shields.io/badge/hellohidi-green?style=social&logo=github"/></a></td>
+  <td align='center'><img src="https://avatars.githubusercontent.com/u/96776691?v=4" width="50" height="50"></td>
+  <td align='center'>CheonHa Kim</td>
+  <td align='center'>Back-End</td>
+  <td align='center'><a href="https://github.com/KimUnderTheSky"><img src="http://img.shields.io/badge/KimUnderTheSky-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:fbgmlwo123@naver.com"><img src="https://img.shields.io/badge/fbgmlwo123@naver.com-green?logo=gmail&style=social"/></a></td>
  </tr>
 
  <tr>
   <td align='center'><img src="https://avatars.githubusercontent.com/u/62923434?v=4" width="50" height="50"></td>
-  <td align='center'>Chanho Jung</td>
-  <td align='center'>Deep Learning (Pytorch)</td>
+  <td align='center'>SeongWoo Park</td>
+  <td align='center'>Front-End / Design</td>
   <td align='center'><a href="https://github.com/chjung99"><img src="http://img.shields.io/badge/chjung99-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:cksgh1168@gmail.com"><img src="https://img.shields.io/badge/cksgh1168@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
 
  <tr>
   <td align='center'><img src="https://avatars.githubusercontent.com/u/35412648?v=4" width="50" height="50"></td>
-  <td align='center'>Donghwan Chi</td>
-  <td align='center'>Deep Learning (Pytorch)</td>
+  <td align='center'>Juyeon Lee</td>
+  <td align='center'>Front-End</td>
   <td align='center'><a href="https://github.com/zheedong"><img src="http://img.shields.io/badge/zheedong-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:zheedong@gmail.com"><img src="https://img.shields.io/badge/zheedong@gmail.com-green?logo=gmail&style=social"/></a></td>
- </tr>
-   
- <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/40621030?v=4" width="50" height="50"></td>
-  <td align='center'>Wonbeom Jang</td>
-  <td align='center'>Deep Learning (Pytorch)<br>MLOps (Django)</td>
-  <td align='center'><a href="https://github.com/wonbeomjang"><img src="http://img.shields.io/badge/wonbeomjang-green?style=social&logo=github"/></a></td>
-  <td align='center'><a href="mailto:jtiger958@gmail.com"><img src="https://img.shields.io/badge/jtiger958@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
 </table>
 
