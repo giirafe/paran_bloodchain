@@ -504,7 +504,7 @@ P:LOW 서비스는 웹 페이지로 개발되었습니다. 헌혈자는 헌혈�
  <tr>
   <td align='center'><img src="https://avatars.githubusercontent.com/u/87919319?v=4" width="50" height="50"></td>
   <td align='center'>SeongWoo Park</td>
-  <td align='center'>Front-End / Design</td>
+  <td align='center'>PM / Front-End</td>
   <td align='center'><a href="https://github.com/ssongssong00"><img src="http://img.shields.io/badge/ssongssong00-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:seongwoo1205@gmail.com"><img src="https://img.shields.io/badge/seongwoo1205@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
